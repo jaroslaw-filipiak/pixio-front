@@ -1,0 +1,149 @@
+@import './base/reset';
+@import './base/fonts';
+@import './base/colors';
+@import './base/rwd';
+// @import './base/debug';
+
+@import './layouts/default';
+@import './libs/fullpage';
+// @import './slider.css';
+
+@import './sections/2';
+
+.video-overlay {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  border: 2px solid green;
+}
+
+.video-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.fade {
+  backface-visibility: hidden;
+}
+
+.fade-enter-active {
+  transition: opacity 1s;
+}
+
+.fade-leave-active {
+  transition: opacity 1s;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-leave-to {
+  opacity: 0;
+}
+
+video {
+  visibility: visible;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+}
+
+.fp-controlArrow.fp-prev {
+  margin: 0px 30px;
+  margin-top: -20px;
+  left: 0;
+  border: none;
+  width: 32px;
+  height: 32px;
+  background: url('~assets/img/arrow-left.svg') no-repeat;
+  cursor: pointer;
+}
+
+.fp-controlArrow.fp-next {
+  margin: 0px 30px;
+  margin-top: -20px;
+  right: 0;
+  border: none;
+  width: 32px;
+  height: 32px;
+  background: url('~assets/img/arrow-right.svg') no-repeat;
+  cursor: pointer;
+}
+
+.fp-controlArrow.fp-next,
+.fp-controlArrow.fp-prev {
+  &:hover {
+    opacity: .8;
+  }
+}
+
+div.indicator {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid #fff;
+  cursor: pointer;
+  position: relative;
+  z-index: 109;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+
+  }
+
+  &::after {
+    content: 'MORE';
+    position: absolute;
+    bottom: -30px;
+    left: -6px;
+  }
+
+  &:hover {
+    opacity: .8
+  }
+
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  font-size: 16px;
+  padding: 10px 24px;
+  color: #fff;
+  display: inline-block;
+  min-width: 210px;
+  text-align: left;
+
+  &:hover {
+    background-color: #fff;
+    color: #5d3e3e;
+  }
+}
+
+.btn {
+  cursor: pointer;
+}

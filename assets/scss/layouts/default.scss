@@ -1,0 +1,33 @@
+#__layout {
+
+  main {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: minmax(70px, 70px) 1fr;
+    grid-template-areas:
+      "nav"
+      "main";
+
+    @include md-min {
+      grid-template-columns: minmax(95px, 95px) 1fr 95px;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "nav main rightnav";
+    }
+  }
+
+
+  .right-nav {
+    display: none;
+
+    @include md-min {
+      display: flex;
+      grid-area: rightnav;
+    }
+
+  }
+
+  .fullpage-wrapper {
+    grid-area: main;
+  }
+}
