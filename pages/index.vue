@@ -11,11 +11,7 @@
       <Section2 />
       <Section3 />
       <Section4 />
-
-      <div class="section">
-        <div class="slide">Instargrammm</div>
-        <div class="slide">4.1</div>
-      </div>
+      <Instagram />
 
       <div class="section">Contact</div>
 
