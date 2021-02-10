@@ -17,13 +17,6 @@
       <div class="section">
         <div class="slide">sd</div>
       </div>
-
-      <div class="section">
-        <button class="prev" @click="$refs.fullpage.api.moveSectionUp()">
-          Prev
-        </button>
-        Section 7
-      </div>
     </full-page>
     <Rightnav />
   </main>
@@ -78,7 +71,7 @@ export default {
       player = new YT.Player("player", {
         height: "390",
         width: "640",
-        videoId: "9kJxyig3RaE",
+        videoId: "QoiQ0Vo5It0",
         playerVars: {
           enablejsapi: 1,
           controls: 1,
