@@ -3,7 +3,8 @@
     <div class="slide">
       <div class="instagram-heading">Follow us on Instagram</div>
 
-      <div class="instagram-feed">
+      <div class="instagram-feed" id="instagram-feed">
+        <!-- <div class="instagram-post"></div>
         <div class="instagram-post"></div>
         <div class="instagram-post"></div>
         <div class="instagram-post"></div>
@@ -17,8 +18,7 @@
         <div class="instagram-post"></div>
         <div class="instagram-post"></div>
         <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
+        <div class="instagram-post"></div> -->
       </div>
     </div>
     <div class="slide"></div>
@@ -26,8 +26,27 @@
 </template>
 
 <script>
+const InstagramFeed = require("instafeed");
 export default {
-  mounted() {},
+  mounted() {
+    (function () {
+      new InstagramFeed({
+        username: "pixomondo",
+        container: document.getElementById("instagram-feed"),
+        display_profile: true,
+        display_biography: true,
+        display_gallery: true,
+        display_captions: true,
+        callback: null,
+        styling: true,
+        items: 8,
+        items_per_row: 4,
+        margin: 1,
+        lazy_load: true,
+        on_error: console.error,
+      });
+    })();
+  },
 };
 </script>
 

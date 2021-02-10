@@ -6099,6 +6099,11 @@ inquirer@^7.0.0, inquirer@^7.3.3:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
+instafeed@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/instafeed/-/instafeed-1.4.0.tgz#1f7b248283d8ffbee59b82f2f45c29220b90cae1"
+  integrity sha512-+2Xubm+mPdvIpQMn+hxdryBT6lUtwUXodFPeWeHkqiY9qmNyctjMKgD95s075nGowtiKULmM99LcA4xIm0SV+Q==
+
 instagram-basic-data-scraper-with-username@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/instagram-basic-data-scraper-with-username/-/instagram-basic-data-scraper-with-username-4.0.1.tgz#3c8d89c9bee0d19b08999c9bb07800014f882b88"
@@ -6109,6 +6114,13 @@ instagram-basic-data-scraper-with-username@^4.0.1:
     unicode "^12.1.0"
     unicodechar-string "^1.0.0"
     xo "^0.25.3"
+
+instagram-feed@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/instagram-feed/-/instagram-feed-1.0.4.tgz#a002f2c6c352b04dbfb9c3c04ce689768edb1eda"
+  integrity sha512-7HPsSclVRC3iqcERddU3VG/XgDLOK31iDRJiW+2QQdP+VniMWOkqsBbV3QIJIbW1SX4va9CpeWaq+Tk7QAL5Kg==
+  dependencies:
+    line-clamp "0.0.7"
 
 instagram-posts@^2.2.0:
   version "2.2.0"
@@ -6853,6 +6865,11 @@ liftoff@^3.1.0:
     object.map "^1.0.0"
     rechoir "^0.6.2"
     resolve "^1.1.7"
+
+line-clamp@0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/line-clamp/-/line-clamp-0.0.7.tgz#d6eca89cf731e3bdea974f5f535cf2c06630d4fc"
+  integrity sha512-8FlEYIRootOgYXh6kERw9x2/NZc26LKrr1IZaUfvaoEjN8mZfBjDIRhIUfCUX0s1C7Ez2EDB0+IsWtowAJSrTQ==
 
 line-column-path@^2.0.0:
   version "2.0.0"

@@ -38,6 +38,7 @@
 
 <script>
 import Hamburger from "./Hamburger";
+
 export default {
   components: {
     Hamburger,
