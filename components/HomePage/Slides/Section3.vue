@@ -78,10 +78,10 @@ export default {
       const distance = scroll.current - scroll.cache;
       scroll.cache = scroll.current;
       const skewVal = map(distance, -50, 50, -15, 15);
-      allImgs.forEach(
-        (el) =>
-          (el.style.transform = "skewX(" + clamp(skewVal, -15, 15) + "deg)")
-      );
+      // allImgs.forEach(
+      //   (el) =>
+      //     (el.style.transform = "skewX(" + clamp(skewVal, -15, 15) + "deg)")
+      // );
     });
 
     lscroll.update();

@@ -41,6 +41,9 @@ export default {
         src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollToPlugin.min.js'
       }, {
         src: 'https://www.youtube.com/iframe_api'
+      },
+      {
+        src: 'https://cdn.jsdelivr.net/gh/arkdevuk/InstaPost@master/dist/instapost.min.js'
       }
 
 
@@ -64,6 +67,10 @@ export default {
     },
     {
       src: '@/plugins/projectsScroll.js',
+      ssr: false
+    },
+    {
+      src: '@/plugins/instagram.js',
       ssr: false
     },
 

@@ -12,8 +12,7 @@
       <Section3 />
       <Section4 />
       <Instagram />
-
-      <div class="section">Contact</div>
+      <Contact />
 
       <div class="section">
         <div class="slide">sd</div>
@@ -60,18 +59,18 @@ export default {
   },
   methods: {
     afterLoad() {
-      console.log("Emitted 'after load' event.");
+      // console.log("Emitted 'after load' event.");
     },
     onLeave(e) {
-      console.log("on leave..");
-      console.log(e);
+      // console.log("on leave..");
+      // console.log(e);
     },
     onSlideLeave(section, origin, destination, direction) {
-      console.log("on slide leave..");
-      console.log(section);
-      console.log(origin);
-      console.log(destination);
-      console.log(direction);
+      // console.log("on slide leave..");
+      // console.log(section);
+      // console.log(origin);
+      // console.log(destination);
+      // console.log(direction);
     },
     onYouTubeIframeAPIReady: function () {
       var player;
@@ -106,13 +105,7 @@ export default {
       //  event.target.muteVideo();
     },
 
-    onPlayerStateChange: function (event) {
-      console.log("onState change event fired...");
-      setTimeout(() => {
-        // console.log('pause...')
-        // event.target.pauseVideo();
-      }, 6000);
-    },
+    onPlayerStateChange: function (event) {},
 
     stopVideo: function (event) {
       event.target.stopVideo();
@@ -158,8 +151,8 @@ export default {
   mounted() {
     this.onYouTubeIframeAPIReady();
     this.afterLoad();
-    console.log($.fn.fullpage);
-    console.log($nuxt);
+    // console.log($.fn.fullpage);
+    // console.log($nuxt);
     // fullpage_api.moveTo(3);
     // console.log(fullpage_api);
     fullpage_api.setAllowScrolling(false, "down");

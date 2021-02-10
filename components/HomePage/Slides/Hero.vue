@@ -44,15 +44,13 @@
 <script>
 export default {
   data() {
-    return {
-      test: "jsadfl;asj;lf",
-    };
+    return {};
   },
   mounted() {
-    console.log(this.test);
-    console.log(this.$store);
-    console.log(this.$store.state);
-    console.log(this.$store.state.isMaskVisible);
+    // console.log(this.test);
+    // console.log(this.$store);
+    // console.log(this.$store.state);
+    // console.log(this.$store.state.isMaskVisible);
   },
   getters: {
     getNumber() {
