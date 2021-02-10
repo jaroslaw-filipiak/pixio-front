@@ -25,12 +25,12 @@
     </div>
     <nav v-if="navOpen" class="nav-main">
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Solutions</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a @click="handleMenu" link-to="1" href="#">Home</a></li>
+        <li><a @click="handleMenu" link-to="2" href="#">Solutions</a></li>
+        <li><a @click="handleMenu" link-to="3" href="#">Projects</a></li>
+        <li><a @click="handleMenu" link-to="4" href="#">About</a></li>
+        <li><a @click="handleMenu" link-to="5" href="#">Instagram</a></li>
+        <li><a @click="handleMenu" link-to="6" href="#">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -51,6 +51,18 @@ export default {
     toggleMenu: function () {
       this.navOpen = !this.navOpen;
       console.log("toggle menu");
+    },
+    handleMenu: function (e) {
+      this.removeAllActiveClasses();
+      fullpage_api.moveTo(e.target.attributes[0].value);
+    },
+    removeAllActiveClasses: function () {
+      const items = document.querySelectorAll(".slide-link");
+
+      items.forEach((item) => item.classList.remove("slide-link__active"));
+    },
+    addActiveClass: function (item) {
+      item.classList.add("slide-link__active");
     },
   },
 };
