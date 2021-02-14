@@ -148,7 +148,7 @@ div.indicator {
   cursor: pointer;
 }
 
-.fullpage-wrapper {
+body {
   &:before {
     display: none; 
     content: url('~assets/img/logo-main.svg');
