@@ -51,12 +51,14 @@ export default {
       done: false,
       isMaskVisible: true,
       isVideoVisible: false,
-      isScrollLock: true,
     };
   },
   methods: {
+    handleScrollLock() {
+      this.store.commit('changeScrollLock', 'dfdff')
+    },
     afterSlideLoad() {
- console.log("after slide load..");
+      console.log("after slide load..");
       console.log(e);
     },
     afterLoad() {
@@ -114,8 +116,9 @@ export default {
       // console.log(player);
       // console.log(event.target);
     },
-
     handleScroll(event) {
+      console.log('handle scroll fired')
+      this.handleScrollLock();
       // console.log("scroll..");
       // console.log(event);
     },
@@ -123,7 +126,9 @@ export default {
   created() {
     // window.addEventListener("scroll", this.handleScroll);
 
-    $(window).bind("mousewheel", function (e) {
+    window.addEventListener('scroll', this.handleScroll);
+
+    $(window).bind("mousewheel", (e) => {
       if (e.originalEvent.wheelDelta / 120 > 0) {
         // console.log("scrolling up");
         // console.log(e.originalEvent);
@@ -144,10 +149,19 @@ export default {
           duration: 2,
         });
 
+        setInterval(() => {
+          fullpage_api.setAllowScrolling(true, "down");
+            //  fullpage_api.setAllowScrolling(true, "up");
+        }, 1000);
+    //  fullpage_api.setAllowScrolling(true, "down");
+    //  fullpage_api.setAllowScrolling(true, "up");
+
+
         // transform: scale(9.5);
         // opacity: 0;
       }
     });
+
   },
   mounted() {
     this.onYouTubeIframeAPIReady();
@@ -156,9 +170,14 @@ export default {
     // console.log($nuxt);
     // fullpage_api.moveTo(3);
     // console.log(fullpage_api);
-    // fullpage_api.setAllowScrolling(false, "down");
-    // fullpage_api.setAllowScrolling(false, "up");
+    fullpage_api.setAllowScrolling(false, "down");
+    fullpage_api.setAllowScrolling(false, "up");
   },
+  computed: {
+    isScrollLock() {
+      return this.$store.state.isScrollLock
+    }
+  }
 };
 </script>
 

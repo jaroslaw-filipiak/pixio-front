@@ -7,7 +7,10 @@ export const state = () => ({
 })
 
 export const mutations = {
-  increment(state) {
-    state.counter++
+  changeScrollLock(state) {
+   isScrollLock = state
+   console.log('change scroll lock in store')
+   console.log(state)
   }
 }
+
