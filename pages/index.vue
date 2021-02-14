@@ -39,7 +39,7 @@ export default {
           "page7",
           "page8",
         ],
-        scrollingSpeed: 300,
+        scrollingSpeed: 150,
         afterLoad: this.afterLoad,
         onSlideLeave: this.onSlideLeave,
         onLeave: this.onLeave,
@@ -148,8 +148,8 @@ export default {
     // console.log($nuxt);
     // fullpage_api.moveTo(3);
     // console.log(fullpage_api);
-    fullpage_api.setAllowScrolling(false, "down");
-    fullpage_api.setAllowScrolling(false, "up");
+    // fullpage_api.setAllowScrolling(false, "down");
+    // fullpage_api.setAllowScrolling(false, "up");
   },
 };
 </script>

@@ -147,3 +147,25 @@ div.indicator {
 .btn {
   cursor: pointer;
 }
+
+.fullpage-wrapper {
+  &:before {
+    display: none; 
+    content: url('~assets/img/logo-main.svg');
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    width: calc(100% -95px);
+    height: 100px;
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%);
+
+    @include lg-min {
+      display: flex;
+    }
+
+  }
+}
