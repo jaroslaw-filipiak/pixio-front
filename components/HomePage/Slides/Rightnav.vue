@@ -1,8 +1,8 @@
 <template>
   <div class="rightnav">
-    <ul class="rightnav-links-wrapper">
-      <!-- link inside created by createNavigationLinks in mounted hook -->
-    </ul>
+    <!-- <ul class="rightnav-links-wrapper">
+    </ul> -->
+    <div id="side-menu"></div>
   </div>
 </template>
 
@@ -22,7 +22,6 @@ export default {
       const items = document.querySelectorAll(".slide-link");
 
       items.forEach((item) => item.classList.remove("slide-link__active"));
-      // items.map((item) => item.classList.remove("slide-link__active"));
     },
     createNavigationLinks: function () {
       const navLinks = [];
@@ -47,13 +46,72 @@ export default {
     },
   },
   mounted() {
-    this.createNavigationLinks();
+    // this.createNavigationLinks();
   },
   created() {},
 };
 </script>
 
 <style lang="scss">
+
+// .fp-nav {
+ 
+//  ul {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-end;
+
+//     li {
+//       position: relative;
+//       width: 100%;
+//       height: 100%;
+//       z-index: 2;
+
+//       a{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     width: 24px;
+//     height: 20px;
+//     border-radius: 3px;
+//     cursor: pointer;
+
+//     &:hover {
+//       transition: all 0.1s ease-in;
+//       opacity: 0.7;
+//       width: 20px;
+//     }
+
+//     &__active {
+//       transition: all 0.1s ease-in;
+//       width: 44px;
+//       &:hover {
+//         width: 40px;
+//       }
+//     }
+//     a {
+//       display: block;
+//       width: 100%;
+//       height: 2px;
+//       background-color: white;
+//       z-index: 1;
+//       pointer-events: none;
+//     }
+//   }
+
+//   .active {
+//      transition: all 0.1s ease-in;
+//       width: 44px;
+//       &:hover {
+//         width: 40px;
+//       }
+//   }
+//     }
+//   }
+// }
+
+
 .rightnav {
   background-color: #000;
   display: flex;

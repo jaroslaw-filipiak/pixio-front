@@ -28,7 +28,7 @@ export default {
     return {
       options: {
         licenseKey: "YOUR_KEY_HEERE",
-        menu: "#menu",
+        menu: "#side-menu",
         anchors: [
           "home",
           "solutions",
@@ -40,6 +40,10 @@ export default {
           "page8",
         ],
         scrollingSpeed: 150,
+        navigation: true,
+        navigationPosition: 'right',
+        // navigationTooltips: ['firstSlide', 'secondSlide'],
+        afterLoad: this.afterLoad,
         afterLoad: this.afterLoad,
         onSlideLeave: this.onSlideLeave,
         onLeave: this.onLeave,
@@ -51,12 +55,16 @@ export default {
     };
   },
   methods: {
+    afterSlideLoad() {
+ console.log("after slide load..");
+      console.log(e);
+    },
     afterLoad() {
       // console.log("Emitted 'after load' event.");
     },
     onLeave(e) {
-      // console.log("on leave..");
-      // console.log(e);
+      console.log("on leave..");
+      console.log(e);
     },
     onSlideLeave(section, origin, destination, direction) {
       // console.log("on slide leave..");
@@ -103,13 +111,13 @@ export default {
     stopVideo: function (event) {
       event.target.stopVideo();
       event.target.pauseVideo();
-      console.log(player);
-      console.log(event.target);
+      // console.log(player);
+      // console.log(event.target);
     },
 
     handleScroll(event) {
-      console.log("scroll..");
-      console.log(event);
+      // console.log("scroll..");
+      // console.log(event);
     },
   },
   created() {
@@ -117,15 +125,15 @@ export default {
 
     $(window).bind("mousewheel", function (e) {
       if (e.originalEvent.wheelDelta / 120 > 0) {
-        console.log("scrolling up");
-        console.log(e.originalEvent);
+        // console.log("scrolling up");
+        // console.log(e.originalEvent);
       } else {
         // (this.isMaskVisible = false),
         // (this.isVideoVisible = true),
         // (this.isScrollLock = false),
 
-        console.log("scrolling down");
-        console.log(e.originalEvent);
+        // console.log("scrolling down");
+        // console.log(e.originalEvent);
 
         // gsap.to( '.move-mask', .5,{css:{scale:.05, opacity:0, rotation: 180}, ease:Quad.easeInOut}));
 
