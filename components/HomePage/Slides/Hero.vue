@@ -25,7 +25,7 @@
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M1920 -43H0V1123.67H1920V-43ZM949.7 466.441L896.675 381.286H1002.42L949.7 466.441ZM642.959 528.456V447.003H732.669C756.407 446.695 769.663 464.281 770.279 487.112C771.204 512.412 757.332 528.147 737.91 528.456H642.959ZM1278.33 542.956C1275.86 480.016 1248.73 445.769 1192.63 444.843C1132.2 448.546 1107.54 484.953 1106 542.339C1108.16 603.12 1133.13 637.367 1186.77 638.601C1241.03 641.687 1274.01 613.919 1278.33 542.956ZM949.7 609.599L888.352 703.393L1010.43 703.702L949.7 609.599ZM544 704.01H642.034L641.726 596.024L780.145 595.715C830.086 593.247 860.298 563.011 870.163 505.007L779.836 380.977H544.617L544 704.01ZM1120.8 380.052L1008.89 535.552L1136.21 703.084C1266.92 716.66 1329.2 698.148 1370.51 611.759C1380.37 569.49 1379.75 527.221 1372.97 484.953C1346.15 399.489 1284.49 361.848 1120.8 380.052Z"
-            fill="black"
+            fill="#109cc7"
           />
         </g>
 
@@ -47,10 +47,6 @@ export default {
     return {};
   },
   mounted() {
-    // console.log(this.test);
-    // console.log(this.$store);
-    // console.log(this.$store.state);
-    // console.log(this.$store.state.isMaskVisible);
   },
   getters: {
     getNumber() {
@@ -61,6 +57,35 @@ export default {
 </script>
 
 <style lang="scss">
+
+.move-mask {
+  position: relative;
+  
+    &:before {
+      content: '';
+      display: block;
+      width: 20vw;
+      height: 100vh;
+      background: #109cc7;
+      position: absolute;
+      left: 0;
+      top: 0px;
+    }
+
+     &:after {
+      content: '';
+      display: block;
+      width: 100vw;
+      height: 20vh;
+     background: #109cc7;
+      position: absolute;
+      left: 0;
+      top: 0px;
+    }
+ 
+}
+
+
 .hero {
   iframe {
     width: 100%;
