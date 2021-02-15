@@ -200,8 +200,8 @@ export default {
   }
 
   .move-mask {
-    position: absolute;
-    left: -20px;
+    position: relative;
+   
     top: 0;
     width: 100vw;
     height: 100vh;
@@ -215,10 +215,14 @@ export default {
     align-items: center;
     justify-content: center;
 
-    @include md-min {
-      width: 110%;
-      height: 110%;
+    @include xl-min {
+        left: -20px;
     }
+
+    // @include md-min {
+    //   width: 110%;
+    //   height: 110%;
+    // }
   }
 }
 </style>

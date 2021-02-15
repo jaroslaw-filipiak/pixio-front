@@ -11,8 +11,15 @@
   >
     <div class="move-mask">
       <!-- <img src="@/assets/img/mask-logo.png" alt="" /> -->
+      <div class="mask-mobile--wrapper">
+        <div class="mask-mobile--inner">
+          <img class="mask-mobile" src="@/assets/img/mobile-mask.png" alt="">
+        </div>
+      </div>
 
-      <svg
+      <div class="move-mask--inner">
+  <svg
+     
         width="1922"
         height="1082"
         viewBox="0 0 1922 1082"
@@ -35,6 +42,8 @@
           </clipPath>
         </defs>
       </svg>
+      </div>
+     
     </div>
 
     <div id="player"></div>
@@ -58,25 +67,114 @@ export default {
 
 <style lang="scss">
 
+
+
+.mask {
+    width: 100%;
+    height: 100%;
+    background-color: orange;
+    -webkit-clip-path: url(#clip);
+    clip-path: url(#clip);
+}
+
+.mask-mobile--wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+
+  // @include md-min {
+  //   width: 160vw;
+  //   left: -30vw;
+  // }
+
+  @include lg-min {
+    display: none;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 40vh;
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+   &:after {
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 40vh;
+    background-color: rgb(98, 209, 148);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.mask-mobile--inner {
+  border: 2px dashed yellow;
+  display: inline-block;
+  position: relative;
+  z-index: -1;
+   &:after {
+    content: '';
+    display: block;
+    width: 40vw;
+    height: 100vh;
+    background-color: rgb(54, 139, 150);
+    position: absolute;
+    top: 0;
+    right: -40vw;
+  }
+   &:before {
+    content: '';
+    display: block;
+    width: 40vw;
+    height: 100vh;
+    background-color: rgb(211, 50, 149);
+    position: absolute;
+    top: 0;
+    left: -40vw;
+  }
+  
+}
+
 .move-mask {
+  .move-mask--inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content:center
+  }
   display: none; 
   position: relative;
   @include lg-min {
     display: block;
   }
-  
+
     &:before {
       display: none; 
       @include lg-min {
         display: block;
       }
       content: '';
-      width: 20vw;
-      height: 100vh;
-      background: #109cc7;
+      width: 100vw;
+      height: 25vh;
+      background: #2ed60d;
       position: absolute;
       left: 0;
-      top: 0px;
+      bottom: 0px;
     }
 
      &:after {
@@ -86,20 +184,34 @@ export default {
        }
       content: '';
       width: 100vw;
-      height: 20vh;
-     background: #109cc7;
+      height: 30vh;
+      background: #c00808;
       position: absolute;
       left: 0;
       top: 0px;
     }
  
+
+ svg {
+  display: none;
+  @include lg-min {
+    display: block;
+  }
+ }
 }
 
 
 .hero {
   iframe {
+    transform: scale(4.5);
     width: 100%;
     height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include lg-min {
+      transform: scale(1);
+    }
   }
 }
 </style>

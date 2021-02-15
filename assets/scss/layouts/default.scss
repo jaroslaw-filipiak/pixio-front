@@ -1,3 +1,4 @@
+
 #__layout {
 
   main {
@@ -8,7 +9,7 @@
       "nav"
       "main";
 
-    @include md-min {
+    @include lg-min {
       grid-template-columns: minmax(95px, 95px) 1fr 95px;
       grid-template-rows: auto;
       grid-template-areas:
@@ -20,7 +21,7 @@
   .right-nav {
     display: none;
 
-    @include md-min {
+    @include lg-min {
       display: flex;
       grid-area: rightnav;
     }
