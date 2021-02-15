@@ -11,6 +11,10 @@ export const mutations = {
    isScrollLock = state
    console.log('change scroll lock in store')
    console.log(state)
+  },
+  revealNavigaton(state) {
+    console.log(state)
+    console.log('revealNavigation mutation')
   }
 }
 

@@ -17,6 +17,7 @@
       <div class="section">
         <div class="slide">sd</div>
       </div>
+
     </full-page>
     <Rightnav />
   </main>
@@ -128,39 +129,7 @@ export default {
 
     window.addEventListener('scroll', this.handleScroll);
 
-    $(window).bind("mousewheel", (e) => {
-      if (e.originalEvent.wheelDelta / 120 > 0) {
-        // console.log("scrolling up");
-        // console.log(e.originalEvent);
-      } else {
-        // (this.isMaskVisible = false),
-        // (this.isVideoVisible = true),
-        // (this.isScrollLock = false),
-
-        // console.log("scrolling down");
-        // console.log(e.originalEvent);
-
-        // gsap.to( '.move-mask', .5,{css:{scale:.05, opacity:0, rotation: 180}, ease:Quad.easeInOut}));
-
-        gsap.to(".move-mask", {
-          scaleX: 20,
-          scaleY: 20,
-          opacity: 0,
-          duration: 2,
-        });
-
-        setInterval(() => {
-          fullpage_api.setAllowScrolling(true, "down");
-          fullpage_api.setAllowScrolling(true, "up");
-        }, 1000);
-    //  fullpage_api.setAllowScrolling(true, "down");
-    //  fullpage_api.setAllowScrolling(true, "up");
-
-
-        // transform: scale(9.5);
-        // opacity: 0;
-      }
-    });
+    
 
   },
   mounted() {
