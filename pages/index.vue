@@ -11,15 +11,12 @@
 export default {
   data() {
     return {
-      done: false,
       isMaskVisible: true,
       isVideoVisible: false,
       isMenuVisible: false,
     };
   },
   methods: {
-   
-   
     handleScroll(event) {
       this.handleScrollLock();
     },
@@ -28,12 +25,8 @@ export default {
     // window.addEventListener("scroll", this.handleScroll);
 
     window.addEventListener('scroll', this.handleScroll);
-
-    
-
   },
   mounted() {
-   
     // console.log($.fn.fullpage);
     // console.log($nuxt);
     // fullpage_api.moveTo(3);

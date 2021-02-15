@@ -67,6 +67,31 @@ methods: {
       // console.log(destination);
       // console.log(direction);
     },
+      onElementObserved(entries) {
+      entries.forEach(({ target, isIntersecting}) => {
+      console.log(target)
+      console.log(isIntersecting)
+      console.log('element is visible now: '+ isIntersecting)
+      });
+      console.log('is in observer')
+    }
+},
+created() {
+   const ObserverWrapper = document.querySelector('#__layout')
+
+    this.observer = new IntersectionObserver(
+      this.onElementObserved, 
+      {
+        root: ObserverWrapper,
+        threshold: 1.0,
+      }
+    );
+},
+mounted() {
+   const toObservate = document.querySelector('.we-are-global--branches')
+   this.observer.observe(toObservate);
+   console.log(this.observer)
+   console.log(this.$el)
 }
 }
 </script>
