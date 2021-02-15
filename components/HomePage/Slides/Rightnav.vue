@@ -7,7 +7,11 @@
 </template>
 
 <script>
+
 export default {
+  data() {
+    return {}
+  },
   methods: {
     goToSlide: function (e) {
       fullpage_api.moveTo(e.target.attributes[1].value);
@@ -45,10 +49,17 @@ export default {
       navLinks[0].classList.add("slide-link__active");
     },
   },
+ computed: {
+   isRightMenu() {
+      return this.$store.state.isRightMenuVisible
+    }
+ },
+ 
   mounted() {
-    // this.createNavigationLinks();
+    this.isRightMenu
   },
   created() {},
+  
 };
 </script>
 
@@ -117,7 +128,8 @@ export default {
     display: block !important;
   }
 }
-.rightnav ,{
+
+.rightnav {
   display: none;
   background-color: #000;
   padding: 0px 34px;

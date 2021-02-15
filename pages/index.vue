@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main :class="{isMenuVisible: isMenuVisible}">
     <Nav />
     <Hero v-on:scroll.native="handleScroll" />
 
@@ -52,15 +52,20 @@ export default {
       done: false,
       isMaskVisible: true,
       isVideoVisible: false,
+      isMenuVisible: false,
+     
     };
   },
   methods: {
+  
     handleScrollLock() {
       this.store.commit('changeScrollLock', 'dfdff')
     },
     afterSlideLoad() {
       console.log("after slide load..");
       console.log(e);
+      const activeItem = document.querySelector('.slide.active')
+      console.log(activeItem)
     },
     afterLoad() {
       // console.log("Emitted 'after load' event.");
@@ -68,6 +73,8 @@ export default {
     onLeave(e) {
       console.log("on leave..");
       console.log(e);
+       console.log(e.anchor)
+      
     },
     onSlideLeave(section, origin, destination, direction) {
       // console.log("on slide leave..");

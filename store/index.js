@@ -4,6 +4,7 @@ export const state = () => ({
   isMaskVisible: true,
   isVideoVisible: false,
   isScrollLock: true,
+  isRightMenuVisible: false
 })
 
 export const mutations = {

@@ -15,6 +15,32 @@
       grid-template-areas:
         "nav main rightnav";
     }
+
+    // #fp-nav.fp-right {
+    //   display: none !important;
+    //   border: 2px solid blue;
+    // }
+  }
+
+  main.isMenuVisible {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: minmax(70px, 70px) 1fr;
+    grid-template-areas:
+      "nav"
+      "main";
+
+    @include lg-min {
+      grid-template-columns: minmax(95px, 95px) 1fr 95px;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "nav main rightnav";
+    }
+
+    // #fp-nav.fp-right {
+    //   display: block !important;
+    //   border: 2px solid blue;
+    // }
   }
 
 
