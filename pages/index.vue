@@ -151,7 +151,7 @@ export default {
 
         setInterval(() => {
           fullpage_api.setAllowScrolling(true, "down");
-            //  fullpage_api.setAllowScrolling(true, "up");
+          fullpage_api.setAllowScrolling(true, "up");
         }, 1000);
     //  fullpage_api.setAllowScrolling(true, "down");
     //  fullpage_api.setAllowScrolling(true, "up");
