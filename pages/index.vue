@@ -3,24 +3,6 @@
     <Nav />
     <Hero v-on:scroll.native="handleScroll" />
     <FullPageHome/>
-
-    <!-- <full-page
-      ref="fullpage"
-      :options="options"
-      style="postion: relative; top: 100vh"
-    >
-      <Section2 />
-      <Section3 />
-      <Section4 />
-      <Instagram />
-      <Contact />
-
-      <div class="section">
-        <div class="slide">sd</div>
-      </div>
-
-    </full-page> -->
-
     <Rightnav />
   </main>
 </template>
@@ -33,61 +15,13 @@ export default {
       isMaskVisible: true,
       isVideoVisible: false,
       isMenuVisible: false,
-     
     };
   },
   methods: {
-  
-    handleScrollLock() {
-      this.store.commit('changeScrollLock', 'dfdff')
-    },
    
-    onYouTubeIframeAPIReady: function () {
-      var player;
-
-      player = new YT.Player("player", {
-        height: "390",
-        width: "640",
-        videoId: "QoiQ0Vo5It0",
-        playerVars: {
-          enablejsapi: 1,
-          controls: 1,
-          mute: 1,
-          showinfo: 0,
-          fs: 0,
-          cc_load_policy: 0,
-          iv_load_policy: 3,
-          autoplay: 1,
-          modestbranding: 1,
-          autohide: 1,
-        },
-        events: {
-          onReady: this.onPlayerReady,
-          onStateChange: this.onPlayerStateChange,
-        },
-      });
-    },
-
-    onPlayerReady: function (event) {
-      event.target.playVideo();
-      // event.target.muteVideo();
-      // console.log('PLAYER READY')
-      //  event.target.muteVideo();
-    },
-
-    onPlayerStateChange: function (event) {},
-
-    stopVideo: function (event) {
-      event.target.stopVideo();
-      event.target.pauseVideo();
-      // console.log(player);
-      // console.log(event.target);
-    },
+   
     handleScroll(event) {
-      console.log('handle scroll fired')
       this.handleScrollLock();
-      // console.log("scroll..");
-      // console.log(event);
     },
   },
   created() {
@@ -99,7 +33,7 @@ export default {
 
   },
   mounted() {
-    this.onYouTubeIframeAPIReady();
+   
     // console.log($.fn.fullpage);
     // console.log($nuxt);
     // fullpage_api.moveTo(3);

@@ -54,14 +54,14 @@ export default {
     return {
        isMaskVisible: true,
        isVideoVisible: false,
-      
     };
   },
   mounted() {
+     this.onYouTubeIframeAPIReady();
+
     $(window).bind("mousewheel", (e) => {
       if (e.originalEvent.wheelDelta / 120 > 0) {
         // console.log("scrolling up");
-        // console.log(e.originalEvent);
       } else {
         // (this.isMaskVisible = false),
         // (this.isVideoVisible = true),
@@ -83,37 +83,51 @@ export default {
           fullpage_api.setAllowScrolling(true, "down");
           fullpage_api.setAllowScrolling(true, "up");
         }, 1000);
-        // console.log(fullpage_api)
-        
-    //  fullpage_api.setAllowScrolling(true, "down");
-    //  fullpage_api.setAllowScrolling(true, "up");
-
-
-
-        // transform: scale(9.5);
-        // opacity: 0;
       }
     });
   },
   methods: {
-    
-  },
-  getters: {
-    getNumber() {
-      return this.$store.state.counter;
+     onYouTubeIframeAPIReady: function () {
+      var player;
+
+      player = new YT.Player("player", {
+        height: "390",
+        width: "640",
+        videoId: "QoiQ0Vo5It0",
+        playerVars: {
+          enablejsapi: 1,
+          controls: 1,
+          mute: 1,
+          showinfo: 0,
+          fs: 0,
+          cc_load_policy: 0,
+          iv_load_policy: 3,
+          autoplay: 1,
+          modestbranding: 1,
+          autohide: 1,
+        },
+        events: {
+          onReady: this.onPlayerReady,
+          onStateChange: this.onPlayerStateChange,
+        },
+      });
     },
-    isRightMenuVisible() {
-      return this.$store.isRightMenuVisible
-    }
-    
+
+    onPlayerReady: function (event) {
+      event.target.playVideo();
+    },
+
+    onPlayerStateChange: function (event) {},
+
+    stopVideo: function (event) {
+      event.target.stopVideo();
+      event.target.pauseVideo();
+    },
   },
 };
 </script>
 
 <style lang="scss">
-
-
-
 .mask {
     width: 100%;
     height: 100%;
