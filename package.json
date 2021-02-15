@@ -28,6 +28,7 @@
     "vue-fullpage": "^2.0.5",
     "vue-fullpage.js": "^0.1.6",
     "vue-responsive-video-background-player": "1.2.2",
+    "vue-waypoint": "^3.5.2",
     "youtube-background": "^1.0.7"
   },
   "devDependencies": {

@@ -52,6 +52,9 @@ export default {
       backgroundImagePath,
     };
   },
+  methods: {
+    
+  },
   mounted() {
     const map = (x, a, b, c, d) => ((x - a) * (d - c)) / (b - a) + c;
 

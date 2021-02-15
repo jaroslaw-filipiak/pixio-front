@@ -2,8 +2,9 @@
   <main :class="{isMenuVisible: isMenuVisible}">
     <Nav />
     <Hero v-on:scroll.native="handleScroll" />
+    <FullPageHome/>
 
-    <full-page
+    <!-- <full-page
       ref="fullpage"
       :options="options"
       style="postion: relative; top: 100vh"
@@ -18,7 +19,8 @@
         <div class="slide">sd</div>
       </div>
 
-    </full-page>
+    </full-page> -->
+
     <Rightnav />
   </main>
 </template>
@@ -27,28 +29,6 @@
 export default {
   data() {
     return {
-      options: {
-        licenseKey: "YOUR_KEY_HEERE",
-        menu: "#side-menu",
-        anchors: [
-          "home",
-          "solutions",
-          "projects",
-          "about",
-          "instagram",
-          "contact",
-          "page7",
-          "page8",
-        ],
-        scrollingSpeed: 150,
-        navigation: true,
-        navigationPosition: 'right',
-        // navigationTooltips: ['firstSlide', 'secondSlide'],
-        afterLoad: this.afterLoad,
-        afterLoad: this.afterLoad,
-        onSlideLeave: this.onSlideLeave,
-        onLeave: this.onLeave,
-      },
       done: false,
       isMaskVisible: true,
       isVideoVisible: false,
@@ -61,28 +41,7 @@ export default {
     handleScrollLock() {
       this.store.commit('changeScrollLock', 'dfdff')
     },
-    afterSlideLoad() {
-      console.log("after slide load..");
-      console.log(e);
-      const activeItem = document.querySelector('.slide.active')
-      console.log(activeItem)
-    },
-    afterLoad() {
-      // console.log("Emitted 'after load' event.");
-    },
-    onLeave(e) {
-      console.log("on leave..");
-      console.log(e);
-       console.log(e.anchor)
-      
-    },
-    onSlideLeave(section, origin, destination, direction) {
-      // console.log("on slide leave..");
-      // console.log(section);
-      // console.log(origin);
-      // console.log(destination);
-      // console.log(direction);
-    },
+   
     onYouTubeIframeAPIReady: function () {
       var player;
 
@@ -141,7 +100,6 @@ export default {
   },
   mounted() {
     this.onYouTubeIframeAPIReady();
-    this.afterLoad();
     // console.log($.fn.fullpage);
     // console.log($nuxt);
     // fullpage_api.moveTo(3);

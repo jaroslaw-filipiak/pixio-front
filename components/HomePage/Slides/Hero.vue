@@ -1,5 +1,5 @@
 <template>
-  <div
+  <div 
     class="section hero"
     style="
       position: relative;
@@ -53,7 +53,8 @@ export default {
   data() {
     return {
        isMaskVisible: true,
-      isVideoVisible: false,
+       isVideoVisible: false,
+      
     };
   },
   mounted() {
@@ -93,6 +94,9 @@ export default {
         // opacity: 0;
       }
     });
+  },
+  methods: {
+    
   },
   getters: {
     getNumber() {
