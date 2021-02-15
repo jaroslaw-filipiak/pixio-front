@@ -111,21 +111,28 @@ export default {
 //   }
 // }
 
-
-.rightnav {
+#fp-nav {
+  display: none !important;
+  @include lg-min {
+    display: block !important;
+  }
+}
+.rightnav ,{
+  display: none;
   background-color: #000;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
   padding: 0px 34px;
-
   width: 95px;
   height: 100vh;
-
   position: fixed;
   right: 0;
   top: 0;
+
+  @include lg-min {
+    display: flex;
+     flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  }
 
   ul {
     display: flex;

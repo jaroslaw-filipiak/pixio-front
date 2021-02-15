@@ -59,11 +59,18 @@ export default {
 <style lang="scss">
 
 .move-mask {
+  display: none; 
   position: relative;
+  @include lg-min {
+    display: block;
+  }
   
     &:before {
+      display: none; 
+      @include lg-min {
+        display: block;
+      }
       content: '';
-      display: block;
       width: 20vw;
       height: 100vh;
       background: #109cc7;
@@ -73,8 +80,11 @@ export default {
     }
 
      &:after {
+       display: none; 
+       @include lg-min {
+         display: block;
+       }
       content: '';
-      display: block;
       width: 100vw;
       height: 20vh;
      background: #109cc7;
