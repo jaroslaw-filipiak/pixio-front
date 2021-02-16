@@ -25,11 +25,29 @@ export default {};
 </script>
 
 <style lang="scss">
+
 .hamburger {
   cursor: pointer;
   z-index: 2;
+
+  svg {
+    opacity: 0;
+    transition: all .3s ease-in-out;
+  }
+
   &:hover {
     opacity: 0.9;
   }
+
+  &--visible {
+    opacity: 1 !important;
+
+    svg {
+    opacity: 1;
+    transition: all .3s ease-in-out;
+  }
+  }
+
+
 }
 </style>

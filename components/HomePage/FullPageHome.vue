@@ -55,9 +55,9 @@ methods: {
       // console.log("Emitted 'after load' event.");
     },
     onLeave(e) {
-      console.log("on leave..");
-      console.log(e);
-       console.log(e.anchor)
+      // console.log("on leave..");
+      // console.log(e);
+      //  console.log(e.anchor)
       
     },
     onSlideLeave(section, origin, destination, direction) {
@@ -69,11 +69,19 @@ methods: {
     },
       onElementObserved(entries) {
       entries.forEach(({ target, isIntersecting}) => {
-      console.log(target)
-      console.log(isIntersecting)
+      // console.log(target)
+      // console.log(isIntersecting)
       console.log('element is visible now: '+ isIntersecting)
+
+      if(isIntersecting) {
+       
+        fullpage_api.setAllowScrolling(false, "down");
+        fullpage_api.setAllowScrolling(false, "up");
+        console.log('set scrolling to false')
+        console.log(fullpage_api)
+      }
       });
-      console.log('is in observer')
+      // console.log('is in observer')''
     }
 },
 created() {

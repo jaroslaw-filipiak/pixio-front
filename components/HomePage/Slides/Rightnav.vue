@@ -123,10 +123,18 @@ export default {
 // }
 
 #fp-nav {
+  z-index: -1;
+  opacity: 0;
   display: none !important;
   @include lg-min {
     display: block !important;
   }
+}
+
+.fp-nav--visible {
+  transition: all .3s ease-in-out;
+  z-index: 2 !important;
+  opacity: 1 !important;
 }
 
 .rightnav {

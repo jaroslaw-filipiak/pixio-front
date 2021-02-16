@@ -45,6 +45,14 @@
     </div>
 
     <div id="player"></div>
+    <div class="start-indicator">
+      <div class="start-indicator--inner">
+          <p>start</p>
+      <div class="roll"></div>
+      <div class="roll-circle"></div>
+      </div>
+      
+    </div>
   </div>
 </template>
 
@@ -56,9 +64,24 @@ export default {
        isVideoVisible: false,
     };
   },
+  watch: {
+    isMaskVisible: function() {
+      if(isMaskVisible) {
+
+        $(window).bind('mousewheel', (e) => {
+          console.log('scroll down and..')
+           console.log(isMaskVisible)
+        })
+
+      } else {
+
+      }
+      
+    }
+  },
   mounted() {
      this.onYouTubeIframeAPIReady();
-
+  
     $(window).bind("mousewheel", (e) => {
       if (e.originalEvent.wheelDelta / 120 > 0) {
         // console.log("scrolling up");
@@ -72,19 +95,69 @@ export default {
 
         // gsap.to( '.move-mask', .5,{css:{scale:.05, opacity:0, rotation: 180}, ease:Quad.easeInOut}));
 
-        gsap.to(".move-mask", {
+        let maskReveal = gsap.to(".move-mask", {
           scaleX: 20,
           scaleY: 20,
           opacity: 0,
           duration: 2,
-        });
+          onComplete: maskRevealIsEnd
+        })
 
-        setInterval(() => {
-          fullpage_api.setAllowScrolling(true, "down");
-          fullpage_api.setAllowScrolling(true, "up");
-        }, 1000);
+        maskReveal.play();
+
+        let hideIndicator = gsap.to(".start-indicator", {
+          opacity: 0,
+          duration: 0,
+          // onComplete: maskRevealIsEnd
+        })
+
+      
+
+        function maskRevealIsEnd() {
+            fullpage_api.setAllowScrolling(true, "down");
+            fullpage_api.setAllowScrolling(true, "up");
+
+            const hamburger = document.querySelector('.hamburger')
+            hamburger.classList.add('hamburger--visible')
+
+            const nav = document.querySelector('#fp-nav')
+            nav.classList.add('fp-nav--visible')
+
+            hideIndicator.play();
+        }
+
+        // gsap.to(".move-mask", {
+        //   scaleX: 20,
+        //   scaleY: 20,
+        //   opacity: 0,
+        //   duration: 2,
+        // });
+
+       
+
+        // setTimeout(() => {
+        //   fullpage_api.setAllowScrolling(true, "down");
+        //   fullpage_api.setAllowScrolling(true, "up");
+        //   console.log(fullpage_api)
+        //   console.log('timeout..')
+        // }, 1000);
       }
     });
+
+     
+
+        function showStartIndicator() {
+          gsap.to(".start-indicator", {
+          opacity: 1,
+          duration: .3,
+          // onComplete: maskRevealIsEnd
+        })
+        }
+
+        TweenLite.delayedCall(4, showStartIndicator);
+
+
+    
   },
   methods: {
      onYouTubeIframeAPIReady: function () {
@@ -267,6 +340,85 @@ export default {
     @include lg-min {
       transform: scale(1);
     }
+  }
+}
+
+.start-indicator {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+
+  &--inner {
+    position: relative;
+    height: 25px;
+  }
+
+  p {
+    width: 100%;
+    position: relative;
+     display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+    // &::before {
+    //   content: '';
+    //   display: block;
+    //   width: 2px;
+    //   height: 50px;
+    //   background-color: #fff;
+    //   position: absolute;
+    //   left: 50%;
+    //   bottom: -56px;
+    // }
+
+    //  &::after {
+    //   content: '';
+    //   display: block;
+    //  width: 10px;
+    // height: 10px;
+    // background-color: white;
+    // position: absolute;
+    // left: calc(50% - 4px);
+    // bottom: -12px;
+    // border-radius: 50%;
+    // }
+  }
+
+  .roll {
+      width: 2px;
+      height: 22px;
+      background-color: rgb(255, 255, 255);
+      position: absolute;
+      left: 50%;
+  }
+  .roll-circle {
+     display: block;
+     width: 10px;
+     height: 10px;
+     border-radius: 50%;
+     background-color: rgb(255, 255, 255);
+     position: absolute;
+     top: 76%;
+     left: 41%;
+     animation: roll .8s infinite;
+     animation-direction: alternate-reverse;
+  }
+
+  @keyframes roll {
+    from { top: 76%;}
+    to { top: 160%;}
   }
 }
 </style>
