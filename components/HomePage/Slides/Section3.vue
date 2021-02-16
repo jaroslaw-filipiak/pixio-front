@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section section-projects">
     <div data-scroll-container class="demo-2 loading">
       <div class="rotate">
         <main>

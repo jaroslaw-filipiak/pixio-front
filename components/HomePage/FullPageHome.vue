@@ -88,7 +88,7 @@ created() {
     );
 },
 mounted() {
-   const toObservate = document.querySelector('.we-are-global--branches')
+   const toObservate = document.querySelector('.section-projects')
    this.observer.observe(toObservate);
    console.log(this.observer)
    console.log(this.$el)
