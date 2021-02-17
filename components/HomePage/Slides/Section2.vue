@@ -111,7 +111,7 @@ export default {
   width: 100%;
   height: 100px;
   position: absolute;
-  bottom: 60px;
+  bottom: 80px;
 }
 
 .vr-info-box {
@@ -175,7 +175,7 @@ export default {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 60px 0px;
+    padding: 80px 0px;
     position: relative;
   }
 

@@ -113,20 +113,38 @@ export default {
           opacity: 1
         })
 
-      
+        let showHamburger = gsap.to('.hamburger', {
+              opacity: 1
+        })
+
+         let showFpNav = gsap.to('#fp-nav', {
+              'z-index': 2,
+               opacity: 1
+
+        })
+
+//       .fp-nav--visible {
+// //   transition: all .3s ease-in-out;
+//   z-index: 2 !important;
+//   opacity: 1 !important;
+// }
 
         function maskRevealIsEnd() {
             fullpage_api.setAllowScrolling(true, "down");
             fullpage_api.setAllowScrolling(true, "up");
 
-            const hamburger = document.querySelector('.hamburger')
-            hamburger.classList.add('hamburger--visible')
+            // const hamburgerMask = document.querySelector('.hamburger-mask')
+            // hamburgerMask.classList.add('hamburger-mask--disabled')
 
             const nav = document.querySelector('#fp-nav')
-            nav.classList.add('fp-nav--visible')
+           
 
             hideIndicator.play();
             showArrowIndicator.play();
+
+            showHamburger.play();
+            showFpNav.play();
+            // nav.classList.add('fp-nav--visible')
         }
 
         // gsap.to(".move-mask", {

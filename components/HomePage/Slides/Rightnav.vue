@@ -126,16 +126,17 @@ export default {
   z-index: -1;
   opacity: 0;
   display: none !important;
+  transition: all .1s ease-in;
   @include lg-min {
     display: block !important;
   }
 }
 
-.fp-nav--visible {
-  transition: all .3s ease-in-out;
-  z-index: 2 !important;
-  opacity: 1 !important;
-}
+// .fp-nav--visible {
+//   transition: all .3s ease-in-out;
+//   z-index: 2 !important;
+//   opacity: 1 !important;
+// }
 
 .rightnav {
   display: none;

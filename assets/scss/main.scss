@@ -9,6 +9,7 @@
 // @import './slider.css';
 
 @import './sections/2';
+@import './other/hamburgers';
 
 .video-overlay {
   height: 100%;
@@ -168,4 +169,8 @@ body {
     }
 
   }
+}
+
+*:focus {
+  outline: none;
 }

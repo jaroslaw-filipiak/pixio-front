@@ -57,7 +57,7 @@
           </div>
         </div>
       </div>
-      <div class="carrer-box">
+      <div class="carrer-box" :class="{ carrerBoxActive: IsHiringVisible }">
         <a @click="handleClick" href="#">{{
           IsHiringVisible ? "We are Hiring" : "Focusing on a career?"
         }}</a>
@@ -117,7 +117,7 @@ export default {
     align-items: center !important;
     justify-content: space-between !important;
     height: 100vh !important;
-    padding: 60px 0px 0px 0px;
+    padding: 100px 0px 0px 0px;
   }
 }
 .section-4 {
@@ -196,7 +196,8 @@ export default {
     position: relative;
     opacity: 1;
     display: inline-block;
-    margin-bottom: 60px;
+    margin-bottom: 85px;
+    
 
     &::after {
       content: "";
@@ -221,13 +222,21 @@ export default {
       }
     }
   }
+
+  
 }
+
+.carrerBoxActive {
+    a {
+      margin-bottom: 0px;
+    }
+  }
 
 .we-are-hiring {
   background-color: #222222;
   // height: 30vh;
   width: 100%;
-  padding: 40px 0px;
+  padding: 40px 0px 80px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
