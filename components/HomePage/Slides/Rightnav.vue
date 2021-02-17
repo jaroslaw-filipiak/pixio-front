@@ -130,6 +130,7 @@ export default {
   @include lg-min {
     display: block !important;
   }
+
 }
 
 // .fp-nav--visible {
