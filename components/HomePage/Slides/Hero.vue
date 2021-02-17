@@ -123,6 +123,13 @@ export default {
 
         })
 
+       const navWrapper = document.querySelector('.nav-wrapper ')
+       navWrapper.classList.remove('navOpen')
+
+       const hamburgerBTN = document.querySelector('.hamburger')
+       hamburgerBTN.classList.remove('is-active')
+
+
 //       .fp-nav--visible {
 // //   transition: all .3s ease-in-out;
 //   z-index: 2 !important;
@@ -193,6 +200,7 @@ export default {
           controls: 1,
           mute: 1,
           showinfo: 0,
+          loop: 1,
           fs: 0,
           cc_load_policy: 0,
           iv_load_policy: 3,

@@ -20,6 +20,7 @@ export default {
   methods: {
     handleScroll(event) {
       this.handleScrollLock();
+     
     },
   },
   created() {
