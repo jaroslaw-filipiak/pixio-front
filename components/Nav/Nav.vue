@@ -74,12 +74,13 @@
   }
 
   .nav-wrapper {
+    transition:  all .3s ease-in-out !important;
     width: 100%;
     background-color: #000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 0px 0px 32px;
+    padding: 0px 0px 0px 10px;
     overflow: visible;
     grid-area: nav;
     overflow: visible;
@@ -88,23 +89,60 @@
     @include lg-min {
       width: 95px;
       height: 100vh;
+        
     }
   }
 
   .navOpen {
     width: 100%;
-
-    @include md-min {
-      padding: 0px 64px 0px 32px;
+     transition:  all .3s ease-in-out !important;
+    
+    @include lg-min {
+      padding: 0px 64px 0px 10px;
       width: 230px;
     }
 
     .nav-main {
       width: 85vw;
       height: 100vh;
+      transition:  all .3s ease-in-out;
 
-      @include md-min {
+      @include lg-min {
         width: 230px;
+      }
+
+      ul {
+        li { 
+          a {
+            display: inline-block;
+            position: relative;
+            opacity: .8;
+            &:after {
+              content: '';
+              display: block;
+              width: 0%;
+              height: 2px;
+              background-color: #fff;
+              position: absolute; 
+              left: 0;
+              bottom: 0;
+              transition: all .1s ease-in-out;            }
+
+            &:hover {
+              opacity: 1;
+              &:after {
+              content: '';
+              display: block;
+              width: 100%;
+              height: 2px;
+              background-color: #fff;
+              position: absolute; 
+              left: 0;
+              bottom: 0;
+              transition: all .1s ease-in-out;            }
+            }
+          }
+        }
       }
     }
   }
@@ -121,6 +159,7 @@
     align-items: center;
     justify-content: center;
     padding-left: 40px;
+    transition:  all .3s ease-in-out;
 
     ul {
       display: flex;
