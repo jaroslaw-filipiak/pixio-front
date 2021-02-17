@@ -126,7 +126,8 @@
               position: absolute; 
               left: 0;
               bottom: 0;
-              transition: all .1s ease-in-out;            }
+              transition: all .1s ease-in-out;           
+               }
 
             &:hover {
               opacity: 1;
@@ -139,7 +140,8 @@
               position: absolute; 
               left: 0;
               bottom: 0;
-              transition: all .1s ease-in-out;            }
+              transition: all .1s ease-in-out;           
+              }
             }
           }
         }

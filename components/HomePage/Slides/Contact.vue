@@ -8,7 +8,7 @@
       <h2>More questions ?</h2>
       <p>We are here for you</p>
     </div>
-    <div class="contact-form">
+    <div class="contact-form" :class="{'contact-form--succes': isSuccess}">
       <label for="name">
         Hello, my name is
         <input type="text" placeholder="your name" />
@@ -27,9 +27,9 @@
         <input type="email" placeholder="your e-mail" />
       </label>
 
-      <div style="margin-top: 20px">Here are the details:</div>
+      <div class="detalis-txt" style="margin-top: 20px">Here are the details:</div>
       <textarea name="" id="" cols="30" rows="3"></textarea>
-      <button class="btn btn-outline-white">Send inquiry</button>
+      <button @click="sendMessage" class="btn btn-outline-white">Send inquiry</button>
     </div>
     <div class="contact-info">
       <div class="contact-info--item">
@@ -174,8 +174,17 @@ export default {
   data() {
     return {
       bgImage,
+      isSuccess: false
     };
   },
+  methods: {
+    sendMessage: function() {
+      this.isSuccess = !this.isSuccess;
+      setTimeout(()=> {
+        this.isSuccess = !this.isSuccess;
+      },2000)
+    }
+  }
 };
 </script>
 
@@ -256,6 +265,47 @@ export default {
     textarea:focus,
     input:focus {
       outline: none;
+    }
+    transition: all .2s ease-in-out;
+
+    &--succes {
+      border: 1px solid #000;
+      transition: all .2s ease-in-out;
+      background-color: rgb(0, 0, 0);
+      position: relative;
+      z-index: 4;
+      &::before {
+        transition: all .2s ease-in-out;
+        content: 'your message was sent successfully';
+        color: rgb(255, 255, 255);
+        font-size: 22px;
+        width: 100%;
+        height: 100%;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+      }
+      label {
+        opacity: 0;
+      }
+       input {
+          opacity: 0
+        }
+        textarea {
+          opacity: 0;
+        }
+
+        .detalis-txt {
+          opacity: 0;
+        }
+        button {
+          opacity: 0;
+        }
     }
   }
 
