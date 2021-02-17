@@ -107,6 +107,11 @@ export default {
 </script>
 
 <style lang="scss">
+
+.fp-controlArrow.fp-prev {
+  opacity: 0  !important;
+}
+
 .vr-info-box--wrapper {
   width: 100%;
   height: 100px;

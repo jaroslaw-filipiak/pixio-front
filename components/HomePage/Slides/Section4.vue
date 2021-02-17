@@ -23,35 +23,35 @@
           <h5>We are global</h5>
           <div class="we-are-global--branches">
             <div class="we-are-global--branch">
-              <img src="@/assets/img/branches/montreal.svg" alt="" />
-              <p>Montreal</p>
+              <img src="@/assets/img/brand/beijing.svg" alt="" />
+              <p>Beijing</p>
             </div>
             <div class="we-are-global--branch">
-              <img src="@/assets/img/branches/montreal.svg" alt="" />
-              <p>Montreal</p>
+              <img src="@/assets/img/brand/losangeles.svg" alt="" />
+              <p>Los Angeles</p>
             </div>
             <div class="we-are-global--branch">
-              <img src="@/assets/img/branches/montreal.svg" alt="" />
-              <p>Montreal</p>
+              <img src="@/assets/img/brand/frankfurt.svg" alt="" />
+              <p>Frankfurt</p>
             </div>
             <div class="we-are-global--branch">
-              <img src="@/assets/img/branches/montreal.svg" alt="" />
-              <p>Montreal</p>
+              <img src="@/assets/img/brand/toronto.svg" alt="" />
+              <p>Toronto</p>
             </div>
             <div class="we-are-global--branch">
-              <img src="@/assets/img/branches/montreal.svg" alt="" />
-              <p>Montreal</p>
+              <img src="@/assets/img/brand/stuttgart.svg" alt="" />
+              <p>Stuttgart</p>
             </div>
             <div class="we-are-global--branch">
-              <img src="@/assets/img/branches/montreal.svg" alt="" />
-              <p>Montreal</p>
+              <img src="@/assets/img/brand/shanghai.svg" alt="" />
+              <p>Shanghai</p>
             </div>
             <div class="we-are-global--branch">
-              <img src="@/assets/img/branches/montreal.svg" alt="" />
-              <p>Montreal</p>
+              <img src="@/assets/img/brand/vancouver.svg" alt="" />
+              <p>Vancouver</p>
             </div>
             <div class="we-are-global--branch">
-              <img src="@/assets/img/branches/montreal.svg" alt="" />
+              <img src="@/assets/img/brand/montreal.svg" alt="" />
               <p>Montreal</p>
             </div>
           </div>
@@ -173,6 +173,10 @@ export default {
     justify-content: center;
     margin: 0px 10px;
     opacity: 1;
+
+    img {
+      width: 54px;
+    }
 
     p {
       margin-top: 10px;
