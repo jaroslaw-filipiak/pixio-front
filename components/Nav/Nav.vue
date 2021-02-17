@@ -13,10 +13,10 @@
     <nav class="nav-main">
       <ul>
         <li><a @click="handleMenu" link-to="1" href="#">Home</a></li>
-        <li><a @click="handleMenu" link-to="2" href="#">Solutions</a></li>
+        <li><a @click="handleMenu" link-to="2" href="#">Visual Production </a></li>
         <li><a @click="handleMenu" link-to="3" href="#">Projects</a></li>
         <li><a @click="handleMenu" link-to="4" href="#">About</a></li>
-        <li><a @click="handleMenu" link-to="5" href="#">Instagram</a></li>
+        <li><a @click="handleMenu" link-to="5" href="#">Social media</a></li>
         <li><a @click="handleMenu" link-to="6" href="#">Contact</a></li>
       </ul>
     </nav>
@@ -109,7 +109,7 @@
     
     @include lg-min {
       padding: 0px 64px 0px 10px;
-      width: 230px;
+      width: 280px;
     }
 
     .nav-main {
@@ -119,7 +119,7 @@
       opacity: 1;
 
       @include lg-min {
-        width: 230px;
+        width: 280px;
       }
 
       ul {
@@ -179,6 +179,7 @@
       display: flex;
       flex-direction: column;
       list-style-type: none;
+      min-width: 140px ;
 
       li {
         margin: 4px 0px;
