@@ -2,11 +2,7 @@
   <div 
     class="section hero"
     style="
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      position: absolute;
-      z-index: -1;
+      
     "
   >
     <div class="move-mask">
@@ -45,14 +41,16 @@
     </div>
 
     <div id="player"></div>
+
     <div class="start-indicator">
       <div class="start-indicator--inner">
           <p>start</p>
       <div class="roll"></div>
       <div class="roll-circle"></div>
-      </div>
-      
+      </div> 
     </div>
+
+    
   </div>
 </template>
 
@@ -111,6 +109,10 @@ export default {
           // onComplete: maskRevealIsEnd
         })
 
+        let showArrowIndicator = gsap.to('.arrow-bottom-indicator', {
+          opacity: 1
+        })
+
       
 
         function maskRevealIsEnd() {
@@ -124,6 +126,7 @@ export default {
             nav.classList.add('fp-nav--visible')
 
             hideIndicator.play();
+            showArrowIndicator.play();
         }
 
         // gsap.to(".move-mask", {
@@ -330,6 +333,12 @@ export default {
 
 
 .hero {
+  position: relative;
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      z-index: -1;
+
   iframe {
     transform: scale(4.5);
     width: 100%;
@@ -342,6 +351,8 @@ export default {
     }
   }
 }
+
+
 
 .start-indicator {
   color: #fff;

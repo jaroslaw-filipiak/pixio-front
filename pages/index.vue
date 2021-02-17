@@ -1,6 +1,7 @@
 <template>
   <main :class="{isMenuVisible: isMenuVisible}">
     <Nav />
+    <ArrowBottomIndicator/>
     <Hero v-on:scroll.native="handleScroll" />
     <FullPageHome/>
     <Rightnav />
