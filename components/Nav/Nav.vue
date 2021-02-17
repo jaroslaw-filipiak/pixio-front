@@ -10,7 +10,7 @@
     <div class="logo" style="color: #fff">''
       <img :src="require(`~/assets/img/logo-txt.svg`)" />
     </div>
-    <nav v-if="navOpen" class="nav-main">
+    <nav class="nav-main">
       <ul>
         <li><a @click="handleMenu" link-to="1" href="#">Home</a></li>
         <li><a @click="handleMenu" link-to="2" href="#">Solutions</a></li>
@@ -36,9 +36,19 @@
       };
     },
     methods: {
+
       toggleMenu: function () {
         this.navOpen = !this.navOpen;
-        console.log("toggle menu");
+
+         let revealMenu = gsap.to(".nav-main", {
+          // width: 230,
+          // scaleY: 20,
+          // opacity: 1,
+          // duration: 2,
+        })
+
+        // revealMenu.play()
+
       },
       handleMenu: function (e) {
         this.removeAllActiveClasses();
@@ -94,7 +104,7 @@
   }
 
   .navOpen {
-    width: 100%;
+     width: 100%;
      transition:  all .3s ease-in-out !important;
     
     @include lg-min {
@@ -106,6 +116,7 @@
       width: 85vw;
       height: 100vh;
       transition:  all .3s ease-in-out;
+      opacity: 1;
 
       @include lg-min {
         width: 230px;
@@ -154,7 +165,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: 0;
+    width: 10px;
     height: 100vh;
     background-color: rgb(0, 0, 0);
     display: flex;
@@ -162,6 +173,7 @@
     justify-content: center;
     padding-left: 40px;
     transition:  all .3s ease-in-out;
+    opacity: 0;
 
     ul {
       display: flex;
