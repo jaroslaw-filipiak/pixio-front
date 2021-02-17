@@ -13,10 +13,10 @@
             of yours.
           </h4>
           <div class="info-box--icons">
-            <img src="~/assets/img/unreal.svg" />
-            <img src="~/assets/img/unreal.svg" />
-            <img src="~/assets/img/unreal.svg" />
-            <img src="~/assets/img/unreal.svg" />
+            <img src="~/assets/img/brand/epic-games-logo.svg" />
+            <img src="~/assets/img/brand/WFW-logo.svg" />
+            <img src="~/assets/img/brand/roe-logo.svg" />
+            <img src="~/assets/img/brand/nvidia-logo.svg" />
           </div>
         </div>
         <div class="we-are-global">
@@ -137,6 +137,12 @@ export default {
   max-width: 512px;
   padding: 20px 30px;
   background-color: rgba(0, 0, 0, 0.2);
+
+  &--icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   h4 {
     color: #fff;
