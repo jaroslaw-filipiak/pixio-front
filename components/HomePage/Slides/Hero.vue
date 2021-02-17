@@ -189,25 +189,30 @@ export default {
   },
   methods: {
      onYouTubeIframeAPIReady: function () {
+       
       var player;
+      
 
       player = new YT.Player("player", {
         height: "390",
         width: "640",
         videoId: "WeoAgb7v3fU",
+         loop: 1,
         playerVars: {
           enablejsapi: 1,
           controls: 1,
           mute: 1,
-          showinfo: 0,
-          loop: 1,
+          showinfo: 0, 
           fs: 0,
           cc_load_policy: 0,
           iv_load_policy: 3,
           autoplay: 1,
+          loop: 1,
+          playlist:"WeoAgb7v3fU",
           modestbranding: 1,
           autohide: 1,
         },
+        enablejsapi: 1,
         events: {
           onReady: this.onPlayerReady,
           onStateChange: this.onPlayerStateChange,
