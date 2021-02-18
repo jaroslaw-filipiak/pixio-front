@@ -20,12 +20,6 @@
               <Project />
               <Project />
               <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
             </div>
           </div>
         </main>
@@ -114,7 +108,7 @@ export default {
 }
 
 .rotate {
-  transform: rotate(-4deg);
+  transform: rotate(-2deg);
 }
 
 .gallery {

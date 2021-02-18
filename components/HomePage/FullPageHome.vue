@@ -11,7 +11,7 @@
     </Section2>
     <!-- solutions -->
 
-
+  <!-- projects -->
     <Section3>
        <div @click="$refs.fullpage.api.moveSectionDown()" class="arrow-bottom-next-slide">
         <div class="arrow-bottom-next-slide--inner">
@@ -19,6 +19,7 @@
         </div>
       </div>
      </Section3 >
+     <!-- projects -->
 
     <Section4>
    <div @click="$refs.fullpage.api.moveSectionDown()" class="arrow-bottom-next-slide">

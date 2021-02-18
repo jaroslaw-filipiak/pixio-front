@@ -21,16 +21,10 @@
           </div>
           <div class="tooltip--right">
             <h2>
-              About <br />
-              unreal engine
+              Visual Production Studio in Toronto
             </h2>
             <p>
-              Epic Games’ Unreal Engine is the world’s most open and advanced
-              real-time 3D tool. Creators across games, film, television,
-              architecture, automotive and transportation, advertising, live
-              events, and training and simulation choose Unreal to deliver
-              cutting-edge content, interactive experiences, and immersive
-              virtual worlds.
+             Virtual production means amazing results driven by technology. It allows creative people to bring their vision to life way before the final edit or locked cut. With our technology we can highlight the flaws before it’s too late. We can emphasize the strength and originality to make the most out of the production. We can make what seemed impossible come to life inside the VR headset  before the set has been built. We can make the sun rise or sun set whenever you want. And you choose the color. We can even make it rain.
             </p>
           </div>
         </div>

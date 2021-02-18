@@ -79,6 +79,41 @@ export default {
   },
   mounted() {
      this.onYouTubeIframeAPIReady();
+
+     setTimeout(()=> {
+
+        let maskReveal = gsap.to(".move-mask", {
+          scaleX: 20,
+          scaleY: 20,
+          opacity: 0,
+          duration: 2,
+          onComplete: maskRevealIsEnd
+        })
+
+        function maskRevealIsEnd() {
+            fullpage_api.setAllowScrolling(true, "down");
+            fullpage_api.setAllowScrolling(true, "up");
+
+            console.log('mask reveal func allow scrolling true')
+            // const hamburgerMask = document.querySelector('.hamburger-mask')
+            // hamburgerMask.classList.add('hamburger-mask--disabled')
+
+            const nav = document.querySelector('#fp-nav')
+           
+
+            hideIndicator.play();
+            showArrowIndicator.play();
+
+            showHamburger.play();
+            showFpNav.play();
+            // nav.classList.add('fp-nav--visible')
+        }
+
+      maskReveal.play();
+
+     }, 4000)
+
+    
   
     $(window).bind("mousewheel", (e) => {
       if (e.originalEvent.wheelDelta / 120 > 0) {
@@ -93,15 +128,10 @@ export default {
 
         // gsap.to( '.move-mask', .5,{css:{scale:.05, opacity:0, rotation: 180}, ease:Quad.easeInOut}));
 
-        let maskReveal = gsap.to(".move-mask", {
-          scaleX: 20,
-          scaleY: 20,
-          opacity: 0,
-          duration: 2,
-          onComplete: maskRevealIsEnd
-        })
+       
 
-        maskReveal.play();
+       
+        // maskReveal play every scroll down? its normal ? 
 
         let hideIndicator = gsap.to(".start-indicator", {
           opacity: 0,
@@ -136,23 +166,7 @@ export default {
 //   opacity: 1 !important;
 // }
 
-        function maskRevealIsEnd() {
-            fullpage_api.setAllowScrolling(true, "down");
-            fullpage_api.setAllowScrolling(true, "up");
-
-            // const hamburgerMask = document.querySelector('.hamburger-mask')
-            // hamburgerMask.classList.add('hamburger-mask--disabled')
-
-            const nav = document.querySelector('#fp-nav')
-           
-
-            hideIndicator.play();
-            showArrowIndicator.play();
-
-            showHamburger.play();
-            showFpNav.play();
-            // nav.classList.add('fp-nav--visible')
-        }
+        
 
         // gsap.to(".move-mask", {
         //   scaleX: 20,
