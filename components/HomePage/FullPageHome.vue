@@ -11,14 +11,16 @@
     </Section2>
     <!-- solutions -->
 
+    <Projects />
+
   <!-- projects -->
-    <Section3>
+    <!-- <Section3>
        <div @click="$refs.fullpage.api.moveSectionDown()" class="arrow-bottom-next-slide">
         <div class="arrow-bottom-next-slide--inner">
           <img src="@/assets/img/arrow-bottom.svg" alt="">
         </div>
       </div>
-     </Section3 >
+     </Section3 > -->
      <!-- projects -->
 
     <Section4>
@@ -107,8 +109,8 @@
 
           if (isIntersecting) {
 
-            fullpage_api.setAllowScrolling(false, "down");
-            fullpage_api.setAllowScrolling(false, "up");
+            // fullpage_api.setAllowScrolling(false, "down");
+            // fullpage_api.setAllowScrolling(false, "up");
             console.log('set scrolling to false')
             console.log(fullpage_api)
           }

@@ -1,9 +1,39 @@
 <template>
   <div class="section section-projects">
-    <div data-scroll-container  class="demo-2 loading">
-      <div  class="rotate">
-        <main style="display: flex;">
-          <div  class="content">
+    <div class="slide" style="transform: rotate(-1deg)">
+      <div class="content">
+        <div class="gallery">
+           <Project />
+              <Project />
+              <Project />
+        </div>
+      </div>
+    </div>
+
+     <div class="slide" style="transform: rotate(-2deg)">
+      <div class="content">
+        <div class="gallery">
+           <Project />
+              <Project />
+              <Project />
+        </div>
+      </div>
+    </div>
+
+     <div class="slide" style="transform: rotate(-3deg)">
+      <div class="content">
+        <div class="gallery">
+           <Project />
+              <Project />
+              <Project />
+        </div>
+      </div>
+    </div>
+    
+    <div style="display: none;">
+      <div class="rotate">
+        <main style="position: relative; display: flex;">
+          <div class="content" style="width: 100vw;">
             <div class="gallery">
               <Project />
               <Project />
@@ -39,50 +69,18 @@
 </template>
 
 <script>
-import backgroundImagePath from "@/assets/img/projects/poster.jpg";
-import LocomotiveScroll from "locomotive-scroll";
+
 export default {
   data() {
     return {
-      backgroundImagePath,
+    
     };
   },
   methods: {
     
   },
   mounted() {
-    const map = (x, a, b, c, d) => ((x - a) * (d - c)) / (b - a) + c;
-
-    // Linear interpolation
-    const lerp = (a, b, n) => (1 - n) * a + n * b;
-
-    const clamp = (num, min, max) =>
-      num <= min ? min : num >= max ? max : num;
-
-    const randomNumber = (min, max) =>
-      Math.floor(Math.random() * (max - min + 1) + min);
-
-    const lscroll = new LocomotiveScroll({
-      el: document.querySelector("[data-scroll-container]"),
-      smooth: true,
-      direction: "horizontal",
-    });
-
-    let scroll = { cache: 0, current: 0 };
-    // const allImgs = [...document.querySelectorAll(".gallery__item-img")];
-
-    lscroll.on("scroll", (obj) => {
-      scroll.current = obj.scroll.x;
-      const distance = scroll.current - scroll.cache;
-      scroll.cache = scroll.current;
-      const skewVal = map(distance, -50, 50, -15, 15);
-      // allImgs.forEach(
-      //   (el) =>
-      //     (el.style.transform = "skewX(" + clamp(skewVal, -15, 15) + "deg)")
-      // );
-    });
-
-    lscroll.update();
+  
   },
 };
 </script>
@@ -114,6 +112,7 @@ export default {
 .gallery {
   display: flex;
   margin-left: 5vw;
+  width: 100%;
 }
 
 .gallery__item {
@@ -123,8 +122,9 @@ export default {
     "... ..."
     "... gallery-image"
     "... ...";
-  grid-template-columns: 8rem 21vmax;
-  grid-template-rows: 8rem 28vmax 3rem;
+    
+ grid-template-columns: 1rem 21vmax;
+ grid-template-rows: 40px 28vmax 3rem;
 }
 
 .gallery__item-img {
@@ -152,8 +152,8 @@ export default {
     "gallery-number gallery-title"
     "gallery-link ..."
     "gallery-link gallery-tags";
-  grid-template-columns: 8rem auto;
-  grid-template-rows: 8rem 33rem 3rem;
+  grid-template-columns: 1rem auto;
+    grid-template-rows: 29px 36rem 3rem;
 }
 
 .gallery__item-number {
@@ -169,8 +169,7 @@ export default {
 .gallery__item-title {
   grid-area: gallery-title;
   margin: 0;
-  font-size: 4rem;
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: 24px;
   color: var(--color-gallery-title);
   font-family: "Jost", sans-serif !important;
 }
