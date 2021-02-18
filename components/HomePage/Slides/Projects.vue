@@ -3,9 +3,9 @@
     <div class="slide" style="transform: rotate(-1deg)">
       <div class="content">
         <div class="gallery">
-           <Project />
-              <Project />
-              <Project />
+            <Project> <h1>11</h1> </Project>
+            <Project> <h1>22</h1> </Project>
+            <Project> <h1>33</h1> </Project>
         </div>
       </div>
     </div>
@@ -13,9 +13,9 @@
      <div class="slide" style="transform: rotate(-2deg)">
       <div class="content">
         <div class="gallery">
-           <Project />
-              <Project />
-              <Project />
+            <Project />
+            <Project />
+            <Project />
         </div>
       </div>
     </div>
@@ -24,48 +24,21 @@
       <div class="content">
         <div class="gallery">
            <Project />
-              <Project />
-              <Project />
+           <Project />
+           <Project />
         </div>
       </div>
     </div>
-    
-    <div style="display: none;">
-      <div class="rotate">
-        <main style="position: relative; display: flex;">
-          <div class="content" style="width: 100vw;">
-            <div class="gallery">
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-              <Project />
-            </div>
-          </div>
-        </main>
-      </div>
-      <svg
-        style="opacity: 0"
-        class="cursor"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-      >
-        <circle class="cursor__inner" cx="10" cy="10" r="5" />
-      </svg>
-    </div>
      <slot> </slot>  
+     
+
+     <div id="portfolioVideo">
+
+     </div>
+
   </div>
+
+  
 </template>
 
 <script>
@@ -73,19 +46,66 @@
 export default {
   data() {
     return {
+
     
     };
   },
   methods: {
+    onYouTubeIframeAPIReady: function () {
+       
+      var player;
+      
+      player = new YT.Player("portfolioVideo", {
+        height: "390",
+        width: "640",
+        videoId: "WeoAgb7v3fU",
+         loop: 1,
+         playerVars: {
+          enablejsapi: 1,
+          controls: 1,
+          mute: 1,
+          showinfo: 0, 
+          fs: 0,
+          cc_load_policy: 0,
+          iv_load_policy: 3,
+          autoplay: 1,
+          loop: 1,
+          playlist:"WeoAgb7v3fU",
+          modestbranding: 1,
+          autohide: 1,
+        },
+        enablejsapi: 1,
+        events: {
+          onReady: this.onPlayerReady,
+          onStateChange: this.onPlayerStateChange,
+        },
+      });
+    },
+     onPlayerReady: function (event) {
+      event.target.playVideo();
+      console.log(event.target)
+      // event.target = iframe object
+    },
+
+    onPlayerStateChange: function (event) {},
     
   },
   mounted() {
-  
+     this.onYouTubeIframeAPIReady();
   },
 };
 </script>
 
-<style>
+<style lang="scss">
+
+#portfolioVideo {
+  position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 3;
+    transform: translate(-50%,-50%);
+}
+
 .demo-2 {
   width: 100vw;
   height: 100vh;

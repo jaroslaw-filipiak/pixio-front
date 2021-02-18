@@ -1,16 +1,18 @@
 <template>
-  <figure class="gallery__item">
+  <figure @click="showVideo" class="gallery__item" style="position: relative; border: 1px solid red;">
     <div class="gallery__item-img">
       <div
         class="gallery__item-imginner"
         :style="{ backgroundImage: `url(${backgroundImagePath})` }"
         data-scroll
-        data-scroll-speed="-0.8"
+        data-scroll-speed="-0.8"     
+        video-id="kdhsCV45zW0"                
       ></div>
     </div>
     <figcaption class="gallery__item-caption">
       <h2 class="gallery__item-title" data-scroll data-scroll-speed="1">
        Star Trek Discovery
+       <slot> </slot>
       </h2>
       <span class="gallery__item-number" data-scroll data-scroll-speed="1.5"
         >01</span
@@ -45,8 +47,20 @@ export default {
   data() {
     return {
       backgroundImagePath,
+      videoVisible:false,
     };
   },
+  methods: {
+    showVideo: function(e) {
+    const target = e.target.attributes[2].value;
+    const item = document.querySelector(`div[video-id="${target}"]`)
+    const itemVid = document.querySelector(`iframe[video-id="${target}"]`)
+
+    console.log(target)
+    console.log(item)
+    console.log(itemVid)
+    }
+  }
 };
 </script>
 
