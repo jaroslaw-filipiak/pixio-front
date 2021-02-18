@@ -1,5 +1,6 @@
+// :class="{'side-arrows-visible': isArrowsVisible}"
 <template>
-  <div :class="{'side-arrows-visible': isArrowsVisible}" class="section section-2" :style="{ backgroundImage: `url(${image})` }">
+  <div class="section section-2" :style="{ backgroundImage: `url(${image})` }">
     <div v-if="isSectionOverlayActive" class="section-overlay"></div>
     <div class="slide slide-2 slide-solutions"  >
       <div class="slide-title">
@@ -13,8 +14,8 @@
         class="indicator"
         style="position: fixed; left: 20vw; top: 30vh"
       ></div>
-      <div class="tooltip-container">
-        <div v-if="isTooltipVisible" class="tooltip">
+      <div class="tooltip-container" :class="{'tooltip-container--visible' : isTooltipVisible}">
+        <div v-if="isTooltipVisible" class="tooltip" >
           <div class="tooltip--left">
             <img src="~/assets/img/about.jpg" />
           </div>
@@ -91,6 +92,11 @@ export default {
   },
   
   methods: {
+    nextSlide(e) {
+        fullpage_api.moveSlideLeft();
+        console.log('next slide methood')
+        console.log(fullpage_api)
+    },
     handleMoreClick() {
       this.isSectionOverlayActive = !this.isSectionOverlayActive;
       this.isTooltipVisible = !this.isTooltipVisible;
@@ -130,22 +136,18 @@ export default {
 
 .side-arrows-visible {
   .fp-controlArrow.fp-prev {
-  opacity: 1 ;
-  position: absolute;
-  top: 50vh;
+ 
  }
   .fp-controlArrow.fp-next {
-  opacity: 1 ;
-  position: absolute;
-  top: 50vh;
+  
  }
 }
 
 .fp-controlArrow.fp-prev {
-  opacity: 0 ;
 }
+ 
 .fp-controlArrow.fp-next {
-  opacity: 0 ;
+  
 }
 
 .vr-info-box--wrapper {
@@ -176,7 +178,7 @@ export default {
     // border-right: 2px solid white;
     padding: 0px 30px;
     position: relative;
-    z-index: 205;
+    z-index: 4;
 
     &:after {
       content: "";
