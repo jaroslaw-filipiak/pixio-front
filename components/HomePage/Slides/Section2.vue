@@ -9,7 +9,7 @@
         </h1>
       </div>
 
-      <div
+      <div v-if="indicatorVisible"
         @click="handleMoreClick"
         class="indicator"
         style="position: fixed; left: 20vw; top: 30vh"
@@ -88,6 +88,7 @@ export default {
       isTooltipVisible: false,
       isSectionOverlayActive: false,
       isArrowsVisible: false,
+      indicatorVisible: true,
     };
   },
   
@@ -101,6 +102,7 @@ export default {
       this.isSectionOverlayActive = !this.isSectionOverlayActive;
       this.isTooltipVisible = !this.isTooltipVisible;
       this.isArrowsVisible = !this.isArrowsVisible;
+      this.indicatorVisible = !this.indicatorVisible
     },
   },
   watch: {
@@ -227,6 +229,16 @@ export default {
     text-align: center;
     font-size: 24px;
     max-width: 260px;
+  }
+
+  .slide-2-3 {
+    .fp-tableCell {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 80px 0px;
+    position: relative;
+  }
   }
 }
 
