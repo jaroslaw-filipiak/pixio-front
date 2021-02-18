@@ -1,6 +1,7 @@
 <template>
   <full-page ref="fullpage" :options="options" style="postion: relative; top: 100vh">
 
+    <!-- solutions -->
     <Section2>
       <div @click="$refs.fullpage.api.moveSectionDown()" class="arrow-bottom-next-slide">
         <div class="arrow-bottom-next-slide--inner">
@@ -8,6 +9,8 @@
         </div>
       </div>
     </Section2>
+    <!-- solutions -->
+
 
     <Section3>
        <div @click="$refs.fullpage.api.moveSectionDown()" class="arrow-bottom-next-slide">
@@ -32,7 +35,7 @@
         </div>
       </div>
     </Instagram>
-    
+
     <Contact />
 
     <div class="section">

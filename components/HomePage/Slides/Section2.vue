@@ -1,7 +1,7 @@
 <template>
-  <div class="section section-2" :style="{ backgroundImage: `url(${image})` }">
+  <div :class="{'side-arrows-visible': isArrowsVisible}" class="section section-2" :style="{ backgroundImage: `url(${image})` }">
     <div v-if="isSectionOverlayActive" class="section-overlay"></div>
-    <div class="slide slide-2">
+    <div class="slide slide-2 slide-solutions"  >
       <div class="slide-title">
         <h1>Virtual production studio in Toronto    
           <slot> </slot>  
@@ -13,7 +13,7 @@
         class="indicator"
         style="position: fixed; left: 20vw; top: 30vh"
       ></div>
-      <div class="tooltip-container" style="display: none;">
+      <div class="tooltip-container">
         <div v-if="isTooltipVisible" class="tooltip">
           <div class="tooltip--left">
             <img src="~/assets/img/about.jpg" />
@@ -86,6 +86,7 @@ export default {
       image: image,
       isTooltipVisible: false,
       isSectionOverlayActive: false,
+      isArrowsVisible: false,
     };
   },
   
@@ -93,6 +94,7 @@ export default {
     handleMoreClick() {
       this.isSectionOverlayActive = !this.isSectionOverlayActive;
       this.isTooltipVisible = !this.isTooltipVisible;
+      this.isArrowsVisible = !this.isArrowsVisible;
     },
   },
   watch: {
@@ -104,6 +106,18 @@ export default {
       //   );
       //   prevButton.classList.add("fp-prev__visible");
     },
+    //  isArrowsVisible: function() {
+    //    console.log( this.isArrowsVisible)
+
+    //    const sectionClass = document.querySelector('.section-2')
+       
+
+    //    if( this.isArrowsVisible) {
+    //       sectionClass.classList.add('side-arrows-visible')
+    //    } else if (this.isArrowsVisible = false){
+    //       sectionClass.classList.remove('side-arrows-visible')
+    //    }
+    //  }
   },
   mounted() {
     
@@ -114,8 +128,24 @@ export default {
 
 <style lang="scss">
 
+.side-arrows-visible {
+  .fp-controlArrow.fp-prev {
+  opacity: 1 ;
+  position: absolute;
+  top: 50vh;
+ }
+  .fp-controlArrow.fp-next {
+  opacity: 1 ;
+  position: absolute;
+  top: 50vh;
+ }
+}
+
 .fp-controlArrow.fp-prev {
-  opacity: 0  !important;
+  opacity: 0 ;
+}
+.fp-controlArrow.fp-next {
+  opacity: 0 ;
 }
 
 .vr-info-box--wrapper {
@@ -184,7 +214,7 @@ export default {
 
   .fp-tableCell {
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     padding: 80px 0px;
     position: relative;
