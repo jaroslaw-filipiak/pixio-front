@@ -22,6 +22,7 @@
       </div>
     </div>
     <div class="slide"></div>
+     <slot> </slot>  
   </div>
 </template>
 

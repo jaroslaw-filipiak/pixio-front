@@ -40,6 +40,7 @@
         <circle class="cursor__inner" cx="10" cy="10" r="5" />
       </svg>
     </div>
+     <slot> </slot>  
   </div>
 </template>
 

@@ -3,7 +3,9 @@
     <div v-if="isSectionOverlayActive" class="section-overlay"></div>
     <div class="slide slide-2">
       <div class="slide-title">
-        <h1>Virtual production studio in Toronto</h1>
+        <h1>Virtual production studio in Toronto    
+          <slot> </slot>  
+        </h1>
       </div>
 
       <div
@@ -11,7 +13,7 @@
         class="indicator"
         style="position: fixed; left: 20vw; top: 30vh"
       ></div>
-      <div class="tooltip-container">
+      <div class="tooltip-container" style="display: none;">
         <div v-if="isTooltipVisible" class="tooltip">
           <div class="tooltip--left">
             <img src="~/assets/img/about.jpg" />
@@ -86,6 +88,7 @@ export default {
       isSectionOverlayActive: false,
     };
   },
+  
   methods: {
     handleMoreClick() {
       this.isSectionOverlayActive = !this.isSectionOverlayActive;
@@ -102,7 +105,10 @@ export default {
       //   prevButton.classList.add("fp-prev__visible");
     },
   },
-  mounted() {},
+  mounted() {
+    
+  
+  },
 };
 </script>
 
