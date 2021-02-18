@@ -137,12 +137,13 @@ export default {
 }
 
 .gallery__item-imginner {
-  background-size: cover;
+  background-size: contain;
   background-position: 50% 0;
   width: calc(100% + 10vw);
   margin-left: -5vw;
   height: 100%;
   will-change: transform;
+  background-repeat: no-repeat;
 }
 
 .gallery__item-caption {
@@ -198,8 +199,8 @@ export default {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  left: 90px;
-  top: -20px;
+  left: 59px;
+  top: -43px;
 }
 
 .gallery__item-link:focus,

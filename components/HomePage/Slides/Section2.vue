@@ -70,6 +70,35 @@
         ></iframe>
       </div>
     </div>
+    <div class="slide slide-2 slide-solutions"  >
+      <div class="slide-title">
+        <h1>Virtual production studio in Toronto    
+          <slot> </slot>  
+        </h1>
+      </div>
+
+      <div v-if="indicatorVisible"
+        @click="handleMoreClick"
+        class="indicator"
+        style="position: fixed; left: 20vw; top: 30vh"
+      ></div>
+      <div class="tooltip-container" :class="{'tooltip-container--visible' : isTooltipVisible}">
+        <div v-if="isTooltipVisible" class="tooltip" >
+          <div class="tooltip--left">
+            <img src="~/assets/img/about2.jpg" />
+          </div>
+          <div class="tooltip--right">
+            <h2>
+             Our value and <br> pride – people
+            </h2>
+            <p>
+            At Pixomondo we pride ourselves on the ability to work with one of the most creative minds in the industry. They support an innovative environment oriented to develop award-winning movies and TV series. Our passion is to deliver visionary ideas of highest quality. We provide it on-time and on-budget with outstanding service. We have extended this approach to our work in Virtual Production firmly merging best people with the newest technology.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
   </div>
 </template>
 

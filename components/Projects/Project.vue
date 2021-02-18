@@ -10,7 +10,7 @@
     </div>
     <figcaption class="gallery__item-caption">
       <h2 class="gallery__item-title" data-scroll data-scroll-speed="1">
-        Movie's title
+       Star Trek Discovery
       </h2>
       <span class="gallery__item-number" data-scroll data-scroll-speed="1.5"
         >01</span
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import backgroundImagePath from "@/assets/img/projects/poster.jpg";
+import backgroundImagePath from "@/assets/img/poster-star-treck-discovery.jpg";
 export default {
   data() {
     return {
