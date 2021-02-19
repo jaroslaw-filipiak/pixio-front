@@ -26,6 +26,9 @@ export const mutations = {
   },
   changeVideoTooltipVisibilityToFalse(state , payload) {
     state.isVideoTooltipVisible = payload
+  },
+  setVideoTooltipToFalse(state , payload) {
+    state.isVideoTooltipVisible = payload
   }
 }
 

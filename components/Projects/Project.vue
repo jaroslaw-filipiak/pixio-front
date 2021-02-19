@@ -57,7 +57,7 @@ export default {
 
     console.log(target)
     console.log(item)
-    this.$store.commit('changeVideoTooltipVisibility', true)
+    // this.$store.commit('changeVideoTooltipVisibility', true)
     }
   }
 };

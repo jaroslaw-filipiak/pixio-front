@@ -2,10 +2,16 @@
 
 <template>
   <div class="section section-projects">
-    <div class="section-projects--overlay"></div>
+    <div  @click="setVideoTooltipToFalse" class="section-projects--overlay" :class="{'section-projects--overlay__is-visible': getVideoTooltipVisibleInfo }"></div>
     <div class="slide" style="transform: rotate(-1deg)">
       <div class="content">
         <div class="gallery">
+            <Project @click.native="handleClickInProject"> </Project>
+            <Project @click.native="handleClickInProject"> </Project>
+            <Project @click.native="handleClickInProject"> </Project>
+            <Project @click.native="handleClickInProject"> </Project>
+            <Project @click.native="handleClickInProject"> </Project>
+            <Project @click.native="handleClickInProject"> </Project>
             <Project @click.native="handleClickInProject"> </Project>
             <Project @click.native="handleClickInProject"> </Project>
             <Project @click.native="handleClickInProject"> </Project>
@@ -62,15 +68,19 @@ export default {
     };
   },
   methods: {
+    setVideoTooltipToFalse: function() {
+      this.$store.commit('setVideoTooltipToFalse', false)
+      console.log('setVideoTooltipToFalse')
+    },
     setVideoTooltipVisibleInfoToFalse: function() {
-    this.$store.commit('changeVideoTooltipVisibilityToFalse', this.tooltipVideoVisible)
+    this.$store.commit('changeVideoTooltipVisibilityToFalse', false)
     },
     handleClickInProject: function(e) {''
         console.log('handleClickInProject')
         console.log(e)
         console.log(e.target)
-        this.tooltipVideoVisible = !this.tooltipVideoVisible;
-        this.$store.commit('changeVideoTooltipVisibility', this.tooltipVideoVisible)
+        // this.tooltipVideoVisible = !this.tooltipVideoVisible;''
+        this.$store.commit('changeVideoTooltipVisibility', !this.tooltipVideoVisible)
         
     },
     onYouTubeIframeAPIReady: function () {''
