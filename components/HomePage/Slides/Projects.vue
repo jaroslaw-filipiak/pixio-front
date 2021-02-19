@@ -3,9 +3,9 @@
     <div class="slide" style="transform: rotate(-1deg)">
       <div class="content">
         <div class="gallery">
-            <Project> <h1>11</h1> </Project>
-            <Project> <h1>22</h1> </Project>
-            <Project> <h1>33</h1> </Project>
+            <Project> <h1></h1> </Project>
+            <Project> <h1></h1> </Project>
+            <Project> <h1></h1> </Project>
         </div>
       </div>
     </div>
