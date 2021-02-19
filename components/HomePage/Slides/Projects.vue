@@ -4,7 +4,7 @@
   <div class="section section-projects">
     <div  @click="setVideoTooltipToFalse" class="section-projects--overlay" :class="{'section-projects--overlay__is-visible': getVideoTooltipVisibleInfo }"></div>
     <div class="slide" style="transform: rotate(-1deg)">
-      <div class="content">
+      <div class="content" :class="{'isBlured': getVideoTooltipVisibleInfo}">
         <div class="gallery">
             <Project @click.native="handleClickInProject"> </Project>
             <Project @click.native="handleClickInProject"> </Project>
@@ -147,6 +147,11 @@ export default {
 </script>
 
 <style lang="scss">
+
+.isBlured {
+  transition: all .3s ease-in-out;
+  filter: blur(5px) !important;
+}
 
 .tet {
     width: 60vw;
@@ -355,21 +360,30 @@ export default {
     justify-self: end;
   }
 } */
+.section-projects {
+ transition: all .5s ease-in;
+ 
+  .content {
+ filter: blur(0px);
+  transition: all .3s ease-in;
+  }
 
+ 
+}
 .section-projects--overlay {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(0, 0, 0);
-  opacity: .7;
+  // background-color: rgb(0, 0, 0);
+  // opacity: .4;
   z-index: -1;
-  transition: all .2s ease-in;
+  transition: all .5s ease-in;
 
   &__is-visible {
      z-index: 2;
-     transition: all .2s ease-in;
+     transition: all .5s ease-in;
   }
 }
 </style>
