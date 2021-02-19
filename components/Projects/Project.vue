@@ -1,5 +1,5 @@
 <template>
-  <figure @click="showVideo" class="gallery__item" style="position: relative; border: 1px solid red;">
+  <figure @click="showVideo" class="gallery__item" style="position: relative;">
     <div class="gallery__item-img">
       <div
         class="gallery__item-imginner"

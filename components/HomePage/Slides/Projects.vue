@@ -32,7 +32,7 @@
      <slot> </slot>  
      
 
-     <div id="portfolioVideo">
+     <div id="portfolioVideo" style="display: none;">
 
      </div>
 
@@ -53,12 +53,12 @@ export default {
   methods: {
     onYouTubeIframeAPIReady: function () {
        
-      var player;
+      var playerVid;
       
-      player = new YT.Player("portfolioVideo", {
+      playerVid = new YT.Player("portfolioVideo", {
         height: "390",
         width: "640",
-        videoId: "WeoAgb7v3fU",
+        videoId: "ng-LJ0x4vUo",
          loop: 1,
          playerVars: {
           enablejsapi: 1,
@@ -68,9 +68,9 @@ export default {
           fs: 0,
           cc_load_policy: 0,
           iv_load_policy: 3,
-          autoplay: 1,
+          autoplay: 0,
           loop: 1,
-          playlist:"WeoAgb7v3fU",
+          playlist:"ng-LJ0x4vUo",
           modestbranding: 1,
           autohide: 1,
         },
@@ -81,10 +81,22 @@ export default {
         },
       });
     },
+    // ng-LJ0x4vUo
+    // WeoAgb7v3fU
      onPlayerReady: function (event) {
-      event.target.playVideo();
-      console.log(event.target)
+      // event.target.playVideo();
+      // console.log(event.target)
       // event.target = iframe object
+
+      setTimeout(()=> {
+      event.target.playVideo()
+      console.log(event.target)
+      }, 5000)
+
+       setTimeout(()=> {
+      //  event.target.stopVideo();
+      event.target.loadVideoById('WeoAgb7v3fU')
+      }, 8000)
     },
 
     onPlayerStateChange: function (event) {},
@@ -92,6 +104,9 @@ export default {
   },
   mounted() {
      this.onYouTubeIframeAPIReady();
+
+
+
   },
 };
 </script>
