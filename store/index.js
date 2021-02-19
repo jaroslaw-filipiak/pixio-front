@@ -4,7 +4,8 @@ export const state = () => ({
   isMaskVisible: true,
   isVideoVisible: false,
   isScrollLock: true,
-  isRightMenuVisible: false
+  isRightMenuVisible: false,
+  isVideoTooltipVisible: false,
 })
 
 export const mutations = {
@@ -16,6 +17,15 @@ export const mutations = {
   revealNavigaton(state) {
     console.log(state)
     console.log('revealNavigation mutation')
+  },
+  changeVideoTooltipVisibility(state, payload) {
+    console.log(state)
+    console.log(payload)
+    console.log('changeVideoTooltipVisibility')
+    state.isVideoTooltipVisible = payload
+  },
+  changeVideoTooltipVisibilityToFalse(state , payload) {
+    state.isVideoTooltipVisible = payload
   }
 }
 

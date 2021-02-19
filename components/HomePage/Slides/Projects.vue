@@ -1,21 +1,27 @@
+// :class="{'section-projects--overlay__is-visible': getVideoTooltipVisibleInfo }"
+
 <template>
   <div class="section section-projects">
+    <div class="section-projects--overlay"></div>
     <div class="slide" style="transform: rotate(-1deg)">
       <div class="content">
         <div class="gallery">
-            <Project> <h1></h1> </Project>
-            <Project> <h1></h1> </Project>
-            <Project> <h1></h1> </Project>
+            <Project @click.native="handleClickInProject"> </Project>
+            <Project @click.native="handleClickInProject"> </Project>
+            <Project @click.native="handleClickInProject"> </Project>
+            <Project @click.native="handleClickInProject"> </Project>
+            <Project @click.native="handleClickInProject"> </Project>
+            <Project @click.native="handleClickInProject"> </Project>
         </div>
       </div>
     </div>
 
-     <div class="slide" style="transform: rotate(-2deg)">
+     <!-- <div class="slide" style="transform: rotate(-2deg)">
       <div class="content">
         <div class="gallery">
-            <Project />
-            <Project />
-            <Project />
+             <Project @click="handleClickInProject"> </Project>
+            <Project  @click="handleClickInProject"> </Project>
+            <Project  @click="handleClickInProject"> </Project>
         </div>
       </div>
     </div>
@@ -23,18 +29,24 @@
      <div class="slide" style="transform: rotate(-3deg)">
       <div class="content">
         <div class="gallery">
-           <Project />
-           <Project />
-           <Project />
+            <Project  @click="handleClickInProject"> </Project>
+            <Project  @click="handleClickInProject"> </Project>
+            <Project  @click="handleClickInProject"> </Project>
         </div>
       </div>
-    </div>
+    </div> -->
+
      <slot> </slot>  
      
+  
+  <div class="tet" :class="{'tet__visible video-tooltip-visible': getVideoTooltipVisibleInfo}">
 
-     <div id="portfolioVideo" style="display: none;">
+    <div id="portfolioVideo" :class="{'video-tooltip-visible': getVideoTooltipVisibleInfo}">
 
      </div>
+  </div>
+    
+
 
   </div>
 
@@ -46,18 +58,28 @@
 export default {
   data() {
     return {
-
-    
+      tooltipVideoVisible: false,
     };
   },
   methods: {
-    onYouTubeIframeAPIReady: function () {
+    setVideoTooltipVisibleInfoToFalse: function() {
+    this.$store.commit('changeVideoTooltipVisibilityToFalse', this.tooltipVideoVisible)
+    },
+    handleClickInProject: function(e) {''
+        console.log('handleClickInProject')
+        console.log(e)
+        console.log(e.target)
+        this.tooltipVideoVisible = !this.tooltipVideoVisible;
+        this.$store.commit('changeVideoTooltipVisibility', this.tooltipVideoVisible)
+        
+    },
+    onYouTubeIframeAPIReady: function () {''
        
       var playerVid;
       
       playerVid = new YT.Player("portfolioVideo", {
-        height: "390",
-        width: "640",
+        height: "762",
+        width: "1250",
         videoId: "ng-LJ0x4vUo",
          loop: 1,
          playerVars: {
@@ -104,17 +126,48 @@ export default {
   },
   mounted() {
      this.onYouTubeIframeAPIReady();
-
-
-
   },
+
+  computed: {
+    getVideoTooltipVisibleInfo() {
+      return this.$store.state.isVideoTooltipVisible
+    }
+  }
 };
 </script>
 
 <style lang="scss">
 
+.tet {
+    width: 60vw;
+    height: 60vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+.tet__visible {
+  z-index: 33;
+}
+
+.video-tooltip-visible {
+ 
+   iframe#portfolioVideo {
+    //  visible
+     display: block;
+   }
+
+}
+
+ iframe#portfolioVideo {
+     display: none;
+   }
+
 #portfolioVideo {
-  position: absolute;
+  opacity: 1;
+  position: fixed;
     left: 50%;
     top: 50%;
     z-index: 3;
@@ -151,6 +204,7 @@ export default {
 }
 
 .gallery__item {
+  transition: all .2s ease-in-out;
   margin: 0 3vw;
   display: grid;
   grid-template-areas:
@@ -160,6 +214,11 @@ export default {
     
  grid-template-columns: 1rem 21vmax;
  grid-template-rows: 40px 28vmax 3rem;
+
+ &:hover {
+   transition: all .1s ease-in-out;
+    transform: scale(1.05);
+  }
 }
 
 .gallery__item-img {
@@ -179,6 +238,9 @@ export default {
   height: 100%;
   will-change: transform;
   background-repeat: no-repeat;
+  cursor: pointer; 
+
+  
 }
 
 .gallery__item-caption {
@@ -236,6 +298,10 @@ export default {
   cursor: pointer;
   left: 59px;
   top: -43px;
+
+  @include xl{
+    top: -33%;
+  }
 }
 
 .gallery__item-link:focus,
@@ -279,4 +345,21 @@ export default {
     justify-self: end;
   }
 } */
+
+.section-projects--overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  opacity: .7;
+  z-index: -1;
+  transition: all .2s ease-in;
+
+  &__is-visible {
+     z-index: 2;
+     transition: all .2s ease-in;
+  }
+}
 </style>

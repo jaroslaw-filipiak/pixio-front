@@ -47,7 +47,6 @@ export default {
   data() {
     return {
       backgroundImagePath,
-      videoVisible:false,
     };
   },
   methods: {
@@ -58,7 +57,7 @@ export default {
 
     console.log(target)
     console.log(item)
-    console.log(itemVid)
+    this.$store.commit('changeVideoTooltipVisibility', true)
     }
   }
 };
