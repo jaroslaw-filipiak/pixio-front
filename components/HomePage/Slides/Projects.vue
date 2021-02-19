@@ -78,8 +78,8 @@ export default {
       var playerVid;
       
       playerVid = new YT.Player("portfolioVideo", {
-        height: "762",
-        width: "1250",
+        height: "548",
+        width: "900",
         videoId: "ng-LJ0x4vUo",
          loop: 1,
          playerVars: {
