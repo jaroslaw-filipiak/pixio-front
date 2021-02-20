@@ -19,17 +19,17 @@
 
 <script>
 import Header from "./../components/Header";
-import Slide1 from "./../components/HomePage/Slides/Slide1";
-import Slide2 from "./../components/HomePage/Slides/Slide2";
-import Slide3 from "./../components/HomePage/Slides/Slide3";
+// import Slide1 from "./../components/HomePage/Slides/Slide1";
+// import Slide2 from "./../components/HomePage/Slides/Slide2";
+// import Slide3 from "./../components/HomePage/Slides/Slide3";
 import Rightnav from "./../components/HomePage/Slides/Rightnav";
 
 export default {
   components: {
     Rightnav,
-    Slide1,
-    Slide2,
-    Slide3,
+    // Slide1,
+    // Slide2,
+    // Slide3,
     Header,
   },
   head: {
