@@ -5,7 +5,7 @@ export const state = () => ({
   isVideoVisible: false,
   isScrollLock: true,
   isRightMenuVisible: false,
-  isVideoTooltipVisible: false,
+  isVideoTooltipVisible: true,
   isTooltipVisible: false,
 })
 

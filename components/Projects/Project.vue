@@ -55,11 +55,18 @@ export default {
     const item = document.querySelector(`div[video-id="${target}"]`)
     const itemVid = document.querySelector(`iframe[video-id="${target}"]`)
 
-    console.log(target)
-    console.log(item)
-    // this.$store.commit('changeVideoTooltipVisibility', true)
+    console.log('project.vue: target ' + target)
+    console.log('project.vue: item ' + item)
+    this.$store.commit('changeVideoTooltipVisibility', !this.isVideoTooltipVisible)
     }
+  }, 
+  computed: {
+    isVideoTooltipVisible() {
+        return this.$store.state.isVideoTooltipVisible
+    }
+   
   }
+ 
 };
 </script>
 

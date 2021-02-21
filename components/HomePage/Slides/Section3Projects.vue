@@ -24,22 +24,30 @@
 
     </swiper>
 
-    <div class="swiper-arrows__projects--prev" >
+    <div class="project-video" :class="{'project-video__visible': isVideoVisible}">
+      <iframe style="position: relative; z-index: 3" width="860" height="515"
+        src="https://www.youtube.com/embed/kdhsCV45zW0" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+
+    </div>
+
+    <div class="swiper-arrows__projects--prev">
 
       <div class="swiper-pixo-button-prev prev-project"><img src="@/assets/img/arrow-bottom.svg" alt=""></div>
 
     </div>
 
-     <div class="swiper-arrows__projects--next">
+    <div class="swiper-arrows__projects--next">
 
       <div class="swiper-pixo-button-next next-project"><img src="@/assets/img/arrow-bottom.svg" alt=""></div>
-      
+
 
     </div>
-    
+
     <div class="projects-swiper-pagination"></div>
 
-   
+
   </div>
 </template>
 
@@ -51,7 +59,7 @@
           // effect: 'flip',
           slidesPerView: 'auto',
           centeredSlides: true,
-          loop: true,
+          loop: false,
           spaceBetween: 30,
           grabCursor: false,
           allowTouchMove: false,
@@ -66,33 +74,67 @@
             prevEl: '.prev-project',
           }
           // Some Swiper option/callback...
-        }
+        },
+        isVideoVisible: true,
+        
       }
+    },
+    methods: {
+      udpateComputedProperty() {
+        console.log('update computed property')
+        this.isVideoVisible = this.isVideoTooltipVisible
+      }
+    },
+     computed:{
+    isVideoTooltipVisible() {
+      return this.$store.state.isVideoTooltipVisible
     }
+  },
+  watch: {
+    isVideoTooltipVisible: function() {
+      console.log('changes in isVideoTooltipVisible to' + this.isVideoTooltipVisible)
+      this.udpateComputedProperty()
+    }
+  }
   }
 
 </script>
 
 <style lang="scss">
+  .project-video {
+    border: 1px solid blue;
+    z-index: -1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity:.5;
 
-.swiper-arrows__projects {
-  width: 60px;
-}
+    &__visible {
+      opacity: 1;
+       z-index: 90;
+    }
+  }
 
-.swiper-arrows__projects--next {
-  position: absolute;
-  top: 50%;
-  right: 0px;
-  width: 50px;
-  z-index: 80;
-}
-.swiper-arrows__projects--prev {
-  position: absolute;
-  top: 50%;
-  left: 0px;
-  width: 50px;
-  z-index: 80;
-}
+  .swiper-arrows__projects {
+    width: 60px;
+  }
+
+  .swiper-arrows__projects--next {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    width: 50px;
+    z-index: 80;
+  }
+
+  .swiper-arrows__projects--prev {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    width: 50px;
+    z-index: 80;
+  }
 
 
   .section-projects {
