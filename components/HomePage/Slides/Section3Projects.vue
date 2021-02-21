@@ -25,7 +25,7 @@
     </swiper>
 
     <div class="project-video" :class="{'project-video__visible': isVideoVisible}">
-      <iframe style="position: relative; z-index: 3" width="860" height="515"
+      <iframe style="position: relative; z-index: 3" width="650" height="389"
         src="https://www.youtube.com/embed/kdhsCV45zW0" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
@@ -46,6 +46,8 @@
     </div>
 
     <div class="projects-swiper-pagination"></div>
+
+    <slot> </slot>
 
 
   </div>
@@ -75,18 +77,18 @@
           }
           // Some Swiper option/callback...
         },
-        isVideoVisible: true,
+        isVideoVisible: false,
         
       }
     },
     methods: {
       udpateComputedProperty() {
         console.log('update computed property')
-        this.isVideoVisible = this.isVideoTooltipVisible
+        this.isVideoVisible = !this.isVideoTooltipVisible
       }
     },
      computed:{
-    isVideoTooltipVisible() {
+      isVideoTooltipVisible() {
       return this.$store.state.isVideoTooltipVisible
     }
   },
@@ -102,7 +104,6 @@
 
 <style lang="scss">
   .project-video {
-    border: 1px solid blue;
     z-index: -1;
     position: absolute;
     left: 50%;

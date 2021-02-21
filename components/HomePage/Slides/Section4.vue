@@ -4,7 +4,7 @@
     id="section4"
     :style="{ backgroundImage: `url(${backgroundUrl})` }"
   >
-    <div class="slide">
+    <div class="slide slide-for-sec-4" :class="{ 'is-hiring-visible': IsHiringVisible }">
       <div>
         <div class="info-box">
           <h4>
@@ -111,6 +111,32 @@ export default {
 </script>
 
 <style lang="scss">
+
+.slide-for-sec-4 {
+  @include xl {
+  position: relative;
+  top: 0px;
+  transition: all .1s ease-in-out;
+  }
+ 
+}
+
+.is-hiring-visible {
+  transition: all .1s ease-in-out;
+  @include xl {
+  position: relative;
+  top: -200px;
+  transition: all .1s ease-in-out;
+  }
+
+  .info-box , .we-are-global {
+    @include xl {
+      transition: all .3s ease-in-out;
+      filter: blur(4px);
+    }
+  }
+
+}
 #section4 {
   .fp-tableCell {
     display: flex !important;
@@ -134,6 +160,7 @@ export default {
 }
 
 .info-box {
+   transition: all .3s ease-in-out;
   margin: 0 auto;
   max-width: 512px;
   padding: 20px 30px;
@@ -166,6 +193,9 @@ export default {
 
 .we-are-global {
   margin-top: 40px;
+  &__hide{
+    opacity: 0;
+  }
 }
 
 .we-are-global--branches {

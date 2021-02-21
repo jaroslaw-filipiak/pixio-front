@@ -24,8 +24,8 @@
       <div v-if="isTooltipVisible" class="tooltip">
         <iframe
           style="position: relative; z-index: 3"
-          width="860"
-          height="515"
+          width="650"
+          height="389"
           src="https://www.youtube.com/embed/kdhsCV45zW0"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -198,6 +198,11 @@ transform: rotate(270deg)
  
 }
 
+ .swiper-button-disabled {
+      opacity: 0;
+      transition: all .3s ease-in-out;
+    }
+    
 .swipper-arrows {
     width: 90vw;
     height: 9%;
@@ -215,10 +220,15 @@ transform: rotate(270deg)
     opacity: 1;
     transition: all .3s ease-in-out;
 
-    .swiper-button-disabled {
-      opacity: 0;
-      transition: all .3s ease-in-out;
+    @include lg-min {
+      width: 85vw;
     }
+
+    @include xxl-min {
+      width: 90vw;
+    }
+
+   
 }
 
 .swipper-outer {
@@ -234,7 +244,7 @@ transform: rotate(270deg)
     text-transform: uppercase;
     font-size: 16px;
     width: 100%;
-    height: 80px;
+   
     position: absolute;
     bottom: 0;
     left: 0;
@@ -246,6 +256,14 @@ transform: rotate(270deg)
     opacity: 1;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+
+    @include lg-min {
+      height: 50px;
+    }
+
+    @include xxl-min {
+      height: 80px;
+    }
 }
 
 .swipper-container {
@@ -264,13 +282,20 @@ transform: rotate(270deg)
 
 .swiper-pagination {
   left: 0px;
-  bottom: 120px;
+ 
   width: 100vw;
   opacity: 0;
   transition: all .2s ease-in-out;
   &__visible {
     opacity: 1;
     transition: all .2s ease-in-out;
+  }
+
+  @include lg-min {
+    bottom: 67px;
+  }
+  @include xxl-min {
+    bottom: 120px;
   }
 }
 
