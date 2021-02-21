@@ -1,5 +1,5 @@
 <template>
-    <swiper ref="mySwiper" :options="swiperOptions">
+    <swiper style="display: none;" ref="mySwiper" :options="swiperOptions">
     <swiper-slide>
        <div class="tooltip-container " :class="{'tooltip-container--visible' : isTooltipVisible}">
         <div v-if="isTooltipVisible" class="tooltip" >
