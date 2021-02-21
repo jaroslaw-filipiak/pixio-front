@@ -69,6 +69,12 @@
          </div>
      </div>
 
+    <div v-show="isTooltipVisible" class="swipper-arrows">
+    <div class="swiper-pixo-button-next"><img src="@/assets/img/arrow-bottom.svg" alt=""></div>
+     <div class="swiper-pixo-button-prev"><img src="@/assets/img/arrow-bottom.svg" alt=""></div>
+    </div>
+    
+
 </div>
   
 </template>
@@ -83,14 +89,24 @@ data() {
         isTooltipVisible: false,
         isBulletsVisible: false,
         swiperOptions: {
+          effect: 'flip',
+          allowTouchMove: false,
+          speed: 200,
          pagination: {
           el: ".swiper-pagination",
           type: "bullets",
           clickable: true,
         },
+        navigation: {
+           nextEl: '.swiper-pixo-button-next',
+           prevEl: '.swiper-pixo-button-prev',
+        }
           // Some Swiper option/callback...
         }
       }
+},
+mounted() {
+ this.forceIndicatorVisibleToTrue();
 },
 watch: {
   isSectionOverlayActive: function() {
@@ -100,6 +116,10 @@ watch: {
     
 },
 methods: {
+  forceIndicatorVisibleToTrue() {
+    this.indicatorVisible = true,
+    console.log('forceIndicatorVisibleToTrue')
+  },
   closeSwiper() {
       this.isSectionOverlayActive = false;
       this.isTooltipVisible = false;
@@ -133,6 +153,70 @@ methods: {
 </script>
 
 <style lang="scss">
+
+.arrow-bottom-next-slide--inner {
+  opacity: 1; 
+   transition: all .3s ease-in-out;
+  &:hover {
+    opacity: .7;
+    transition: all .3s ease-in-out;
+  }
+}
+
+.swiper-pixo-button-next,
+.swiper-pixo-button-prev {
+ width: 40px;
+ height: 40px;
+ border: 2px solid rgba(255, 255, 255, 1);
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ opacity: 1; 
+ transition: all .3s ease-in;
+ &:hover {
+   opacity: .7;
+   transition: all .3s ease-in;
+   }
+}
+
+.swiper-pixo-button-next {
+  img {
+transform: rotate(270deg)
+  }
+  
+}
+
+.swiper-pixo-button-prev {
+  img {
+ transform: rotate(90deg)
+  }
+ 
+}
+
+.swipper-arrows {
+    width: 90vw;
+    height: 9%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 7;
+    transform: translate(-50%, -50%);
+
+    display:flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+
+    opacity: 1;
+    transition: all .3s ease-in-out;
+
+    .swiper-button-disabled {
+      opacity: 0;
+      transition: all .3s ease-in-out;
+    }
+}
 
 .swipper-outer {
     position: absolute;
