@@ -112,6 +112,7 @@ watch: {
   isSectionOverlayActive: function() {
      console.log(this.isSectionOverlayActive);
      this.handleSwipperWrapperOverlay()
+     console.log('watch isSectionOverlayActive')
   }
     
 },
@@ -139,8 +140,10 @@ methods: {
 
     if(this.isSectionOverlayActive) {
       container.classList.add('swipper-container__overlay')
+       this.$store.commit('setIsTooltipVisible', true)
     } else {
        container.classList.remove('swipper-container__overlay')
+        this.$store.commit('setIsTooltipVisible', false)
     }
     
   }

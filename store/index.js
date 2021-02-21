@@ -6,6 +6,7 @@ export const state = () => ({
   isScrollLock: true,
   isRightMenuVisible: false,
   isVideoTooltipVisible: false,
+  isTooltipVisible: false,
 })
 
 export const mutations = {
@@ -29,6 +30,9 @@ export const mutations = {
   },
   setVideoTooltipToFalse(state , payload) {
     state.isVideoTooltipVisible = payload
+  },
+  setIsTooltipVisible(state, payload) {
+    state.isTooltipVisible = payload
   }
 }
 

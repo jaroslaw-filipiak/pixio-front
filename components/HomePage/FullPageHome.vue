@@ -3,11 +3,11 @@
 
     <!-- solutions -->
     <Section2>
-      <!-- <div @click="$refs.fullpage.api.moveSectionDown()" class="arrow-bottom-next-slide">
+      <div v-if="!isTooltipVisible"  @click="$refs.fullpage.api.moveSectionDown()" class="arrow-bottom-next-slide">
         <div class="arrow-bottom-next-slide--inner">
           <img src="@/assets/img/arrow-bottom.svg" alt="">
         </div>
-      </div> -->
+      </div>
     </Section2>
     <!-- solutions -->
 
@@ -72,7 +72,9 @@
           afterLoad: this.afterLoad,
           onSlideLeave: this.onSlideLeave,
           onLeave: this.onLeave,
+          
         },
+      
       }
     },
     methods: {
@@ -133,7 +135,12 @@
       this.observer.observe(toObservate);
       console.log(this.observer)
       console.log(this.$el)
+    },
+  computed: {
+    isTooltipVisible: function() {
+      return this.$store.state.isTooltipVisible;
     }
+  },
   }
 
 </script>
