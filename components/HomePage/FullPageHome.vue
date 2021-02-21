@@ -11,7 +11,16 @@
     </Section2>
     <!-- solutions -->
 
-    <Projects />
+    <Section3Projects>
+      <div @click="$refs.fullpage.api.moveSectionDown()" class="arrow-bottom-next-slide">
+        <div class="arrow-bottom-next-slide--inner">
+          <img src="@/assets/img/arrow-bottom.svg" alt="">
+        </div>
+      </div>
+    </Section3Projects>
+  
+
+    <!-- <Projects /> -->
 
   <!-- projects -->
     <!-- <Section3>
@@ -41,9 +50,10 @@
 
     <Contact />
 
+    <!-- empty section / rightside navigation fast fix -->
     <div class="section">
-      <div class="slide">sd</div>
     </div>
+    <!-- empty section / rightside navigation fast fix -->
 
   </full-page>
 </template>
@@ -121,20 +131,21 @@
       }
     },
     created() {
-      const ObserverWrapper = document.querySelector('#__layout')
+      // const ObserverWrapper = document.querySelector('#__layout')
 
-      this.observer = new IntersectionObserver(
-        this.onElementObserved, {
-          root: ObserverWrapper,
-          threshold: 1.0,
-        }
-      );
+      // this.observer = new IntersectionObserver(
+      //   this.onElementObserved, {
+      //     root: ObserverWrapper,
+      //     threshold: 1.0,
+      //   }
+      // );
+
     },
     mounted() {
-      const toObservate = document.querySelector('.section-projects')
-      this.observer.observe(toObservate);
-      console.log(this.observer)
-      console.log(this.$el)
+      // const toObservate = document.querySelector('.section-projects')
+      // this.observer.observe(toObservate);
+      // console.log(this.observer)
+      // console.log(this.$el)
     },
   computed: {
     isTooltipVisible: function() {
