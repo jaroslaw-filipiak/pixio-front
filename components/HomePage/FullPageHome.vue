@@ -3,11 +3,11 @@
 
     <!-- solutions -->
     <Section2>
-      <div @click="$refs.fullpage.api.moveSectionDown()" class="arrow-bottom-next-slide">
+      <!-- <div @click="$refs.fullpage.api.moveSectionDown()" class="arrow-bottom-next-slide">
         <div class="arrow-bottom-next-slide--inner">
           <img src="@/assets/img/arrow-bottom.svg" alt="">
         </div>
-      </div>
+      </div> -->
     </Section2>
     <!-- solutions -->
 
@@ -24,7 +24,7 @@
      <!-- projects -->
 
     <Section4>
-   <div @click="$refs.fullpage.api.moveSectionDown()" class="arrow-bottom-next-slide">
+      <div @click="$refs.fullpage.api.moveSectionDown()" class="arrow-bottom-next-slide">
         <div class="arrow-bottom-next-slide--inner">
           <img src="@/assets/img/arrow-bottom.svg" alt="">
         </div>
