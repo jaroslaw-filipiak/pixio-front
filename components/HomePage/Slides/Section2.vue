@@ -4,8 +4,8 @@
     <div v-if="isSectionOverlayActive" class="section-overlay"></div>
     <div class="slide slide-2 slide-solutions"  >
       <div class="slide-title">
-        <h1>Virtual production studio in Toronto    
-          <slot> </slot>  
+        <h1>Virtual production studio in Toronto
+         <SolutionsSlides/>
         </h1>
       </div>
 
@@ -14,21 +14,8 @@
         class="indicator"
         style="position: fixed; left: 20vw; top: 30vh"
       ></div>
-      <div class="tooltip-container" :class="{'tooltip-container--visible' : isTooltipVisible}">
-        <div v-if="isTooltipVisible" class="tooltip" >
-          <div class="tooltip--left">
-            <img src="~/assets/img/about.jpg" />
-          </div>
-          <div class="tooltip--right">
-            <h2>
-              Visual Production Studio in Toronto
-            </h2>
-            <p>
-             Virtual production means amazing results driven by technology. It allows creative people to bring their vision to life way before the final edit or locked cut. With our technology we can highlight the flaws before it’s too late. We can emphasize the strength and originality to make the most out of the production. We can make what seemed impossible come to life inside the VR headset  before the set has been built. We can make the sun rise or sun set whenever you want. And you choose the color. We can even make it rain.
-            </p>
-          </div>
-        </div>
-      </div>
+
+     
       <div class="vr-info-box--wrapper">
         <div class="vr-info-box">
           <div class="vr-info-box--column vr-info-box--column-1">
@@ -104,11 +91,13 @@
 
 <script>
 import image from "@/assets/img/vrbg.jpg";
+import Solutions from '../../../pages/Solutions.vue';
 export default {
+  components: { Solutions },
   data() {
     return {
       image: image,
-      isTooltipVisible: false,
+      isTooltipVisible: true,
       isSectionOverlayActive: false,
       isArrowsVisible: false,
       indicatorVisible: true,
