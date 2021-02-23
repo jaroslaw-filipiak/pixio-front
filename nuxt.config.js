@@ -49,10 +49,12 @@ export default {
         src: 'https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js'
       },
       {
-        src: ' https://apps.elfsight.com/p/platform.js'
+        // src: ' https://apps.elfsight.com/p/platform.js'
+      },
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/InstagramFeed/2.0.2/InstagramFeed.min.js'
       }
      
-
     ]
   },
 
