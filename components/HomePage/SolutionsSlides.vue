@@ -226,7 +226,7 @@ transform: rotate(270deg)
     }
     
 .swipper-arrows {
-    width: 90vw;
+    width: 80vw;
     height: 9%;
     position: absolute;
     left: 50%;
@@ -243,7 +243,7 @@ transform: rotate(270deg)
     transition: all .3s ease-in-out;
 
     @include lg-min {
-      width: 85vw;
+      width: 80vw;
     }
     
 
