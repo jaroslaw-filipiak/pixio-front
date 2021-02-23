@@ -17,13 +17,12 @@
         I would like to:
         <select name="" id="">
           <option value="get an estimate">get an estimate</option>
-          <option value="get an estimate">get an estimate</option>
-          <option value="get an estimate">get an estimate</option>
-          <option value="get an estimate">get an estimate</option>
+          <option value="get an estimate">learn more about VP</option>
+          <option value="get an estimate">other</option>
         </select>
       </label>
       <label for="email">
-        You canreach me via
+        You can reach me via
         <input type="email" placeholder="your e-mail" />
       </label>
 
@@ -189,6 +188,13 @@ export default {
 </script>
 
 <style lang="scss">
+
+.contact-title {
+  @include xxl-min {
+    position: relative;
+    top: 6vh;
+  }
+}
 #section-contact {
   background-size: cover;
   background-repeat: no-repeat;
@@ -212,7 +218,17 @@ export default {
     justify-content: space-between;
     border: 1px solid #fff;
     border-radius: 20px;
-    padding: 60px 50px;
+    padding: 40px 30px;
+    transform: scale(1);
+
+     @include xl {
+      transform: scale(.8)
+    }
+
+    @include xxl-min {
+      min-width: 520px;
+      padding: 50px 40px;
+    }
 
     label {
       margin: 10px 0px;
@@ -328,6 +344,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+     transform: scale(1);
+
+    @include xl {
+      transform: scale(.8)
+    }
   }
 
   .contact-info--icon {
