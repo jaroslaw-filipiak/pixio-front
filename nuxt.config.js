@@ -44,8 +44,14 @@ export default {
       },
       {
         src: 'https://cdn.jsdelivr.net/gh/arkdevuk/InstaPost@master/dist/instapost.min.js'
+      },
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js'
+      },
+      {
+        src: ' https://apps.elfsight.com/p/platform.js'
       }
-
+     
 
     ]
   },
@@ -81,10 +87,11 @@ export default {
       src: '@/plugins/vue-awesome-swiper.js',
       ssr: false
     },
-    {
-      src: '@/plugins/axios.js',
-      ssr: false
-    },
+    // {
+    //   src: '@/plugins/instafeed.js',
+    //   ssr: false
+    // },
+   
 
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components

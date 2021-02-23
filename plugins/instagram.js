@@ -12,14 +12,14 @@
 //   .then(console.log)
 //   .catch(console.error)
 
-// const InstagramFeed = require('instafeed')
+const InstagramFeed = require('instafeed')
 
 
-const Instagram = require("node-instagram").default;
+// const Instagram = require("node-instagram").default;
 
-// Create a new instance.
-const instagram = new Instagram({
-  clientId: "1618384628549329",
-  clientSecret: "87d5286771ff7a1142360bd97311f515",
-  accessToken:"IGQVJWeHYyZAG0zZATBTOG9yWkdsWklvY0ZA4dV9sbFFFUlNKSHFCd3pPYVBBenB1eDhYTXJNeEY0a2FabTI2RGFrek1WT3phTHhTeUk3QVZAMZAEFSbzZAVZAmlqbW1Ia2RYbmZAQQjB5VXdkTWNBTVh3RFlTXwZDZD"
-});
+// // Create a new instance.
+// const instagram = new Instagram({
+//   clientId: "1618384628549329",
+//   clientSecret: "87d5286771ff7a1142360bd97311f515",
+//   accessToken:"IGQVJWeHYyZAG0zZATBTOG9yWkdsWklvY0ZA4dV9sbFFFUlNKSHFCd3pPYVBBenB1eDhYTXJNeEY0a2FabTI2RGFrek1WT3phTHhTeUk3QVZAMZAEFSbzZAVZAmlqbW1Ia2RYbmZAQQjB5VXdkTWNBTVh3RFlTXwZDZD"
+// });
