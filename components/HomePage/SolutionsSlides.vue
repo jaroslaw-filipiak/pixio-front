@@ -15,6 +15,11 @@
             <p>
              Virtual production means amazing results driven by technology. It allows creative people to bring their vision to life way before the final edit or locked cut. With our technology we can highlight the flaws before it’s too late. We can emphasize the strength and originality to make the most out of the production. We can make what seemed impossible come to life inside the VR headset  before the set has been built. We can make the sun rise or sun set whenever you want. And you choose the color. We can even make it rain.
             </p>
+            <div @click="nextSlide"  class="tooltip-button ">
+              <p>See what can we do using VR</p>
+              <img src="@/assets/img/arrow-right-black.svg" alt="arrow right">
+            </div>
+            
           </div>
         </div>
       </div>
@@ -105,8 +110,19 @@ data() {
         }
       }
 },
+computed: {
+  swiper() {
+      return this.$refs.mySwiper
+    }
+},
 mounted() {
  this.forceIndicatorVisibleToTrue();
+//  const swiper = document.querySelector('.swiper-container').swiper;
+
+  console.log('Current Swiper instance object', this.swiper)
+  // console.log('myswiper' , $swiper)
+      // this.swiper.slideTo(3, 1000, false)
+ 
 },
 watch: {
   isSectionOverlayActive: function() {
@@ -117,6 +133,15 @@ watch: {
     
 },
 methods: {
+ 
+  nextSlide() {
+    // console.log(this.$refs.mySwiper)
+    // this.$refs.mySwiper.$swiper.slideTo(1)
+    this.$refs.mySwiper.$swiper.slideNext()
+    
+    // swiper.slideNext();
+    // this.swiper.slideTo(2, 1000, false)
+  },
   forceIndicatorVisibleToTrue() {
     this.indicatorVisible = true,
     console.log('forceIndicatorVisibleToTrue')
@@ -148,10 +173,7 @@ methods: {
     
   }
 },
- mounted() {
-      console.log('Current Swiper instance object', this.swiper)
-      // this.swiper.slideTo(3, 1000, false)
-    }
+
 }
 </script>
 
@@ -223,9 +245,10 @@ transform: rotate(270deg)
     @include lg-min {
       width: 85vw;
     }
+    
 
     @include xxl-min {
-      width: 90vw;
+      width: 85vw;
     }
 
    
@@ -344,4 +367,45 @@ transform: rotate(270deg)
 }
 }
 
+.tooltip-button {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+  p {
+    font-weight: bold;
+  }
+
+   &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: rgba(0, 0, 0, 0);
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+      animation-fill-mode: forwards;
+    }
+
+  &:hover {
+    &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+     animation-fill-mode: forwards;
+    }
+  }
+}
 </style>
