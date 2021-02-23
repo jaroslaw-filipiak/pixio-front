@@ -29,6 +29,15 @@
       align-items: center;
       justify-content: center;
 
+      @include xl-min {
+        padding: 50px 55px;
+      transform: scale(.8);
+      }
+
+      @include xxl-min {
+        padding: 50px 55px;
+      }
+
 
       &--left,
       &--right {
