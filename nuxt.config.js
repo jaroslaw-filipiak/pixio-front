@@ -81,6 +81,10 @@ export default {
       src: '@/plugins/vue-awesome-swiper.js',
       ssr: false
     },
+    {
+      src: '@/plugins/axios.js',
+      ssr: false
+    },
 
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -94,9 +98,15 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/style-resources',
+  '@nuxtjs/axios',
+  '@nuxtjs/style-resources',
+
     // 'fullpage-nuxt',
   ],
+
+  axios: {
+    // proxy: true
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
