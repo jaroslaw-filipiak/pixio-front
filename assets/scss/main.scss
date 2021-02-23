@@ -143,6 +143,10 @@ div.indicator {
     background-color: #fff;
     color: #5d3e3e;
   }
+
+  &__solutions {
+    min-width: 280px;
+  }
 }
 
 .btn {

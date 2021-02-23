@@ -2,6 +2,7 @@
 <template>
   <div class="section section-2" :style="{ backgroundImage: `url(${image})` }">
     <!-- <div v-if="isSectionOverlayActive" class="section-overlay"></div> -->
+    <div class="section-2-gradient-overlay"></div>
     <div class="slide slide-2 slide-solutions"  >
       <div class="slide-title">
         <h1>Virtual production studio in Toronto
@@ -17,20 +18,18 @@
             <h4>Making <br />impossible</h4>
           </div>
           <div class="vr-info-box--column vr-info-box--column-2">
-            <img src="~/assets/img/fast-forward.svg" />
+            <img src="~/assets/img/icon-zap.svg" />
             <h4>Results driven <br />by technology</h4>
           </div>
           <div class="vr-info-box--column vr-info-box--column-3">
-            <img src="~/assets/img/fast-forward.svg" />
+            <img src="~/assets/img/icon-sunset.svg" />
             <h4>
               Making the sun<br />
               rise or sun set
             </h4>
           </div>
           <div class="vr-info-box--column vr-info-box--column-4">
-            <button
-              style="position: relative; left: 60px"
-              class="btn btn-outline-white"
+            <button class="btn btn-outline-white btn-outline-white__solutions"
             >
               Contact us for more information
             </button>
@@ -101,6 +100,26 @@ export default {
 
 <style lang="scss">
 
+.vr-box__under {
+  z-index: -1 !important;
+}
+
+
+
+.section-2-gradient-overlay {
+  background: rgb(255,255,255);
+background: -moz-linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
+background: -webkit-linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
+background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#000000",GradientType=1);
+
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 100%;;
+}
+
 .side-arrows-visible {
   .fp-controlArrow.fp-prev {
  
@@ -122,6 +141,13 @@ export default {
   height: 100px;
   position: absolute;
   bottom: 80px;
+  z-index: 11;
+   transform: scale(1);
+
+  @include xl {
+    transform: scale(.9);
+    left: -10px;
+  }
 }
 
 .vr-info-box {

@@ -129,6 +129,16 @@ watch: {
      console.log(this.isSectionOverlayActive);
      this.handleSwipperWrapperOverlay()
      console.log('watch isSectionOverlayActive')
+
+     if(this.isSectionOverlayActive) {
+        const vrBox = document.querySelector('.vr-info-box--wrapper');
+        vrBox.classList.add('vr-box__under')
+     } else {
+        const vrBox = document.querySelector('.vr-info-box--wrapper');
+        vrBox.classList.remove('vr-box__under')
+     }
+
+    
   }
     
 },
