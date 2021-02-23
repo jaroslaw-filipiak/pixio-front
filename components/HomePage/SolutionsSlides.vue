@@ -318,7 +318,7 @@ transform: rotate(270deg)
     bottom: 67px;
   }
   @include xxl-min {
-    bottom: 120px;
+    bottom: 85px;
   }
 }
 

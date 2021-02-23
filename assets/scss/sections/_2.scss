@@ -23,6 +23,7 @@
       background-color: #fff;
       color: #000;
       max-width: 777px;
+      // max-width: 60vw;
       padding: 10px;
       border-radius: 7px;
       display: flex;
@@ -35,8 +36,8 @@
       }
 
       @include xxl-min {
-        padding: 50px 55px;
-        transform: scale(1);
+        padding: 40px 45px;
+        transform: scale(1.35);
       }
 
 
