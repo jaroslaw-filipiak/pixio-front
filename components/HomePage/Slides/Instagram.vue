@@ -82,7 +82,10 @@ export default {
 <style lang="scss">
 
 #instagram-feed1 {
-  width: 80vw;
+  width: 60vw;
+  @include xxl-min {
+    width: 80vw;
+  }
 }
 
 #section-instagram {

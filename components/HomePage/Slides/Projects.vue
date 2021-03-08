@@ -6,6 +6,8 @@
     <div class="slide" style="transform: rotate(-1deg)">
       <div class="content" :class="{'isBlured': getVideoTooltipVisibleInfo}">
         <div class="gallery">
+            <Project @click.native="handleClickInProject" :my-prop="count"> </Project>
+            <!-- <Project @click.native="handleClickInProject"> </Project>
             <Project @click.native="handleClickInProject"> </Project>
             <Project @click.native="handleClickInProject"> </Project>
             <Project @click.native="handleClickInProject"> </Project>
@@ -15,9 +17,7 @@
             <Project @click.native="handleClickInProject"> </Project>
             <Project @click.native="handleClickInProject"> </Project>
             <Project @click.native="handleClickInProject"> </Project>
-            <Project @click.native="handleClickInProject"> </Project>
-            <Project @click.native="handleClickInProject"> </Project>
-            <Project @click.native="handleClickInProject"> </Project>
+            <Project @click.native="handleClickInProject"> </Project> -->
         </div>
       </div>
     </div>
@@ -65,6 +65,7 @@ export default {
   data() {
     return {
       tooltipVideoVisible: false,
+      
     };
   },
   methods: {
@@ -141,7 +142,10 @@ export default {
   computed: {
     getVideoTooltipVisibleInfo() {
       return this.$store.state.isVideoTooltipVisible
-    }
+    },
+      count () {
+      return this.$store.state.count
+   }
   }
 };
 </script>

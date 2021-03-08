@@ -39,12 +39,12 @@
 </template>
 
 <script>
-import backgroundImagePath from "@/assets/img/projects/poster.jpg";
+// import backgroundImagePath from "@/assets/img/projects/poster.jpg";
 import LocomotiveScroll from "locomotive-scroll";
 export default {
   data() {
     return {
-      backgroundImagePath,
+      // backgroundImagePath,
     };
   },
   methods: {

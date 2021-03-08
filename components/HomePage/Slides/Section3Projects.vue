@@ -3,24 +3,55 @@
     <swiper ref="projectsSwiper" :options="projectsSwiperOptions">
 
       <swiper-slide>
-        <Project />
-        <Project />
-        <Project />
+        <Project title="Bridge of Spies" :backgroundUrl="require(`~/assets/img/projects/_brigde_of_spies_.jpg`)" />
+        <Project title="Carnival Row" :backgroundUrl="require(`~/assets/img/projects/_carnival_row_.jpg`)" />
+        <Project title="Euphoria" :backgroundUrl="require(`~/assets/img/projects/_euphoria_.jpg`)" />
       </swiper-slide>
 
       <swiper-slide>
-        <Project />
-        <Project />
-        <Project />
-        <Project />
+        <Project title="Game of Thrones" :backgroundUrl="require(`~/assets/img/projects/_game_of_thrones_.jpg`)" />
+        <Project title="Hugo" :backgroundUrl="require(`~/assets/img/projects/_hugo_.jpg`)" />
+        <Project title="ich war noch niemals in new york"
+          :backgroundUrl="require(`~/assets/img/projects/_Ich_war_noch_niemals_in_New_York-Der_Film_.jpg`)" />
       </swiper-slide>
 
       <swiper-slide>
-        <Project />
-        <Project />
-        <Project />
-        <Project />
+        <Project title="Live by Night" :backgroundUrl="require(`~/assets/img/projects/_live_by_night_.jpg`)" />
+        <Project title="Midway" :backgroundUrl="require(`~/assets/img/projects/_midway_.jpg`)" />
+        <Project title="Oblivion" :backgroundUrl="require(`~/assets/img/projects/_oblivion_.jpg`)" />
       </swiper-slide>
+
+      <swiper-slide>
+        <Project title="Perry Mason" :backgroundUrl="require(`~/assets/img/projects/_perry_mason_Season_One.jpg`)" />
+        <Project title="Picard" :backgroundUrl="require(`~/assets/img/projects/_picard_.jpg`)" />
+        <Project title="Power Rangers" :backgroundUrl="require(`~/assets/img/projects/_power_rangers_.jpg`)" />
+      </swiper-slide>
+
+      <swiper-slide>
+        <Project title="Raised by Wolves" :backgroundUrl="require(`~/assets/img/projects/_raised_by_wolves_.jpg`)" />
+        <Project title="Raising Got Dragons"
+          :backgroundUrl="require(`~/assets/img/projects/_raising_GOT_dragons_.jpg`)" />
+        <Project title="See" :backgroundUrl="require(`~/assets/img/projects/_see_.jpg`)" />
+      </swiper-slide>
+
+      <swiper-slide>
+        <Project title="Shadow Zhang Yimou's" :backgroundUrl="require(`~/assets/img/projects/_Shadow__Zhang_Yimous_.jpg`)" />
+         <Project title="Siren" :backgroundUrl="require(`~/assets/img/projects/_siren_.jpg`)" />
+          <Project title="Snow White and the Huntsmen" :backgroundUrl="require(`~/assets/img/projects/_snow_white_and_the_huntsmen_.jpg`)" />
+      </swiper-slide>
+
+       <swiper-slide>
+        <Project title="The Girl in the Spider's Web" :backgroundUrl="require(`~/assets/img/projects/_the_girl_in_the_spiders_web_.jpg`)" />
+         <Project title="The Mandalorian" :backgroundUrl="require(`~/assets/img/projects/_the_mandalorian_season_1_.jpg`)" />
+          <Project title="The Orville" :backgroundUrl="require(`~/assets/img/projects/_the_orville_-Season_2.jpg`)" />
+      </swiper-slide>
+
+       <swiper-slide>
+        <Project title="The Umbrella Academy" :backgroundUrl="require(`~/assets/img/projects/_the_umbrella_academy_season_2.jpg`)" />
+         <Project title="The Wandering Earth" :backgroundUrl="require(`~/assets/img/projects/_the_wandering_earth_.jpg`)" />
+          <Project title="Westworld" :backgroundUrl="require(`~/assets/img/projects/_westworld_season_2.jpg`)" />
+      </swiper-slide>
+
 
     </swiper>
 
@@ -78,7 +109,7 @@
           // Some Swiper option/callback...
         },
         isVideoVisible: false,
-        
+
       }
     },
     methods: {
@@ -87,17 +118,17 @@
         this.isVideoVisible = !this.isVideoTooltipVisible
       }
     },
-     computed:{
+    computed: {
       isVideoTooltipVisible() {
-      return this.$store.state.isVideoTooltipVisible
+        return this.$store.state.isVideoTooltipVisible
+      }
+    },
+    watch: {
+      isVideoTooltipVisible: function () {
+        console.log('changes in isVideoTooltipVisible to' + this.isVideoTooltipVisible)
+        this.udpateComputedProperty()
+      }
     }
-  },
-  watch: {
-    isVideoTooltipVisible: function() {
-      console.log('changes in isVideoTooltipVisible to' + this.isVideoTooltipVisible)
-      this.udpateComputedProperty()
-    }
-  }
   }
 
 </script>
@@ -109,11 +140,11 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    opacity:.5;
+    opacity: .5;
 
     &__visible {
       opacity: 1;
-       z-index: 90;
+      z-index: 90;
     }
   }
 
@@ -304,6 +335,9 @@
     font-size: 24px;
     color: var(--color-gallery-title);
     font-family: "Jost", sans-serif !important;
+
+    line-height: 23px;
+    margin-bottom: 15px;
   }
 
   .gallery__item-number,
@@ -405,6 +439,14 @@
       z-index: 2;
       transition: all .5s ease-in;
     }
+  }
+
+  .next-project {
+    opacity: 1; 
+  }
+
+  .swiper-button-disabled {
+    opacity: .1
   }
 
 </style>

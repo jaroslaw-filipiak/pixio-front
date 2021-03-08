@@ -1,5 +1,6 @@
 export const state = () => ({
   counter: 0,
+  count: 34343,
   done: false,
   isMaskVisible: true,
   isVideoVisible: false,

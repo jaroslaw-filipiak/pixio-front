@@ -3,7 +3,7 @@
     <div class="gallery__item-img">
       <div
         class="gallery__item-imginner"
-        :style="{ backgroundImage: `url(${backgroundImagePath})` }"
+        :style="{ backgroundImage: `url(${backgroundUrl})` }"
         data-scroll
         data-scroll-speed="-0.8"     
         video-id="kdhsCV45zW0"                
@@ -11,13 +11,10 @@
     </div>
     <figcaption class="gallery__item-caption">
       <h2 class="gallery__item-title" data-scroll data-scroll-speed="1">
-       Star Trek Discovery
+        {{title}} 
        <slot> </slot>
       </h2>
-      <span class="gallery__item-number" data-scroll data-scroll-speed="1.5"
-        >01</span
-      >
-
+     
       <a class="gallery__item-link"
         ><svg
           width="17"
@@ -44,6 +41,7 @@
 <script>
 import backgroundImagePath from "@/assets/img/poster-star-treck-discovery.jpg";
 export default {
+  props: ['title', 'backgroundUrl'],
   data() {
     return {
       backgroundImagePath,
