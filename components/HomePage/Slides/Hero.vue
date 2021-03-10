@@ -101,11 +101,18 @@ export default {
             const nav = document.querySelector('#fp-nav')
            
 
-            hideIndicator.play();
-            showArrowIndicator.play();
+          //  errors this ?
 
-            showHamburger.play();
-            showFpNav.play();
+            // hideIndicator.play();
+            // showArrowIndicator.play();
+
+            // showHamburger.play();
+            // showFpNav.play();
+
+
+
+
+
             // nav.classList.add('fp-nav--visible')
         }
 

@@ -8,6 +8,7 @@ export const state = () => ({
   isRightMenuVisible: false,
   isVideoTooltipVisible: true,
   isTooltipVisible: false,
+  // currentVideo: `https://www.youtube.com/embed/${videoID}`
 })
 
 export const mutations = {
@@ -34,6 +35,10 @@ export const mutations = {
   },
   setIsTooltipVisible(state, payload) {
     state.isTooltipVisible = payload
+  },
+  updateCurrentVideo(state, payload) {
+    state.currentVideo = payload
+
   }
 }
 

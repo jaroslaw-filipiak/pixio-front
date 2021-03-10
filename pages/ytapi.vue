@@ -64,18 +64,18 @@ export default {
   },
   methods: {
     afterLoad() {
-      console.log("Emitted 'after load' event.");
+      // console.log("Emitted 'after load' event.");
     },
     onLeave(e) {
-      console.log("on leave..");
-      console.log(e);
+      // console.log("on leave..");
+      // console.log(e);
     },
     onSlideLeave(section, origin, destination, direction) {
-      console.log("on slide leave..");
-      console.log(section);
-      console.log(origin);
-      console.log(destination);
-      console.log(direction);
+      // console.log("on slide leave..");
+      // console.log(section);
+      // console.log(origin);
+      // console.log(destination);
+      // console.log(direction);
     },
     onYouTubeIframeAPIReady: function () {
       var player;

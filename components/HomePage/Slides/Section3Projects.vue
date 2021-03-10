@@ -3,9 +3,9 @@
     <swiper ref="projectsSwiper" :options="projectsSwiperOptions">
 
       <swiper-slide>
-        <Project title="Bridge of Spies" :backgroundUrl="require(`~/assets/img/projects/_brigde_of_spies_.jpg`)" />
-        <Project title="Carnival Row" :backgroundUrl="require(`~/assets/img/projects/_carnival_row_.jpg`)" />
-        <Project title="Euphoria" :backgroundUrl="require(`~/assets/img/projects/_euphoria_.jpg`)" />
+        <Project title="Bridge of Spies" :backgroundUrl="require(`~/assets/img/projects/_brigde_of_spies_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
+        <Project title="Carnival Row" :backgroundUrl="require(`~/assets/img/projects/_carnival_row_.jpg`)" movieEmbeed="https://www.youtube.com/embed/n3j6XSrIWLs" />
+        <Project title="Euphoria" :backgroundUrl="require(`~/assets/img/projects/_euphoria_.jpg`)" movieEmbeed="https://www.youtube.com/embed/n3j6XSrIWLs" />
       </swiper-slide>
 
       <swiper-slide>
@@ -55,13 +55,12 @@
 
     </swiper>
 
-    <div class="project-video" :class="{'project-video__visible': isVideoVisible}">
+    <!-- <div class="project-video" :class="{'project-video__visible': isVideoVisible}">
       <iframe style="position: relative; z-index: 3" width="650" height="389"
         src="https://www.youtube.com/embed/kdhsCV45zW0" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
-
-    </div>
+    </div> -->
 
     <div class="swiper-arrows__projects--prev">
 
@@ -113,40 +112,41 @@
       }
     },
     methods: {
-      udpateComputedProperty() {
-        console.log('update computed property')
-        this.isVideoVisible = !this.isVideoTooltipVisible
-      }
+     
+      // udpateComputedProperty() {
+      //   console.log('update computed property')
+      //   this.isVideoVisible = !this.isVideoTooltipVisible
+      // }
     },
-    computed: {
-      isVideoTooltipVisible() {
-        return this.$store.state.isVideoTooltipVisible
-      }
-    },
-    watch: {
-      isVideoTooltipVisible: function () {
-        console.log('changes in isVideoTooltipVisible to' + this.isVideoTooltipVisible)
-        this.udpateComputedProperty()
-      }
-    }
+    // computed: {
+    //   isVideoTooltipVisible() {
+    //     return this.$store.state.isVideoTooltipVisible
+    //   }
+    // },
+    // watch: {
+    //   isVideoTooltipVisible: function () {
+    //     console.log('changes in isVideoTooltipVisible to' + this.isVideoTooltipVisible)
+    //     this.udpateComputedProperty()
+    //   }
+    // }
   }
 
 </script>
 
 <style lang="scss">
-  .project-video {
-    z-index: -1;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    opacity: .5;
+  // .project-video {
+  //   z-index: -1;
+  //   position: absolute;
+  //   left: 50%;
+  //   top: 50%;
+  //   transform: translate(-50%, -50%);
+  //   opacity: .5;
 
-    &__visible {
-      opacity: 1;
-      z-index: 90;
-    }
-  }
+  //   &__visible {
+  //     opacity: 1;
+  //     z-index: 90;
+  //   }
+  // }
 
   .swiper-arrows__projects {
     width: 60px;
