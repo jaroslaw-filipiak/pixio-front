@@ -1,0 +1,78 @@
+<template>
+  <div class="close-video-button" @click="closeVideo">
+      <div class="close-video-button--inner">
+        <img src="@/assets/img/cross-icon.svg" alt="">
+      </div>
+    </div>
+</template>
+
+<script>
+export default {
+   methods: {
+      closeVideo() {
+        // 1 close video that' mean change z-index
+        this.$store.commit('closeVideo', 'its always set to false in store')
+        // 2 set vide url to empty string ? 
+         this.$store.commit('changeVideoURL', 'novideo..');
+      }
+     
+    },
+}
+</script>
+
+<style lang="scss">
+.close-video-button{
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  width: 50px;
+  height: 44px;
+  position: absolute;
+  right: -50px;
+  top: -44px;
+  z-index: 122;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  opacity: .7;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+  
+
+  &--inner {
+    border: 2px solid #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+
+  img {
+    
+    transition: all .1s ease-in;
+    animation: arrowBottom 2s ease-in-out infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes arrowBottom {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(.9);
+      opacity: .8;
+    }
+  }
+
+  
+
+}
+</style>

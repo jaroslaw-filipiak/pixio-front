@@ -1,59 +1,64 @@
 <template>
-  <div class="section section-3 section-projects">
+  <div class="section section-3 section-projects" :class="{'is-projects-blured' : isVideoTooltipVisible}">
+    <div class="project--overlay" :class="{'project--overlay__visible' : isVideoTooltipVisible}"></div>
     <swiper ref="projectsSwiper" :options="projectsSwiperOptions">
 
       <swiper-slide>
-        <Project title="Bridge of Spies" :backgroundUrl="require(`~/assets/img/projects/_brigde_of_spies_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
-        <Project title="Carnival Row" :backgroundUrl="require(`~/assets/img/projects/_carnival_row_.jpg`)" movieEmbeed="https://www.youtube.com/embed/n3j6XSrIWLs" />
-        <Project title="Euphoria" :backgroundUrl="require(`~/assets/img/projects/_euphoria_.jpg`)" movieEmbeed="https://www.youtube.com/embed/n3j6XSrIWLs" />
+        <Project title="Bridge of Spies" :backgroundUrl="require(`~/assets/img/projects/_brigde_of_spies_.jpg`)" movieEmbeed="https://www.youtube.com/embed/ApXWyTyJ9c8" />
+        <Project title="Carnival Row" :backgroundUrl="require(`~/assets/img/projects/_carnival_row_.jpg`)" movieEmbeed="https://www.youtube.com/embed/aqUzdnnQsGU" />
+        <Project title="Euphoria" :backgroundUrl="require(`~/assets/img/projects/_euphoria_.jpg`)" movieEmbeed="https://www.youtube.com/embed/3sBJl99ShWo" />
       </swiper-slide>
 
       <swiper-slide>
-        <Project title="Game of Thrones" :backgroundUrl="require(`~/assets/img/projects/_game_of_thrones_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
-        <Project title="Hugo" :backgroundUrl="require(`~/assets/img/projects/_hugo_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
+        <Project title="Game of Thrones" :backgroundUrl="require(`~/assets/img/projects/_game_of_thrones_.jpg`)" movieEmbeed="https://www.youtube.com/embed/Jj1NIrdCejg" />
+        <Project title="Hugo" :backgroundUrl="require(`~/assets/img/projects/_hugo_.jpg`)" movieEmbeed="https://www.youtube.com/embed/vcEKSwNmhvQ" />
         <Project title="ich war noch niemals in new york"
-          :backgroundUrl="require(`~/assets/img/projects/_Ich_war_noch_niemals_in_New_York-Der_Film_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
+          :backgroundUrl="require(`~/assets/img/projects/_Ich_war_noch_niemals_in_New_York-Der_Film_.jpg`)" movieEmbeed="https://www.youtube.com/embed/CzNAut05U94" />
       </swiper-slide>
 
       <swiper-slide>
-        <Project title="Live by Night" :backgroundUrl="require(`~/assets/img/projects/_live_by_night_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
-        <Project title="Midway" :backgroundUrl="require(`~/assets/img/projects/_midway_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
-        <Project title="Oblivion" :backgroundUrl="require(`~/assets/img/projects/_oblivion_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
+        <Project title="Live by Night" :backgroundUrl="require(`~/assets/img/projects/_live_by_night_.jpg`)" movieEmbeed="https://www.youtube.com/embed/qYIEsK9F0Ww" />
+        <Project title="Midway" :backgroundUrl="require(`~/assets/img/projects/_midway_.jpg`)" movieEmbeed="https://www.youtube.com/embed/dM9v1pMfP7I" />
+        <Project title="Oblivion" :backgroundUrl="require(`~/assets/img/projects/_oblivion_.jpg`)" movieEmbeed="https://www.youtube.com/embed/rvJArEW8e7Q" />
       </swiper-slide>
 
       <swiper-slide>
-        <Project title="Perry Mason" :backgroundUrl="require(`~/assets/img/projects/_perry_mason_Season_One.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
-        <Project title="Picard" :backgroundUrl="require(`~/assets/img/projects/_picard_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
-        <Project title="Power Rangers" :backgroundUrl="require(`~/assets/img/projects/_power_rangers_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
+        <Project title="Perry Mason" :backgroundUrl="require(`~/assets/img/projects/_perry_mason_Season_One.jpg`)" movieEmbeed="https://www.youtube.com/embed/gim2k_yJCp4" />
+        <Project title="Picard" :backgroundUrl="require(`~/assets/img/projects/_picard_.jpg`)" movieEmbeed="https://www.youtube.com/embed/UobTDzGEFrI" />
+        <Project title="Power Rangers" :backgroundUrl="require(`~/assets/img/projects/_power_rangers_.jpg`)" movieEmbeed="https://www.youtube.com/embed/iJbeBKps6Ww" />
       </swiper-slide>
 
       <swiper-slide>
         <Project title="Raised by Wolves" :backgroundUrl="require(`~/assets/img/projects/_raised_by_wolves_.jpg`)" movieEmbeed="https://www.youtube.com/embed/sX-8F5BuCI8" />
         <Project title="Raising Got Dragons"
-          :backgroundUrl="require(`~/assets/img/projects/_raising_GOT_dragons_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
-        <Project title="See" :backgroundUrl="require(`~/assets/img/projects/_see_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
+          :backgroundUrl="require(`~/assets/img/projects/_raising_GOT_dragons_.jpg`)" movieEmbeed="https://www.youtube.com/embed/EdF5f_EtEUE" />
+        <Project title="See" :backgroundUrl="require(`~/assets/img/projects/_see_.jpg`)" movieEmbeed="https://www.youtube.com/embed/oBzIpy2eLTI" />
       </swiper-slide>
 
       <swiper-slide>
-        <Project title="Shadow Zhang Yimou's" :backgroundUrl="require(`~/assets/img/projects/_Shadow__Zhang_Yimous_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
-         <Project title="Siren" :backgroundUrl="require(`~/assets/img/projects/_siren_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
-          <Project title="Snow White and the Huntsmen" :backgroundUrl="require(`~/assets/img/projects/_snow_white_and_the_huntsmen_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
+        <Project title="Shadow Zhang Yimou's" :backgroundUrl="require(`~/assets/img/projects/_Shadow__Zhang_Yimous_.jpg`)" movieEmbeed="https://www.youtube.com/embed/Z5iuTxokoag" />
+         <Project title="Siren" :backgroundUrl="require(`~/assets/img/projects/_siren_.jpg`)" movieEmbeed="https://www.youtube.com/embed/r-gKm6ml5uQ" />
+          <Project title="Snow White and the Huntsmen" :backgroundUrl="require(`~/assets/img/projects/_snow_white_and_the_huntsmen_.jpg`)" movieEmbeed="https://www.youtube.com/embed/dsUwtBwsI3A" />
       </swiper-slide>
 
        <swiper-slide>
-        <Project title="The Girl in the Spider's Web" :backgroundUrl="require(`~/assets/img/projects/_the_girl_in_the_spiders_web_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
-         <Project title="The Mandalorian" :backgroundUrl="require(`~/assets/img/projects/_the_mandalorian_season_1_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
-          <Project title="The Orville" :backgroundUrl="require(`~/assets/img/projects/_the_orville_-Season_2.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
+        <Project title="The Girl in the Spider's Web" :backgroundUrl="require(`~/assets/img/projects/_the_girl_in_the_spiders_web_.jpg`)" movieEmbeed="https://www.youtube.com/embed/L6b4-L2zkq4" />
+         <Project title="The Mandalorian" :backgroundUrl="require(`~/assets/img/projects/_the_mandalorian_season_1_.jpg`)" movieEmbeed="https://www.youtube.com/embed/0VtBiF4kvUE" />
+          <Project title="The Orville" :backgroundUrl="require(`~/assets/img/projects/_the_orville_-Season_2.jpg`)" movieEmbeed="https://www.youtube.com/embed/FM5HQ9xD1ls" />
       </swiper-slide>
 
        <swiper-slide>
-        <Project title="The Umbrella Academy" :backgroundUrl="require(`~/assets/img/projects/_the_umbrella_academy_season_2.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
-         <Project title="The Wandering Earth" :backgroundUrl="require(`~/assets/img/projects/_the_wandering_earth_.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
-          <Project title="Westworld" :backgroundUrl="require(`~/assets/img/projects/_westworld_season_2.jpg`)" movieEmbeed="https://www.youtube.com/embed/i6WSdLCMp_U" />
+        <Project title="The Umbrella Academy" :backgroundUrl="require(`~/assets/img/projects/_the_umbrella_academy_season_2.jpg`)" movieEmbeed="https://www.youtube.com/embed/MOvmVp_M9aY" />
+         <Project title="The Wandering Earth" :backgroundUrl="require(`~/assets/img/projects/_the_wandering_earth_.jpg`)" movieEmbeed="https://www.youtube.com/embed/bLSD5VTdH-E" />
+          <Project title="Westworld" :backgroundUrl="require(`~/assets/img/projects/_westworld_season_2.jpg`)" movieEmbeed="https://www.youtube.com/embed/HjDcYXUjkAs" />
       </swiper-slide>
-
 
     </swiper>
+
+    <div class="project-video" :class="{'project-video__visible': isVideoTooltipVisible}">
+      <CloseVideoButton/>
+    <video-embed  ref="youtube" :params="{autoplay: 1}" :src="videoSRC"></video-embed>
+    </div>
 
     <!-- <div class="project-video" :class="{'project-video__visible': isVideoVisible}">
       <iframe style="position: relative; z-index: 3" width="650" height="389"
@@ -85,6 +90,9 @@
 
 <script>
   export default {
+    props: {
+       src: String
+    },
     data() {
       return {
         projectsSwiperOptions: {
@@ -107,47 +115,34 @@
           }
           // Some Swiper option/callback...
         },
-        isVideoVisible: false,
-
       }
     },
-    methods: {
-     
-      // udpateComputedProperty() {
-      //   console.log('update computed property')
-      //   this.isVideoVisible = !this.isVideoTooltipVisible
-      // }
+   
+    computed: {
+    isVideoTooltipVisible() {
+        return this.$store.state.isVideoTooltipVisible
     },
-    // computed: {
-    //   isVideoTooltipVisible() {
-    //     return this.$store.state.isVideoTooltipVisible
-    //   }
-    // },
-    // watch: {
-    //   isVideoTooltipVisible: function () {
-    //     console.log('changes in isVideoTooltipVisible to' + this.isVideoTooltipVisible)
-    //     this.udpateComputedProperty()
-    //   }
-    // }
+     videoSRC() {
+      return this.$store.state.videoSRC
+    },
+    isProjectsBlured() {
+      return true;
+    }
+    },
+    watch: {
+   
+     isVideoTooltipVisible: function () {
+        console.log('changes in isVideoTooltipVisible to' + this.isVideoTooltipVisible)
+        // this.udpateComputedProperty()
+      }
+    }
+   
   }
 
 </script>
 
 <style lang="scss">
-  // .project-video {
-  //   z-index: -1;
-  //   position: absolute;
-  //   left: 50%;
-  //   top: 50%;
-  //   transform: translate(-50%, -50%);
-  //   opacity: .5;
-
-  //   &__visible {
-  //     opacity: 1;
-  //     z-index: 90;
-  //   }
-  // }
-
+  
   .swiper-arrows__projects {
     width: 60px;
   }
@@ -447,6 +442,57 @@
 
   .swiper-button-disabled {
     opacity: .1
+  }
+
+  .project-video {
+    width:650px;
+    height:389px;
+    z-index: -1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    // border: 1px solid blue;
+    background-color: #000;
+    
+
+    &__visible {
+      // border: 1px solid red;
+      opacity: 1;
+      z-index: 90;
+    }
+
+    iframe {
+       width:650px;
+       height:389px;
+       border: none;
+    }
+  }
+  .project--overlay {
+    background-color: rgba(20, 20, 20, 0.63);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+    &__visible {
+       z-index: 11;
+    }
+  }
+
+  .section-3.is-projects-blured {
+      .swiper-container {
+      filter: blur(6px);
+    }
+  }
+
+  .section-3 {
+    .swiper-container {
+      filter: blur(0px);
+    }
   }
 
 </style>

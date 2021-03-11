@@ -38,9 +38,9 @@
     </figcaption>
   </figure>
 
-   <div class="project-video" :class="{'project-video__visible': isVideoVisible}">
+   <!-- <div class="project-video" :class="{'project-video__visible': isVideoVisible}">
     <video-embed  ref="youtube" :params="{autoplay: 1}" :src="videoSRC"></video-embed>
-   </div>
+   </div> -->
  
     </span>
 </template>
@@ -52,32 +52,37 @@ export default {
     title: String,
     backgroundUrl: String,
     movieEmbeed: String,
-    src: String
+    // src: String
   },
   data() {
     return {
       backgroundImagePath,
-      isVideoVisible: true,
+      isVideoVisible: false,
     };
   },
   mounted() {
-   
+  
   },
   methods: {
     showFuckingVideo: function(e) {
       const itemURL = e.target.attributes[2].value
-      this.$store.commit('changeVideoURL', itemURL)
+      this.$store.commit('changeVideoURL', itemURL);
+      // this.isVideoVisible = !this.isVideoVisible;
+
+      // first click = show Video toolip
+      this.$store.commit('changeVideoTooltipVisibility', true)
+      
     },
 
   }, 
 
   computed: {
-    isVideoTooltipVisible() {
-        return this.$store.state.isVideoTooltipVisible
-    },
-    videoSRC() {
-      return this.$store.state.videoSRC
-    }
+    // isVideoTooltipVisible() {
+    //     return this.$store.state.isVideoTooltipVisible
+    // },
+    // videoSRC() {
+    //   return this.$store.state.videoSRC
+    // }
   },
 
   watch: {
@@ -91,28 +96,28 @@ export default {
 
 <style lang="scss">
 
-.project-video {
-    width:650px;
-    height:389px;
-    z-index: -1;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 1;
-    border: 1px solid blue;
+// .project-video {
+//     width:650px;
+//     height:389px;
+//     z-index: -1;
+//     position: absolute;
+//     left: 50%;
+//     top: 50%;
+//     transform: translate(-50%, -50%);
+//     opacity: 1;
+//     border: 1px solid blue;
     
 
-    &__visible {
-      border: 1px solid red;
-      opacity: 1;
-      z-index: 90;
-    }
+//     &__visible {
+//       border: 1px solid red;
+//       opacity: 1;
+//       z-index: 90;
+//     }
 
-    iframe {
-       width:650px;
-      height:389px;
-    }
-  }
+//     iframe {
+//        width:650px;
+//       height:389px;
+//     }
+//   }
 
 </style>

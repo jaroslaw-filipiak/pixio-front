@@ -6,9 +6,9 @@ export const state = () => ({
   isVideoVisible: false,
   isScrollLock: true,
   isRightMenuVisible: false,
-  isVideoTooltipVisible: true,
+  isVideoTooltipVisible: false,
   isTooltipVisible: false,
-  videoSRC: 'https://www.youtube.com/watch?v=nqwQpXoSN7Q'
+  videoSRC: ''
 })
 
 export const mutations = {
@@ -41,6 +41,9 @@ export const mutations = {
   },
   changeVideoURL(state, payload) {
     state.videoSRC = payload
+  },
+  closeVideo(state , payload) {
+    state.isVideoTooltipVisible = false
   }
 }
 
