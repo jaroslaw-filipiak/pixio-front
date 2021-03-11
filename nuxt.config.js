@@ -89,6 +89,10 @@ export default {
       src: '@/plugins/vue-awesome-swiper.js',
       ssr: false
     },
+    {
+      src: '@/plugins/v-video.js',
+      ssr: false
+    },
     // {
     //   src: '@/plugins/instafeed.js',
     //   ssr: false

@@ -8,7 +8,7 @@ export const state = () => ({
   isRightMenuVisible: false,
   isVideoTooltipVisible: true,
   isTooltipVisible: false,
-  // currentVideo: `https://www.youtube.com/embed/${videoID}`
+  videoSRC: 'https://www.youtube.com/watch?v=nqwQpXoSN7Q'
 })
 
 export const mutations = {
@@ -38,7 +38,9 @@ export const mutations = {
   },
   updateCurrentVideo(state, payload) {
     state.currentVideo = payload
-
+  },
+  changeVideoURL(state, payload) {
+    state.videoSRC = payload
   }
 }
 
