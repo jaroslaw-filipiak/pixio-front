@@ -18,6 +18,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.8.3",
     "fibers": "^5.0.0",
+    "graphql-tag": "^2.11.0",
     "instafeed": "^1.4.0",
     "instagram-basic-data-scraper-with-username": "^4.0.1",
     "instagram-feed": "^1.0.4",
