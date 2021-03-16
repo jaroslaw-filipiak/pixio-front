@@ -113,6 +113,7 @@ export default {
   modules: [
   '@nuxtjs/axios',
   '@nuxtjs/style-resources',
+  '@nuxtjs/apollo'
 
     // 'fullpage-nuxt',
   ],
