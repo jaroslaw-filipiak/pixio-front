@@ -3,58 +3,68 @@ export default {
   ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: "static",
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'front',
+    title: "front",
     htmlAttrs: {
-      lang: 'en'
+      lang: "en"
     },
-    meta: [{
-        charset: 'utf-8'
+    meta: [
+      {
+        charset: "utf-8"
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
+        name: "viewport",
+        content: "width=device-width, initial-scale=1"
       },
       {
-        hid: 'description',
-        name: 'description',
-        content: ''
+        hid: "description",
+        name: "description",
+        content: ""
       }
     ],
-    link: [{
-      rel: 'icon',
-      type: 'image/x-icon',
-      href: '/favicon.ico'
-    }],
-    script: [{
-        src: "https://code.jquery.com/jquery-3.3.1.min.js",
-      }, {
-        src: 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.js'
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico"
+      }
+    ],
+    script: [
+      {
+        src: "https://code.jquery.com/jquery-3.3.1.min.js"
       },
       {
-        src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js'
+        src:
+          "https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.js"
       },
       {
-        src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollToPlugin.min.js'
-      }, {
-        src: 'https://www.youtube.com/iframe_api'
+        src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"
       },
       {
-        src: 'https://cdn.jsdelivr.net/gh/arkdevuk/InstaPost@master/dist/instapost.min.js'
+        src:
+          "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollToPlugin.min.js"
       },
       {
-        src: 'https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js'
+        src: "https://www.youtube.com/iframe_api"
+      },
+      {
+        src:
+          "https://cdn.jsdelivr.net/gh/arkdevuk/InstaPost@master/dist/instapost.min.js"
+      },
+      {
+        src:
+          "https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js"
       },
       {
         // src: ' https://apps.elfsight.com/p/platform.js'
       },
       {
-        src: 'https://cdnjs.cloudflare.com/ajax/libs/InstagramFeed/2.0.2/InstagramFeed.min.js'
+        src:
+          "https://cdnjs.cloudflare.com/ajax/libs/InstagramFeed/2.0.2/InstagramFeed.min.js"
       }
-     
     ]
   },
 
@@ -62,43 +72,43 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{
-      src: '@/plugins/vue-video-background',
-      ssr: false
-    }, {
-      src: '@/plugins/slider.js',
+  plugins: [
+    {
+      src: "@/plugins/vue-video-background",
       ssr: false
     },
     {
-      src: '@/plugins/vue-fullpage.js',
+      src: "@/plugins/slider.js",
       ssr: false
     },
     {
-      src: '@/plugins/projectsScroll.js',
+      src: "@/plugins/vue-fullpage.js",
       ssr: false
     },
     {
-      src: '@/plugins/instagram.js',
+      src: "@/plugins/projectsScroll.js",
       ssr: false
     },
     {
-      src: '@/plugins/vue-waypoint.js',
+      src: "@/plugins/instagram.js",
       ssr: false
     },
     {
-      src: '@/plugins/vue-awesome-swiper.js',
+      src: "@/plugins/vue-waypoint.js",
       ssr: false
     },
     {
-      src: '@/plugins/v-video.js',
+      src: "@/plugins/vue-awesome-swiper.js",
       ssr: false
     },
+    {
+      src: "@/plugins/v-video.js",
+      ssr: false
+    }
     // {
     //   src: '@/plugins/instafeed.js',
     //   ssr: false
     // },
-   
-
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -106,14 +116,13 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // 'nuxt-gsap',
-
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-  '@nuxtjs/axios',
-  '@nuxtjs/style-resources',
-  '@nuxtjs/apollo'
+    "@nuxtjs/axios",
+    "@nuxtjs/style-resources",
+    "@nuxtjs/apollo"
 
     // 'fullpage-nuxt',
   ],
@@ -125,7 +134,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: 'http://localhost:4000',
+        httpEndpoint: "https://mighty-plains-18467.herokuapp.com/graphql"
       }
     }
   },
@@ -133,8 +142,6 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   styleResources: {
-    scss: [
-      '~/assets/scss/main.scss',
-    ]
+    scss: ["~/assets/scss/main.scss"]
   }
-}
+};

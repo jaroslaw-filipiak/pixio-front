@@ -1,15 +1,17 @@
-@import './base/reset';
-@import './base/fonts';
-@import './base/colors';
-@import './base/rwd';
+@import "./base/reset";
+@import "./base/fonts";
+@import "./base/colors";
+@import "./base/rwd";
 // @import './base/debug';
 
-@import './layouts/default';
-@import './libs/fullpage';
+@import "./layouts/default";
+@import "./libs/fullpage";
 // @import './slider.css';
 
-@import './sections/2';
-@import './other/hamburgers';
+@import "./sections/2";
+@import "./other/hamburgers";
+
+@import "./sections/careers";
 
 .video-overlay {
   height: 100%;
@@ -70,7 +72,7 @@ video {
   border: none;
   width: 32px;
   height: 32px;
-  background: url('~assets/img/arrow-left.svg') no-repeat;
+  background: url("~assets/img/arrow-left.svg") no-repeat;
   cursor: pointer;
 }
 
@@ -81,14 +83,14 @@ video {
   border: none;
   width: 32px;
   height: 32px;
-  background: url('~assets/img/arrow-right.svg') no-repeat;
+  background: url("~assets/img/arrow-right.svg") no-repeat;
   cursor: pointer;
 }
 
 .fp-controlArrow.fp-next,
 .fp-controlArrow.fp-prev {
   &:hover {
-    opacity: .8;
+    opacity: 0.8;
   }
 }
 
@@ -106,26 +108,24 @@ div.indicator {
   z-index: 5;
 
   &::before {
-    content: '';
+    content: "";
     display: block;
     width: 8px;
     height: 8px;
     background-color: #fff;
     border-radius: 50%;
-
   }
 
   &::after {
-    content: 'MORE';
+    content: "MORE";
     position: absolute;
     bottom: -30px;
     left: -6px;
   }
 
   &:hover {
-    opacity: .8
+    opacity: 0.8;
   }
-
 }
 
 .btn-outline-white {
@@ -155,8 +155,8 @@ div.indicator {
 
 body {
   &:before {
-    display: none; 
-    content: url('~assets/img/logo-main.svg');
+    display: none;
+    content: url("~assets/img/logo-main.svg");
     align-items: center;
     justify-content: center;
     color: #fff;
@@ -171,7 +171,6 @@ body {
     @include lg-min {
       display: flex;
     }
-
   }
 }
 
@@ -179,8 +178,7 @@ body {
   outline: none;
 }
 
-.arrow-bottom-next-slide{
-  
+.arrow-bottom-next-slide {
   color: #fff;
   text-transform: uppercase;
   font-size: 16px;
@@ -195,9 +193,8 @@ body {
   align-items: center;
   justify-content: center;
   opacity: 1;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
-  
 
   &--inner {
     border: 2px solid #fff;
@@ -206,12 +203,11 @@ body {
     border-radius: 50%;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
   }
 
   img {
-    
-    transition: all .1s ease-in;
+    transition: all 0.1s ease-in;
     animation: arrowBottom 2s ease-in-out infinite;
     animation-direction: alternate;
   }
@@ -222,11 +218,8 @@ body {
       opacity: 1;
     }
     to {
-      transform: scale(.9);
-      opacity: .8;
+      transform: scale(0.9);
+      opacity: 0.8;
     }
   }
-
-  
-
 }

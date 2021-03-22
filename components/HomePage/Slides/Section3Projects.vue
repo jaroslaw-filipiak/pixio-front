@@ -1,63 +1,34 @@
 <template>
-  <div class="section section-3 section-projects" :class="{'is-projects-blured' : isVideoTooltipVisible}">
-    <div class="project--overlay" :class="{'project--overlay__visible' : isVideoTooltipVisible}"></div>
+  <div
+    class="section section-3 section-projects"
+    :class="{ 'is-projects-blured': isVideoTooltipVisible }"
+  >
+    <div
+      class="project--overlay"
+      :class="{ 'project--overlay__visible': isVideoTooltipVisible }"
+    ></div>
     <swiper ref="projectsSwiper" :options="projectsSwiperOptions">
-
-      <swiper-slide>
-        <Project title="Bridge of Spies" :backgroundUrl="require(`~/assets/img/projects/_brigde_of_spies_.jpg`)" movieEmbeed="https://www.youtube.com/embed/ApXWyTyJ9c8" />
-        <Project title="Carnival Row" :backgroundUrl="require(`~/assets/img/projects/_carnival_row_.jpg`)" movieEmbeed="https://www.youtube.com/embed/aqUzdnnQsGU" />
-        <Project title="Euphoria" :backgroundUrl="require(`~/assets/img/projects/_euphoria_.jpg`)" movieEmbeed="https://www.youtube.com/embed/3sBJl99ShWo" />
+      <swiper-slide v-for="project in projects" :key="project.id">
+        <Project
+          :title="project.Title"
+          :backgroundUrl="
+            `https://mighty-plains-18467.herokuapp.com${project.Thumbnail.url}`
+          "
+          :movieEmbeed="project.link"
+        />
       </swiper-slide>
-
-      <swiper-slide>
-        <Project title="Game of Thrones" :backgroundUrl="require(`~/assets/img/projects/_game_of_thrones_.jpg`)" movieEmbeed="https://www.youtube.com/embed/Jj1NIrdCejg" />
-        <Project title="Hugo" :backgroundUrl="require(`~/assets/img/projects/_hugo_.jpg`)" movieEmbeed="https://www.youtube.com/embed/vcEKSwNmhvQ" />
-        <Project title="ich war noch niemals in new york"
-          :backgroundUrl="require(`~/assets/img/projects/_Ich_war_noch_niemals_in_New_York-Der_Film_.jpg`)" movieEmbeed="https://www.youtube.com/embed/CzNAut05U94" />
-      </swiper-slide>
-
-      <swiper-slide>
-        <Project title="Live by Night" :backgroundUrl="require(`~/assets/img/projects/_live_by_night_.jpg`)" movieEmbeed="https://www.youtube.com/embed/qYIEsK9F0Ww" />
-        <Project title="Midway" :backgroundUrl="require(`~/assets/img/projects/_midway_.jpg`)" movieEmbeed="https://www.youtube.com/embed/dM9v1pMfP7I" />
-        <Project title="Oblivion" :backgroundUrl="require(`~/assets/img/projects/_oblivion_.jpg`)" movieEmbeed="https://www.youtube.com/embed/rvJArEW8e7Q" />
-      </swiper-slide>
-
-      <swiper-slide>
-        <Project title="Perry Mason" :backgroundUrl="require(`~/assets/img/projects/_perry_mason_Season_One.jpg`)" movieEmbeed="https://www.youtube.com/embed/gim2k_yJCp4" />
-        <Project title="Picard" :backgroundUrl="require(`~/assets/img/projects/_picard_.jpg`)" movieEmbeed="https://www.youtube.com/embed/UobTDzGEFrI" />
-        <Project title="Power Rangers" :backgroundUrl="require(`~/assets/img/projects/_power_rangers_.jpg`)" movieEmbeed="https://www.youtube.com/embed/iJbeBKps6Ww" />
-      </swiper-slide>
-
-      <swiper-slide>
-        <Project title="Raised by Wolves" :backgroundUrl="require(`~/assets/img/projects/_raised_by_wolves_.jpg`)" movieEmbeed="https://www.youtube.com/embed/sX-8F5BuCI8" />
-        <Project title="Raising Got Dragons"
-          :backgroundUrl="require(`~/assets/img/projects/_raising_GOT_dragons_.jpg`)" movieEmbeed="https://www.youtube.com/embed/EdF5f_EtEUE" />
-        <Project title="See" :backgroundUrl="require(`~/assets/img/projects/_see_.jpg`)" movieEmbeed="https://www.youtube.com/embed/oBzIpy2eLTI" />
-      </swiper-slide>
-
-      <swiper-slide>
-        <Project title="Shadow Zhang Yimou's" :backgroundUrl="require(`~/assets/img/projects/_Shadow__Zhang_Yimous_.jpg`)" movieEmbeed="https://www.youtube.com/embed/Z5iuTxokoag" />
-         <Project title="Siren" :backgroundUrl="require(`~/assets/img/projects/_siren_.jpg`)" movieEmbeed="https://www.youtube.com/embed/r-gKm6ml5uQ" />
-          <Project title="Snow White and the Huntsmen" :backgroundUrl="require(`~/assets/img/projects/_snow_white_and_the_huntsmen_.jpg`)" movieEmbeed="https://www.youtube.com/embed/dsUwtBwsI3A" />
-      </swiper-slide>
-
-       <swiper-slide>
-        <Project title="The Girl in the Spider's Web" :backgroundUrl="require(`~/assets/img/projects/_the_girl_in_the_spiders_web_.jpg`)" movieEmbeed="https://www.youtube.com/embed/L6b4-L2zkq4" />
-         <Project title="The Mandalorian" :backgroundUrl="require(`~/assets/img/projects/_the_mandalorian_season_1_.jpg`)" movieEmbeed="https://www.youtube.com/embed/0VtBiF4kvUE" />
-          <Project title="The Orville" :backgroundUrl="require(`~/assets/img/projects/_the_orville_-Season_2.jpg`)" movieEmbeed="https://www.youtube.com/embed/FM5HQ9xD1ls" />
-      </swiper-slide>
-
-       <swiper-slide>
-        <Project title="The Umbrella Academy" :backgroundUrl="require(`~/assets/img/projects/_the_umbrella_academy_season_2.jpg`)" movieEmbeed="https://www.youtube.com/embed/MOvmVp_M9aY" />
-         <Project title="The Wandering Earth" :backgroundUrl="require(`~/assets/img/projects/_the_wandering_earth_.jpg`)" movieEmbeed="https://www.youtube.com/embed/bLSD5VTdH-E" />
-          <Project title="Westworld" :backgroundUrl="require(`~/assets/img/projects/_westworld_season_2.jpg`)" movieEmbeed="https://www.youtube.com/embed/HjDcYXUjkAs" />
-      </swiper-slide>
-
     </swiper>
 
-    <div class="project-video" :class="{'project-video__visible': isVideoTooltipVisible}">
-      <CloseVideoButton/>
-    <video-embed  ref="youtube" :params="{autoplay: 1}" :src="videoSRC"></video-embed>
+    <div
+      class="project-video"
+      :class="{ 'project-video__visible': isVideoTooltipVisible }"
+    >
+      <CloseVideoButton />
+      <video-embed
+        ref="youtube"
+        :params="{ autoplay: 1 }"
+        :src="videoSRC"
+      ></video-embed>
     </div>
 
     <!-- <div class="project-video" :class="{'project-video__visible': isVideoVisible}">
@@ -68,339 +39,344 @@
     </div> -->
 
     <div class="swiper-arrows__projects--prev">
-
-      <div class="swiper-pixo-button-prev prev-project"><img src="@/assets/img/arrow-bottom.svg" alt=""></div>
-
+      <div class="swiper-pixo-button-prev prev-project">
+        <img src="@/assets/img/arrow-bottom.svg" alt="" />
+      </div>
     </div>
 
     <div class="swiper-arrows__projects--next">
-
-      <div class="swiper-pixo-button-next next-project"><img src="@/assets/img/arrow-bottom.svg" alt=""></div>
-
-
+      <div class="swiper-pixo-button-next next-project">
+        <img src="@/assets/img/arrow-bottom.svg" alt="" />
+      </div>
     </div>
 
     <div class="projects-swiper-pagination"></div>
 
     <slot> </slot>
-
-
   </div>
 </template>
 
 <script>
-  export default {
-    props: {
-       src: String
-    },
-    data() {
-      return {
-        projectsSwiperOptions: {
-          // effect: 'flip',
-          slidesPerView: 'auto',
-          centeredSlides: true,
-          loop: false,
-          spaceBetween: 30,
-          grabCursor: false,
-          allowTouchMove: false,
-          speed: 200,
-          pagination: {
-            // el: ".projects-swiper-pagination",
-            // type: "bullets",
-            // clickable: true,
-          },
-          navigation: {
-            nextEl: '.next-project',
-            prevEl: '.prev-project',
+import gql from "graphql-tag";
+
+export default {
+  apollo: {
+    projects: gql`
+      query getProjects {
+        projects {
+          id
+          Title
+          Thumbnail {
+            url
           }
-          // Some Swiper option/callback...
-        },
+          link
+        }
       }
-    },
-   
-    computed: {
+    `
+  },
+  props: {
+    src: String
+  },
+  data() {
+    return {
+      projectsSwiperOptions: {
+        // effect: 'flip',
+        slidesPerView: 3,
+        centeredSlides: true,
+        loop: false,
+        spaceBetween: 30,
+        grabCursor: false,
+        allowTouchMove: false,
+        speed: 200,
+        pagination: {
+          // el: ".projects-swiper-pagination",
+          // type: "bullets",
+          // clickable: true,
+        },
+        navigation: {
+          nextEl: ".next-project",
+          prevEl: ".prev-project"
+        }
+        // Some Swiper option/callback...
+      }
+    };
+  },
+
+  computed: {
     isVideoTooltipVisible() {
-        return this.$store.state.isVideoTooltipVisible
+      return this.$store.state.isVideoTooltipVisible;
     },
-     videoSRC() {
-      return this.$store.state.videoSRC
+    videoSRC() {
+      return this.$store.state.videoSRC;
     },
     isProjectsBlured() {
       return true;
     }
-    },
-    watch: {
-   
-     isVideoTooltipVisible: function () {
-        console.log('changes in isVideoTooltipVisible to' + this.isVideoTooltipVisible)
-        // this.udpateComputedProperty()
-      }
+  },
+  watch: {
+    isVideoTooltipVisible: function() {
+      console.log(
+        "changes in isVideoTooltipVisible to" + this.isVideoTooltipVisible
+      );
+      // this.udpateComputedProperty()
     }
-   
   }
-
+};
 </script>
 
 <style lang="scss">
-  
-  .swiper-arrows__projects {
-    width: 60px;
+.swiper-arrows__projects {
+  width: 60px;
+}
+
+.swiper-arrows__projects--next {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  width: 50px;
+  z-index: 80;
+}
+
+.swiper-arrows__projects--prev {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  width: 50px;
+  z-index: 80;
+}
+
+.section-projects {
+  position: relative;
+  background-color: #000;
+
+  .swiper-container {
+    transform: rotate(-1.5deg);
   }
+}
 
-  .swiper-arrows__projects--next {
-    position: absolute;
-    top: 50%;
-    right: 0px;
-    width: 50px;
-    z-index: 80;
+.projects-swiper-pagination {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 33px;
+  position: absolute;
+  left: 0;
+  bottom: 60px;
+  z-index: 35;
+
+  span {
+    margin: 0px 10px;
   }
+}
 
-  .swiper-arrows__projects--prev {
-    position: absolute;
-    top: 50%;
-    left: 0px;
-    width: 50px;
-    z-index: 80;
-  }
+// ===============================
 
+.isBlured {
+  transition: all 0.3s ease-in-out;
+  filter: blur(5px) !important;
+}
 
-  .section-projects {
-    position: relative;
-    background-color: #000;
+.tet {
+  width: 60vw;
+  height: 60vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
 
-    .swiper-container {
-      transform: rotate(-1.5deg);
-    }
+.tet__visible {
+  z-index: 33;
+}
 
-  }
-
-  .projects-swiper-pagination {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 33px;
-    position: absolute;
-    left: 0;
-    bottom: 60px;
-    z-index: 35;
-
-    span {
-      margin: 0px 10px;
-    }
-  }
-
-  // ===============================
-
-  .isBlured {
-    transition: all .3s ease-in-out;
-    filter: blur(5px) !important;
-  }
-
-  .tet {
-    width: 60vw;
-    height: 60vh;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: -1;
-    transform: translate(-50%, -50%);
-  }
-
-  .tet__visible {
-    z-index: 33;
-  }
-
-  .video-tooltip-visible {
-
-    iframe#portfolioVideo {
-      //  visible
-      display: block;
-    }
-
-  }
-
+.video-tooltip-visible {
   iframe#portfolioVideo {
-    display: none;
-  }
-
-  #portfolioVideo {
-    opacity: 1;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    z-index: 3;
-    transform: translate(-50%, -50%);
-  }
-
-  .demo-2 {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-
-  * {
-    --color-gallery-title: #d9d0be;
-    --color-gallery-number: #181817;
-    --color-gallery-link: #fff;
-    --color-gallery-link-bg: #cc0000;
-    --color-gallery-link-hover: #0e0e0d;
-    --color-gallery-link-bg-hover: #d9d0be;
-    --cursor-stroke: none;
-    --cursor-fill: #cc0000;
-    --cursor-stroke-width: 1px;
-  }
-
-  .rotate {
-    transform: rotate(-2deg);
-  }
-
-  .gallery {
-    display: flex;
-    margin-left: 5vw;
-    width: 100%;
-  }
-
-  .gallery__item {
-    transition: all .2s ease-in-out;
-    margin: 0 3vw;
-    display: grid;
-    grid-template-areas:
-      "... ..."
-      "... gallery-image"
-      "... ...";
-
-    grid-template-columns: 1rem 21vmax;
-    grid-template-rows: 40px 28vmax 3rem;
-    z-index: 55;
-
-    &:hover {
-      transition: all .1s ease-in-out;
-      transform: scale(1.05);
-    }
-  }
-
-  .gallery__item-img {
-    grid-area: gallery-image;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    will-change: transform;
-  }
-
-  .gallery__item-imginner {
-    background-size: contain;
-    background-position: 50% 0;
-    width: calc(100% + 10vw);
-    margin-left: -5vw;
-    height: 100%;
-    will-change: transform;
-    background-repeat: no-repeat;
-    cursor: pointer;
-
-
-  }
-
-  .gallery__item-caption {
-    grid-area: 1 / 1 / 4 / 3;
-    display: grid;
-    grid-template-areas:
-      "gallery-number gallery-title"
-      "gallery-link ..."
-      "gallery-link gallery-tags";
-    grid-template-columns: 1rem auto;
-    grid-template-rows: 29px 36rem 3rem;
-  }
-
-  .gallery__item-number {
-    grid-area: gallery-number;
-    font-size: 6rem;
-    font-size: clamp(2.5rem, 9vw, 6.5rem);
-    justify-self: end;
-    padding-right: 2rem;
-    color: var(--color-gallery-number);
-    display: none;
-  }
-
-  .gallery__item-title {
-    grid-area: gallery-title;
-    margin: 0;
-    font-size: 24px;
-    color: var(--color-gallery-title);
-    font-family: "Jost", sans-serif !important;
-
-    line-height: 23px;
-    margin-bottom: 15px;
-  }
-
-  .gallery__item-number,
-  .gallery__item-title,
-  .gallery__text {
-    font-family: moret, serif;
-    font-weight: 800;
-    font-style: italic;
-    align-self: center;
-  }
-
-  .gallery__item-link {
-    grid-area: gallery-link;
-    align-self: end;
-    font-size: 1.5rem;
-    background: #d7d0c0;
-    color: var(--color-gallery-link);
-    text-decoration: underline;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    left: 59px;
-    top: -43px;
-
-    @include xl {
-      top: -33%;
-    }
-  }
-
-  .gallery__item-link:focus,
-  .gallery__item-link:hover {
-    background: var(--color-gallery-link-bg-hover);
-    color: var(--color-gallery-link-hover);
-    text-decoration: none;
-  }
-
-  .gallery__item-tags {
-    grid-area: gallery-tags;
-    justify-self: end;
-    font-size: 1.5rem;
-    display: grid;
-    grid-auto-flow: column;
-    grid-gap: 1rem;
-    cursor: pointer;
-  }
-
-  .gallery__text {
-    font-size: 20vw;
-    line-height: 0.8;
-    margin: 0 12vw;
-    text-transform: lowercase;
-    color: transparent;
-    -webkit-text-stroke: 1px #645c5b;
-    text-stroke: 1px #645c5b;
-    -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
-  }
-
-  .gallery__text-inner {
+    //  visible
     display: block;
   }
+}
 
-  /* @media screen and (min-width: 53em) {
+iframe#portfolioVideo {
+  display: none;
+}
+
+#portfolioVideo {
+  opacity: 1;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+}
+
+.demo-2 {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+* {
+  --color-gallery-title: #d9d0be;
+  --color-gallery-number: #181817;
+  --color-gallery-link: #fff;
+  --color-gallery-link-bg: #cc0000;
+  --color-gallery-link-hover: #0e0e0d;
+  --color-gallery-link-bg-hover: #d9d0be;
+  --cursor-stroke: none;
+  --cursor-fill: #cc0000;
+  --cursor-stroke-width: 1px;
+}
+
+.rotate {
+  transform: rotate(-2deg);
+}
+
+.gallery {
+  display: flex;
+  margin-left: 5vw;
+  width: 100%;
+}
+
+.gallery__item {
+  transition: all 0.2s ease-in-out;
+  margin: 0 3vw;
+  display: grid;
+  grid-template-areas:
+    "... ..."
+    "... gallery-image"
+    "... ...";
+
+  grid-template-columns: 1rem 21vmax;
+  grid-template-rows: 40px 28vmax 3rem;
+  z-index: 55;
+
+  &:hover {
+    transition: all 0.1s ease-in-out;
+    transform: scale(1.05);
+  }
+}
+
+.gallery__item-img {
+  grid-area: gallery-image;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  will-change: transform;
+}
+
+.gallery__item-imginner {
+  background-size: contain;
+  background-position: 50% 0;
+  width: calc(100% + 10vw);
+  margin-left: -5vw;
+  height: 100%;
+  will-change: transform;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.gallery__item-caption {
+  grid-area: 1 / 1 / 4 / 3;
+  display: grid;
+  grid-template-areas:
+    "gallery-number gallery-title"
+    "gallery-link ..."
+    "gallery-link gallery-tags";
+  grid-template-columns: 1rem auto;
+  grid-template-rows: 29px 36rem 3rem;
+}
+
+.gallery__item-number {
+  grid-area: gallery-number;
+  font-size: 6rem;
+  font-size: clamp(2.5rem, 9vw, 6.5rem);
+  justify-self: end;
+  padding-right: 2rem;
+  color: var(--color-gallery-number);
+  display: none;
+}
+
+.gallery__item-title {
+  grid-area: gallery-title;
+  margin: 0;
+  font-size: 24px;
+  color: var(--color-gallery-title);
+  font-family: "Jost", sans-serif !important;
+
+  line-height: 23px;
+  margin-bottom: 15px;
+}
+
+.gallery__item-number,
+.gallery__item-title,
+.gallery__text {
+  font-family: moret, serif;
+  font-weight: 800;
+  font-style: italic;
+  align-self: center;
+}
+
+.gallery__item-link {
+  grid-area: gallery-link;
+  align-self: end;
+  font-size: 1.5rem;
+  background: #d7d0c0;
+  color: var(--color-gallery-link);
+  text-decoration: underline;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  left: 59px;
+  top: -43px;
+
+  @include xl {
+    top: -33%;
+  }
+}
+
+.gallery__item-link:focus,
+.gallery__item-link:hover {
+  background: var(--color-gallery-link-bg-hover);
+  color: var(--color-gallery-link-hover);
+  text-decoration: none;
+}
+
+.gallery__item-tags {
+  grid-area: gallery-tags;
+  justify-self: end;
+  font-size: 1.5rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
+  cursor: pointer;
+}
+
+.gallery__text {
+  font-size: 20vw;
+  line-height: 0.8;
+  margin: 0 12vw;
+  text-transform: lowercase;
+  color: transparent;
+  -webkit-text-stroke: 1px #645c5b;
+  text-stroke: 1px #645c5b;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.gallery__text-inner {
+  display: block;
+}
+
+/* @media screen and (min-width: 53em) {
   .frame {
     grid-template-areas: "title demos demos links";
   }
@@ -408,91 +384,87 @@
     justify-self: end;
   }
 } */
-  .section-projects {
-    transition: all .5s ease-in;
+.section-projects {
+  transition: all 0.5s ease-in;
 
-    .content {
-      filter: blur(0px);
-      transition: all .3s ease-in;
-    }
-
-
+  .content {
+    filter: blur(0px);
+    transition: all 0.3s ease-in;
   }
+}
 
-  .section-projects--overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    // background-color: rgb(0, 0, 0);
-    // opacity: .4;
-    z-index: -1;
-    transition: all .5s ease-in;
+.section-projects--overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  // background-color: rgb(0, 0, 0);
+  // opacity: .4;
+  z-index: -1;
+  transition: all 0.5s ease-in;
 
-    &__is-visible {
-      z-index: 2;
-      transition: all .5s ease-in;
-    }
+  &__is-visible {
+    z-index: 2;
+    transition: all 0.5s ease-in;
   }
+}
 
-  .next-project {
-    opacity: 1; 
-  }
+.next-project {
+  opacity: 1;
+}
 
-  .swiper-button-disabled {
-    opacity: .1
-  }
+.swiper-button-disabled {
+  opacity: 0.1;
+}
 
-  .project-video {
-    width:650px;
-    height:389px;
-    z-index: -1;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+.project-video {
+  width: 650px;
+  height: 389px;
+  z-index: -1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  // border: 1px solid blue;
+  background-color: #000;
+
+  &__visible {
+    // border: 1px solid red;
     opacity: 1;
-    // border: 1px solid blue;
-    background-color: #000;
-    
-
-    &__visible {
-      // border: 1px solid red;
-      opacity: 1;
-      z-index: 90;
-    }
-
-    iframe {
-       width:650px;
-       height:389px;
-       border: none;
-    }
-  }
-  .project--overlay {
-    background-color: rgba(20, 20, 20, 0.63);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -1;
-
-    &__visible {
-       z-index: 11;
-    }
+    z-index: 90;
   }
 
-  .section-3.is-projects-blured {
-      .swiper-container {
-      filter: blur(6px);
-    }
+  iframe {
+    width: 650px;
+    height: 389px;
+    border: none;
   }
+}
+.project--overlay {
+  background-color: rgba(20, 20, 20, 0.63);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
 
-  .section-3 {
-    .swiper-container {
-      filter: blur(0px);
-    }
+  &__visible {
+    z-index: 11;
   }
+}
 
+.section-3.is-projects-blured {
+  .swiper-container {
+    filter: blur(6px);
+  }
+}
+
+.section-3 {
+  .swiper-container {
+    filter: blur(0px);
+  }
+}
 </style>
