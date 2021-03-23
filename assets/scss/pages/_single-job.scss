@@ -1,0 +1,10 @@
+.single-job-content-wrapper {
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  @include md-min {
+    margin-top: 24px;
+  }
+}

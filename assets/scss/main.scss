@@ -2,7 +2,7 @@
 @import "./base/fonts";
 @import "./base/colors";
 @import "./base/rwd";
-// @import './base/debug';
+@import "./base/debug";
 
 @import "./layouts/default";
 @import "./libs/fullpage";
@@ -12,6 +12,13 @@
 @import "./other/hamburgers";
 
 @import "./sections/careers";
+
+@import "./pages/single-job";
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
 
 .video-overlay {
   height: 100%;

@@ -1,6 +1,7 @@
 <template>
   <div class="careers">
-    <div class="careers-filters"></div>
+    <CareersFilters />
+    <AvailableJobsCounter />
     <div class="job-post-items">
       <JobPostItem />
       <JobPostItem />
