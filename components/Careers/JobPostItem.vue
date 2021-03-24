@@ -1,35 +1,44 @@
 <template>
-  <div class="job-post-item">
-    <div class="job-post-column job-post-column-1">
-      <div class="job-post-exp">Experience: Mid to Senior</div>
-      <div class="job-post-title">Lighting Artist</div>
-    </div>
-    <div class="job-post-column job-post-column-2">
-      <div class="job-post-localization">
-        <img src="@/assets/img/map-pin.svg" alt="map-pin" />
-        Toronto
+  <NuxtLink to="/careers/lighting-artist">
+    <div class="job-post-item">
+      <div class="job-post-column job-post-column-1">
+        <div class="job-post-exp">Experience: Mid to Senior</div>
+        <div class="job-post-title">Lighting Artist</div>
+      </div>
+      <div class="job-post-column job-post-column-2">
+        <div class="job-post-localization">
+          <img src="@/assets/img/map-pin.svg" alt="map-pin" />
+          Toronto
+        </div>
+      </div>
+      <div class="job-post-column job-post-column-3">
+        <div class="job-post-time">
+          <img src="@/assets/img/clock.svg" alt="map-pin" />
+          ASAP
+        </div>
+        <ApplyButton />
       </div>
     </div>
-    <div class="job-post-column job-post-column-3">
-      <div class="job-post-time">
-        <img src="@/assets/img/clock.svg" alt="map-pin" />
-        ASAP
-      </div>
-      <ApplyButton />
-    </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    goToJobPage: () => {
+      alert("12");
+    }
+  }
+};
 </script>
 
 <style lang="scss">
 .job-post {
   &-item {
+    cursor: pointer;
     background-color: #fff;
     padding: 24px;
-    width: 85%;
+    width: 100%;
     margin-bottom: 16px;
     color: #222;
     display: flex;
@@ -39,6 +48,10 @@ export default {};
     @include md-min {
       max-width: 760px;
       flex-direction: row;
+    }
+
+    &:hover {
+      background-color: rgb(248, 248, 248);
     }
   }
   &-column {

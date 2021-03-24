@@ -3,4 +3,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  a {
+    width: 85%;
+    display: block;
+    text-decoration: none;
+
+    @include md-min {
+      max-width: 760px;
+    }
+  }
 }

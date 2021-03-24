@@ -31,6 +31,7 @@
     "object-fit-images": "^3.2.4",
     "sass": "^1.32.5",
     "sass-loader": "^10.1.1",
+    "shufflejs": "^5.3.0",
     "swiper": "5.x",
     "user-instagram": "^2.1.9",
     "v-video-embed": "^1.0.8",

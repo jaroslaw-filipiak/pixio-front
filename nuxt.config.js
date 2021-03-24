@@ -104,6 +104,10 @@ export default {
     {
       src: "@/plugins/v-video.js",
       ssr: false
+    },
+    {
+      src: "@/plugins/shuffle.js",
+      ssr: false
     }
     // {
     //   src: '@/plugins/instafeed.js',

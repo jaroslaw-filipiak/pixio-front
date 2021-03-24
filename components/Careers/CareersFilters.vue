@@ -46,7 +46,6 @@
                   clip-rule: evenodd;
                 }
               </style>
-              <title>Website_jobs_office_logos-gold</title>
               <path
                 fill="#fff"
                 class="st0"
@@ -59,6 +58,7 @@
 	z"
               />
             </svg>
+            beijing
           </div>
           <div class="careers-filter-item careers-filter__los-angeles">
             <svg
@@ -72,13 +72,13 @@
               style="enable-background:new 0 0 17.4 17;"
               xml:space="preserve"
             >
-              <title>Website_jobs_office_logos-gold</title>
               <path
                 fill="#fff"
                 d="M10.1,6.5L8.7,2.1L7.3,6.5H2.6l3.8,2.7L5,13.6L8.7,11l3.8,2.8L11,9.3l3.8-2.8H10.1z M8.7,0c4.7-0.1,8.6,3.7,8.7,8.5
 	c0,4.7-3.9,8.6-8.7,8.5l0,0C4,17.1,0.1,13.3,0,8.5l0,0C0.1,3.7,4-0.1,8.7,0z"
               />
             </svg>
+            Los Angeles
           </div>
           <div class="careers-filter-item careers-filter__frankfurt">
             <svg
@@ -153,6 +153,7 @@
                 />
               </g>
             </svg>
+            Frankfurt
           </div>
           <div class="careers-filter-item careers-filter__toronto">
             <svg
@@ -212,6 +213,7 @@
 	c4.7-0.1,8.6,3.7,8.7,8.5c0,4.7-3.9,8.6-8.7,8.5l0,0C4,17.1,0.1,13.3,0,8.5l0,0C0.1,3.7,4-0.1,8.7,0z"
               />
             </svg>
+            Toronto
           </div>
           <div class="careers-filter-item careers-filter__stuttgart">
             <svg
@@ -245,6 +247,7 @@
                 />
               </g>
             </svg>
+            stuttgart
           </div>
           <div class="careers-filter-item careers-filter__shanghai">
             <svg
@@ -284,6 +287,7 @@
 	L1.1,12.6z"
               />
             </svg>
+            shanghai
           </div>
           <div class="careers-filter-item careers-filter__vancouver">
             <svg
@@ -320,6 +324,7 @@
 	c0,4.7-3.9,8.6-8.7,8.5l0,0C4,17.1,0.1,13.3,0,8.5l0,0C0.1,3.7,4-0.1,8.7,0z"
               />
             </svg>
+            vancouver
           </div>
           <div class="careers-filter-item careers-filter__montreal">
             <svg
@@ -396,6 +401,7 @@
                 </g>
               </g>
             </svg>
+            montreal
           </div>
           <div class="careers-filter-item careers-filter__all">
             <svg
@@ -483,6 +489,7 @@
                 </clipPath>
               </defs>
             </svg>
+            All
           </div>
         </div>
       </div>
@@ -560,6 +567,18 @@ export default {};
 .careers-filter-item {
   margin-right: 23px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+
+  svg {
+    margin-bottom: 10px;
+  }
 }
 
 .careers-filter__all {

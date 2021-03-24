@@ -7,7 +7,7 @@
         alt="our team photo"
       />
     </div>
-    <div class="apply-form-sidebar--button-wrapper"></div>
+
     <div class="apply-form-sidebar--content">
       <h4>An accurate resume is a key</h4>
       <p>

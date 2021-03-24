@@ -47,7 +47,7 @@ export default {};
   align-items: center;
   justify-content: center;
 
-  @include md-min {
+  @include lg-min {
     margin-bottom: 0;
     background-color: #f7f6f2;
     padding: 22px 30px;
