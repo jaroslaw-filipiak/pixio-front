@@ -498,7 +498,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    var Shuffle = window.Shuffle;
+
+    var myShuffle = new Shuffle(
+      document.querySelector(".careers-filter-wrapper"),
+      {
+        itemSelector: ".careers-filter-item",
+        sizer: ".careers-filter-wrapper",
+        buffer: 1
+      }
+    );
+  }
+};
 </script>
 
 <style lang="scss">
