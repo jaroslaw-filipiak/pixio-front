@@ -138,7 +138,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: "https://mighty-plains-18467.herokuapp.com/graphql"
+        httpEndpoint: "https://7e6805.stage.titans24.com/graphql"
       }
     }
   },

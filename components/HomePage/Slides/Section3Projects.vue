@@ -11,9 +11,7 @@
       <swiper-slide v-for="project in projects" :key="project.id">
         <Project
           :title="project.Title"
-          :backgroundUrl="
-            `https://mighty-plains-18467.herokuapp.com${project.Thumbnail.url}`
-          "
+          :backgroundUrl="project.Thumbnail.url"
           :movieEmbeed="project.link"
         />
       </swiper-slide>
