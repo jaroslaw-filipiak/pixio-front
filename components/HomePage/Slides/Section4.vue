@@ -4,7 +4,10 @@
     id="section4"
     :style="{ backgroundImage: `url(${backgroundUrl})` }"
   >
-    <div class="slide slide-for-sec-4" :class="{ 'is-hiring-visible': IsHiringVisible }">
+    <div
+      class="slide slide-for-sec-4"
+      :class="{ 'is-hiring-visible': IsHiringVisible }"
+    >
       <div>
         <div class="info-box">
           <h4>
@@ -57,11 +60,10 @@
           </div>
         </div>
       </div>
-      <div class="carrer-box" :class="{ carrerBoxActive: IsHiringVisible }">
-        <a @click="handleClick" href="#">{{
-          IsHiringVisible ? "We are Hiring" : "Focusing on a career?"
-        }}</a>
+      <div class="carrer-box">
+        <nuxt-link to="/Careers">Focusing on a career?</nuxt-link>
       </div>
+
       <div v-show="IsHiringVisible" class="we-are-hiring">
         <h3>With PXO you can make great things, to name a few:</h3>
         <div class="we-are-hiring--steps">
@@ -89,7 +91,7 @@
         </div>
       </div>
     </div>
-     <slot> </slot>  
+    <slot> </slot>
   </div>
 </template>
 
@@ -99,43 +101,41 @@ export default {
   data() {
     return {
       backgroundUrl,
-      IsHiringVisible: false,
+      IsHiringVisible: false
     };
   },
   methods: {
-    handleClick: function () {
+    handleClick: function() {
       this.IsHiringVisible = !this.IsHiringVisible;
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="scss">
-
 .slide-for-sec-4 {
   @include xl {
-  position: relative;
-  top: 0px;
-  transition: all .1s ease-in-out;
+    position: relative;
+    top: 0px;
+    transition: all 0.1s ease-in-out;
   }
- 
 }
 
 .is-hiring-visible {
-  transition: all .1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   @include xl {
-  position: relative;
-  top: -200px;
-  transition: all .1s ease-in-out;
+    position: relative;
+    top: -200px;
+    transition: all 0.1s ease-in-out;
   }
 
-  .info-box , .we-are-global {
+  .info-box,
+  .we-are-global {
     @include xl {
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
       filter: blur(4px);
     }
   }
-
 }
 #section4 {
   .fp-tableCell {
@@ -160,7 +160,7 @@ export default {
 }
 
 .info-box {
-   transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   margin: 0 auto;
   max-width: 512px;
   padding: 20px 30px;
@@ -193,7 +193,7 @@ export default {
 
 .we-are-global {
   margin-top: 40px;
-  &__hide{
+  &__hide {
     opacity: 0;
   }
 }
@@ -238,7 +238,6 @@ export default {
     opacity: 1;
     display: inline-block;
     margin-bottom: 85px;
-    
 
     &::after {
       content: "";
@@ -263,15 +262,13 @@ export default {
       }
     }
   }
-
-  
 }
 
 .carrerBoxActive {
-    a {
-      margin-bottom: 0px;
-    }
+  a {
+    margin-bottom: 0px;
   }
+}
 
 .we-are-hiring {
   background-color: #222222;
