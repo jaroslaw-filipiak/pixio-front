@@ -12,7 +12,7 @@
 export default {
   layout: "single-job",
   async asyncData({ params }) {
-    const slug = params.slug; // When calling /abc the slug will be "abc"
+    const slug = params.slug;
     return { slug };
   },
   head() {

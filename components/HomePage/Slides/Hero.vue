@@ -52,7 +52,6 @@
 </template>
 
 <script>
-import gql from "graphql-tag";
 import { pageHomeHeroVideo } from "~/graphql/queries";
 
 export default {
@@ -60,7 +59,9 @@ export default {
     return {
       isMaskVisible: true,
       isVideoVisible: false,
-      pageHome: "empty string ?"
+      pageHome: {
+        hero_video_ID: "WeoAgb7v3fU"
+      }
     };
   },
   apollo: {
@@ -81,8 +82,10 @@ export default {
     }
   },
   mounted() {
-    this.onYouTubeIframeAPIReady();
-    console.log(this.pageHome);
+    // WeoAgb7v3fU
+    setTimeout(() => {
+      this.onYouTubeIframeAPIReady();
+    }, 250);
 
     setTimeout(() => {
       let maskReveal = gsap.to(".move-mask", {
@@ -196,7 +199,7 @@ export default {
       player = new YT.Player("player", {
         height: "390",
         width: "640",
-        videoId: `"WeoAgb7v3fU"`,
+        videoId: this.pageHome.hero_video_ID,
         loop: 1,
         playerVars: {
           enablejsapi: 1,
@@ -208,7 +211,7 @@ export default {
           iv_load_policy: 3,
           autoplay: 1,
           loop: 1,
-          playlist: "WeoAgb7v3fU",
+          playlist: this.pageHome.hero_video_ID,
           modestbranding: 1,
           autohide: 1
         },

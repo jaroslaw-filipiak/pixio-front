@@ -5,6 +5,17 @@ export const jobItemsQuery = gql`
     jobs {
       id
       Title
+      cities {
+        id
+        name
+        icon {
+          url
+        }
+      }
+      Time
+      job_content
+      experience
+      apply_to
     }
   }
 `;

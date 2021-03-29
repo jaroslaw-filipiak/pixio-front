@@ -1,35 +1,32 @@
 <template>
-  <NuxtLink to="/careers/lighting-artist">
+  <NuxtLink :to="`/careers/${Title.replace(/\s/g, '-').toLowerCase()}`">
     <div class="job-post-item">
       <div class="job-post-column job-post-column-1">
-        <div class="job-post-exp">Experience: Mid to Senior</div>
+        <div class="job-post-exp">Experience: {{ exp }}</div>
         <div class="job-post-title">{{ Title }}</div>
       </div>
       <div class="job-post-column job-post-column-2">
         <div class="job-post-localization">
           <img src="@/assets/img/map-pin.svg" alt="map-pin" />
-          Toronto
+          {{ city }}
         </div>
       </div>
       <div class="job-post-column job-post-column-3">
         <div class="job-post-time">
           <img src="@/assets/img/clock.svg" alt="map-pin" />
-          ASAP
+          {{ Time ? Time : "ASAP" }}
         </div>
         <ApplyButton />
       </div>
     </div>
   </NuxtLink>
 </template>
-
 <script>
 export default {
   methods: {
-    goToJobPage: () => {
-      alert("12");
-    }
+    goToJobPage: () => {}
   },
-  props: ["Title"]
+  props: ["Title", "exp", "Time", "city"]
 };
 </script>
 

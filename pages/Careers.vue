@@ -4,7 +4,12 @@
     <AvailableJobsCounter />
     <div class="job-post-items">
       <div class="job-post-item-wrapper" v-for="job in jobs" :key="job.id">
-        <JobPostItem :title="job.Title" />
+        <JobPostItem
+          :title="job.Title"
+          :exp="job.experience"
+          :time="job.Time"
+          :city="job.cities.name"
+        />
       </div>
     </div>
   </div>
