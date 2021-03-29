@@ -139,6 +139,7 @@ export default {
     clientConfigs: {
       default: {
         httpEndpoint: "https://7e6805.stage.titans24.com/graphql"
+        // httpEndpoint: "http://localhost:1337/graphql"
       }
     }
   },

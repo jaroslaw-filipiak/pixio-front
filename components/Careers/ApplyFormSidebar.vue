@@ -3,41 +3,33 @@
     <div class="apply-form-sidebar--photo">
       <img
         class="img-fluid"
-        src="@/assets/img/apply-job-img.jpg"
+        :src="this.applyJobSidebar.image.url"
         alt="our team photo"
       />
     </div>
 
     <div class="apply-form-sidebar--content">
-      <h4>An accurate resume is a key</h4>
-      <p>
-        The resume is the most important part of the application. Make sure it
-        contains all the crucial information, which will help our hiring
-        managers to decide if you are a good fit for the job. Good luck!
-      </p>
-
-      <h4>What to expect?</h4>
-      <p>
-        Once you submit your application our local hiring managers will review
-        it carefully. To discuss the next steps, the recruiter will get in touch
-        with you, using the contact information you had provided (please
-        double-check them). Please bear in mind we will contact only the people
-        who are the best fit for the position.
-      </p>
-
-      <h4>What if I’m not a Visual Effects- or Software Expert?</h4>
-      <p>
-        Sometimes a passion is all it takes. If you love what we do, and why we
-        do it – that's already great. When you top it with attention to a
-        detail, a collaborative spirit, and an eagerness to learn, you are all
-        set – we would love to have you on the team.
-      </p>
+      {{ this.applyJobSidebar.content }}
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { applyJobSidebarContent } from "~/graphql/queries";
+
+export default {
+  data() {
+    return {
+      applyJobSidebar: ""
+    };
+  },
+  apollo: {
+    applyJobSidebar: {
+      prefetch: true,
+      query: applyJobSidebarContent
+    }
+  }
+};
 </script>
 
 <style lang="scss">

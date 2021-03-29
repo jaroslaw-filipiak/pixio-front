@@ -3,7 +3,7 @@
     <div class="job-post-item">
       <div class="job-post-column job-post-column-1">
         <div class="job-post-exp">Experience: Mid to Senior</div>
-        <div class="job-post-title">Lighting Artist</div>
+        <div class="job-post-title">{{ Title }}</div>
       </div>
       <div class="job-post-column job-post-column-2">
         <div class="job-post-localization">
@@ -28,7 +28,8 @@ export default {
     goToJobPage: () => {
       alert("12");
     }
-  }
+  },
+  props: ["Title"]
 };
 </script>
 

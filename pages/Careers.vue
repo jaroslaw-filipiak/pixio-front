@@ -3,35 +3,16 @@
     <!-- <CareersFilters /> -->
     <AvailableJobsCounter />
     <div class="job-post-items">
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
-      <JobPostItem />
+      <div class="job-post-item-wrapper" v-for="job in jobs" :key="job.id">
+        <JobPostItem :title="job.Title" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { jobItemsQuery } from "~/graphql/queries";
+
 export default {
   layout: "careers",
   head() {
@@ -40,6 +21,27 @@ export default {
         class: "page-careers"
       }
     };
+  },
+  data() {
+    return {
+      jobs: []
+    };
+  },
+  apollo: {
+    jobs: {
+      prefetch: true,
+      query: jobItemsQuery
+    }
   }
 };
 </script>
+
+<style lang="scss">
+.job-post-item-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+</style>
