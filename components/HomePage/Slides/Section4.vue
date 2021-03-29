@@ -25,37 +25,13 @@
         <div class="we-are-global">
           <h5>We are global</h5>
           <div class="we-are-global--branches">
-            <div class="we-are-global--branch">
-              <img src="@/assets/img/brand/beijing.svg" alt="" />
-              <p>Beijing</p>
-            </div>
-            <div class="we-are-global--branch">
-              <img src="@/assets/img/brand/losangeles.svg" alt="" />
-              <p>Los Angeles</p>
-            </div>
-            <div class="we-are-global--branch">
-              <img src="@/assets/img/brand/frankfurt.svg" alt="" />
-              <p>Frankfurt</p>
-            </div>
-            <div class="we-are-global--branch">
-              <img src="@/assets/img/brand/toronto.svg" alt="" />
-              <p>Toronto</p>
-            </div>
-            <div class="we-are-global--branch">
-              <img src="@/assets/img/brand/stuttgart.svg" alt="" />
-              <p>Stuttgart</p>
-            </div>
-            <div class="we-are-global--branch">
-              <img src="@/assets/img/brand/shanghai.svg" alt="" />
-              <p>Shanghai</p>
-            </div>
-            <div class="we-are-global--branch">
-              <img src="@/assets/img/brand/vancouver.svg" alt="" />
-              <p>Vancouver</p>
-            </div>
-            <div class="we-are-global--branch">
-              <img src="@/assets/img/brand/montreal.svg" alt="" />
-              <p>Montreal</p>
+            <div
+              v-for="city in cities"
+              :key="city.id"
+              class="we-are-global--branch"
+            >
+              <img :src="city.icon.url" alt="" />
+              <p>{{ city.name }}</p>
             </div>
           </div>
         </div>
@@ -69,26 +45,38 @@
 </template>
 
 <script>
-import backgroundUrl from "~/assets/img/slide-4-bg.jpg";
-import { pageAboutContent } from "~/graphql/queries";
+// import backgroundUrl from "~/assets/img/slide-4-bg.jpg";
+import { pageAboutContent, getCities } from "~/graphql/queries";
 
 export default {
   data() {
     return {
-      backgroundUrl,
       IsHiringVisible: false,
       pageAbout: {
         about_content: "",
         section_background: {
           url: ""
         }
-      }
+      },
+      cities: [
+        {
+          icon: {
+            url: ""
+          },
+          id: "",
+          name: ""
+        }
+      ]
     };
   },
   apollo: {
     pageAbout: {
       prefetch: true,
       query: pageAboutContent
+    },
+    cities: {
+      prefetch: true,
+      query: getCities
     }
   },
   methods: {

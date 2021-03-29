@@ -40,3 +40,15 @@ export const pageAboutContent = gql`
     }
   }
 `;
+
+export const getCities = gql`
+  query getCities {
+    cities {
+      id
+      name
+      icon {
+        url
+      }
+    }
+  }
+`;
