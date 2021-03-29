@@ -2,13 +2,15 @@
   <div
     class="section"
     id="section-contact"
-    :style="{ backgroundImage: `url(${bgImage})` }"
+    :style="{
+      backgroundImage: `url(${this.pageContact.section_background.url})`
+    }"
   >
     <div class="contact-title">
       <h2>More questions ?</h2>
       <p>We are here for you</p>
     </div>
-    <div class="contact-form" :class="{'contact-form--succes': isSuccess}">
+    <div class="contact-form" :class="{ 'contact-form--succes': isSuccess }">
       <label for="name">
         Hello, my name is
         <input type="text" placeholder="your name" />
@@ -26,9 +28,13 @@
         <input type="email" placeholder="your e-mail" />
       </label>
 
-      <div class="detalis-txt" style="margin-top: 20px">Here are the details:</div>
+      <div class="detalis-txt" style="margin-top: 20px">
+        Here are the details:
+      </div>
       <textarea name="" id="" cols="30" rows="3"></textarea>
-      <button @click="sendMessage" class="btn btn-outline-white">Send inquiry</button>
+      <button @click="sendMessage" class="btn btn-outline-white">
+        Send inquiry
+      </button>
     </div>
     <div class="contact-info">
       <div class="contact-info--item">
@@ -69,7 +75,7 @@
         </div>
         <div class="contact-info--txt">
           <p>Marketing</p>
-          <a href="mailto:">marketing@pixomondo.com</a>
+          <a href="mailto:">{{ pageContact.marketing_email }}</a>
         </div>
       </div>
       <div class="contact-info--item">
@@ -127,7 +133,7 @@
         </div>
         <div class="contact-info--txt">
           <p>Sales</p>
-          <a href="mailto:">studio@pixomondo.com</a>
+          <a href="mailto:">studio@{{ pageContact.sales_email }}.com</a>
         </div>
       </div>
       <div class="contact-info--item">
@@ -159,7 +165,7 @@
         </div>
         <div class="contact-info--txt">
           <p>General inquires</p>
-          <a href="mailto:">jobs@pixomondo.com</a>
+          <a href="mailto:">{{ pageContact.general_email }}</a>
         </div>
       </div>
     </div>
@@ -167,28 +173,43 @@
 </template>
 
 <script>
-const bgImage = require("@/assets/img/contact-bg.jpg");
+// const bgImage = require("@/assets/img/contact-bg.jpg");
+
+import { pageContactContent } from "~/graphql/queries";
 
 export default {
   data() {
     return {
-      bgImage,
-      isSuccess: false
+      isSuccess: false,
+      pageContact: {
+        id: "",
+        marketing_email: "",
+        sales_email: "",
+        general_email: "",
+        section_background: {
+          url: ""
+        }
+      }
     };
+  },
+  apollo: {
+    pageContact: {
+      prefetch: true,
+      query: pageContactContent
+    }
   },
   methods: {
     sendMessage: function() {
       this.isSuccess = !this.isSuccess;
-      setTimeout(()=> {
+      setTimeout(() => {
         this.isSuccess = !this.isSuccess;
-      },2000)
+      }, 2000);
     }
   }
 };
 </script>
 
 <style lang="scss">
-
 .contact-title {
   @include xxl-min {
     position: relative;
@@ -221,8 +242,8 @@ export default {
     padding: 40px 30px;
     transform: scale(1);
 
-     @include xl {
-      transform: scale(.8)
+    @include xl {
+      transform: scale(0.8);
     }
 
     @include xxl-min {
@@ -282,46 +303,45 @@ export default {
     input:focus {
       outline: none;
     }
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &--succes {
       border: 1px solid #000;
-      transition: all .2s ease-in-out;
+      transition: all 0.2s ease-in-out;
       background-color: rgb(0, 0, 0);
       position: relative;
       z-index: 4;
       &::before {
-        transition: all .2s ease-in-out;
-        content: 'your message was sent successfully';
+        transition: all 0.2s ease-in-out;
+        content: "your message was sent successfully";
         color: rgb(255, 255, 255);
         font-size: 22px;
         width: 100%;
         height: 100%;
-        display:flex;
+        display: flex;
         align-items: center;
         justify-content: center;
         z-index: 2;
         position: absolute;
         left: 0;
         top: 0;
-
       }
       label {
         opacity: 0;
       }
-       input {
-          opacity: 0
-        }
-        textarea {
-          opacity: 0;
-        }
+      input {
+        opacity: 0;
+      }
+      textarea {
+        opacity: 0;
+      }
 
-        .detalis-txt {
-          opacity: 0;
-        }
-        button {
-          opacity: 0;
-        }
+      .detalis-txt {
+        opacity: 0;
+      }
+      button {
+        opacity: 0;
+      }
     }
   }
 
@@ -344,10 +364,10 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-     transform: scale(1);
+    transform: scale(1);
 
     @include xl {
-      transform: scale(.8)
+      transform: scale(0.8);
     }
   }
 

@@ -52,3 +52,17 @@ export const getCities = gql`
     }
   }
 `;
+
+export const pageContactContent = gql`
+  query pageContact {
+    pageContact {
+      id
+      marketing_email
+      sales_email
+      general_email
+      section_background {
+        url
+      }
+    }
+  }
+`;
