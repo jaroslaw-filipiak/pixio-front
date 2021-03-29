@@ -1,9 +1,10 @@
 <template>
   <div class="single-job-sidebar">
     <div class="single-job-sidebar--photo">
+      <!-- :src="this.singleJobSidebar.image[0].url" -->
       <img
         class="img-fluid"
-        src="@/assets/img/sidebar-img.jpg"
+        :src="this.singleJobSidebar.image.url"
         alt="our team photo"
       />
     </div>
@@ -11,36 +12,33 @@
       <ApplyButton />
     </div>
     <div class="single-job-sidebar--content">
-      <h4>Our values</h4>
-      <p>
-        PIXOMONDO is an international visual effects company with a global
-        network of facilities. We are recruiting for various positions where we
-        would like to welcome anyone with the right experience to work in a
-        fresh and challenging environment.
-      </p>
-
-      <h4>About perfect candidate</h4>
-      <p>
-        You are confident about what you do. And strategically prioritize your
-        tasks to achieve the goal. When it comes to problem-solving: you decide
-        if it needs a bandage or a cure. You see the final result even before
-        the first shot.
-      </p>
-
-      <h4>Courage, Passion, and Honesty</h4>
-      <p>
-        You don’t do something wrong simply because you “were told to” and
-        aren’t afraid to speak up respectfully when it’s important. We want
-        everything to be the best it can be, and you do too. You take risks and
-        responsibility in proportional measure, and you’re reliable. When you
-        say it’ll be done, it gets done, and it’s done on time.
-      </p>
+      {{ this.singleJobSidebar.content }}
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { singleJobSidebarContent } from "~/graphql/queries";
+
+export default {
+  data() {
+    return {
+      singleJobSidebar: {
+        content: "",
+        id: "",
+        image: {
+          url: ""
+        }
+      }
+    };
+  },
+  apollo: {
+    singleJobSidebar: {
+      prefetch: true,
+      query: singleJobSidebarContent
+    }
+  }
+};
 </script>
 
 <style lang="scss">

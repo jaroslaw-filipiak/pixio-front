@@ -83,3 +83,15 @@ export const pageVisualProductionContent = gql`
     }
   }
 `;
+
+export const singleJobSidebarContent = gql`
+  query singleJobSidebar {
+    singleJobSidebar {
+      id
+      image {
+        url
+      }
+      content
+    }
+  }
+`;
