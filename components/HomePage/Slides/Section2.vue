@@ -3,13 +3,12 @@
   <div class="section section-2" :style="{ backgroundImage: `url(${image})` }">
     <!-- <div v-if="isSectionOverlayActive" class="section-overlay"></div> -->
     <div class="section-2-gradient-overlay"></div>
-    <div class="slide slide-2 slide-solutions"  >
+    <div class="slide slide-2 slide-solutions">
       <div class="slide-title">
-        <h1>Virtual production studio in Toronto
-        </h1>
+        <h1>Virtual production studio in Toronto</h1>
       </div>
 
-      <SolutionsSlides/>
+      <SolutionsSlides />
 
       <div class="vr-info-box--wrapper">
         <div class="vr-info-box">
@@ -29,8 +28,7 @@
             </h4>
           </div>
           <div class="vr-info-box--column vr-info-box--column-4">
-            <button class="btn btn-outline-white btn-outline-white__solutions"
-            >
+            <button class="btn btn-outline-white btn-outline-white__solutions">
               Contact us for more information
             </button>
           </div>
@@ -43,7 +41,7 @@
 
 <script>
 import image from "@/assets/img/vrbg.jpg";
-import Solutions from '../../../pages/Solutions.vue';
+import Solutions from "../../../pages/Solutions.vue";
 export default {
   components: { Solutions },
   data() {
@@ -52,37 +50,36 @@ export default {
       isTooltipVisible: true,
       isSectionOverlayActive: false,
       isArrowsVisible: false,
-      indicatorVisible: true,
+      indicatorVisible: true
     };
   },
-  
+
   methods: {
     nextSlide(e) {
-        fullpage_api.moveSlideLeft();
-        console.log('next slide methood')
-        console.log(fullpage_api)
+      fullpage_api.moveSlideLeft();
+      console.log("next slide methood");
+      console.log(fullpage_api);
     },
     handleMoreClick() {
       this.isSectionOverlayActive = !this.isSectionOverlayActive;
       this.isTooltipVisible = !this.isTooltipVisible;
       this.isArrowsVisible = !this.isArrowsVisible;
-      this.indicatorVisible = !this.indicatorVisible
-    },
+      this.indicatorVisible = !this.indicatorVisible;
+    }
   },
   watch: {
-    isSectionOverlayActive: function () {
+    isSectionOverlayActive: function() {
       console.log(this.isSectionOverlayActive);
 
       //   nextButton.classList.add(
       //     `${this.isSectionOverlayActive ? "fp-next__visible" : "bts"}`
       //   );
       //   prevButton.classList.add("fp-prev__visible");
-    },
+    }
     //  isArrowsVisible: function() {
     //    console.log( this.isArrowsVisible)
 
     //    const sectionClass = document.querySelector('.section-2')
-       
 
     //    if( this.isArrowsVisible) {
     //       sectionClass.classList.add('side-arrows-visible')
@@ -91,49 +88,52 @@ export default {
     //    }
     //  }
   },
-  mounted() {
-    
-  
-  },
+  mounted() {}
 };
 </script>
 
 <style lang="scss">
-
 .vr-box__under {
   z-index: -1 !important;
 }
 
-
-
 .section-2-gradient-overlay {
-  background: rgb(255,255,255);
-background: -moz-linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
-background: -webkit-linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
-background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#000000",GradientType=1);
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#000000",GradientType=1);
 
-position: absolute;
-bottom: 0;
-left: 0;
-width: 100%;
-height: 100%;;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .side-arrows-visible {
   .fp-controlArrow.fp-prev {
- 
- }
+  }
   .fp-controlArrow.fp-next {
-  
- }
+  }
 }
 
 .fp-controlArrow.fp-prev {
 }
- 
+
 .fp-controlArrow.fp-next {
-  
 }
 
 .vr-info-box--wrapper {
@@ -142,10 +142,10 @@ height: 100%;;
   position: absolute;
   bottom: 80px;
   z-index: 11;
-   transform: scale(1);
+  transform: scale(1);
 
   @include xl {
-    transform: scale(.9);
+    transform: scale(0.9);
     left: -10px;
   }
 }
@@ -224,12 +224,12 @@ height: 100%;;
 
   .slide-2-3 {
     .fp-tableCell {
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 80px 0px;
-    position: relative;
-  }
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 80px 0px;
+      position: relative;
+    }
   }
 }
 

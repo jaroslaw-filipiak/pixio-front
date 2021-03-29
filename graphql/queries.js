@@ -66,3 +66,20 @@ export const pageContactContent = gql`
     }
   }
 `;
+
+export const pageVisualProductionContent = gql`
+  query pageVisualProduction {
+    pageVisualProduction {
+      id
+      tooltip_1_image {
+        url
+      }
+      tooltip_1_content
+      tooltip_2_video_ID
+      tooltip_3_img {
+        url
+      }
+      tooltip_3_content
+    }
+  }
+`;
