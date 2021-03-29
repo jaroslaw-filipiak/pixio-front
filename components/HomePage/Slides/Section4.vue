@@ -2,7 +2,9 @@
   <div
     class="section section-4"
     id="section4"
-    :style="{ backgroundImage: `url(${backgroundUrl})` }"
+    :style="{
+      backgroundImage: `url(${this.pageAbout.section_background.url})`
+    }"
   >
     <div
       class="slide slide-for-sec-4"
@@ -11,9 +13,7 @@
       <div>
         <div class="info-box">
           <h4>
-            We are extending the approach to our groundbreaking work in virtual
-            production, by firmly embedding our creative process into the heart
-            of yours.
+            {{ this.pageAbout.about_content }}
           </h4>
           <div class="info-box--icons">
             <img src="~/assets/img/brand/epic-games-logo.svg" />
@@ -97,12 +97,21 @@
 
 <script>
 import backgroundUrl from "~/assets/img/slide-4-bg.jpg";
+import { pageAboutContent } from "~/graphql/queries";
+
 export default {
   data() {
     return {
       backgroundUrl,
-      IsHiringVisible: false
+      IsHiringVisible: false,
+      pageAbout: ""
     };
+  },
+  apollo: {
+    pageAbout: {
+      prefetch: true,
+      query: pageAboutContent
+    }
   },
   methods: {
     handleClick: function() {

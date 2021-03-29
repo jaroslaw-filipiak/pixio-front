@@ -28,3 +28,15 @@ export const applyJobSidebarContent = gql`
     }
   }
 `;
+
+export const pageAboutContent = gql`
+  query pageAboutContent {
+    pageAbout {
+      id
+      section_background {
+        url
+      }
+      about_content
+    }
+  }
+`;
