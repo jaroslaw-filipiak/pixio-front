@@ -63,33 +63,6 @@
       <div class="carrer-box">
         <nuxt-link to="/Careers">Focusing on a career?</nuxt-link>
       </div>
-
-      <div v-show="IsHiringVisible" class="we-are-hiring">
-        <h3>With PXO you can make great things, to name a few:</h3>
-        <div class="we-are-hiring--steps">
-          <div class="we-are-hiring--step">
-            <div class="step-number">1.</div>
-            <div class="step-content">
-              <p>Bring to life ideas of most creative people in the industry</p>
-            </div>
-          </div>
-          <div class="we-are-hiring--step">
-            <div class="step-number">2.</div>
-            <div class="step-content">
-              <p>Make previously unreal happen</p>
-            </div>
-          </div>
-          <div class="we-are-hiring--step">
-            <div class="step-number">3.</div>
-            <div class="step-content">
-              <p>Work alongside best experts (and people)</p>
-            </div>
-          </div>
-        </div>
-        <div class="we-are-hiring--cta">
-          <button class="btn btn-outline-white">Amazing career page</button>
-        </div>
-      </div>
     </div>
     <slot> </slot>
   </div>
