@@ -104,7 +104,12 @@ export default {
     return {
       backgroundUrl,
       IsHiringVisible: false,
-      pageAbout: ""
+      pageAbout: {
+        about_content: "",
+        section_background: {
+          url: ""
+        }
+      }
     };
   },
   apollo: {
