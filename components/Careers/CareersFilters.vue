@@ -58,7 +58,7 @@
 	z"
               />
             </svg>
-            beijing
+            <div class="city-label">beijing</div>
           </div>
           <div class="careers-filter-item careers-filter__los-angeles">
             <svg
@@ -500,16 +500,15 @@
 <script>
 export default {
   mounted() {
-    var Shuffle = window.Shuffle;
-
-    var myShuffle = new Shuffle(
-      document.querySelector(".careers-filter-wrapper"),
-      {
-        itemSelector: ".careers-filter-item",
-        sizer: ".careers-filter-wrapper",
-        buffer: 1
-      }
-    );
+    // var Shuffle = window.Shuffle;
+    // var myShuffle = new Shuffle(
+    //   document.querySelector(".careers-filter-wrapper"),
+    //   {
+    //     itemSelector: ".careers-filter-item",
+    //     sizer: ".careers-filter-wrapper",
+    //     buffer: 1
+    //   }
+    // );
   }
 };
 </script>
