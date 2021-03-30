@@ -9,7 +9,9 @@
       />
     </div>
     <div class="single-job-sidebar--button-wrapper">
-      <nuxt-link to="/careers/apply/title_of_job"> <ApplyButton /></nuxt-link>
+      <nuxt-link :to="`/careers/apply/${this.$route.params.slug}`">
+        <ApplyButton
+      /></nuxt-link>
     </div>
     <div class="single-job-sidebar--content">
       <span v-html="this.singleJobSidebar.content"></span>
