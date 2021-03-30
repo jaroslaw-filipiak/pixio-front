@@ -2,7 +2,7 @@
   <div class="job-apply-container">
     <BackToOffers />
     <div class="single-job-content-wrapper">
-      <ApplyForm />
+      <ApplyForm :title="this.$route.params.slug" />
       <ApplyFormSidebar />
     </div>
   </div>
@@ -21,6 +21,9 @@ export default {
         class: "job-apply"
       }
     };
+  },
+  mounted() {
+    console.log(this.$route.params.slug);
   }
 };
 </script>

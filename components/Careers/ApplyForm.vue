@@ -1,8 +1,6 @@
 <template>
   <div class="apply-form--content">
-    <div class="apply-form--title">
-      You are apply for: Lighting Artist
-    </div>
+    <div class="apply-form--title">You are apply for: {{ title }}</div>
     <form class="box" action="">
       <!-- Name -->
       <div class="form-section">
