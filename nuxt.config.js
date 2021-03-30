@@ -59,9 +59,6 @@ export default {
           "https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js"
       },
       {
-        // src: ' https://apps.elfsight.com/p/platform.js'
-      },
-      {
         src:
           "https://cdnjs.cloudflare.com/ajax/libs/InstagramFeed/2.0.2/InstagramFeed.min.js"
       }
@@ -110,9 +107,9 @@ export default {
       ssr: false
     }
     // {
-    //   src: '@/plugins/instafeed.js',
+    //   src: "@/plugins/nodemailer.js",
     //   ssr: false
-    // },
+    // }
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -121,13 +118,7 @@ export default {
   buildModules: ["@nuxtjs/dotenv"],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    "@nuxtjs/axios",
-    "@nuxtjs/style-resources",
-    "@nuxtjs/apollo"
-
-    // 'fullpage-nuxt',
-  ],
+  modules: ["@nuxtjs/axios", "@nuxtjs/style-resources", "@nuxtjs/apollo"],
 
   axios: {
     // proxy: true

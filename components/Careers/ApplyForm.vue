@@ -215,8 +215,66 @@
 </template>
 
 <script>
+import nodemailer from "nodemailer";
+
 export default {
-  props: ["title"]
+  props: ["title"],
+  data() {
+    return {
+      loading: false,
+      success: false,
+      errored: false,
+      name: "",
+      email: "",
+      location: "",
+      languages: ""
+    };
+  },
+  mounted() {
+    this.initMailer();
+  },
+  methods: {
+    //     SMTP username: Your Gmail address.
+    // SMTP password: Your Gmail password.
+    // SMTP server address: smtp.gmail.com.
+    // Gmail SMTP port (TLS): 587.
+    // SMTP port (SSL): 465.
+    // SMTP TLS/SSL required: yes.
+
+    initMailer() {
+      // 1
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.SMTP_USERNAME,
+          pass: process.env.SMTP_PASSWORD
+        },
+
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false
+      });
+
+      // 2
+      let emailBody = transporter.sendMail({
+        from: '"Pixo test 👻" <jaroslaw.filipiak@25wat.com>', // sender address
+        to: "info@j-filipiak.pl", // list of receivers
+        subject: "Hello ✔", // Subject line
+        text: "Hello world?", // plain text body
+        html: "<b>Hello world?</b>" // html body
+      });
+
+      // 3
+
+      transporter.sendMail(emailBody, function(err, data) {
+        if (err) {
+          console.log("err//email", err);
+        } else {
+          console.log("email send");
+        }
+      });
+    }
+  }
 };
 </script>
 

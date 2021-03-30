@@ -28,6 +28,7 @@
     "jquery": "^3.5.1",
     "locomotive-scroll": "^4.0.6",
     "node-instagram": "^4.3.0",
+    "nodemailer": "^6.5.0",
     "nuxt": "^2.14.12",
     "object-fit-images": "^3.2.4",
     "sass": "^1.32.5",
