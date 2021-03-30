@@ -87,54 +87,28 @@ export default {
       this.onYouTubeIframeAPIReady();
     }, 250);
 
-    setTimeout(() => {
-      let maskReveal = gsap.to(".move-mask", {
-        scaleX: 20,
-        scaleY: 20,
-        opacity: 0,
-        duration: 2,
-        onComplete: maskRevealIsEnd
-      });
+    // setTimeout(() => {
+    //   let maskReveal = gsap.to(".move-mask", {
+    //     scaleX: 20,
+    //     scaleY: 20,
+    //     opacity: 0,
+    //     duration: 2,
+    //     onComplete: maskRevealIsEnd
+    //   });
 
-      function maskRevealIsEnd() {
-        fullpage_api.setAllowScrolling(true, "down");
-        fullpage_api.setAllowScrolling(true, "up");
+    //   function maskRevealIsEnd() {
+    //     fullpage_api.setAllowScrolling(true, "down");
+    //     fullpage_api.setAllowScrolling(true, "up");
+    //     console.log("mask reveal func allow scrolling true");
+    //     const nav = document.querySelector("#fp-nav");
+    //   }
 
-        console.log("mask reveal func allow scrolling true");
-        // const hamburgerMask = document.querySelector('.hamburger-mask')
-        // hamburgerMask.classList.add('hamburger-mask--disabled')
-
-        const nav = document.querySelector("#fp-nav");
-
-        //  errors this ?
-
-        // hideIndicator.play();
-        // showArrowIndicator.play();
-
-        // showHamburger.play();
-        // showFpNav.play();
-
-        // nav.classList.add('fp-nav--visible')
-      }
-
-      maskReveal.play();
-    }, 4000);
+    //   maskReveal.play();
+    // }, 4000);
 
     $(window).bind("mousewheel", e => {
       if (e.originalEvent.wheelDelta / 120 > 0) {
-        // console.log("scrolling up");
       } else {
-        // (this.isMaskVisible = false),
-        // (this.isVideoVisible = true),
-        // (this.isScrollLock = false),
-
-        // console.log("scrolling down");
-        // console.log(e.originalEvent);
-
-        // gsap.to( '.move-mask', .5,{css:{scale:.05, opacity:0, rotation: 180}, ease:Quad.easeInOut}));
-
-        // maskReveal play every scroll down? its normal ?
-
         let hideIndicator = gsap.to(".start-indicator", {
           opacity: 0,
           duration: 0
@@ -263,7 +237,7 @@ export default {
 }
 
 .mask-mobile--inner {
-  border: 2px dashed yellow;
+  border: 2px dashed #000;
   display: inline-block;
   position: relative;
   z-index: -1;
@@ -272,7 +246,7 @@ export default {
     display: block;
     width: 40vw;
     height: 100vh;
-    background-color: rgb(54, 139, 150);
+    background-color: #000;
     position: absolute;
     top: 0;
     right: -40vw;
@@ -282,7 +256,7 @@ export default {
     display: block;
     width: 40vw;
     height: 100vh;
-    background-color: rgb(211, 50, 149);
+    background-color: #000;
     position: absolute;
     top: 0;
     left: -40vw;
