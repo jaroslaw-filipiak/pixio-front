@@ -61,6 +61,10 @@ export default {
       {
         src:
           "https://cdnjs.cloudflare.com/ajax/libs/InstagramFeed/2.0.2/InstagramFeed.min.js"
+      },
+      {
+        src:
+          "https://cdn.jsdelivr.net/npm/nodemailer@6.5.0/lib/nodemailer.min.js"
       }
     ]
   },
