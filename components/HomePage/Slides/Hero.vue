@@ -159,26 +159,6 @@ export default {
 
         const hamburgerBTN = document.querySelector(".hamburger");
         hamburgerBTN.classList.remove("is-active");
-
-        //       .fp-nav--visible {
-        // //   transition: all .3s ease-in-out;
-        //   z-index: 2 !important;
-        //   opacity: 1 !important;
-        // }
-
-        // gsap.to(".move-mask", {
-        //   scaleX: 20,
-        //   scaleY: 20,
-        //   opacity: 0,
-        //   duration: 2,
-        // });
-
-        // setTimeout(() => {
-        //   fullpage_api.setAllowScrolling(true, "down");
-        //   fullpage_api.setAllowScrolling(true, "up");
-        //   console.log(fullpage_api)
-        //   console.log('timeout..')
-        // }, 1000);
       }
     });
 
