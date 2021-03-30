@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "front",
+    title: "Pixomondo | International visual effects company",
     htmlAttrs: {
       lang: "en"
     },

@@ -1,5 +1,5 @@
 <template>
-  <div class="back-btn">
+  <div @click="goBack" class="back-btn">
     <svg
       width="24"
       height="24"
@@ -27,7 +27,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    }
+  }
+};
 </script>
 
 <style lang="scss">
