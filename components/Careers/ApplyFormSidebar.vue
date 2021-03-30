@@ -20,7 +20,12 @@ import { applyJobSidebarContent } from "~/graphql/queries";
 export default {
   data() {
     return {
-      applyJobSidebar: ""
+      applyJobSidebar: {
+        content: "",
+        image: {
+          url: ""
+        }
+      }
     };
   },
   apollo: {

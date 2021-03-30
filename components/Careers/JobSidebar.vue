@@ -9,7 +9,7 @@
       />
     </div>
     <div class="single-job-sidebar--button-wrapper">
-      <ApplyButton />
+      <nuxt-link to="/careers/apply/title_of_job"> <ApplyButton /></nuxt-link>
     </div>
     <div class="single-job-sidebar--content">
       {{ this.singleJobSidebar.content }}
@@ -57,6 +57,11 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    a {
+      color: #222;
+      text-decoration: none;
+    }
   }
 
   &--content {
