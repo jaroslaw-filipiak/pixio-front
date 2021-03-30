@@ -9,7 +9,7 @@
     </div>
 
     <div class="apply-form-sidebar--content">
-      {{ this.applyJobSidebar.content }}
+      <span v-html="this.applyJobSidebar.content"></span>
     </div>
   </div>
 </template>

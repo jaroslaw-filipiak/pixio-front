@@ -12,7 +12,7 @@
       <nuxt-link to="/careers/apply/title_of_job"> <ApplyButton /></nuxt-link>
     </div>
     <div class="single-job-sidebar--content">
-      {{ this.singleJobSidebar.content }}
+      <span v-html="this.singleJobSidebar.content"></span>
     </div>
   </div>
 </template>

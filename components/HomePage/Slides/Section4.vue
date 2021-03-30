@@ -12,9 +12,7 @@
     >
       <div>
         <div class="info-box">
-          <h4>
-            {{ this.pageAbout.about_content }}
-          </h4>
+          <span v-html="this.pageAbout.about_content"></span>
           <div class="info-box--icons">
             <img src="~/assets/img/brand/epic-games-logo.svg" />
             <img src="~/assets/img/brand/WFW-logo.svg" />

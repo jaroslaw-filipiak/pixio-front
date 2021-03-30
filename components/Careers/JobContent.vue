@@ -10,7 +10,7 @@
       <img src="@/assets/img/clock.svg" alt="map-pin" />
       {{ this.job[0].Time ? this.job[0].Time : "ASAP" }}
     </div>
-    {{ this.job[0].job_content }}
+    <span v-html="this.job[0].job_content"></span>
   </div>
 </template>
 
