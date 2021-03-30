@@ -133,6 +133,10 @@ export default {
     }
   },
 
+  serverMiddleware: [
+    { path: "/api/mailer", handler: "~/api/report-mailer.js" }
+  ],
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   styleResources: {
