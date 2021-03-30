@@ -12,6 +12,7 @@
     "@chenfengyuan/vue-carousel": "^1.0.6",
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/axios": "^5.13.1",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/style-resources": "^1.0.0",
     "@tryghost/content-api": "^1.4.13",
     "@vue/compiler-sfc": "^3.0.5",

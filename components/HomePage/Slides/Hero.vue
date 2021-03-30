@@ -82,6 +82,12 @@ export default {
     }
   },
   mounted() {
+    console.log(process.env.APP_ENV);
+    console.log(process.env.APP_NAME);
+    console.log(process.env.DB_HOST);
+    console.log(process.env.DB_PASS);
+    console.log(process.env.TEST_VARIABLE);
+
     // WeoAgb7v3fU
     setTimeout(() => {
       this.onYouTubeIframeAPIReady();
