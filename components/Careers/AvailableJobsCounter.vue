@@ -1,11 +1,11 @@
 <template>
-  <div class="job-post-availiable">
-    56 jobs availiable
-  </div>
+  <div class="job-post-availiable">{{ count }} jobs availiable</div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["count"]
+};
 </script>
 
 <style lang="scss">

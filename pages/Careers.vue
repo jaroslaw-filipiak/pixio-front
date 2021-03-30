@@ -1,7 +1,7 @@
 <template>
   <div class="careers">
     <!-- <CareersFilters /> -->
-    <AvailableJobsCounter />
+    <AvailableJobsCounter :count="jobs.length" />
     <div class="job-post-items">
       <div class="job-post-item-wrapper" v-for="job in jobs" :key="job.id">
         <JobPostItem
