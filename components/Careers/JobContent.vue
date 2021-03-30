@@ -1,74 +1,69 @@
 <template>
   <div class="single-job--content">
     <div class="single-job--title">{{ title }}</div>
-    <div class="single-job--exp">Experience: Mid to Senior</div>
+    <div class="single-job--exp">Experience: {{ this.job[0].experience }}</div>
     <div class="single-job--localization">
       <img src="@/assets/img/map-pin.svg" alt="map-pin" />
-      Toronto
+      {{ this.job[0].cities.name }}
     </div>
     <div class="single-job--time">
       <img src="@/assets/img/clock.svg" alt="map-pin" />
-      ASAP
+      {{ this.job[0].Time ? this.job[0].Time : "ASAP" }}
     </div>
-
-    <h3>Job qualifications:</h3>
-    <ul>
-      <li>3+ years of Lighting experience in visual effects</li>
-      <li>Strong Knowledge of Maya, Arnold, and Nuke</li>
-      <li>
-        Strong understanding of rendering methods (Render Setup) & shading
-        models
-      </li>
-      <li>Previous experience performing Look Development tasks</li>
-      <li>Experience of photo-real lighting</li>
-      <li>Good communication & interpersonal skills</li>
-      <li>Ability to work within a strong team environment</li>
-      <li>Experience with Shotgun an asset</li>
-      <li>Be comfortable with a Windows/Linux OS environment</li>
-      <li>Houdini experience (Solaris) a plus!</li>
-      <li>Unreal Engine experience a plus!</li>
-    </ul>
-
-    <h3>Duties & Responsibilities:</h3>
-    <ul>
-      <li>Create and design lighting for complex scenes.</li>
-      <li>Look development of assets, environments, and FX elements.</li>
-      <li>
-        Work with supervisors, leads, and compositing team to ensure all
-        elements reach the desired look and delivery.
-      </li>
-      <li>Ability to self-troubleshoot renders.</li>
-      <li>Pre-composite shots in Nuke.</li>
-      <li>Sustain great team dynamics.</li>
-      <li>Maintain shot quotas set by production and leads.</li>
-      <li>
-        Key-Lighting and templated shots for propagations and sequences
-        (Senior.)
-      </li>
-      <li>
-        Ability to identify problematic shots that may affect delivery schedules
-        and communicate concerns to leads and supervisors.
-      </li>
-      <li>Ensure shot continuity.</li>
-    </ul>
-
-    <h3>Additional Requirements:</h3>
-    <ul>
-      <li><b>Must be eligible to work in Canada.</b></li>
-      <li><b>Include your current resume and IMDB.</b></li>
-      <li>
-        <b
-          >Please make sure your resume also includes your name, address, phone,
-          and email.</b
-        >
-      </li>
-    </ul>
+    {{ this.job[0].job_content }}
   </div>
 </template>
 
 <script>
+import gql from "graphql-tag";
+
 export default {
-  props: ["title"]
+  props: ["title"],
+  data() {
+    return {
+      job: [
+        {
+          experience: "",
+          cities: {
+            name: ""
+          }
+        }
+      ],
+      jobs: {},
+      currentTitle: this.title
+    };
+  },
+  async fetch() {
+    this.job = await fetch(
+      `https://7e6805.stage.titans24.com/jobs?Title=${this.title}`
+    ).then(res => res.json());
+  },
+  methods: {
+    fetchProps() {
+      console.log(this.title);
+    },
+    saveProps() {
+      this.data.currentTitle = this.title;
+    }
+  },
+  mounted() {
+    console.log(this.$route.params.slug);
+  }
+  // apollo: {
+  //   jobs: gql`
+  //     query Jobs {
+  //       jobs(where: { Title: "Unity Developer" }) {
+  //         Title
+  //         id
+  //         job_content
+  //         experience
+  //         cities {
+  //           name
+  //         }
+  //       }
+  //     }
+  //   `
+  // }
 };
 </script>
 

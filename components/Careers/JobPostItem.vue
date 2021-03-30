@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="`/careers/${Title.replace(/\s/g, '-').toLowerCase()}`">
+  <NuxtLink :to="`/careers/${Title}`">
     <div class="job-post-item">
       <div class="job-post-column job-post-column-1">
         <div class="job-post-exp">Experience: {{ exp }}</div>
