@@ -1,7 +1,7 @@
 <template>
   <div class="back-to-offers">
     <div class="back-to-offers-inner">
-      <div class="back-to-offers--left">
+      <div @click="goBack" class="back-to-offers--left">
         <svg
           width="24"
           height="24"
@@ -32,7 +32,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    goBack() {
+      return this.$router.go(-1);
+    }
+  }
+};
 </script>
 
 <style lang="scss">
