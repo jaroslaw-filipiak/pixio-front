@@ -98,21 +98,9 @@ export default {
       const activeItem = document.querySelector(".slide.active");
       console.log(activeItem);
     },
-    afterLoad() {
-      // console.log("Emitted 'after load' event.");
-    },
-    onLeave(e) {
-      // console.log("on leave..");
-      // console.log(e);
-      //  console.log(e.anchor)
-    },
-    onSlideLeave(section, origin, destination, direction) {
-      // console.log("on slide leave..");
-      // console.log(section);
-      // console.log(origin);
-      // console.log(destination);
-      // console.log(direction);
-    },
+    afterLoad() {},
+    onLeave(e) {},
+    onSlideLeave(section, origin, destination, direction) {},
     onElementObserved(entries) {
       entries.forEach(({ target, isIntersecting }) => {
         // console.log(target)
@@ -130,23 +118,11 @@ export default {
     }
   },
   created() {
-    // const ObserverWrapper = document.querySelector('#__layout')
-    // this.observer = new IntersectionObserver(
-    //   this.onElementObserved, {
-    //     root: ObserverWrapper,
-    //     threshold: 1.0,
-    //   }
-    // );
     setTimeout(function() {
       fullpage_api.reBuild();
     }, 500);
   },
-  mounted() {
-    // const toObservate = document.querySelector('.section-projects')
-    // this.observer.observe(toObservate);
-    // console.log(this.observer)
-    // console.log(this.$el)
-  },
+  mounted() {},
   computed: {
     isTooltipVisible: function() {
       return this.$store.state.isTooltipVisible;
