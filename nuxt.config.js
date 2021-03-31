@@ -106,6 +106,7 @@ export default {
       src: "@/plugins/shuffle.js",
       ssr: false
     }
+
     // {
     //   src: "@/plugins/nodemailer.js",
     //   ssr: false
@@ -118,7 +119,12 @@ export default {
   buildModules: ["@nuxtjs/dotenv"],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/axios", "@nuxtjs/style-resources", "@nuxtjs/apollo"],
+  modules: [
+    "@nuxtjs/axios",
+    "@nuxtjs/style-resources",
+    "@nuxtjs/apollo",
+    "@nuxtjs/device"
+  ],
 
   axios: {
     // proxy: true

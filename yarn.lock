@@ -2275,6 +2275,13 @@
     consola "^2.15.3"
     defu "^3.2.2"
 
+"@nuxtjs/device@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/device/-/device-2.0.1.tgz#eb96764ffd0638e1326f82a6930e9a0add411d29"
+  integrity sha512-T/vUOj9DprR+EV/H2lKy3dj6zuYH0yRV8ZnLXK7WbR1ni4Wrj6nw/qqAy60SOfTupefdnDJPKP3pghwCRpBCbQ==
+  dependencies:
+    defu "^3.2.2"
+
 "@nuxtjs/dotenv@^1.4.1":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@nuxtjs/dotenv/-/dotenv-1.4.1.tgz#dd5abb98e22cc7ae27139d3aa606151034293128"
@@ -14975,6 +14982,13 @@ vue-meta@^2.4.0:
   integrity sha512-XEeZUmlVeODclAjCNpWDnjgw+t3WA6gdzs6ENoIAgwO1J1d5p1tezDhtteLUFwcaQaTtayRrsx7GL6oXp/m2Jw==
   dependencies:
     deepmerge "^4.2.2"
+
+vue-mobile-detection@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vue-mobile-detection/-/vue-mobile-detection-1.0.0.tgz#1c0d6f80fa4745c1c528e07968ae351d9e32af83"
+  integrity sha512-84hsJEYTcXjAlqigg/5XfFYfIyGKtcI3rCHOOFyf99RcuMfYyMQ6wUwCCB52rf8k4xL/3DKUY4hx+vF2psgqFQ==
+  dependencies:
+    vue "^2.6.10"
 
 vue-no-ssr@^1.1.1:
   version "1.1.1"

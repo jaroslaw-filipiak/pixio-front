@@ -34,7 +34,6 @@ export default {
     // console.log(fullpage_api);
     fullpage_api.setAllowScrolling(false, "down");
     fullpage_api.setAllowScrolling(false, "up");
-    console.log("index mounted set allow scrolling to false");
   },
   computed: {
     isScrollLock() {

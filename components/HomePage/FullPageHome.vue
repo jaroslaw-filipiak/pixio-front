@@ -66,7 +66,7 @@
     <Contact />
 
     <!-- empty section / rightside navigation fast fix -->
-    <div class="section"></div>
+    <div class="section empty-section-fix"></div>
     <!-- empty section / rightside navigation fast fix -->
   </full-page>
 </template>
@@ -159,4 +159,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.empty-section-fix {
+  border: 1px solid red;
+  opacity: 0.6;
+  background-color: yellow;
+  display: none;
+}
+</style>
