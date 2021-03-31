@@ -86,6 +86,19 @@ export default {
 </script>
 
 <style lang="scss">
+.info-box--icons {
+  @include xs {
+    display: none !important;
+  }
+  @include sm {
+    display: none !important;
+  }
+
+  @include md-min {
+    display: flex;
+  }
+}
+
 .slide-for-sec-4 {
   @include xl {
     position: relative;
@@ -137,7 +150,10 @@ export default {
   margin: 0 auto;
   max-width: 512px;
   padding: 20px 30px;
-  background-color: rgba(0, 0, 0, 0.2);
+
+  @include md-min {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 
   &--icons {
     display: flex;
@@ -175,6 +191,22 @@ export default {
   padding: 30px;
   display: flex;
 
+  @include xs {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  @include sm {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  @include md {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
   .we-are-global--branch {
     cursor: pointer;
     display: flex;
@@ -183,6 +215,16 @@ export default {
     justify-content: center;
     margin: 0px 10px;
     opacity: 1;
+
+    @include xs {
+      margin: 10px;
+    }
+    @include sm {
+      margin: 10px;
+    }
+    @include md {
+      margin: 10px;
+    }
 
     img {
       width: 54px;
@@ -202,6 +244,18 @@ export default {
 }
 
 .carrer-box {
+  @include xs {
+    position: relative;
+    top: -20px;
+  }
+  @include sm {
+    position: relative;
+    top: -20px;
+  }
+  @include md {
+    position: relative;
+    top: -20px;
+  }
   a {
     color: #fff !important;
     font-size: 22px;
