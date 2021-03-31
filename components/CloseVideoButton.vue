@@ -1,27 +1,36 @@
 <template>
   <div class="close-video-button" @click="closeVideo">
-      <div class="close-video-button--inner">
-        <img src="@/assets/img/cross-icon.svg" alt="">
-      </div>
+    <div class="close-video-button--inner">
+      <img src="@/assets/img/cross-icon.svg" alt="" />
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-   methods: {
-      closeVideo() {
-        // 1 close video that' mean change z-index
-        this.$store.commit('closeVideo', 'its always set to false in store')
-        // 2 set vide url to empty string ? 
-         this.$store.commit('changeVideoURL', 'novideo..');
-      }
-     
-    },
-}
+  methods: {
+    closeVideo() {
+      // 1 close video that' mean change z-index
+      this.$store.commit("closeVideo", "its always set to false in store");
+      // 2 set vide url to empty string ?
+      this.$store.commit("changeVideoURL", "novideo..");
+    }
+  }
+};
 </script>
 
 <style lang="scss">
-.close-video-button{
+.close-video-button {
+  @include xs {
+    position: absolute;
+    right: 3%;
+    top: 2%;
+  }
+  @include sm {
+    position: absolute;
+    right: 3%;
+    top: 2%;
+  }
   color: #fff;
   text-transform: uppercase;
   font-size: 16px;
@@ -35,14 +44,13 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  opacity: .7;
-  transition: all .3s ease-in-out;
+  opacity: 0.7;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
 
   &:hover {
     opacity: 1;
   }
-  
 
   &--inner {
     border: 2px solid #fff;
@@ -51,12 +59,11 @@ export default {
     border-radius: 50%;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
   }
 
   img {
-    
-    transition: all .1s ease-in;
+    transition: all 0.1s ease-in;
     animation: arrowBottom 2s ease-in-out infinite;
     animation-direction: alternate;
   }
@@ -67,12 +74,9 @@ export default {
       opacity: 1;
     }
     to {
-      transform: scale(.9);
-      opacity: .8;
+      transform: scale(0.9);
+      opacity: 0.8;
     }
   }
-
-  
-
 }
 </style>

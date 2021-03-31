@@ -94,27 +94,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-// .project-video {
-//     width:650px;
-//     height:389px;
-//     z-index: -1;
-//     position: absolute;
-//     left: 50%;
-//     top: 50%;
-//     transform: translate(-50%, -50%);
-//     opacity: 1;
-//     border: 1px solid blue;
-
-//     &__visible {
-//       border: 1px solid red;
-//       opacity: 1;
-//       z-index: 90;
-//     }
-
-//     iframe {
-//        width:650px;
-//       height:389px;
-//     }
-//   }
-</style>
+<style lang="scss"></style>

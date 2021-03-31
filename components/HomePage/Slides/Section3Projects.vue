@@ -496,13 +496,17 @@ iframe#portfolioVideo {
 }
 
 .project-video {
-  width: 320px !important;
-  height: auto !important;
+  width: 100%;
+  height: 100vh;
   z-index: -1;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  top: 0;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
   opacity: 1;
   // border: 1px solid blue;
   background-color: transparent;
@@ -512,6 +516,12 @@ iframe#portfolioVideo {
     width: 650px;
     height: 389px;
     background-color: #000;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+  }
+
+  .embed-responsive {
   }
 
   &__visible {
