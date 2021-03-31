@@ -237,10 +237,14 @@ export default {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    border: 1px solid #fff;
+
     border-radius: 20px;
     padding: 40px 30px;
     transform: scale(1);
+
+    @include lg-min {
+      border: 1px solid #fff;
+    }
 
     @include xl {
       transform: scale(0.8);
@@ -365,9 +369,27 @@ export default {
     align-items: center;
     justify-content: center;
     transform: scale(1);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    @include lg-min {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0px;
+    }
 
     @include xl {
       transform: scale(0.8);
+    }
+
+    &--item {
+      margin: 5px 0px;
+      @include xl-min {
+        margin: 0px;
+      }
     }
   }
 

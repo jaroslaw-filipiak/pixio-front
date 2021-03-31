@@ -104,6 +104,15 @@ video {
 }
 
 div.indicator {
+  @include xs {
+    display: none;
+  }
+  @include sm {
+    display: none;
+  }
+  @include md {
+    display: none;
+  }
   width: 32px;
   height: 32px;
   display: flex;

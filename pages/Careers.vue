@@ -637,6 +637,17 @@ export default {
 </script>
 
 <style lang="scss">
+.job-post-items {
+  @include xs {
+    padding-top: 15px;
+  }
+  @include sm {
+    padding-top: 15px;
+  }
+  @include md {
+    padding-top: 15px;
+  }
+}
 .job-post-item-wrapper {
   width: 100%;
   display: flex;
@@ -648,6 +659,15 @@ export default {
   text-align: center;
 }
 .careers-filters {
+  @include xs {
+    display: none;
+  }
+  @include sm {
+    display: none;
+  }
+  @include md {
+    display: none;
+  }
   overflow: hidden;
   background-color: #f7f6f2;
   padding: 22px 30px;
