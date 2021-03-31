@@ -29,18 +29,6 @@
       </div>
     </Section3Projects>
 
-    <!-- <Projects /> -->
-
-    <!-- projects -->
-    <!-- <Section3>
-       <div @click="$refs.fullpage.api.moveSectionDown()" class="arrow-bottom-next-slide">
-        <div class="arrow-bottom-next-slide--inner">
-          <img src="@/assets/img/arrow-bottom.svg" alt="">
-        </div>
-      </div>
-     </Section3 > -->
-    <!-- projects -->
-
     <Section4>
       <div
         @click="$refs.fullpage.api.moveSectionDown()"

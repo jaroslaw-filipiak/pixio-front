@@ -1,10 +1,5 @@
 <template>
-  <div
-    class="section hero"
-    style="
-      
-    "
-  >
+  <div class="section hero">
     <div class="move-mask">
       <div class="mask-mobile--wrapper">
         <div class="mask-mobile--inner">
@@ -43,7 +38,6 @@
     <div class="start-indicator">
       <div class="start-indicator--inner">
         <p>start</p>
-
         <div class="roll"></div>
         <div class="roll-circle"></div>
       </div>
@@ -73,16 +67,12 @@ export default {
   watch: {
     isMaskVisible: function() {
       if (isMaskVisible) {
-        $(window).bind("mousewheel", e => {
-          // console.log("scroll down and..");
-          // console.log(isMaskVisible);
-        });
+        $(window).bind("mousewheel", e => {});
       } else {
       }
     }
   },
   mounted() {
-    // WeoAgb7v3fU
     setTimeout(() => {
       this.onYouTubeIframeAPIReady();
     }, 250);
@@ -192,13 +182,6 @@ export default {
 </script>
 
 <style lang="scss">
-// .hero {
-//   display: none;
-//   @include lg-min {
-//     display: flex;
-//   }
-// }
-
 .mask {
   width: 100%;
   height: 100%;
@@ -372,28 +355,6 @@ export default {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    // &::before {
-    //   content: '';
-    //   display: block;
-    //   width: 2px;
-    //   height: 50px;
-    //   background-color: #fff;
-    //   position: absolute;
-    //   left: 50%;
-    //   bottom: -56px;
-    // }
-
-    //  &::after {
-    //   content: '';
-    //   display: block;
-    //  width: 10px;
-    // height: 10px;
-    // background-color: white;
-    // position: absolute;
-    // left: calc(50% - 4px);
-    // bottom: -12px;
-    // border-radius: 50%;
-    // }
   }
 
   .roll {
