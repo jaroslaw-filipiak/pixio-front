@@ -9,26 +9,31 @@
         </div>
         <div class="form-row--title"><span>*</span>Name:</div>
         <div class="form-row--inputs">
-          <input type="text" placeholder="Name" />
-          <input type="text" placeholder="Surname" />
+          <input v-model="name" type="text" placeholder="Name" />
+          <input v-model="surname" type="text" placeholder="Surname" />
         </div>
       </div>
 
       <!-- Email Address: -->
       <div class="form-section">
         <div class="form-row--title"><span>*</span>Email Address:</div>
+
         <div class="form-row--inputs">
-          <input type="email" placeholder="Email" />
-          <input type="email" placeholder="Confirm Email" />
+          <input v-model="email" type="email" placeholder="Email" />
+          <input
+            v-model="confirmEmail"
+            type="email"
+            placeholder="Confirm Email"
+          />
         </div>
       </div>
 
-      <!-- Location: -->
+      <!-- Location: -->yarn
       <div class="form-section">
         <div class="form-row--title"><span>*</span>Location:</div>
         <div class="form-row--inputs">
-          <input type="text" placeholder="Country" />
-          <input type="text" placeholder="City" />
+          <input v-model="country" type="text" placeholder="Country" />
+          <input v-model="city" type="text" placeholder="City" />
         </div>
       </div>
 
@@ -42,12 +47,16 @@
 
         <div class="form-row--title"><span>*</span>Languages:</div>
         <div class="form-row--inputs">
-          <input type="text" placeholder="Please type" />
+          <input v-model="languages" type="text" placeholder="Please type" />
         </div>
 
         <div class="form-row--title"><span>*</span>Skill level:</div>
         <div class="form-row--inputs">
-          <input type="text" placeholder="eg. Master" />
+          <input
+            v-model="languagesSkill"
+            type="text"
+            placeholder="eg. Master"
+          />
         </div>
       </div>
 
@@ -75,8 +84,8 @@
           </svg>
         </div>
         <div class="form-row--inputs">
-          <input type="text" placeholder="Country" />
-          <input type="text" placeholder="City" />
+          <input v-model="resumeCountry" type="text" placeholder="Country" />
+          <input v-model="resumeCity" type="text" placeholder="City" />
         </div>
       </div>
 
@@ -104,7 +113,11 @@
       <div class="form-section">
         <div class="form-row--title"><span>*</span>Demo or showreel:</div>
         <div class="form-row--inputs">
-          <input type="text" placeholder="Paste only an URL here" />
+          <input
+            v-model="demoURL"
+            type="text"
+            placeholder="Paste only an URL here"
+          />
         </div>
       </div>
 
@@ -120,34 +133,58 @@
 
         <div class="form-row--title"><span>*</span>2D / Compositing:</div>
         <div class="form-row--inputs">
-          <input type="text" placeholder="2D / Compositing:" />
+          <input
+            v-model="twodCompositing"
+            type="text"
+            placeholder="2D / Compositing:"
+          />
         </div>
 
         <div class="form-row--title"><span>*</span>3D:</div>
         <div class="form-row--inputs">
-          <input type="text" placeholder="3D Software" />
+          <input
+            v-model="treeDsoftware"
+            type="text"
+            placeholder="3D Software"
+          />
         </div>
 
         <div class="form-row--title"><span>*</span>Editing:</div>
         <div class="form-row--inputs">
-          <input type="text" placeholder="3Editing Software" />
+          <input
+            v-model="editing"
+            type="text"
+            placeholder="3Editing Software"
+          />
         </div>
 
         <div class="form-row--title"><span>*</span>Office:</div>
         <div class="form-row--inputs">
-          <input type="text" placeholder="Office Software" />
+          <input
+            v-model="officeSoftware"
+            type="text"
+            placeholder="Office Software"
+          />
         </div>
 
         <div class="form-row--title"><span>*</span>Programming:</div>
         <div class="form-row--inputs">
-          <input type="text" placeholder="Programming languages" />
+          <input
+            v-model="proggramingLanguages"
+            type="text"
+            placeholder="Programming languages"
+          />
         </div>
 
         <div class="form-row--title">
           <span>*</span>Web design / Web Development:
         </div>
         <div class="form-row--inputs">
-          <input type="text" placeholder="Web design software or languages" />
+          <input
+            v-model="webDesignSoftware"
+            type="text"
+            placeholder="Web design software or languages"
+          />
         </div>
       </div>
 
@@ -198,15 +235,15 @@
 
       <label class="checkbox-container">
         <p>I agree to the Terms and Conditions</p>
-        <input type="checkbox" checked="checked" />
+        <input v-model="terms" type="checkbox" checked="checked" />
         <span class="checkmark"></span>
       </label>
 
-      <div class="form-buttons">
+      <div class="form-buttons" @click="sendData">
         <div>
           <BackButton />
         </div>
-        <div @click="sendEmail">
+        <div>
           <ApplyButton />
         </div>
       </div>
@@ -215,8 +252,6 @@
 </template>
 
 <script>
-// require("dotenv").config();
-
 export default {
   props: ["title"],
   data() {
@@ -225,55 +260,64 @@ export default {
       success: false,
       errored: false,
       name: "",
+      surname: "",
       email: "",
-      location: "",
-      languages: ""
+      confirmEmail: "",
+      country: "",
+      city: "",
+      languages: "",
+      languagesSkill: "",
+      demoURL: "",
+      twodCompositing: "",
+      treeDsoftware: "",
+      editing: "",
+      officeSoftware: "",
+      proggramingLanguages: "",
+      webDesignSoftware: "",
+      resumeCountry: "",
+      resumeCity: "",
+      terms: ""
     };
   },
+
   mounted() {},
   methods: {
-    sendEmail: function() {
-      console.log("send email");
-      // transporter
-      nodemailer.createTestAccount((err, account) => {
-        if (err) {
-          console.error("Failed to create a testing account. " + err.message);
-          return process.exit(1);
-        }
-
-        console.log("Credentials obtained, sending message...");
-
-        // Create a SMTP transporter object
-        let transporter = nodemailer.createTransport({
-          host: account.smtp.host,
-          port: account.smtp.port,
-          secure: account.smtp.secure,
-          auth: {
-            user: account.user,
-            pass: account.pass
-          }
+    sendData: function() {
+      console.log("send data");
+      this.loading = true;
+      this.$axios
+        .post("/", {
+          name: this.name,
+          surname: this.surname,
+          email: this.email,
+          confirmEmail: this.confirmEmail,
+          country: this.country,
+          city: this.city,
+          languages: this.languages,
+          languagesSkill: this.languagesSkill,
+          demoURL: this.demoURL,
+          twodCompositing: this.twodCompositing,
+          treeDsoftware: this.treeDsoftware,
+          editing: this.editing,
+          officeSoftware: this.officeSoftware,
+          proggramingLanguages: this.proggramingLanguages,
+          webDesignSoftware: this.webDesignSoftware,
+          resumeCountry: this.resumeCountry,
+          resumeCity: this.resumeCity,
+          terms: this.terms,
+          city: this.city,
+          country: this.country
+        })
+        .then(response => {
+          this.success = true;
+          this.errored = false;
+        })
+        .catch(error => {
+          this.errored = true;
+        })
+        .finally(() => {
+          this.loading = false;
         });
-
-        // Message object
-        let message = {
-          from: "Sender Name <sender@example.com>",
-          to: "Recipient <recipient@example.com>",
-          subject: "Nodemailer is unicode friendly ✔",
-          text: "Hello to myself!",
-          html: "<p><b>Hello</b> to myself!</p>"
-        };
-
-        transporter.sendMail(message, (err, info) => {
-          if (err) {
-            console.log("Error occurred. " + err.message);
-            return process.exit(1);
-          }
-
-          console.log("Message sent: %s", info.messageId);
-          // Preview only available when sending through an Ethereal account
-          console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-        });
-      });
     }
   }
 };

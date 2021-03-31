@@ -106,6 +106,14 @@ export default {
       src: "@/plugins/shuffle.js",
       ssr: false
     }
+    // {
+    //   src: "@/plugins/vuelidate.js",
+    //   ssr: false
+    // }
+    // {
+    //   src: "@/plugins/vue-validator.js",
+    //   ssr: false
+    // }
 
     // {
     //   src: "@/plugins/nodemailer.js",
