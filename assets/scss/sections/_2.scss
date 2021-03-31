@@ -1,9 +1,21 @@
+#section2 {
+  .fp-tableCell {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 100vh !important;
+    @include xl-min {
+      padding: 100px 0px 0px 0px;
+    }
+  }
+}
+
 .section-2 {
   background-size: cover;
   background-repeat: no-repeat;
 
   .slide-2 {
-
     .tooltip-container {
       width: 100%;
       height: 100%;
@@ -19,7 +31,6 @@
     }
 
     .tooltip {
-
       background-color: #fff;
       color: #000;
       max-width: 777px;
@@ -32,14 +43,13 @@
 
       @include xl-min {
         padding: 50px 55px;
-       transform: scale(.8);
+        transform: scale(0.8);
       }
 
       @include xxl-min {
         padding: 40px 45px;
         transform: scale(1.43);
       }
-
 
       &--left,
       &--right {

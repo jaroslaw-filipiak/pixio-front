@@ -1,5 +1,9 @@
 <template>
-  <div class="section section-2" :style="{ backgroundImage: `url(${image})` }">
+  <div
+    id="section2"
+    class="section section-2"
+    :style="{ backgroundImage: `url(${image})` }"
+  >
     <div class="section-2-gradient-overlay"></div>
     <div class="slide slide-2 slide-solutions">
       <div class="slide-title">
