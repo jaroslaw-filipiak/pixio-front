@@ -87,64 +87,70 @@ export default {
       this.onYouTubeIframeAPIReady();
     }, 250);
 
-    setTimeout(() => {
-      let maskReveal = gsap.to(".move-mask", {
-        scaleX: 20,
-        scaleY: 20,
-        opacity: 0,
-        duration: 2,
-        onComplete: maskRevealIsEnd
-      });
-
-      function maskRevealIsEnd() {
-        fullpage_api.setAllowScrolling(true, "down");
-        fullpage_api.setAllowScrolling(true, "up");
-        console.log("mask reveal func allow scrolling true");
-        const nav = document.querySelector("#fp-nav");
-      }
-
-      maskReveal.play();
-    }, 4000);
-
-    $(window).bind("mousewheel", e => {
-      if (e.originalEvent.wheelDelta / 120 > 0) {
-      } else {
-        let hideIndicator = gsap.to(".start-indicator", {
+    if (this.$device.isDesktop) {
+      setTimeout(() => {
+        let maskReveal = gsap.to(".move-mask", {
+          scaleX: 20,
+          scaleY: 20,
           opacity: 0,
-          duration: 0
-          // onComplete: maskRevealIsEnd
+          duration: 2,
+          onComplete: maskRevealIsEnd
         });
 
-        let showArrowIndicator = gsap.to(".arrow-bottom-indicator", {
-          opacity: 1
-        });
+        function maskRevealIsEnd() {
+          fullpage_api.setAllowScrolling(true, "down");
+          fullpage_api.setAllowScrolling(true, "up");
+          console.log("mask reveal func allow scrolling true");
+          const nav = document.querySelector("#fp-nav");
+        }
 
-        let showHamburger = gsap.to(".hamburger", {
-          opacity: 1
-        });
-
-        let showFpNav = gsap.to("#fp-nav", {
-          "z-index": 2,
-          opacity: 1
-        });
-
-        const navWrapper = document.querySelector(".nav-wrapper ");
-        navWrapper.classList.remove("navOpen");
-
-        const hamburgerBTN = document.querySelector(".hamburger");
-        hamburgerBTN.classList.remove("is-active");
-      }
-    });
-
-    function showStartIndicator() {
-      gsap.to(".start-indicator", {
-        opacity: 1,
-        duration: 0.3
-        // onComplete: maskRevealIsEnd
-      });
+        maskReveal.play();
+      }, 4000);
     }
 
-    TweenLite.delayedCall(4, showStartIndicator);
+    if (this.$device.isDesktop) {
+      $(window).bind("mousewheel", e => {
+        if (e.originalEvent.wheelDelta / 120 > 0) {
+        } else {
+          let hideIndicator = gsap.to(".start-indicator", {
+            opacity: 0,
+            duration: 0
+            // onComplete: maskRevealIsEnd
+          });
+
+          let showArrowIndicator = gsap.to(".arrow-bottom-indicator", {
+            opacity: 1
+          });
+
+          let showHamburger = gsap.to(".hamburger", {
+            opacity: 1
+          });
+
+          let showFpNav = gsap.to("#fp-nav", {
+            "z-index": 2,
+            opacity: 1
+          });
+
+          const navWrapper = document.querySelector(".nav-wrapper ");
+          navWrapper.classList.remove("navOpen");
+
+          const hamburgerBTN = document.querySelector(".hamburger");
+          hamburgerBTN.classList.remove("is-active");
+        }
+      });
+      console.log(this.$device);
+    }
+
+    if (this.$device.isDesktop) {
+      function showStartIndicator() {
+        gsap.to(".start-indicator", {
+          opacity: 1,
+          duration: 0.3
+          // onComplete: maskRevealIsEnd
+        });
+      }
+      TweenLite.delayedCall(4, showStartIndicator);
+    }
   },
   methods: {
     onYouTubeIframeAPIReady: function() {
