@@ -79,7 +79,7 @@ export default {
     return {
       projectsSwiperOptions: {
         // effect: 'flip',
-        slidesPerView: 3,
+        slidesPerView: 1,
         centeredSlides: true,
         loop: false,
         spaceBetween: 30,
@@ -90,6 +90,20 @@ export default {
           // el: ".projects-swiper-pagination",
           // type: "bullets",
           // clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 40
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 50
+          }
         },
         navigation: {
           nextEl: ".next-project",
@@ -239,7 +253,34 @@ iframe#portfolioVideo {
 }
 
 .gallery__item {
+  display: flex;
   transition: all 0.2s ease-in-out;
+  z-index: 55;
+
+  @include xs {
+    grid-template-areas:
+      "gallery-image gallery-image"
+      "gallery-image gallery-image"
+      "gallery-image gallery-image";
+    margin: 0px;
+  }
+
+  @include sm {
+    grid-template-areas:
+      "gallery-image gallery-image"
+      "gallery-image gallery-image"
+      "gallery-image gallery-image";
+    margin: 0px;
+  }
+
+  @include md {
+    grid-template-areas:
+      "gallery-image gallery-image"
+      "gallery-image gallery-image"
+      "gallery-image gallery-image";
+    margin: 0px;
+  }
+
   margin: 0 3vw;
   display: grid;
   grid-template-areas:
@@ -249,7 +290,6 @@ iframe#portfolioVideo {
 
   grid-template-columns: 1rem 21vmax;
   grid-template-rows: 40px 28vmax 3rem;
-  z-index: 55;
 
   &:hover {
     transition: all 0.1s ease-in-out;
@@ -286,6 +326,25 @@ iframe#portfolioVideo {
     "gallery-link gallery-tags";
   grid-template-columns: 1rem auto;
   grid-template-rows: 29px 36rem 3rem;
+
+  @include xs {
+    position: absolute;
+    left: 0;
+    top: -49px;
+    width: 100%;
+  }
+  @include sm {
+    position: absolute;
+    left: 0;
+    top: -49px;
+    width: 100%;
+  }
+  @include md {
+    position: absolute;
+    left: 0;
+    top: -49px;
+    width: 100%;
+  }
 }
 
 .gallery__item-number {
@@ -319,6 +378,15 @@ iframe#portfolioVideo {
 }
 
 .gallery__item-link {
+  @include xs {
+    display: none;
+  }
+  @include sm {
+    display: none;
+  }
+  @include md {
+    display: none;
+  }
   grid-area: gallery-link;
   align-self: end;
   font-size: 1.5rem;

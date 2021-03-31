@@ -1,19 +1,16 @@
 <template>
   <div class="arrow-bottom-indicator">
-      <div class="arrow-bottom-indicator--inner">
-        <img src="@/assets/img/arrow-bottom.svg" alt="">
-      </div>
+    <div class="arrow-bottom-indicator--inner">
+      <img src="@/assets/img/arrow-bottom.svg" alt="" />
     </div>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style lang="scss">
-
 .arrow-bottom-indicator {
   color: #fff;
   text-transform: uppercase;
@@ -29,9 +26,8 @@ export default {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
-  
 
   &--inner {
     border: 2px solid #fff;
@@ -43,5 +39,4 @@ export default {
     justify-content: center;
   }
 }
-
 </style>

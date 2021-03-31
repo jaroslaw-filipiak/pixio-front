@@ -87,24 +87,24 @@ export default {
       this.onYouTubeIframeAPIReady();
     }, 250);
 
-    // setTimeout(() => {
-    //   let maskReveal = gsap.to(".move-mask", {
-    //     scaleX: 20,
-    //     scaleY: 20,
-    //     opacity: 0,
-    //     duration: 2,
-    //     onComplete: maskRevealIsEnd
-    //   });
+    setTimeout(() => {
+      let maskReveal = gsap.to(".move-mask", {
+        scaleX: 20,
+        scaleY: 20,
+        opacity: 0,
+        duration: 2,
+        onComplete: maskRevealIsEnd
+      });
 
-    //   function maskRevealIsEnd() {
-    //     fullpage_api.setAllowScrolling(true, "down");
-    //     fullpage_api.setAllowScrolling(true, "up");
-    //     console.log("mask reveal func allow scrolling true");
-    //     const nav = document.querySelector("#fp-nav");
-    //   }
+      function maskRevealIsEnd() {
+        fullpage_api.setAllowScrolling(true, "down");
+        fullpage_api.setAllowScrolling(true, "up");
+        console.log("mask reveal func allow scrolling true");
+        const nav = document.querySelector("#fp-nav");
+      }
 
-    //   maskReveal.play();
-    // }, 4000);
+      maskReveal.play();
+    }, 4000);
 
     $(window).bind("mousewheel", e => {
       if (e.originalEvent.wheelDelta / 120 > 0) {
@@ -192,6 +192,12 @@ export default {
 </script>
 
 <style lang="scss">
+// .hero {
+//   display: none;
+//   @include lg-min {
+//     display: flex;
+//   }
+// }
 .mask {
   width: 100%;
   height: 100%;

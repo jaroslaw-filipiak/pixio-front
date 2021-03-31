@@ -232,3 +232,10 @@ body {
     }
   }
 }
+
+.fullpage-main-wrapper__handle-mobile {
+  @include lg-min {
+    postion: relative;
+    top: 100vh;
+  }
+}

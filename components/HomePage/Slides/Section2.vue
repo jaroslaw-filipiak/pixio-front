@@ -1,7 +1,5 @@
-// :class="{'side-arrows-visible': isArrowsVisible}"
 <template>
   <div class="section section-2" :style="{ backgroundImage: `url(${image})` }">
-    <!-- <div v-if="isSectionOverlayActive" class="section-overlay"></div> -->
     <div class="section-2-gradient-overlay"></div>
     <div class="slide slide-2 slide-solutions">
       <div class="slide-title">
@@ -57,8 +55,8 @@ export default {
   methods: {
     nextSlide(e) {
       fullpage_api.moveSlideLeft();
-      console.log("next slide methood");
-      console.log(fullpage_api);
+      // console.log("next slide methood");
+      // console.log(fullpage_api);
     },
     handleMoreClick() {
       this.isSectionOverlayActive = !this.isSectionOverlayActive;
@@ -138,11 +136,14 @@ export default {
 
 .vr-info-box--wrapper {
   width: 100%;
-  height: 100px;
   position: absolute;
   bottom: 80px;
   z-index: 11;
   transform: scale(1);
+
+  @include lg-min {
+    height: 100px;
+  }
 
   @include xl {
     transform: scale(0.9);
@@ -152,7 +153,8 @@ export default {
 
 .vr-info-box {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
   color: #fff;
   font-size: 16px;
@@ -161,21 +163,30 @@ export default {
   margin: 0 auto;
   height: 100%;
 
+  @include lg-min {
+    flex-direction: row;
+    align-items: center;
+  }
+
   .vr-info-box--column {
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
-    width: 211px;
-    // border-right: 2px solid white;
-    padding: 0px 30px;
+    width: 100%;
+    padding: 10px 30px;
     position: relative;
     z-index: 4;
 
+    @include lg-min {
+      padding: 0px 30px;
+      width: 211px;
+    }
+
     &:after {
       content: "";
-      display: block;
+      display: none;
       width: 3px;
       height: 100%;
       background-color: #fff;
@@ -183,6 +194,10 @@ export default {
       right: 0;
       top: 0;
       border-radius: 20%;
+
+      @include lg-min {
+        display: block;
+      }
     }
     &:last-of-type {
       &:after {
@@ -192,6 +207,18 @@ export default {
 
     img {
       margin-bottom: 20px;
+    }
+
+    &-4 {
+      @include xs {
+        align-items: center;
+      }
+      @include sm {
+        align-items: center;
+      }
+      @include md {
+        align-items: center;
+      }
     }
   }
 }

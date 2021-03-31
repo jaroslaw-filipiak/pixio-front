@@ -1,9 +1,9 @@
 <template>
-  <main :class="{isMenuVisible: isMenuVisible}">
+  <main :class="{ isMenuVisible: isMenuVisible }">
     <Nav />
     <Hero v-on:scroll.native="handleScroll" />
     <!-- <ArrowBottomIndicator/> -->
-    <FullPageHome/>
+    <FullPageHome />
     <Rightnav />
   </main>
 </template>
@@ -14,19 +14,18 @@ export default {
     return {
       isMaskVisible: true,
       isVideoVisible: false,
-      isMenuVisible: false,
+      isMenuVisible: false
     };
   },
   methods: {
     handleScroll(event) {
       this.handleScrollLock();
-     
-    },
+    }
   },
   created() {
     // window.addEventListener("scroll", this.handleScroll);
 
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
     // console.log($.fn.fullpage);
@@ -35,11 +34,11 @@ export default {
     // console.log(fullpage_api);
     fullpage_api.setAllowScrolling(false, "down");
     fullpage_api.setAllowScrolling(false, "up");
-    console.log('index mounted set allow scrolling to false')
+    console.log("index mounted set allow scrolling to false");
   },
   computed: {
     isScrollLock() {
-      return this.$store.state.isScrollLock
+      return this.$store.state.isScrollLock;
     }
   }
 };
@@ -65,7 +64,7 @@ export default {
 
   .move-mask {
     position: relative;
-   
+
     top: 0;
     width: 100vw;
     height: 100vh;
@@ -80,7 +79,7 @@ export default {
     justify-content: center;
 
     @include xl-min {
-        left: -20px;
+      left: -20px;
     }
 
     // @include md-min {
@@ -88,5 +87,9 @@ export default {
     //   height: 110%;
     // }
   }
+}
+
+.hero-switcher {
+  border: 2px solid red;
 }
 </style>
