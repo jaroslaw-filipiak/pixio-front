@@ -5,30 +5,10 @@
 
       <div id="instagram-feed1"></div>
 
-    <!-- <div class="elfsight-app-328667f6-f287-4e1c-a0a2-a223685b7a44"></div> -->
-
-      <div id="instafeed"></div>
-
-      <div class="instagram-feed" id="instagram-feed">
-        <!-- <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div>
-        <div class="instagram-post"></div> -->
-      </div>
+      <!-- <div class="elfsight-app-328667f6-f287-4e1c-a0a2-a223685b7a44"></div> -->
     </div>
     <div class="slide"></div>
-     <slot> </slot>  
+    <slot> </slot>
   </div>
 </template>
 
@@ -46,41 +26,34 @@
 export default {
   data() {
     return {
-       posts: []
-    }
+      posts: []
+    };
   },
-  
+
   mounted() {
-
-    (function(){
-        new InstagramFeed({
-            'username': 'pixomondo',
-            'container': document.getElementById("instagram-feed1"),
-            'display_profile': false,
-            'display_biography': false,
-            'display_gallery': true,
-            'display_captions': false,
-            'callback': null,
-            'styling': true,
-            'items': 8,
-            'items_per_row': 5,
-            'margin': 0,
-            'lazy_load': true,
-            'on_error': console.error
-        });
+    (function() {
+      new InstagramFeed({
+        username: "pixomondo",
+        container: document.getElementById("instagram-feed1"),
+        display_profile: false,
+        display_biography: false,
+        display_gallery: true,
+        display_captions: false,
+        callback: null,
+        styling: true,
+        items: 8,
+        items_per_row: 5,
+        margin: 0,
+        lazy_load: true,
+        on_error: console.error
+      });
     })();
-
-
   },
-  methods: {
-
-  }
- 
+  methods: {}
 };
 </script>
 
 <style lang="scss">
-
 #instagram-feed1 {
   width: 60vw;
   @include xxl-min {
