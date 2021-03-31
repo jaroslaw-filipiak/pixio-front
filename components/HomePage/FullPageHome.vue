@@ -93,7 +93,7 @@ export default {
         verticalCentered: true,
         fitToSection: true,
         scrollBar: false,
-        // autoScrolling: true,
+        autoScrolling: true,
         navigation: true,
         navigationPosition: "right",
         afterLoad: this.afterLoad,
