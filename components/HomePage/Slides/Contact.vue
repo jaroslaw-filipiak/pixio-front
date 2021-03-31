@@ -229,7 +229,9 @@ export default {
     align-items: center !important;
     justify-content: space-between !important;
     height: 100vh !important;
-    padding: 60px 0px;
+    @include xl-min {
+      padding: 60px 0px;
+    }
   }
 
   .contact-form {

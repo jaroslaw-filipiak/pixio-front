@@ -130,7 +130,9 @@ export default {
     align-items: center !important;
     justify-content: space-between !important;
     height: 100vh !important;
-    padding: 100px 0px 0px 0px;
+    @include xl-min {
+      padding: 100px 0px 0px 0px;
+    }
   }
 }
 .section-4 {
