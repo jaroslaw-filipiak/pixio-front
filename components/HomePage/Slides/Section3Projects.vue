@@ -82,7 +82,7 @@ export default {
         slidesPerView: 1,
         centeredSlides: true,
         loop: false,
-        spaceBetween: 30,
+        spaceBetween: 0,
         grabCursor: false,
         allowTouchMove: true,
         speed: 200,
@@ -549,6 +549,21 @@ iframe#portfolioVideo {
 .section-3 {
   .swiper-container {
     filter: blur(0px);
+
+    width: 100vw;
+
+    .swiper-slide {
+      @include xs {
+        width: 70% !important;
+        margin: 0px;
+        margin-right: 0px !important;
+      }
+      @include sm {
+        width: 70% !important;
+        margin: 0px;
+        margin-right: 0px !important;
+      }
+    }
   }
 }
 </style>

@@ -93,8 +93,4 @@ export default {
     // }
   }
 }
-
-.hero-switcher {
-  border: 2px solid red;
-}
 </style>
