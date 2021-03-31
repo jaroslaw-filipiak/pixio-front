@@ -50,6 +50,7 @@
     "youtube-background": "^1.0.7"
   },
   "devDependencies": {
+    "@aceforth/nuxt-optimized-images": "^1.4.0",
     "@nuxtjs/device": "^2.0.1",
     "nuxt-gsap": "^0.1.4"
   }

@@ -120,7 +120,11 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/dotenv"],
+  buildModules: ["@nuxtjs/dotenv", "@aceforth/nuxt-optimized-images"],
+
+  optimizedImages: {
+    optimizeImages: true
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
