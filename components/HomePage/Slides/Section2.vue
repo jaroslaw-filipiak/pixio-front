@@ -59,8 +59,6 @@ export default {
   methods: {
     nextSlide(e) {
       fullpage_api.moveSlideLeft();
-      // console.log("next slide methood");
-      // console.log(fullpage_api);
     },
     handleMoreClick() {
       this.isSectionOverlayActive = !this.isSectionOverlayActive;
