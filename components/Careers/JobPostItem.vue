@@ -7,16 +7,40 @@
       </div>
       <div class="job-post-column job-post-column-2">
         <div class="job-post-localization">
-          <img src="@/assets/img/map-pin.svg" alt="map-pin" />
+          <img src="@/assets/img/map-pin_blue.svg" alt="map-pin" />
           {{ city }}
         </div>
       </div>
       <div class="job-post-column job-post-column-3">
         <div class="job-post-time">
-          <img src="@/assets/img/clock.svg" alt="map-pin" />
+          <img src="@/assets/img/clock_blue.svg" alt="map-pin" />
           {{ Time ? Time : "ASAP" }}
         </div>
-        <ApplyButton />
+        <div class="apply-btn apply-btn__careers">
+          Apply
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 12H19"
+              stroke="#222222"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M12 5L19 12L12 19"
+              stroke="#222222"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   </NuxtLink>
@@ -34,7 +58,8 @@ export default {
 .job-post {
   &-item {
     cursor: pointer;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 24px;
     padding: 24px;
     width: 100%;
     margin-bottom: 16px;
@@ -74,7 +99,7 @@ export default {
     font-weight: 400;
   }
   &-title {
-    font-weight: 600;
+    font-weight: 600 !important;
     font-size: 24px;
     line-height: 35px;
     margin-bottom: 16px;
@@ -99,6 +124,15 @@ export default {
     img {
       margin-right: 8px;
     }
+  }
+}
+
+.apply-btn__careers {
+  background-color: transparent !important;
+  border-color: #222 !important;
+  &:hover {
+    background-color: #5680e9 !important;
+    border-color: #5680e9 !important;
   }
 }
 </style>

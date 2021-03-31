@@ -1,5 +1,6 @@
 <template>
   <div class="careers">
+    <CareersTopBar />
     <!-- <CareersFilters /> -->
     <div class="careers-filters">
       <div class="careers-filters-inner">
@@ -574,7 +575,9 @@
         </div>
       </div>
     </div>
-
+    <h3 class="careers-main-heading">
+      You decide what comes next. Choose your career path
+    </h3>
     <AvailableJobsCounter :count="jobs.length" />
     <div class="job-post-items">
       <div
@@ -675,6 +678,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 0px 0px 32px 32px;
+  width: 1152px;
+  margin: 0 auto;
 
   @include md-min {
     margin-bottom: 0;
@@ -792,5 +798,15 @@ export default {
   left: 0;
   width: 100%;
   text-align: center;
+}
+.careers-main-heading {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #222;
+  margin-top: 62px;
 }
 </style>
