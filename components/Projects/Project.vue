@@ -41,10 +41,6 @@
         </a>
       </figcaption>
     </figure>
-
-    <!-- <div class="project-video" :class="{'project-video__visible': isVideoVisible}">
-    <video-embed  ref="youtube" :params="{autoplay: 1}" :src="videoSRC"></video-embed>
-   </div> -->
   </span>
 </template>
 

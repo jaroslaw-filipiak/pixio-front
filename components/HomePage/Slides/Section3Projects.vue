@@ -29,13 +29,6 @@
       ></video-embed>
     </div>
 
-    <!-- <div class="project-video" :class="{'project-video__visible': isVideoVisible}">
-      <iframe style="position: relative; z-index: 3" width="650" height="389"
-        src="https://www.youtube.com/embed/kdhsCV45zW0" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div> -->
-
     <div class="swiper-arrows__projects--prev">
       <div class="swiper-pixo-button-prev prev-project">
         <img src="@/assets/img/arrow-bottom.svg" alt="" />
@@ -503,8 +496,8 @@ iframe#portfolioVideo {
 }
 
 .project-video {
-  width: 650px;
-  height: 389px;
+  width: 320px !important;
+  height: auto !important;
   z-index: -1;
   position: absolute;
   left: 50%;
@@ -512,7 +505,14 @@ iframe#portfolioVideo {
   transform: translate(-50%, -50%);
   opacity: 1;
   // border: 1px solid blue;
-  background-color: #000;
+  background-color: transparent;
+  border: none;
+
+  @include lg-min {
+    width: 650px;
+    height: 389px;
+    background-color: #000;
+  }
 
   &__visible {
     // border: 1px solid red;
@@ -521,9 +521,14 @@ iframe#portfolioVideo {
   }
 
   iframe {
-    width: 650px;
-    height: 389px;
-    border: none;
+    width: 100%;
+    height: 100%;
+
+    @include lg-min {
+      width: 650px;
+      height: 389px;
+      border: none;
+    }
   }
 }
 .project--overlay {
