@@ -243,12 +243,7 @@ body {
 
 .fullpage-main-wrapper__handle-mobile {
   height: calc(100vh - 70px) !important;
-  @include lg-min {
-    postion: relative;
-    top: 100vh;
-  }
 
-  .section {
-    // height: 100% !important;
-  }
+  position: relative;
+  top: 100vh;
 }
