@@ -161,9 +161,7 @@ export default {
 
 <style lang="scss">
 .empty-section-fix {
-  border: 1px solid red;
   opacity: 0.6;
-  background-color: yellow;
   display: none;
 }
 </style>

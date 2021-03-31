@@ -12,6 +12,8 @@
     >
       <div>
         <div class="info-box">
+          <h1>{{ this.$device.isMobile }}</h1>
+          <h1>{{ this.$device.isDesktop }}</h1>
           <span v-html="this.pageAbout.about_content"></span>
           <div class="info-box--icons">
             <img src="~/assets/img/brand/epic-games-logo.svg" />

@@ -1,5 +1,5 @@
 <template>
-  <main :class="{ isMenuVisible: isMenuVisible }">
+  <main class="main-mobile" :class="{ isMenuVisible: isMenuVisible }">
     <Nav />
     <Hero v-on:scroll.native="handleScroll" />
 
@@ -24,16 +24,18 @@ export default {
     }
   },
   created() {
-    // window.addEventListener("scroll", this.handleScroll);
     if (this.$device.isDesktop) {
       window.addEventListener("scroll", this.handleScroll);
     }
+    // window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
     // console.log($.fn.fullpage);
     // console.log($nuxt);
     // fullpage_api.moveTo(3);
     // console.log(fullpage_api);
+
+    console.log("this device is", this.$device);
     if (this.$device.isDesktop) {
       fullpage_api.setAllowScrolling(false, "down");
       fullpage_api.setAllowScrolling(false, "up");
