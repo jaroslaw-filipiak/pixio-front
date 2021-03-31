@@ -74,8 +74,8 @@ export default {
     isMaskVisible: function() {
       if (isMaskVisible) {
         $(window).bind("mousewheel", e => {
-          console.log("scroll down and..");
-          console.log(isMaskVisible);
+          // console.log("scroll down and..");
+          // console.log(isMaskVisible);
         });
       } else {
       }
@@ -99,7 +99,7 @@ export default {
       function maskRevealIsEnd() {
         fullpage_api.setAllowScrolling(true, "down");
         fullpage_api.setAllowScrolling(true, "up");
-        console.log("mask reveal func allow scrolling true");
+        // console.log("mask reveal func allow scrolling true");
         const nav = document.querySelector("#fp-nav");
       }
 
@@ -135,7 +135,7 @@ export default {
         hamburgerBTN.classList.remove("is-active");
       }
     });
-    console.log(this.$device);
+    // console.log(this.$device);
 
     function showStartIndicator() {
       gsap.to(".start-indicator", {

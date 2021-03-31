@@ -120,9 +120,9 @@ export default {
   },
   watch: {
     isVideoTooltipVisible: function() {
-      console.log(
-        "changes in isVideoTooltipVisible to" + this.isVideoTooltipVisible
-      );
+      // console.log(
+      //   "changes in isVideoTooltipVisible to" + this.isVideoTooltipVisible
+      // );
       // this.udpateComputedProperty()
     }
   }
@@ -417,6 +417,10 @@ iframe#portfolioVideo {
 
   @include xl {
     top: -33%;
+  }
+
+  @include xxl-min {
+    top: -95px;
   }
 }
 

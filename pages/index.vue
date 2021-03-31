@@ -35,7 +35,7 @@ export default {
     // fullpage_api.moveTo(3);
     // console.log(fullpage_api);
 
-    console.log("this device is", this.$device);
+    // console.log("this device is", this.$device);
     if (this.$device.isDesktop) {
       fullpage_api.setAllowScrolling(false, "down");
       fullpage_api.setAllowScrolling(false, "up");

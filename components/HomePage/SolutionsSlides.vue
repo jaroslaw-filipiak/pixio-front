@@ -136,15 +136,15 @@ export default {
     this.forceIndicatorVisibleToTrue();
     //  const swiper = document.querySelector('.swiper-container').swiper;
 
-    console.log("Current Swiper instance object", this.swiper);
+    // console.log("Current Swiper instance object", this.swiper);
     // console.log('myswiper' , $swiper)
     // this.swiper.slideTo(3, 1000, false)
   },
   watch: {
     isSectionOverlayActive: function() {
-      console.log(this.isSectionOverlayActive);
+      // console.log(this.isSectionOverlayActive);
       this.handleSwipperWrapperOverlay();
-      console.log("watch isSectionOverlayActive");
+      // console.log("watch isSectionOverlayActive");
 
       if (this.isSectionOverlayActive) {
         const vrBox = document.querySelector(".vr-info-box--wrapper");
