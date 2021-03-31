@@ -11,8 +11,8 @@ body.page-careers {
   }
 }
 .layout__carrer {
-  background-color: #d1d1cf;
-  background-image: url("~assets/img/PXOAstro.jpg");
+  background-color: #dcdedb;
+  background-image: url("~assets/img/PXOAstro_2.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100%;
