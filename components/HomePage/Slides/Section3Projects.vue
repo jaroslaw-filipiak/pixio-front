@@ -84,7 +84,7 @@ export default {
         loop: false,
         spaceBetween: 30,
         grabCursor: false,
-        allowTouchMove: false,
+        allowTouchMove: true,
         speed: 200,
         pagination: {
           // el: ".projects-swiper-pagination",
@@ -147,6 +147,15 @@ export default {
   right: 0px;
   width: 50px;
   z-index: 80;
+  @include xs {
+    display: none !important;
+  }
+  @include sm {
+    display: none !important;
+  }
+  @include md {
+    display: none !important;
+  }
 }
 
 .swiper-arrows__projects--prev {
@@ -155,6 +164,15 @@ export default {
   left: 0px;
   width: 50px;
   z-index: 80;
+  @include xs {
+    display: none !important;
+  }
+  @include sm {
+    display: none !important;
+  }
+  @include md {
+    display: none !important;
+  }
 }
 
 .section-projects {
