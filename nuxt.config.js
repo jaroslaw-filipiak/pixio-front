@@ -22,7 +22,8 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: ""
+        content:
+          "PIXOMONDO is an international visual effects company with a network of studios in Los Angeles, Vancouver, Toronto, Stuttgart, Beijing, Frankfurt & Shanghai."
       }
     ],
     link: [
@@ -114,11 +115,6 @@ export default {
     //   src: "@/plugins/vue-validator.js",
     //   ssr: false
     // }
-
-    // {
-    //   src: "@/plugins/nodemailer.js",
-    //   ssr: false
-    // }
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -151,10 +147,6 @@ export default {
       }
     }
   },
-
-  serverMiddleware: [
-    { path: "/api/mailer", handler: "~/api/report-mailer.js" }
-  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

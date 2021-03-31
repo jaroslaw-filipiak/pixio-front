@@ -31,23 +31,23 @@ export default {
   },
 
   mounted() {
-    (function() {
-      new InstagramFeed({
-        username: "pixomondo",
-        container: document.getElementById("instagram-feed1"),
-        display_profile: false,
-        display_biography: false,
-        display_gallery: true,
-        display_captions: false,
-        callback: null,
-        styling: true,
-        items: 8,
-        items_per_row: 5,
-        margin: 0,
-        lazy_load: true,
-        on_error: console.error
-      });
-    })();
+    // (function() {
+    //   new InstagramFeed({
+    //     username: "pixomondo",
+    //     container: document.getElementById("instagram-feed1"),
+    //     display_profile: false,
+    //     display_biography: false,
+    //     display_gallery: true,
+    //     display_captions: false,
+    //     callback: null,
+    //     styling: true,
+    //     items: 8,
+    //     items_per_row: 5,
+    //     margin: 0,
+    //     lazy_load: true,
+    //     on_error: console.error
+    //   });
+    // })();
   },
   methods: {}
 };
