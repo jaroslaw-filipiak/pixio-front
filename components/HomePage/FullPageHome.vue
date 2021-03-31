@@ -89,6 +89,11 @@ export default {
           "page8"
         ],
         scrollingSpeed: 150,
+        v2compatible: true,
+        verticalCentered: true,
+        fitToSection: true,
+        scrollBar: false,
+        // autoScrolling: true,
         navigation: true,
         navigationPosition: "right",
         afterLoad: this.afterLoad,
@@ -144,6 +149,9 @@ export default {
     //     threshold: 1.0,
     //   }
     // );
+    setTimeout(function() {
+      fullpage_api.reBuild();
+    }, 500);
   },
   mounted() {
     // const toObservate = document.querySelector('.section-projects')

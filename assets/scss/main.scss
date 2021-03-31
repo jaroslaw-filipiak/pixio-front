@@ -243,8 +243,15 @@ body {
 }
 
 .fullpage-main-wrapper__handle-mobile {
+  border: 2px solid yellow;
+  height: calc(100vh - 70px) !important;
   @include lg-min {
     postion: relative;
     top: 100vh;
+  }
+
+  .section {
+    border: 1px solid red;
+    height: 100% !important;
   }
 }
