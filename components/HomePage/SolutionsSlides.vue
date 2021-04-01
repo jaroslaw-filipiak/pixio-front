@@ -169,8 +169,7 @@ export default {
       // this.swiper.slideTo(2, 1000, false)
     },
     forceIndicatorVisibleToTrue() {
-      (this.indicatorVisible = true),
-        console.log("forceIndicatorVisibleToTrue");
+      this.indicatorVisible = true;
     },
     closeSwiper() {
       this.isSectionOverlayActive = false;

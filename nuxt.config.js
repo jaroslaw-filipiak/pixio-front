@@ -51,14 +51,6 @@ export default {
       {
         src: "https://www.youtube.com/iframe_api"
       },
-      // {
-      //   src:
-      //     "https://cdn.jsdelivr.net/gh/arkdevuk/InstaPost@master/dist/instapost.min.js"
-      // },
-      // {
-      //   src:
-      //     "https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js"
-      // },
       {
         src:
           "https://cdnjs.cloudflare.com/ajax/libs/InstagramFeed/2.0.2/InstagramFeed.min.js"
@@ -72,27 +64,11 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {
-      src: "@/plugins/vue-video-background",
-      ssr: false
-    },
-    {
-      src: "@/plugins/slider.js",
-      ssr: false
-    },
-    {
       src: "@/plugins/vue-fullpage.js",
       ssr: false
     },
     {
-      src: "@/plugins/projectsScroll.js",
-      ssr: false
-    },
-    {
       src: "@/plugins/instagram.js",
-      ssr: false
-    },
-    {
-      src: "@/plugins/vue-waypoint.js",
       ssr: false
     },
     {
@@ -107,18 +83,6 @@ export default {
       src: "@/plugins/shuffle.js",
       ssr: false
     }
-    // {
-    //   src: "@/plugins/vue-markdown.js",
-    //   ssr: false
-    // }
-    // {
-    //   src: "@/plugins/vuelidate.js",
-    //   ssr: false
-    // }
-    // {
-    //   src: "@/plugins/vue-validator.js",
-    //   ssr: false
-    // }
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -144,13 +108,7 @@ export default {
   },
 
   device: {
-    refreshOnResize: true,
-    defaultUserAgent:
-      "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.39 Mobile Safari/537.36"
-  },
-
-  axios: {
-    // proxy: true
+    refreshOnResize: true
   },
 
   apollo: {

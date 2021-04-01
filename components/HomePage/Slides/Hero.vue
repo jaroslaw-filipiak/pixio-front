@@ -105,7 +105,6 @@ export default {
 
   methods: {
     showNavElements: function() {
-      console.log("show nav elements");
       let hideIndicator = gsap.to(".start-indicator", {
         opacity: 0,
         duration: 0
