@@ -12,7 +12,7 @@
     >
       <div>
         <div class="info-box">
-          <span v-html="this.pageAbout.about_content"></span>
+          <span v-html="$md.render(this.pageAbout.about_content)"></span>
           <div class="info-box--icons">
             <img src="~/assets/img/brand/epic-games-logo.svg" />
             <img src="~/assets/img/brand/WFW-logo.svg" />
