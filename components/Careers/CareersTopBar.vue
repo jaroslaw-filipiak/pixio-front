@@ -1,7 +1,13 @@
 <template>
   <div class="careers-top-bar">
     <div class="careers-top-bar--inner">
-      <svg width="203" height="22" viewBox="0 0 203 22" fill="none">
+      <svg
+        @click="$router.push({ path: '/' })"
+        width="203"
+        height="22"
+        viewBox="0 0 203 22"
+        fill="none"
+      >
         <path
           fill-rule="evenodd"
           clip-rule="evenodd"
@@ -53,6 +59,12 @@ export default {};
     }
     @include md {
       margin: 0 auto;
+    }
+
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
     }
   }
 }
