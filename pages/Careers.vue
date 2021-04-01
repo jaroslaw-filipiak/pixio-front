@@ -578,7 +578,7 @@
     <h3 class="careers-main-heading">
       You decide what comes next. Choose your career path
     </h3>
-    <AvailableJobsCounter :count="jobs.length" />
+    <AvailableJobsCounter :count="filteredJobs.length" />
     <div class="job-post-items">
       <div
         class="job-post-item-wrapper"

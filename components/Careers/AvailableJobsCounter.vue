@@ -1,12 +1,23 @@
 <template>
   <div class="job-post-availiable">
-    <span>{{ count }} jobs availiable</span>
+    <span>{{ count == 0 ? "" : count }} {{ filteredText }}</span>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["count"]
+  props: ["count"],
+  computed: {
+    filteredText() {
+      if (this.count == 0) {
+        return "No offers for this city";
+      } else if (this.count == 1) {
+        return "job availiable";
+      } else {
+        return "jobs availiable";
+      }
+    }
+  }
 };
 </script>
 
