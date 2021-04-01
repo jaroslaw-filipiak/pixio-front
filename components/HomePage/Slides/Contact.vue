@@ -173,8 +173,6 @@
 </template>
 
 <script>
-// const bgImage = require("@/assets/img/contact-bg.jpg");
-
 import { pageContactContent } from "~/graphql/queries";
 
 export default {

@@ -6,10 +6,6 @@
   >
     <div class="section-2-gradient-overlay"></div>
     <div class="slide slide-2 slide-solutions">
-      <!-- <div class="slide-title">
-        <h1>Virtual production studio in Toronto</h1>
-      </div> -->
-
       <SolutionsSlides />
 
       <div class="vr-info-box--wrapper">
@@ -68,23 +64,7 @@ export default {
   watch: {
     isSectionOverlayActive: function() {
       console.log(this.isSectionOverlayActive);
-
-      //   nextButton.classList.add(
-      //     `${this.isSectionOverlayActive ? "fp-next__visible" : "bts"}`
-      //   );
-      //   prevButton.classList.add("fp-prev__visible");
     }
-    //  isArrowsVisible: function() {
-    //    console.log( this.isArrowsVisible)
-
-    //    const sectionClass = document.querySelector('.section-2')
-
-    //    if( this.isArrowsVisible) {
-    //       sectionClass.classList.add('side-arrows-visible')
-    //    } else if (this.isArrowsVisible = false){
-    //       sectionClass.classList.remove('side-arrows-visible')
-    //    }
-    //  }
   },
   mounted() {}
 };
@@ -126,12 +106,6 @@ export default {
   }
   .fp-controlArrow.fp-next {
   }
-}
-
-.fp-controlArrow.fp-prev {
-}
-
-.fp-controlArrow.fp-next {
 }
 
 .vr-info-box--wrapper {
@@ -224,11 +198,6 @@ export default {
 }
 
 .section-2 {
-  //   .fp-prev,
-  //   .fp-next {
-  //     display: none;
-  //   }
-
   .fp-prev__visible,
   .fp-next__visible {
     display: block;

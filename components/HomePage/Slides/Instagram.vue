@@ -2,39 +2,18 @@
   <div class="section section-instagram" id="section-instagram">
     <div class="slide">
       <div class="instagram-heading">Follow us on Instagram</div>
-
-      <div id="instagram-feed1"></div>
-
-      <!-- <div class="elfsight-app-328667f6-f287-4e1c-a0a2-a223685b7a44"></div> -->
+      <div id="instagram-feed"></div>
     </div>
-    <div class="slide"></div>
-    <slot> </slot>
   </div>
 </template>
 
 <script>
-// // const InstagramFeed = require("instafeed");
-// const Instagram = require("node-instagram").default;
-
-// // Create a new instance.
-// const instagram = new Instagram({
-//   clientId: "1618384628549329",
-//   clientSecret: "87d5286771ff7a1142360bd97311f515",
-//   accessToken:"IGQVJVR1I1aUN6bGJRNnFmaUFfaml2T2RYODFKaDJmZAnZABZAFFjWkcxenBqZAE9kcC05S3NTd085ZAEdhYzFLWUZArcjR5d0wxbl94ck1GUnVIWXk1SzVtb1J1aXM5UTBPS0l5SDRNUE84ZA2tuUmZADN2NBNgZDZD"
-// });
-
 export default {
-  data() {
-    return {
-      posts: []
-    };
-  },
-
   mounted() {
     // (function() {
     //   new InstagramFeed({
     //     username: "pixomondo",
-    //     container: document.getElementById("instagram-feed1"),
+    //     container: document.getElementById("instagram-feed"),
     //     display_profile: false,
     //     display_biography: false,
     //     display_gallery: true,

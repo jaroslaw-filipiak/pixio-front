@@ -1,7 +1,5 @@
 <template>
   <div class="rightnav">
-    <!-- <ul class="rightnav-links-wrapper">
-    </ul> -->
     <div id="side-menu"></div>
   </div>
 </template>
@@ -62,63 +60,6 @@ export default {
 </script>
 
 <style lang="scss">
-// .fp-nav {
-
-//  ul {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: flex-end;
-
-//     li {
-//       position: relative;
-//       width: 100%;
-//       height: 100%;
-//       z-index: 2;
-
-//       a{
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     width: 24px;
-//     height: 20px;
-//     border-radius: 3px;
-//     cursor: pointer;
-
-//     &:hover {
-//       transition: all 0.1s ease-in;
-//       opacity: 0.7;
-//       width: 20px;
-//     }
-
-//     &__active {
-//       transition: all 0.1s ease-in;
-//       width: 44px;
-//       &:hover {
-//         width: 40px;
-//       }
-//     }
-//     a {
-//       display: block;
-//       width: 100%;
-//       height: 2px;
-//       background-color: white;
-//       z-index: 1;
-//       pointer-events: none;
-//     }
-//   }
-
-//   .active {
-//      transition: all 0.1s ease-in;
-//       width: 44px;
-//       &:hover {
-//         width: 40px;
-//       }
-//   }
-//     }
-//   }
-// }
-
 #fp-nav {
   z-index: 2;
   opacity: 1;
@@ -128,12 +69,6 @@ export default {
     display: block !important;
   }
 }
-
-// .fp-nav--visible {
-//   transition: all .3s ease-in-out;
-//   z-index: 2 !important;
-//   opacity: 1 !important;
-// }
 
 .rightnav {
   display: none;

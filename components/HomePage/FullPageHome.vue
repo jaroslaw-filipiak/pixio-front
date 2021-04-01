@@ -4,8 +4,8 @@
     :options="options"
     class="fullpage-main-wrapper__handle-mobile"
   >
-    <Hero v-on:scroll.native="handleScroll" />
-    <!-- solutions -->
+    <Hero />
+
     <Section2>
       <div
         v-if="!isTooltipVisible"
@@ -17,7 +17,6 @@
         </div>
       </div>
     </Section2>
-    <!-- solutions -->
 
     <Section3Projects>
       <div
@@ -78,44 +77,15 @@ export default {
         scrollBar: false,
         autoScrolling: true,
         navigation: true,
-        navigationPosition: "right",
-        afterLoad: this.afterLoad,
-        afterLoad: this.afterLoad,
-        onSlideLeave: this.onSlideLeave,
-        onLeave: this.onLeave
+        navigationPosition: "right"
       }
     };
   },
-  methods: {
-    afterSlideLoad() {
-      console.log("after slide load..");
-      console.log(e);
-      const activeItem = document.querySelector(".slide.active");
-      console.log(activeItem);
-    },
-    afterLoad() {},
-    onLeave(e) {},
-    onSlideLeave(section, origin, destination, direction) {},
-    onElementObserved(entries) {
-      entries.forEach(({ target, isIntersecting }) => {
-        // console.log(target)
-        // console.log(isIntersecting)
-        console.log("element is visible now: " + isIntersecting);
-
-        if (isIntersecting) {
-          // fullpage_api.setAllowScrolling(false, "down");
-          // fullpage_api.setAllowScrolling(false, "up");
-          console.log("set scrolling to false");
-          console.log(fullpage_api);
-        }
-      });
-      // console.log('is in observer')''
-    }
-  },
+  methods: {},
   created() {
     setTimeout(function() {
       fullpage_api.reBuild();
-    }, 500);
+    }, 800);
   },
   mounted() {},
   computed: {

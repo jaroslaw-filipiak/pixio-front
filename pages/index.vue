@@ -80,11 +80,6 @@ export default {
     @include xl-min {
       left: -20px;
     }
-
-    // @include md-min {
-    //   width: 110%;
-    //   height: 110%;
-    // }
   }
 }
 </style>

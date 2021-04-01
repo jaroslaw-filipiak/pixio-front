@@ -1,6 +1,3 @@
-// :class="{'section-projects--overlay__is-visible': getVideoTooltipVisibleInfo
-}"
-
 <template>
   <div class="section section-projects">
     <div
@@ -15,42 +12,9 @@
         <div class="gallery">
           <Project @click.native="handleClickInProject" :my-prop="count">
           </Project>
-          <!-- <Project @click.native="handleClickInProject"> </Project>
-            <Project @click.native="handleClickInProject"> </Project>
-            <Project @click.native="handleClickInProject"> </Project>
-            <Project @click.native="handleClickInProject"> </Project>
-            <Project @click.native="handleClickInProject"> </Project>
-            <Project @click.native="handleClickInProject"> </Project>
-            <Project @click.native="handleClickInProject"> </Project>
-            <Project @click.native="handleClickInProject"> </Project>
-            <Project @click.native="handleClickInProject"> </Project>
-            <Project @click.native="handleClickInProject"> </Project>
-            <Project @click.native="handleClickInProject"> </Project> -->
         </div>
       </div>
     </div>
-
-    <!-- <div class="slide" style="transform: rotate(-2deg)">
-      <div class="content">
-        <div class="gallery">
-             <Project @click="handleClickInProject"> </Project>
-            <Project  @click="handleClickInProject"> </Project>
-            <Project  @click="handleClickInProject"> </Project>
-        </div>
-      </div>
-    </div>
-
-     <div class="slide" style="transform: rotate(-3deg)">
-      <div class="content">
-        <div class="gallery">
-            <Project  @click="handleClickInProject"> </Project>
-            <Project  @click="handleClickInProject"> </Project>
-            <Project  @click="handleClickInProject"> </Project>
-        </div>
-      </div>
-    </div> -->
-
-    <slot> </slot>
 
     <div
       class="tet"
@@ -82,19 +46,12 @@ export default {
       this.$store.commit("changeVideoTooltipVisibilityToFalse", false);
     },
     handleClickInProject: function(e) {
-      "";
-      console.log("handleClickInProject");
-      console.log(e);
-      console.log(e.target);
-      // this.tooltipVideoVisible = !this.tooltipVideoVisible;''
       this.$store.commit(
         "changeVideoTooltipVisibility",
         !this.tooltipVideoVisible
       );
     },
     onYouTubeIframeAPIReady: function() {
-      "";
-
       var playerVid;
 
       playerVid = new YT.Player("portfolioVideo", {
@@ -123,20 +80,13 @@ export default {
         }
       });
     },
-    // ng-LJ0x4vUo
-    // WeoAgb7v3fU
     onPlayerReady: function(event) {
-      // event.target.playVideo();
-      // console.log(event.target)
-      // event.target = iframe object
-
       setTimeout(() => {
         event.target.playVideo();
         console.log(event.target);
       }, 5000);
 
       setTimeout(() => {
-        //  event.target.stopVideo();
         event.target.loadVideoById("WeoAgb7v3fU");
       }, 8000);
     },
@@ -382,8 +332,6 @@ iframe#portfolioVideo {
   top: 0;
   width: 100%;
   height: 100%;
-  // background-color: rgb(0, 0, 0);
-  // opacity: .4;
   z-index: -1;
   transition: all 0.5s ease-in;
 

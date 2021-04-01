@@ -120,7 +120,6 @@ export default {
           nextEl: ".swiper-pixo-button-next",
           prevEl: ".swiper-pixo-button-prev"
         }
-        // Some Swiper option/callback...
       },
       pageVisualProduction: {}
     };
@@ -138,17 +137,10 @@ export default {
   },
   mounted() {
     this.forceIndicatorVisibleToTrue();
-    //  const swiper = document.querySelector('.swiper-container').swiper;
-
-    // console.log("Current Swiper instance object", this.swiper);
-    // console.log('myswiper' , $swiper)
-    // this.swiper.slideTo(3, 1000, false)
   },
   watch: {
     isSectionOverlayActive: function() {
-      // console.log(this.isSectionOverlayActive);
       this.handleSwipperWrapperOverlay();
-      // console.log("watch isSectionOverlayActive");
 
       if (this.isSectionOverlayActive) {
         const vrBox = document.querySelector(".vr-info-box--wrapper");
@@ -161,12 +153,7 @@ export default {
   },
   methods: {
     nextSlide() {
-      // console.log(this.$refs.mySwiper)
-      // this.$refs.mySwiper.$swiper.slideTo(1)
       this.$refs.mySwiper.$swiper.slideNext();
-
-      // swiper.slideNext();
-      // this.swiper.slideTo(2, 1000, false)
     },
     forceIndicatorVisibleToTrue() {
       this.indicatorVisible = true;
@@ -357,7 +344,6 @@ export default {
   width: calc(100vw);
   height: 100vh;
   position: absolute;
-  // left: -95px;
   top: 0;
   background: rgba(93, 62, 62, 0);
   transition: all 0.2s ease-in-out;

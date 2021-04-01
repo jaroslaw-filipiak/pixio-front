@@ -22,22 +22,5 @@ body.job-apply {
   @include lg-min {
     background-color: #e2e3e8;
   }
-  // .single-job-container {
-  //   &::before {
-  //     display: none;
-  //     content: "CAREERS";
-  //     font-size: 150px;
-  //     color: #fff;
-  //     font-weight: bold;
-  //     transform: rotate(-90deg);
-  //     position: fixed;
-  //     left: -165px;
-  //     top: 350px;
-
-  //     @include xl-min {
-  //       display: block;
-  //     }
-  //   }
-  // }
 }
 </style>
