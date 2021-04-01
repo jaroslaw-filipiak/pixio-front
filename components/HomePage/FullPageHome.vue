@@ -4,7 +4,7 @@
     :options="options"
     class="fullpage-main-wrapper__handle-mobile"
   >
-    <!-- <Hero /> -->
+    <Hero />
 
     <Section2>
       <div
