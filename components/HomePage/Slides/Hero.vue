@@ -75,7 +75,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.onYouTubeIframeAPIReady();
-    }, 250);
+    }, 850);
 
     setTimeout(() => {
       let maskReveal = gsap.to(".move-mask", {
@@ -142,9 +142,8 @@ export default {
         loop: 1,
         playerVars: {
           enablejsapi: 1,
-          controls: 1,
+          controls: 0,
           mute: 1,
-          showinfo: 0,
           fs: 0,
           cc_load_policy: 0,
           iv_load_policy: 3,
@@ -153,7 +152,7 @@ export default {
           rel: 0,
           playlist: this.pageHome.hero_video_ID,
           modestbranding: 1,
-          autohide: 1
+          autohide: 0
         },
         enablejsapi: 1,
         events: {
@@ -165,9 +164,13 @@ export default {
 
     onPlayerReady: function(event) {
       event.target.playVideo();
+      console.log("player on ready change");
     },
 
-    onPlayerStateChange: function(event) {},
+    onPlayerStateChange: function(event) {
+      console.log("onPlayerStateChange");
+      event.target.playVideo();
+    },
 
     stopVideo: function(event) {
       event.target.stopVideo();
@@ -250,7 +253,7 @@ export default {
 }
 
 .move-mask {
-  display: none !important;
+  // display: none !important;
 
   @include xl-min {
     display: flex !important;
