@@ -41,7 +41,6 @@ export default {
 .apply-form-sidebar {
   width: 100%;
   padding: 30px;
-  background-color: #f7f6f2;
 
   @include lg-min {
     width: 266px;
@@ -58,6 +57,7 @@ export default {
   }
 
   &--content {
+    background-color: #f7f6f2;
     padding: 24px;
     display: flex;
     flex-direction: column;
