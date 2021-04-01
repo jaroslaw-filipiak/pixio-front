@@ -3,12 +3,18 @@
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: space-between !important;
+    justify-content: center !important;
     height: 100vh !important;
+    position: relative;
     @include xl-min {
-      padding: 100px 0px 0px 0px;
+      // padding: 100px 0px 0px 0px;
     }
   }
+  // .swipper-outer {
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0;
+  // }
 }
 
 .section-2 {

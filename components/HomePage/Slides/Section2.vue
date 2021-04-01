@@ -6,9 +6,9 @@
   >
     <div class="section-2-gradient-overlay"></div>
     <div class="slide slide-2 slide-solutions">
-      <div class="slide-title">
+      <!-- <div class="slide-title">
         <h1>Virtual production studio in Toronto</h1>
-      </div>
+      </div> -->
 
       <SolutionsSlides />
 

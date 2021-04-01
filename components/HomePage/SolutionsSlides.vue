@@ -72,7 +72,7 @@
       v-if="indicatorVisible"
       @click="handleMoreClick"
       class="indicator"
-      style="position: fixed; left: 20vw; top: 30vh"
+      style="position: absolute; left: 20vw; top: 30vh"
     ></div>
 
     <div
@@ -202,6 +202,11 @@ export default {
 </script>
 
 <style lang="scss">
+.slide-2 {
+  .swiper-container {
+    z-index: 0;
+  }
+}
 .arrow-bottom-next-slide--inner {
   opacity: 1;
   transition: all 0.3s ease-in-out;
@@ -254,6 +259,7 @@ export default {
   top: 50%;
   z-index: 7;
   transform: translate(-50%, -50%);
+  margin-top: 82px;
 
   display: flex;
   flex-direction: row-reverse;
@@ -273,11 +279,11 @@ export default {
 }
 
 .swipper-outer {
-  position: absolute;
+  position: relative;
   width: 100vw;
   height: 100vh;
   left: -95px;
-  top: 0;
+  top: -82px;
 }
 
 .swiper-close-cross {
@@ -287,7 +293,7 @@ export default {
   width: 100%;
 
   position: absolute;
-  bottom: 0;
+  bottom: -155px;
   left: 0;
   z-index: 22;
   display: flex;
