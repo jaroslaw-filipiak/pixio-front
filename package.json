@@ -6,7 +6,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "analyze": "nuxt build --analyze"
   },
   "dependencies": {
     "@chenfengyuan/vue-carousel": "^1.0.6",
@@ -58,6 +59,15 @@
     "@aceforth/nuxt-optimized-images": "^1.4.0",
     "@nuxtjs/device": "^2.0.1",
     "@nuxtjs/markdownit-loader": "^1.2.0",
-    "nuxt-gsap": "^0.1.4"
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^9.0.0",
+    "lqip-loader": "^2.2.1",
+    "nuxt-gsap": "^0.1.4",
+    "responsive-loader": "^2.3.0",
+    "sharp": "^0.28.0",
+    "sqip-loader": "^1.0.0",
+    "webp-loader": "^0.6.0"
   }
 }
