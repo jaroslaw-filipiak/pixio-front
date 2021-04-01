@@ -43,9 +43,7 @@
 
 <script>
 import image from "@/assets/img/vrbg.jpg";
-import Solutions from "../../../pages/Solutions.vue";
 export default {
-  components: { Solutions },
   data() {
     return {
       image: image,

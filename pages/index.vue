@@ -73,11 +73,6 @@ export default {
     width: 100vw;
     height: 100vh;
     z-index: 2;
-    // background-color: #000;
-    // background-image: url("~assets/img/mask.png");
-    // background-size: cover;
-    // background-repeat: no-repeat;
-    // background-position: center center;
     display: flex;
     align-items: center;
     justify-content: center;
