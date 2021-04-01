@@ -1,6 +1,6 @@
 <template>
   <div class="apply-btn apply-btn__careers">
-    Apply {{ offerID }}
+    Apply
     <svg
       width="24"
       height="24"

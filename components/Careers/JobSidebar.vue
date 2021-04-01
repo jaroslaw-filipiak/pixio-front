@@ -9,8 +9,6 @@
       />
     </div>
     <div class="single-job-sidebar--button-wrapper">
-      {{ title }}{{ jobID }}
-
       <div
         @click="
           $router.push({ path: `/careers/apply/${title}`, query: { jobID } })
