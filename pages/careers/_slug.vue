@@ -3,7 +3,7 @@
     <BackToOffers />
     <div class="single-job-content-wrapper">
       <JobContent :title="this.slug" />
-      <JobSidebar />
+      <JobSidebar :title="this.slug" :jobID="this.$route.query.jobID" />
     </div>
   </div>
 </template>
@@ -21,6 +21,11 @@ export default {
         class: "single single-job"
       }
     };
+  },
+  mounted() {
+    console.log(this.$route.params);
+    console.log(this.$route.query.jobID);
+    console.log(this.$route);
   }
 };
 </script>

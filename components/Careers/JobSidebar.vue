@@ -9,9 +9,15 @@
       />
     </div>
     <div class="single-job-sidebar--button-wrapper">
-      <nuxt-link :to="`/careers/apply/${this.$route.params.slug}`">
-        <ApplyButton
-      /></nuxt-link>
+      {{ title }}{{ jobID }}
+
+      <div
+        @click="
+          $router.push({ path: `/careers/apply/${title}`, query: { jobID } })
+        "
+      >
+        <ApplyButton />
+      </div>
     </div>
     <div class="single-job-sidebar--content">
       <span v-html="$md.render(this.singleJobSidebar.content)"></span>
@@ -34,6 +40,7 @@ export default {
       }
     };
   },
+  props: ["title", "jobID"],
   apollo: {
     singleJobSidebar: {
       prefetch: true,

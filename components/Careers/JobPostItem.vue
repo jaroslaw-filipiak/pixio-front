@@ -1,56 +1,36 @@
 <template>
-  <NuxtLink :to="`/careers/${Title}`">
-    <div class="job-post-item">
-      <div class="job-post-column job-post-column-1">
-        <div class="job-post-exp">Experience: {{ exp }}</div>
-        <div class="job-post-title">{{ Title }}</div>
-      </div>
-      <div class="job-post-column job-post-column-2">
-        <div class="job-post-localization">
-          <img src="@/assets/img/map-pin_blue.svg" alt="map-pin" />
-          {{ city }}
-        </div>
-      </div>
-      <div class="job-post-column job-post-column-3">
-        <div class="job-post-time">
-          <img src="@/assets/img/clock_blue.svg" alt="map-pin" />
-          {{ Time ? Time : "ASAP" }}
-        </div>
-        <div class="apply-btn apply-btn__careers">
-          Apply
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5 12H19"
-              stroke="#222222"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M12 5L19 12L12 19"
-              stroke="#222222"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
+  <div
+    class="job-post-item"
+    @click="$router.push({ path: `/careers/${Title}`, query: { jobID } })"
+  >
+    <div class="job-post-column job-post-column-1">
+      <div class="job-post-exp">Experience: {{ exp }}</div>
+      <div class="job-post-title">{{ Title }}</div>
+    </div>
+    <div class="job-post-column job-post-column-2">
+      <div class="job-post-localization">
+        <img src="@/assets/img/map-pin_blue.svg" alt="map-pin" />
+        {{ city }}
       </div>
     </div>
-  </NuxtLink>
+    <div class="job-post-column job-post-column-3">
+      <div class="job-post-time">
+        <img src="@/assets/img/clock_blue.svg" alt="map-pin" />
+        {{ Time ? Time : "ASAP" }}
+      </div>
+      <ApplyCarrers :offerID="jobID" />
+    </div>
+  </div>
 </template>
 <script>
 export default {
   methods: {
-    goToJobPage: () => {}
+    goToJobPage: () => {},
+    test: () => {
+      return "sadfsafd";
+    }
   },
-  props: ["Title", "exp", "Time", "city"]
+  props: ["Title", "exp", "Time", "city", "jobID"]
 };
 </script>
 

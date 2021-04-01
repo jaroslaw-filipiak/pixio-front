@@ -1,6 +1,11 @@
 <template>
   <div class="apply-form--content">
-    <div class="apply-form--title">You are apply for: {{ title }}</div>
+    <div class="apply-form--title">
+      You are apply for: {{ title }}
+      <span style="font-size: 12px; font-weight: 400;" class="job-id"
+        >( offer id:{{ offerID }} )</span
+      >
+    </div>
     <form class="box" action="">
       <!-- Name -->
       <div class="form-section">
@@ -253,9 +258,11 @@
 
 <script>
 export default {
-  props: ["title"],
+  props: ["title", "offerID"],
   data() {
     return {
+      applyID: this.offerID,
+      recipient: "",
       loading: false,
       success: false,
       errored: false,
@@ -280,13 +287,23 @@ export default {
     };
   },
 
-  mounted() {},
+  async fetch() {
+    this.recipient = await fetch(
+      `https://7e6805.stage.titans24.com/jobs?id=${this.applyID}`
+    ).then(res => res.json());
+  },
+
+  mounted() {
+    console.log(this.applyID);
+    console.log(this.$router);
+  },
   methods: {
     sendData: function() {
       console.log("send data");
       this.loading = true;
       this.$axios
         .post("/", {
+          recipient: this.recipient[0].apply_to,
           name: this.name,
           surname: this.surname,
           email: this.email,

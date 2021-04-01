@@ -37,7 +37,7 @@ export default {
   },
   async fetch() {
     this.job = await fetch(
-      `https://7e6805.stage.titans24.com/jobs?Title=${this.title}`
+      `https://7e6805.stage.titans24.com/jobs?id=${this.$route.query.jobID}`
     ).then(res => res.json());
   },
   methods: {
@@ -49,7 +49,8 @@ export default {
     }
   },
   mounted() {
-    // console.log(this.$route.params.slug);
+    console.log(this.$route.params.slug);
+    console.log(this.$route.query.jobID);
     // console.log(typeof this.job[0].job_content);
   }
   // apollo: {

@@ -590,6 +590,7 @@
           :exp="job.experience"
           :time="job.Time"
           :city="job.cities.name"
+          :jobID="job.id"
         />
       </div>
     </div>
