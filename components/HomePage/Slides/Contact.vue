@@ -390,7 +390,7 @@ export default {
     &--item {
       margin: 5px 0px;
       @include xl-min {
-        margin: 0px;
+        margin: 0px 20px;
       }
     }
   }

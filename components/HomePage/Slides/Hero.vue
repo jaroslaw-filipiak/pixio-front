@@ -93,7 +93,7 @@ export default {
       }
 
       maskReveal.play();
-    }, 4000);
+    }, 3000);
 
     this.showNavElements();
 
@@ -251,7 +251,7 @@ export default {
 
 .move-mask {
   .move-mask--inner {
-    width: 100%;
+    width: 102%;
     height: 100%;
     position: absolute;
     left: 0;

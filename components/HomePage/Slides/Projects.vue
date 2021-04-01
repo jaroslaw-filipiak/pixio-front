@@ -1,13 +1,21 @@
-// :class="{'section-projects--overlay__is-visible': getVideoTooltipVisibleInfo }"
+// :class="{'section-projects--overlay__is-visible': getVideoTooltipVisibleInfo
+}"
 
 <template>
   <div class="section section-projects">
-    <div  @click="setVideoTooltipToFalse" class="section-projects--overlay" :class="{'section-projects--overlay__is-visible': getVideoTooltipVisibleInfo }"></div>
+    <div
+      @click="setVideoTooltipToFalse"
+      class="section-projects--overlay"
+      :class="{
+        'section-projects--overlay__is-visible': getVideoTooltipVisibleInfo
+      }"
+    ></div>
     <div class="slide" style="transform: rotate(-1deg)">
-      <div class="content" :class="{'isBlured': getVideoTooltipVisibleInfo}">
+      <div class="content" :class="{ isBlured: getVideoTooltipVisibleInfo }">
         <div class="gallery">
-            <Project @click.native="handleClickInProject" :my-prop="count"> </Project>
-            <!-- <Project @click.native="handleClickInProject"> </Project>
+          <Project @click.native="handleClickInProject" :my-prop="count">
+          </Project>
+          <!-- <Project @click.native="handleClickInProject"> </Project>
             <Project @click.native="handleClickInProject"> </Project>
             <Project @click.native="handleClickInProject"> </Project>
             <Project @click.native="handleClickInProject"> </Project>
@@ -22,7 +30,7 @@
       </div>
     </div>
 
-     <!-- <div class="slide" style="transform: rotate(-2deg)">
+    <!-- <div class="slide" style="transform: rotate(-2deg)">
       <div class="content">
         <div class="gallery">
              <Project @click="handleClickInProject"> </Project>
@@ -42,129 +50,128 @@
       </div>
     </div> -->
 
-     <slot> </slot>  
-     
-  
-  <div class="tet" :class="{'tet__visible video-tooltip-visible': getVideoTooltipVisibleInfo}">
+    <slot> </slot>
 
-    <div id="portfolioVideo" :class="{'video-tooltip-visible': getVideoTooltipVisibleInfo}">
-
-     </div>
+    <div
+      class="tet"
+      :class="{
+        'tet__visible video-tooltip-visible': getVideoTooltipVisibleInfo
+      }"
+    >
+      <div
+        id="portfolioVideo"
+        :class="{ 'video-tooltip-visible': getVideoTooltipVisibleInfo }"
+      ></div>
+    </div>
   </div>
-    
-
-
-  </div>
-
-  
 </template>
 
 <script>
-
 export default {
   data() {
     return {
-      tooltipVideoVisible: false,
-      
+      tooltipVideoVisible: false
     };
   },
   methods: {
     setVideoTooltipToFalse: function() {
-      this.$store.commit('setVideoTooltipToFalse', false)
-      console.log('setVideoTooltipToFalse')
+      this.$store.commit("setVideoTooltipToFalse", false);
+      console.log("setVideoTooltipToFalse");
     },
     setVideoTooltipVisibleInfoToFalse: function() {
-    this.$store.commit('changeVideoTooltipVisibilityToFalse', false)
+      this.$store.commit("changeVideoTooltipVisibilityToFalse", false);
     },
-    handleClickInProject: function(e) {''
-        console.log('handleClickInProject')
-        console.log(e)
-        console.log(e.target)
-        // this.tooltipVideoVisible = !this.tooltipVideoVisible;''
-        this.$store.commit('changeVideoTooltipVisibility', !this.tooltipVideoVisible)
-        
+    handleClickInProject: function(e) {
+      "";
+      console.log("handleClickInProject");
+      console.log(e);
+      console.log(e.target);
+      // this.tooltipVideoVisible = !this.tooltipVideoVisible;''
+      this.$store.commit(
+        "changeVideoTooltipVisibility",
+        !this.tooltipVideoVisible
+      );
     },
-    onYouTubeIframeAPIReady: function () {''
-       
+    onYouTubeIframeAPIReady: function() {
+      "";
+
       var playerVid;
-      
+
       playerVid = new YT.Player("portfolioVideo", {
         height: "548",
         width: "900",
         videoId: "ng-LJ0x4vUo",
-         loop: 1,
-         playerVars: {
+        loop: 1,
+        playerVars: {
           enablejsapi: 1,
           controls: 1,
           mute: 1,
-          showinfo: 0, 
+          showinfo: 0,
           fs: 0,
           cc_load_policy: 0,
           iv_load_policy: 3,
           autoplay: 0,
           loop: 1,
-          playlist:"ng-LJ0x4vUo",
+          playlist: "ng-LJ0x4vUo",
           modestbranding: 1,
-          autohide: 1,
+          autohide: 1
         },
         enablejsapi: 1,
         events: {
           onReady: this.onPlayerReady,
-          onStateChange: this.onPlayerStateChange,
-        },
+          onStateChange: this.onPlayerStateChange
+        }
       });
     },
     // ng-LJ0x4vUo
     // WeoAgb7v3fU
-     onPlayerReady: function (event) {
+    onPlayerReady: function(event) {
       // event.target.playVideo();
       // console.log(event.target)
       // event.target = iframe object
 
-      setTimeout(()=> {
-      event.target.playVideo()
-      console.log(event.target)
-      }, 5000)
+      setTimeout(() => {
+        event.target.playVideo();
+        console.log(event.target);
+      }, 5000);
 
-       setTimeout(()=> {
-      //  event.target.stopVideo();
-      event.target.loadVideoById('WeoAgb7v3fU')
-      }, 8000)
+      setTimeout(() => {
+        //  event.target.stopVideo();
+        event.target.loadVideoById("WeoAgb7v3fU");
+      }, 8000);
     },
 
-    onPlayerStateChange: function (event) {},
-    
+    onPlayerStateChange: function(event) {}
   },
   mounted() {
-     this.onYouTubeIframeAPIReady();
+    this.onYouTubeIframeAPIReady();
   },
 
   computed: {
     getVideoTooltipVisibleInfo() {
-      return this.$store.state.isVideoTooltipVisible
+      return this.$store.state.isVideoTooltipVisible;
     },
-      count () {
-      return this.$store.state.count
-   }
+    count() {
+      return this.$store.state.count;
+    }
   }
 };
 </script>
 
 <style lang="scss">
-
 .isBlured {
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   filter: blur(5px) !important;
 }
 
 .tet {
-    width: 60vw;
-    height: 60vh;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: -1;
-    transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%);
 }
 
 .tet__visible {
@@ -172,25 +179,23 @@ export default {
 }
 
 .video-tooltip-visible {
- 
-   iframe#portfolioVideo {
+  iframe#portfolioVideo {
     //  visible
-     display: block;
-   }
-
+    display: block;
+  }
 }
 
- iframe#portfolioVideo {
-     display: none;
-   }
+iframe#portfolioVideo {
+  display: none;
+}
 
 #portfolioVideo {
   opacity: 1;
   position: fixed;
-    left: 50%;
-    top: 50%;
-    z-index: 3;
-    transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
 }
 
 .demo-2 {
@@ -223,19 +228,19 @@ export default {
 }
 
 .gallery__item {
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   margin: 0 3vw;
   display: grid;
   grid-template-areas:
     "... ..."
     "... gallery-image"
     "... ...";
-    
- grid-template-columns: 1rem 21vmax;
- grid-template-rows: 40px 28vmax 3rem;
 
- &:hover {
-   transition: all .1s ease-in-out;
+  grid-template-columns: 1rem 21vmax;
+  grid-template-rows: 40px 28vmax 3rem;
+
+  &:hover {
+    transition: all 0.1s ease-in-out;
     transform: scale(1.05);
   }
 }
@@ -257,9 +262,7 @@ export default {
   height: 100%;
   will-change: transform;
   background-repeat: no-repeat;
-  cursor: pointer; 
-
-  
+  cursor: pointer;
 }
 
 .gallery__item-caption {
@@ -270,7 +273,7 @@ export default {
     "gallery-link ..."
     "gallery-link gallery-tags";
   grid-template-columns: 1rem auto;
-    grid-template-rows: 29px 36rem 3rem;
+  grid-template-rows: 29px 36rem 3rem;
 }
 
 .gallery__item-number {
@@ -318,8 +321,9 @@ export default {
   left: 59px;
   top: -43px;
 
-  @include xl{
-    top: -33%;
+  @include xl-min {
+    top: -38%;
+    left: 0%;
   }
 }
 
@@ -365,14 +369,12 @@ export default {
   }
 } */
 .section-projects {
- transition: all .5s ease-in;
- 
-  .content {
- filter: blur(0px);
-  transition: all .3s ease-in;
-  }
+  transition: all 0.5s ease-in;
 
- 
+  .content {
+    filter: blur(0px);
+    transition: all 0.3s ease-in;
+  }
 }
 .section-projects--overlay {
   position: absolute;
@@ -383,11 +385,11 @@ export default {
   // background-color: rgb(0, 0, 0);
   // opacity: .4;
   z-index: -1;
-  transition: all .5s ease-in;
+  transition: all 0.5s ease-in;
 
   &__is-visible {
-     z-index: 2;
-     transition: all .5s ease-in;
+    z-index: 2;
+    transition: all 0.5s ease-in;
   }
 }
 </style>
