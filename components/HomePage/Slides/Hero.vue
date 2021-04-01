@@ -32,9 +32,7 @@
         </svg>
       </div>
     </div>
-
     <div id="player"></div>
-
     <div class="start-indicator">
       <div class="start-indicator--inner">
         <p>start</p>
@@ -89,7 +87,6 @@ export default {
       function maskRevealIsEnd() {
         fullpage_api.setAllowScrolling(true, "down");
         fullpage_api.setAllowScrolling(true, "up");
-        // console.log("mask reveal func allow scrolling true");
       }
 
       maskReveal.play();
@@ -101,7 +98,6 @@ export default {
       gsap.to(".start-indicator", {
         opacity: 1,
         duration: 0.3
-        // onComplete: maskRevealIsEnd
       });
     }
     TweenLite.delayedCall(4, showStartIndicator);
@@ -113,7 +109,6 @@ export default {
       let hideIndicator = gsap.to(".start-indicator", {
         opacity: 0,
         duration: 0
-        // onComplete: maskRevealIsEnd
       });
 
       let showArrowIndicator = gsap.to(".arrow-bottom-indicator", {
@@ -164,11 +159,9 @@ export default {
 
     onPlayerReady: function(event) {
       event.target.playVideo();
-      console.log("player on ready change");
     },
 
     onPlayerStateChange: function(event) {
-      console.log("onPlayerStateChange");
       event.target.playVideo();
     },
 
@@ -230,6 +223,7 @@ export default {
   display: inline-block;
   position: relative;
   z-index: -1;
+
   &:after {
     content: "";
     display: block;
@@ -240,6 +234,7 @@ export default {
     top: 0;
     right: -40vw;
   }
+
   &:before {
     content: "";
     display: block;
@@ -253,8 +248,6 @@ export default {
 }
 
 .move-mask {
-  // display: none !important;
-
   @include xl-min {
     display: flex !important;
   }
@@ -269,17 +262,21 @@ export default {
     align-items: center;
     justify-content: center;
   }
+
   display: none;
   position: relative;
+
   @include lg-min {
     display: block;
   }
 
   &:before {
     display: none;
+
     @include lg-min {
       display: block;
     }
+
     content: "";
     width: 100vw;
     height: 25vh;
@@ -291,9 +288,11 @@ export default {
 
   &:after {
     display: none;
+
     @include lg-min {
       display: block;
     }
+
     content: "";
     width: 100vw;
     height: 30vh;
@@ -305,6 +304,7 @@ export default {
 
   svg {
     display: none;
+
     @include lg-min {
       display: block;
     }
@@ -319,12 +319,12 @@ export default {
   z-index: -1;
 
   iframe {
-    // transform: scale(4.5);
     width: 100%;
     height: 100%;
     position: absolute;
     left: 0;
     top: -70px;
+
     @include lg-min {
       transform: scale(1);
       top: 0px;
@@ -370,6 +370,7 @@ export default {
     position: absolute;
     left: 50%;
   }
+
   .roll-circle {
     display: block;
     width: 10px;
@@ -387,6 +388,7 @@ export default {
     from {
       top: 76%;
     }
+
     to {
       top: 160%;
     }
