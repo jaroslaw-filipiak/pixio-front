@@ -250,6 +250,12 @@ export default {
 }
 
 .move-mask {
+  display: none !important;
+
+  @include xl-min {
+    display: flex !important;
+  }
+
   .move-mask--inner {
     width: 102%;
     height: 100%;
@@ -310,14 +316,15 @@ export default {
   z-index: -1;
 
   iframe {
-    transform: scale(4.5);
+    // transform: scale(4.5);
     width: 100%;
     height: 100%;
     position: absolute;
     left: 0;
-    top: 0;
+    top: -70px;
     @include lg-min {
       transform: scale(1);
+      top: 0px;
     }
   }
 }

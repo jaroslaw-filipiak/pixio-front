@@ -241,9 +241,17 @@ body {
   }
 }
 
-// .fullpage-main-wrapper__handle-mobile {
-//   height: calc(100vh - 70px) !important;
-
-//   position: relative;
-//   top: 100vh;
-// }
+.fullpage-main-wrapper__handle-mobile {
+  @include xs {
+    position: relative;
+    top: -9px;
+  }
+  @include sm {
+    position: relative;
+    top: -9px;
+  }
+  @include md {
+    position: relative;
+    top: -9px;
+  }
+}
