@@ -10,10 +10,8 @@
 export default {
   methods: {
     closeVideo() {
-      // 1 close video that' mean change z-index
-      this.$store.commit("closeVideo", "its always set to false in store");
-      // 2 set vide url to empty string ?
-      this.$store.commit("changeVideoURL", "novideo..");
+      this.$store.commit("closeVideo", "");
+      this.$store.commit("changeVideoURL", "");
     }
   }
 };

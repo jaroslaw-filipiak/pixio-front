@@ -1,6 +1,6 @@
 export const state = () => ({
   counter: 0,
-  count: 34343,
+  count: 0,
   done: false,
   isMaskVisible: true,
   isVideoVisible: false,
@@ -14,17 +14,9 @@ export const state = () => ({
 export const mutations = {
   changeScrollLock(state) {
     isScrollLock = state;
-    console.log("change scroll lock in store");
-    console.log(state);
   },
-  revealNavigaton(state) {
-    console.log(state);
-    console.log("revealNavigation mutation");
-  },
+  revealNavigaton(state) {},
   changeVideoTooltipVisibility(state, payload) {
-    console.log(state);
-    console.log(payload);
-    console.log("changeVideoTooltipVisibility");
     state.isVideoTooltipVisible = payload;
   },
   changeVideoTooltipVisibilityToFalse(state, payload) {

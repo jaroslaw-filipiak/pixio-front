@@ -1,7 +1,7 @@
 <template>
   <span>
     <figure
-      @click="showFuckingVideo"
+      @click="showVideo"
       class="gallery__item"
       style="position: relative;"
     >
@@ -17,7 +17,6 @@
       <figcaption class="gallery__item-caption">
         <h2 class="gallery__item-title" data-scroll data-scroll-speed="1">
           {{ title }}
-          <slot> </slot>
         </h2>
 
         <a class="gallery__item-link"
@@ -45,23 +44,20 @@
 </template>
 
 <script>
-import backgroundImagePath from "@/assets/img/poster-star-treck-discovery.jpg";
 export default {
   props: {
     title: String,
     backgroundUrl: String,
     movieEmbeed: String
-    // src: String
   },
   data() {
     return {
-      backgroundImagePath,
       isVideoVisible: false
     };
   },
   mounted() {},
   methods: {
-    showFuckingVideo: function(e) {
+    showVideo: function(e) {
       if (e.target.attributes[0].value == "gallery__item-caption") {
         const itemURL =
           e.target.parentElement.children[0].children[0].attributes[2].value;
@@ -70,20 +66,9 @@ export default {
       } else {
         const itemURL = e.target.attributes[2].value;
         this.$store.commit("changeVideoURL", itemURL);
-        // this.isVideoVisible = !this.isVideoVisible;
-        // first click = show Video toolip
         this.$store.commit("changeVideoTooltipVisibility", true);
       }
     }
-  },
-
-  computed: {
-    // isVideoTooltipVisible() {
-    //     return this.$store.state.isVideoTooltipVisible
-    // },
-    // videoSRC() {
-    //   return this.$store.state.videoSRC
-    // }
   },
 
   watch: {
@@ -93,5 +78,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss"></style>

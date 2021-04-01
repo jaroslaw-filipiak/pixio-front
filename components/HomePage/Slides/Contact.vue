@@ -227,10 +227,11 @@ export default {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: space-between !important;
+    justify-content: space-around !important;
     height: 100vh !important;
     @include xl-min {
       padding: 60px 0px;
+      justify-content: space-between !important;
     }
   }
 
@@ -241,11 +242,12 @@ export default {
     justify-content: space-between;
 
     border-radius: 20px;
-    padding: 40px 30px;
+    padding: 0px 30px;
     transform: scale(1);
 
     @include lg-min {
       border: 1px solid #fff;
+      padding: 40px 30px;
     }
 
     @include xl {
@@ -374,7 +376,7 @@ export default {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
 
     @include lg-min {
       flex-direction: row;
@@ -396,14 +398,19 @@ export default {
   }
 
   .contact-info--icon {
-    width: 70px;
-    height: 70px;
+    width: 32px;
+    height: 32px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 20px;
+
+    @include md-min {
+      width: 70px;
+      height: 70px;
+    }
   }
 }
 </style>

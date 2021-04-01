@@ -42,8 +42,6 @@
     </div>
 
     <div class="projects-swiper-pagination"></div>
-
-    <slot> </slot>
   </div>
 </template>
 
@@ -71,7 +69,6 @@ export default {
   data() {
     return {
       projectsSwiperOptions: {
-        // effect: 'flip',
         slidesPerView: 1,
         centeredSlides: true,
         loop: false,
@@ -79,11 +76,6 @@ export default {
         grabCursor: false,
         allowTouchMove: true,
         speed: 200,
-        pagination: {
-          // el: ".projects-swiper-pagination",
-          // type: "bullets",
-          // clickable: true,
-        },
         breakpoints: {
           640: {
             slidesPerView: 2,
@@ -102,7 +94,6 @@ export default {
           nextEl: ".next-project",
           prevEl: ".prev-project"
         }
-        // Some Swiper option/callback...
       }
     };
   },
@@ -113,17 +104,6 @@ export default {
     },
     videoSRC() {
       return this.$store.state.videoSRC;
-    },
-    isProjectsBlured() {
-      return true;
-    }
-  },
-  watch: {
-    isVideoTooltipVisible: function() {
-      // console.log(
-      //   "changes in isVideoTooltipVisible to" + this.isVideoTooltipVisible
-      // );
-      // this.udpateComputedProperty()
     }
   }
 };
@@ -140,12 +120,15 @@ export default {
   right: 0px;
   width: 50px;
   z-index: 80;
+
   @include xs {
     display: none !important;
   }
+
   @include sm {
     display: none !important;
   }
+
   @include md {
     display: none !important;
   }
@@ -157,12 +140,15 @@ export default {
   left: 0px;
   width: 50px;
   z-index: 80;
+
   @include xs {
     display: none !important;
   }
+
   @include sm {
     display: none !important;
   }
+
   @include md {
     display: none !important;
   }
@@ -216,7 +202,6 @@ export default {
 
 .video-tooltip-visible {
   iframe#portfolioVideo {
-    //  visible
     display: block;
   }
 }
@@ -344,12 +329,14 @@ iframe#portfolioVideo {
     top: -49px;
     width: 100%;
   }
+
   @include sm {
     position: absolute;
     left: 0;
     top: -49px;
     width: 100%;
   }
+
   @include md {
     position: absolute;
     left: 0;
@@ -392,12 +379,15 @@ iframe#portfolioVideo {
   @include xs {
     display: none;
   }
+
   @include sm {
     display: none;
   }
+
   @include md {
     display: none;
   }
+
   grid-area: gallery-link;
   align-self: end;
   font-size: 1.5rem;
@@ -457,14 +447,6 @@ iframe#portfolioVideo {
   display: block;
 }
 
-/* @media screen and (min-width: 53em) {
-  .frame {
-    grid-template-areas: "title demos demos links";
-  }
-  .frame__info {
-    justify-self: end;
-  }
-} */
 .section-projects {
   transition: all 0.5s ease-in;
 
@@ -480,8 +462,6 @@ iframe#portfolioVideo {
   top: 0;
   width: 100%;
   height: 100%;
-  // background-color: rgb(0, 0, 0);
-  // opacity: .4;
   z-index: -1;
   transition: all 0.5s ease-in;
 
@@ -510,9 +490,7 @@ iframe#portfolioVideo {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
   opacity: 1;
-  // border: 1px solid blue;
   background-color: transparent;
   border: none;
 
@@ -525,11 +503,7 @@ iframe#portfolioVideo {
     top: 50%;
   }
 
-  .embed-responsive {
-  }
-
   &__visible {
-    // border: 1px solid red;
     opacity: 1;
     z-index: 90;
   }
@@ -545,6 +519,7 @@ iframe#portfolioVideo {
     }
   }
 }
+
 .project--overlay {
   background-color: rgba(20, 20, 20, 0.63);
   width: 100%;
@@ -576,11 +551,16 @@ iframe#portfolioVideo {
         width: 70% !important;
         margin: 0px;
         margin-right: 0px !important;
+        position: relative;
+        top: -60px;
       }
+
       @include sm {
         width: 70% !important;
         margin: 0px;
         margin-right: 0px !important;
+        position: relative;
+        top: -60px;
       }
     }
   }
