@@ -7,27 +7,26 @@
 </template>
 
 <script>
-
 export default {
   data() {
-    return {}
+    return {};
   },
   methods: {
-    goToSlide: function (e) {
+    goToSlide: function(e) {
       fullpage_api.moveTo(e.target.attributes[1].value);
       this.removeAllActiveClasses();
       this.addActiveClass(e.target);
     },
-    addActiveClass: function (item) {
+    addActiveClass: function(item) {
       item.classList.add("slide-link__active");
     },
 
-    removeAllActiveClasses: function () {
+    removeAllActiveClasses: function() {
       const items = document.querySelectorAll(".slide-link");
 
-      items.forEach((item) => item.classList.remove("slide-link__active"));
+      items.forEach(item => item.classList.remove("slide-link__active"));
     },
-    createNavigationLinks: function () {
+    createNavigationLinks: function() {
       const navLinks = [];
       const navLinksWrapper = document.querySelector(".rightnav-links-wrapper");
       const slides = document.querySelectorAll(".slide");
@@ -47,26 +46,24 @@ export default {
       }
 
       navLinks[0].classList.add("slide-link__active");
-    },
-  },
- computed: {
-   isRightMenu() {
-      return this.$store.state.isRightMenuVisible
     }
- },
- 
-  mounted() {
-    this.isRightMenu
   },
-  created() {},
-  
+  computed: {
+    isRightMenu() {
+      return this.$store.state.isRightMenuVisible;
+    }
+  },
+
+  mounted() {
+    this.isRightMenu;
+  },
+  created() {}
 };
 </script>
 
 <style lang="scss">
-
 // .fp-nav {
- 
+
 //  ul {
 //     display: flex;
 //     flex-direction: column;
@@ -123,14 +120,13 @@ export default {
 // }
 
 #fp-nav {
-  z-index: -1;
-  opacity: 0;
+  z-index: 2;
+  opacity: 1;
   display: none !important;
-  transition: all .1s ease-in;
+  transition: all 0.1s ease-in;
   @include lg-min {
     display: block !important;
   }
-
 }
 
 // .fp-nav--visible {
@@ -151,9 +147,9 @@ export default {
 
   @include lg-min {
     display: flex;
-     flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
   }
 
   ul {

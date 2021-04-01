@@ -90,42 +90,12 @@ export default {
         fullpage_api.setAllowScrolling(true, "down");
         fullpage_api.setAllowScrolling(true, "up");
         // console.log("mask reveal func allow scrolling true");
-        const nav = document.querySelector("#fp-nav");
       }
 
       maskReveal.play();
     }, 4000);
 
-    $(window).bind("mousewheel", e => {
-      if (e.originalEvent.wheelDelta / 120 > 0) {
-      } else {
-        let hideIndicator = gsap.to(".start-indicator", {
-          opacity: 0,
-          duration: 0
-          // onComplete: maskRevealIsEnd
-        });
-
-        let showArrowIndicator = gsap.to(".arrow-bottom-indicator", {
-          opacity: 1
-        });
-
-        let showHamburger = gsap.to(".hamburger", {
-          opacity: 1
-        });
-
-        let showFpNav = gsap.to("#fp-nav", {
-          "z-index": 2,
-          opacity: 1
-        });
-
-        const navWrapper = document.querySelector(".nav-wrapper ");
-        navWrapper.classList.remove("navOpen");
-
-        const hamburgerBTN = document.querySelector(".hamburger");
-        hamburgerBTN.classList.remove("is-active");
-      }
-    });
-    // console.log(this.$device);
+    this.showNavElements();
 
     function showStartIndicator() {
       gsap.to(".start-indicator", {
@@ -136,7 +106,32 @@ export default {
     }
     TweenLite.delayedCall(4, showStartIndicator);
   },
+
   methods: {
+    showNavElements: function() {
+      console.log("show nav elements");
+      let hideIndicator = gsap.to(".start-indicator", {
+        opacity: 0,
+        duration: 0
+        // onComplete: maskRevealIsEnd
+      });
+
+      let showArrowIndicator = gsap.to(".arrow-bottom-indicator", {
+        opacity: 1
+      });
+
+      let showHamburger = gsap.to(".hamburger", {
+        opacity: 1
+      });
+
+      const nav = document.querySelector("#fp-nav");
+
+      const navWrapper = document.querySelector(".nav-wrapper ");
+      navWrapper.classList.remove("navOpen");
+
+      const hamburgerBTN = document.querySelector(".hamburger");
+      hamburgerBTN.classList.remove("is-active");
+    },
     onYouTubeIframeAPIReady: function() {
       var player;
 
