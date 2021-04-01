@@ -107,6 +107,44 @@ export default {
   }
 }
 
+.apply-btn {
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #5680e9;
+  border-radius: 50px;
+  width: 144px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  &:hover {
+    background-color: #5680e9;
+    color: #fff;
+    transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+    path {
+      stroke: #fff;
+      transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+    }
+  }
+
+  svg {
+    margin-left: 10px;
+  }
+
+  img {
+    margin-left: 16px;
+  }
+
+  path {
+    stroke: #222;
+    transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
+}
+
 .apply-btn__careers {
   background-color: transparent !important;
   border-color: #222 !important;
