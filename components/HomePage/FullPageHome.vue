@@ -4,6 +4,7 @@
     :options="options"
     class="fullpage-main-wrapper__handle-mobile"
   >
+    <Hero v-on:scroll.native="handleScroll" />
     <!-- solutions -->
     <Section2>
       <div

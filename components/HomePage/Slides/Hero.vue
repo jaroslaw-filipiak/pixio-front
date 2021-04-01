@@ -150,6 +150,7 @@ export default {
           iv_load_policy: 3,
           autoplay: 1,
           loop: 1,
+          rel: 0,
           playlist: this.pageHome.hero_video_ID,
           modestbranding: 1,
           autohide: 1
