@@ -52,7 +52,6 @@ export default {
 .single-job-sidebar {
   width: 85%;
   margin-left: 20px;
-  background-color: rgba(247, 246, 242, 0.4);
 
   @include lg-min {
     width: 266px;
@@ -90,6 +89,12 @@ export default {
     p {
       margin-bottom: 20px;
     }
+  }
+
+  &--photo,
+  &--content,
+  &--button-wrapper {
+    background-color: rgba(247, 246, 242, 0.4);
   }
 }
 </style>
