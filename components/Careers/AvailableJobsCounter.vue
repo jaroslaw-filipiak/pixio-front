@@ -1,5 +1,8 @@
 <template>
-  <div class="job-post-availiable">
+  <div
+    :class="count == 0 ? 'job-post-availiable__no-offers' : ''"
+    class="job-post-availiable"
+  >
     <span>{{ count == 0 ? "" : count }} {{ filteredText }}</span>
   </div>
 </template>
@@ -48,6 +51,21 @@ export default {
       border-radius: 20px;
       left: -15px;
       top: 5px;
+    }
+  }
+  &__no-offers {
+    span {
+      &:before {
+        content: "";
+        background-color: #ec3942;
+        width: 8px;
+        height: 8px;
+        display: block;
+        position: absolute;
+        border-radius: 20px;
+        left: -15px;
+        top: 5px;
+      }
     }
   }
 }
