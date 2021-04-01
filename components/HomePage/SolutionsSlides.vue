@@ -11,7 +11,9 @@
               <img :src="this.pageVisualProduction.tooltip_1_image[0].url" />
             </div>
             <div class="tooltip--right">
-              <span v-html="this.pageVisualProduction.tooltip_1_content"></span>
+              <span
+                v-html="$md.render(this.pageVisualProduction.tooltip_1_content)"
+              ></span>
 
               <div @click="nextSlide" class="tooltip-button ">
                 <p>See what can we do using VR</p>
@@ -51,7 +53,9 @@
               <img :src="this.pageVisualProduction.tooltip_3_img[0].url" />
             </div>
             <div class="tooltip--right">
-              <span v-html="this.pageVisualProduction.tooltip_3_content"></span>
+              <span
+                v-html="$md.render(this.pageVisualProduction.tooltip_3_content)"
+              ></span>
             </div>
           </div>
         </div>
