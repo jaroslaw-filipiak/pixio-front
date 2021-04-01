@@ -53,10 +53,6 @@
     </Instagram>
 
     <Contact />
-
-    <!-- empty section / rightside navigation fast fix -->
-    <div class="section empty-section-fix"></div>
-    <!-- empty section / rightside navigation fast fix -->
   </full-page>
 </template>
 
@@ -73,9 +69,7 @@ export default {
           "projects",
           "about",
           "instagram",
-          "contact",
-          "page7",
-          "page8"
+          "contact"
         ],
         scrollingSpeed: 150,
         v2compatible: true,
