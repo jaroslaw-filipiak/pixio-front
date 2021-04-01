@@ -13,6 +13,7 @@
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/markdownit": "^2.0.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "@tryghost/content-api": "^1.4.13",
     "@vue/compiler-sfc": "^3.0.5",
@@ -28,6 +29,9 @@
     "instagrammer": "^1.0.11",
     "jquery": "^3.5.1",
     "locomotive-scroll": "^4.0.6",
+    "markdown-it": "^12.0.4",
+    "markdown-it-attrs": "^4.0.0",
+    "markdown-it-div": "^1.1.0",
     "node-instagram": "^4.3.0",
     "nodemailer": "^6.5.0",
     "nuxt": "^2.14.12",
@@ -43,6 +47,7 @@
     "vue-awesome-swiper": "^4.1.1",
     "vue-fullpage": "^2.0.5",
     "vue-fullpage.js": "^0.1.6",
+    "vue-markdown": "^2.2.4",
     "vue-mobile-detection": "^1.0.0",
     "vue-responsive-video-background-player": "1.2.2",
     "vue-waypoint": "^3.5.2",
@@ -52,6 +57,7 @@
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.4.0",
     "@nuxtjs/device": "^2.0.1",
+    "@nuxtjs/markdownit-loader": "^1.2.0",
     "nuxt-gsap": "^0.1.4"
   }
 }

@@ -14,7 +14,7 @@
       /></nuxt-link>
     </div>
     <div class="single-job-sidebar--content">
-      <span v-html="this.singleJobSidebar.content"></span>
+      <span v-html="$md.render(this.singleJobSidebar.content)"></span>
     </div>
   </div>
 </template>

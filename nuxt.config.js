@@ -108,6 +108,10 @@ export default {
       ssr: false
     }
     // {
+    //   src: "@/plugins/vue-markdown.js",
+    //   ssr: false
+    // }
+    // {
     //   src: "@/plugins/vuelidate.js",
     //   ssr: false
     // }
@@ -131,8 +135,14 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/style-resources",
     "@nuxtjs/apollo",
-    "@nuxtjs/device"
+    "@nuxtjs/device",
+    "@nuxtjs/markdownit"
   ],
+
+  markdownit: {
+    runtime: true // Support `$md()`
+  },
+
   device: {
     refreshOnResize: true,
     defaultUserAgent:

@@ -8,3 +8,21 @@
     margin-top: 24px;
   }
 }
+
+.layout__single-job {
+  .single-job-content-wrapper {
+    .single-job--content {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        margin-bottom: 20px;
+      }
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+  }
+}

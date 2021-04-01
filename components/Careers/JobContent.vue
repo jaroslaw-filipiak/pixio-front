@@ -1,4 +1,4 @@
-<template>
+<template lang="md">
   <div class="single-job--content">
     <div class="single-job--title">{{ title }}</div>
     <div class="single-job--exp">Experience: {{ this.job[0].experience }}</div>
@@ -10,12 +10,13 @@
       <img src="@/assets/img/clock.svg" alt="map-pin" />
       {{ this.job[0].Time ? this.job[0].Time : "ASAP" }}
     </div>
-    <span v-html="this.job[0].job_content"></span>
+
+    <span v-html="$md.render(this.job[0].job_content)"></span>
   </div>
 </template>
 
 <script>
-import gql from "graphql-tag";
+// import gql from "graphql-tag";
 
 export default {
   props: ["title"],
@@ -24,6 +25,7 @@ export default {
       job: [
         {
           experience: "",
+          job_content: "",
           cities: {
             name: ""
           }
@@ -47,7 +49,8 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$route.params.slug);
+    // console.log(this.$route.params.slug);
+    // console.log(typeof this.job[0].job_content);
   }
   // apollo: {
   //   jobs: gql`
