@@ -91,6 +91,9 @@ export const pageVisualProductionContent = gql`
         url
       }
       tooltip_3_content
+      section_background {
+        url
+      }
     }
   }
 `;

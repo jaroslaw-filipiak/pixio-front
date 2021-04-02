@@ -2,7 +2,9 @@
   <div
     id="section2"
     class="section section-2"
-    :style="{ backgroundImage: `url(${image})` }"
+    :style="{
+      backgroundImage: `url(${this.pageVisualProduction.section_background.url})`
+    }"
   >
     <div class="section-2-gradient-overlay"></div>
     <div class="slide slide-2 slide-solutions">
@@ -39,6 +41,7 @@
 
 <script>
 import image from "@/assets/img/vrbg.jpg";
+import { pageVisualProductionContent } from "~/graphql/queries";
 export default {
   data() {
     return {
@@ -46,10 +49,21 @@ export default {
       isTooltipVisible: true,
       isSectionOverlayActive: false,
       isArrowsVisible: false,
-      indicatorVisible: true
+      indicatorVisible: true,
+      pageVisualProduction: {
+        id: "",
+        section_background: {
+          url: ""
+        }
+      }
     };
   },
-
+  apollo: {
+    pageVisualProduction: {
+      prefetch: true,
+      query: pageVisualProductionContent
+    }
+  },
   methods: {
     nextSlide(e) {
       fullpage_api.moveSlideLeft();
