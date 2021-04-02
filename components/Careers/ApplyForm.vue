@@ -95,18 +95,29 @@
       </div>
 
       <!-- Upload -->
+
       <div class="box__input">
         <input
-          class="box__file"
           type="file"
-          name="files[]"
+          name="file"
           id="file"
+          ref="file"
+          class="inputfile"
+          v-on:change="handleFileUpload()"
           data-multiple-caption="{count} files selected"
           multiple
         />
+        <!-- <input
+          type="file"
+          id="file"
+          ref="file"
+          v-on:change="handleFileUpload()"
+        /> -->
         <label class="label-file" for="file"
           ><strong>Upload a file </strong
-          ><span class="box__dragndrop"> or drag and drop here</span>.</label
+          ><span class="box__dragndrop">
+            {{ this.file.name ? this.file.name : "" }}</span
+          ></label
         >
         <!-- <button class="box__button" type="submit">Upload</button> -->
       </div>
@@ -283,7 +294,8 @@ export default {
       webDesignSoftware: "",
       resumeCountry: "",
       resumeCity: "",
-      terms: ""
+      terms: "",
+      file: ""
     };
   },
 
@@ -293,38 +305,47 @@ export default {
     ).then(res => res.json());
   },
 
-  mounted() {
-    console.log(this.applyID);
-    console.log(this.$router);
-  },
+  mounted() {},
   methods: {
     sendData: function() {
       console.log("send data");
       this.loading = true;
       this.$axios
-        .post("/", {
-          recipient: this.recipient[0].apply_to,
-          name: this.name,
-          surname: this.surname,
-          email: this.email,
-          confirmEmail: this.confirmEmail,
-          country: this.country,
-          city: this.city,
-          languages: this.languages,
-          languagesSkill: this.languagesSkill,
-          demoURL: this.demoURL,
-          twodCompositing: this.twodCompositing,
-          treeDsoftware: this.treeDsoftware,
-          editing: this.editing,
-          officeSoftware: this.officeSoftware,
-          proggramingLanguages: this.proggramingLanguages,
-          webDesignSoftware: this.webDesignSoftware,
-          resumeCountry: this.resumeCountry,
-          resumeCity: this.resumeCity,
-          terms: this.terms,
-          city: this.city,
-          country: this.country
-        })
+        .post(
+          "/",
+          {
+            recipient: this.recipient[0].apply_to,
+            name: this.name,
+            surname: this.surname,
+            email: this.email,
+            confirmEmail: this.confirmEmail,
+            country: this.country,
+            city: this.city,
+            languages: this.languages,
+            languagesSkill: this.languagesSkill,
+            demoURL: this.demoURL,
+            twodCompositing: this.twodCompositing,
+            treeDsoftware: this.treeDsoftware,
+            editing: this.editing,
+            officeSoftware: this.officeSoftware,
+            proggramingLanguages: this.proggramingLanguages,
+            webDesignSoftware: this.webDesignSoftware,
+            resumeCountry: this.resumeCountry,
+            resumeCity: this.resumeCity,
+            terms: this.terms,
+            city: this.city,
+            country: this.country,
+            file: this.file,
+            fileName: this.file.name,
+            fileSize: this.file.size,
+            fileType: this.file.type
+          },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data"
+            }
+          }
+        )
         .then(response => {
           this.success = true;
           this.errored = false;
@@ -335,6 +356,11 @@ export default {
         .finally(() => {
           this.loading = false;
         });
+    },
+    handleFileUpload() {
+      this.file = this.$refs.file.files[0];
+      console.log(this.file);
+      console.log(this.file.name);
     }
   }
 };
@@ -452,13 +478,16 @@ export default {
 
 .box__input {
   border: 1px dashed #d7d0c0;
-  padding: 20px;
+  padding: 0px;
   margin-top: 16px;
   overflow: hidden;
 
   input[type="file"] {
     overflow: hidden;
-    width: 1px;
+    width: 0.1px;
+    z-index: -1;
+    position: relative;
+    left: -999px;
   }
 }
 

@@ -61,6 +61,12 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
+  loading: {
+    continuous: true,
+    height: "10px",
+    color: "#5680e9"
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {
