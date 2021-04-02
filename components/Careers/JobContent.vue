@@ -37,7 +37,7 @@ export default {
   },
   async fetch() {
     this.job = await fetch(
-      `https://7e6805.stage.titans24.com/jobs?id=${this.$route.query.jobID}`
+      `${process.env.MAIN_API_ENDPOINT}jobs?id=${this.$route.query.jobID}`
     ).then(res => res.json());
   },
   methods: {
@@ -51,23 +51,7 @@ export default {
   mounted() {
     console.log(this.$route.params.slug);
     console.log(this.$route.query.jobID);
-    // console.log(typeof this.job[0].job_content);
   }
-  // apollo: {
-  //   jobs: gql`
-  //     query Jobs {
-  //       jobs(where: { Title: "Unity Developer" }) {
-  //         Title
-  //         id
-  //         job_content
-  //         experience
-  //         cities {
-  //           name
-  //         }
-  //       }
-  //     }
-  //   `
-  // }
 };
 </script>
 

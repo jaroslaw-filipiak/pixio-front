@@ -301,7 +301,7 @@ export default {
 
   async fetch() {
     this.recipient = await fetch(
-      `https://7e6805.stage.titans24.com/jobs?id=${this.applyID}`
+      `${process.env.MAIN_API_ENDPOINT}jobs?id=${this.applyID}`
     ).then(res => res.json());
   },
 
@@ -312,7 +312,7 @@ export default {
       this.loading = true;
       this.$axios
         .post(
-          "/",
+          `${process.env.APPLY_FORM_POST}`,
           {
             recipient: this.recipient[0].apply_to,
             name: this.name,

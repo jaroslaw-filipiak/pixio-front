@@ -13,11 +13,11 @@
     <div class="contact-form" :class="{ 'contact-form--succes': isSuccess }">
       <label for="name">
         Hello, my name is
-        <input type="text" placeholder="your name" />
+        <input v-model="name" type="text" placeholder="your name" />
       </label>
       <label for="select">
         I would like to:
-        <select name="" id="">
+        <select v-model="select" name="i-would-like-to" id="">
           <option value="get an estimate">get an estimate</option>
           <option value="get an estimate">learn more about VP</option>
           <option value="get an estimate">other</option>
@@ -25,13 +25,19 @@
       </label>
       <label for="email">
         You can reach me via
-        <input type="email" placeholder="your e-mail" />
+        <input v-model="email" type="email" placeholder="your e-mail" />
       </label>
 
       <div class="detalis-txt" style="margin-top: 20px">
         Here are the details:
       </div>
-      <textarea name="" id="" cols="30" rows="3"></textarea>
+      <textarea
+        v-model="message"
+        name="message"
+        id="message"
+        cols="30"
+        rows="3"
+      ></textarea>
       <button @click="sendMessage" class="btn btn-outline-white">
         Send inquiry
       </button>
@@ -187,7 +193,11 @@ export default {
         section_background: {
           url: ""
         }
-      }
+      },
+      name: "",
+      select: "",
+      email: "",
+      message: ""
     };
   },
   apollo: {
@@ -198,10 +208,32 @@ export default {
   },
   methods: {
     sendMessage: function() {
-      this.isSuccess = !this.isSuccess;
-      setTimeout(() => {
-        this.isSuccess = !this.isSuccess;
-      }, 2000);
+      this.loading = true;
+      this.$axios
+        .post(
+          `${process.env.CONTACT_FORM_POST}`,
+          {
+            name: this.name,
+            select: this.select,
+            email: this.email,
+            message: this.message
+          },
+          {
+            headers: {
+              "Content-Type": "content-type: application/json; charset=utf-8"
+            }
+          }
+        )
+        .then(response => {
+          // this.isSuccess = true;
+          this.errored = false;
+        })
+        .catch(error => {
+          this.errored = true;
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     }
   }
 };
