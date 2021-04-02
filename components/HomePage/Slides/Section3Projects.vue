@@ -78,8 +78,10 @@ export default {
         speed: 200,
         breakpoints: {
           640: {
-            slidesPerView: 2,
-            spaceBetween: 20
+            slidesPerView: 3,
+            spaceBetween: 40,
+            loop: false,
+            centeredSlides: false
           },
           768: {
             slidesPerView: 3,
@@ -110,6 +112,12 @@ export default {
 </script>
 
 <style lang="scss">
+.section-3 {
+  .swiper-wrapper {
+    position: relative;
+    left: -24%;
+  }
+}
 .swiper-arrows__projects {
   width: 60px;
 }
@@ -544,7 +552,9 @@ iframe#portfolioVideo {
   .swiper-container {
     filter: blur(0px);
 
-    width: 100vw;
+    @include xl-min {
+      width: 100vw;
+    }
 
     .swiper-slide {
       @include xs {

@@ -333,8 +333,6 @@ export default {
             resumeCountry: this.resumeCountry,
             resumeCity: this.resumeCity,
             terms: this.terms,
-            city: this.city,
-            country: this.country,
             file: this.file,
             fileName: this.file.name,
             fileSize: this.file.size,
