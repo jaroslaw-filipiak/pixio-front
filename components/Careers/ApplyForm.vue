@@ -426,60 +426,55 @@ export default {
       this.$v.confirmEmail.$touch();
     },
     sendData: function() {
-      this.$v.$touch();
       this.loading = true;
 
-      if (this.$v.$invalid) {
-        this.submitStatus = "ERROR";
-      } else {
-        this.submitStatus = "VALIDATION OK";
+      const items = {
+        form_type: "apply",
+        title: this.title,
+        recipient: this.recipient[0].apply_to,
+        name: this.name,
+        surname: this.surname,
+        email: this.email,
+        confirmEmail: this.confirmEmail,
+        country: this.country,
+        city: this.city,
+        languages: this.languages,
+        languagesSkill: this.languagesSkill,
+        demoURL: this.demoURL,
+        twodCompositing: this.twodCompositing,
+        treeDsoftware: this.treeDsoftware,
+        editing: this.editing,
+        officeSoftware: this.officeSoftware,
+        proggramingLanguages: this.proggramingLanguages,
+        webDesignSoftware: this.webDesignSoftware,
+        resumeCountry: this.resumeCountry,
+        resumeCity: this.resumeCity,
+        terms: this.terms,
+        city: this.city,
+        country: this.country
+      };
 
-        const items = {
-          recipient: this.recipient[0].apply_to,
-          name: this.name,
-          surname: this.surname,
-          email: this.email,
-          confirmEmail: this.confirmEmail,
-          country: this.country,
-          city: this.city,
-          languages: this.languages,
-          languagesSkill: this.languagesSkill,
-          demoURL: this.demoURL,
-          twodCompositing: this.twodCompositing,
-          treeDsoftware: this.treeDsoftware,
-          editing: this.editing,
-          officeSoftware: this.officeSoftware,
-          proggramingLanguages: this.proggramingLanguages,
-          webDesignSoftware: this.webDesignSoftware,
-          resumeCountry: this.resumeCountry,
-          resumeCity: this.resumeCity,
-          terms: this.terms,
-          city: this.city,
-          country: this.country
-        };
+      let formData = new FormData();
 
-        let formData = new FormData();
+      formData.append("data", JSON.stringify(items));
+      formData.append("files.file", this.file);
 
-        formData.append("data", JSON.stringify(items));
-        formData.append("files.file", this.file);
-
-        this.$axios
-          .post(`${process.env.APPLY_FORM_POST}`, formData, {
-            headers: {
-              "Content-Type": "multipart/form-data"
-            }
-          })
-          .then(response => {
-            this.success = true;
-            this.errored = false;
-          })
-          .catch(error => {
-            this.errored = true;
-          })
-          .finally(() => {
-            this.loading = false;
-          });
-      }
+      this.$axios
+        .post(`${process.env.APPLY_FORM_POST}`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        })
+        .then(response => {
+          this.success = true;
+          this.errored = false;
+        })
+        .catch(error => {
+          this.errored = true;
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     },
     handleFileUpload() {
       this.file = this.$refs.file.files[0];
