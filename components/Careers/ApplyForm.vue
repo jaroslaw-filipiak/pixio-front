@@ -432,6 +432,8 @@ export default {
       } else {
         this.submitStatus = "VALIDATION OK";
         const items = {
+          form_type: "apply",
+          title: this.title,
           recipient: this.recipient[0].apply_to,
           name: this.name,
           surname: this.surname,
