@@ -310,10 +310,11 @@ export default {
   },
   methods: {
     sendData: function() {
-      console.log("send data");
       this.loading = true;
 
       const items = {
+        form_type: "apply",
+        title: this.title,
         recipient: this.recipient[0].apply_to,
         name: this.name,
         surname: this.surname,

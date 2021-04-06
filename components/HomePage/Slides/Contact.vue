@@ -209,23 +209,19 @@ export default {
   methods: {
     sendMessage: function() {
       this.loading = true;
+      
       this.$axios
         .post(
           `${process.env.CONTACT_FORM_POST}`,
           {
+            form_type: "contact",
             name: this.name,
             select: this.select,
             email: this.email,
             message: this.message
-          },
-          {
-            headers: {
-              "Content-Type": "content-type: application/json; charset=utf-8"
-            }
           }
         )
         .then(response => {
-          // this.isSuccess = true;
           this.errored = false;
         })
         .catch(error => {
