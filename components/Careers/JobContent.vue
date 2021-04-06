@@ -42,15 +42,15 @@ export default {
   },
   methods: {
     fetchProps() {
-      console.log(this.title);
+      // console.log(this.title);
     },
     saveProps() {
       this.data.currentTitle = this.title;
     }
   },
   mounted() {
-    console.log(this.$route.params.slug);
-    console.log(this.$route.query.jobID);
+    // console.log(this.$route.params.slug);
+    // console.log(this.$route.query.jobID);
   }
 };
 </script>

@@ -12,30 +12,69 @@
         <div class="form-section--title">
           Contact
         </div>
-        <div class="form-row--title"><span>*</span>Name:</div>
+        <div
+          :class="{ 'form-group--error': $v.name.$error || $v.surname.$error }"
+          class="form-row--title"
+        >
+          <span>*</span>Name:<span class="error" v-if="!$v.name.required">
+            &nbsp;&nbsp;Name is required</span
+          ><span class="error" v-if="!$v.surname.required">
+            &nbsp;&nbsp;Surname is required</span
+          >
+        </div>
         <div class="form-row--inputs">
-          <input v-model="name" type="text" placeholder="Name" />
-          <input v-model="surname" type="text" placeholder="Surname" />
+          <input
+            v-model.trim="name"
+            @input="setName($event.target.value)"
+            type="text"
+            placeholder="Name"
+          />
+
+          <input
+            v-model.trim="surname"
+            @input="setSurname($event.target.value)"
+            type="text"
+            placeholder="Surname"
+          />
         </div>
       </div>
 
       <!-- Email Address: -->
       <div class="form-section">
-        <div class="form-row--title"><span>*</span>Email Address:</div>
+        <div
+          :class="{
+            'form-group--error': $v.email.$error | $v.confirmEmail.$error
+          }"
+          class="form-row--title"
+        >
+          <span>*</span>Email Address:
+          <span class="error" v-if="!$v.email.email">
+            &nbsp;&nbsp;enter a valid email address</span
+          >
+          <span class="error" v-if="!$v.confirmEmail.sameAs">
+            &nbsp;&nbsp;e-mails do not match</span
+          >
+        </div>
 
         <div class="form-row--inputs">
-          <input v-model="email" type="email" placeholder="Email" />
           <input
-            v-model="confirmEmail"
+            @input="setEmail($event.target.value)"
+            v-model.trim="email"
+            type="email"
+            placeholder="Email"
+          />
+          <input
+            v-model.trim="confirmEmail"
+            @input="setConfirmEmail($event.target.value)"
             type="email"
             placeholder="Confirm Email"
           />
         </div>
       </div>
 
-      <!-- Location: -->yarn
+      <!-- Location: -->
       <div class="form-section">
-        <div class="form-row--title"><span>*</span>Location:</div>
+        <div class="form-row--title"><span></span>Location:</div>
         <div class="form-row--inputs">
           <input v-model="country" type="text" placeholder="Country" />
           <input v-model="city" type="text" placeholder="City" />
@@ -50,12 +89,12 @@
           Profile
         </div>
 
-        <div class="form-row--title"><span>*</span>Languages:</div>
+        <div class="form-row--title"><span></span>Languages:</div>
         <div class="form-row--inputs">
           <input v-model="languages" type="text" placeholder="Please type" />
         </div>
 
-        <div class="form-row--title"><span>*</span>Skill level:</div>
+        <div class="form-row--title"><span></span>Skill level:</div>
         <div class="form-row--inputs">
           <input
             v-model="languagesSkill"
@@ -71,8 +110,9 @@
           Resume (essential to the process):
         </div>
         <div class="form-row--title">
-          <span>*</span>Resume:
+          <span></span>Resume:
           <svg
+            style="display: none"
             width="20"
             height="21"
             viewBox="0 0 20 21"
@@ -119,10 +159,21 @@
 
       <!-- demo / showreel -->
       <div class="form-section">
-        <div class="form-row--title"><span>*</span>Demo or showreel:</div>
+        <div
+          :class="{ 'form-group--error': $v.demoURL.$error }"
+          class="form-row--title"
+        >
+          <span>*</span>Demo or showreel:<span
+            class="error"
+            v-if="!$v.demoURL.required"
+          >
+            &nbsp;&nbsp;Demo is required</span
+          >
+        </div>
         <div class="form-row--inputs">
           <input
-            v-model="demoURL"
+            @input="setdemoURL($event.target.value)"
+            v-model.trim="demoURL"
             type="text"
             placeholder="Paste only an URL here"
           />
@@ -139,7 +190,7 @@
           advancement in each case (supervisor, senior, junior, beginner).
         </div>
 
-        <div class="form-row--title"><span>*</span>2D / Compositing:</div>
+        <div class="form-row--title"><span></span>2D / Compositing:</div>
         <div class="form-row--inputs">
           <input
             v-model="twodCompositing"
@@ -148,7 +199,7 @@
           />
         </div>
 
-        <div class="form-row--title"><span>*</span>3D:</div>
+        <div class="form-row--title"><span></span>3D:</div>
         <div class="form-row--inputs">
           <input
             v-model="treeDsoftware"
@@ -157,7 +208,7 @@
           />
         </div>
 
-        <div class="form-row--title"><span>*</span>Editing:</div>
+        <div class="form-row--title"><span></span>Editing:</div>
         <div class="form-row--inputs">
           <input
             v-model="editing"
@@ -166,7 +217,7 @@
           />
         </div>
 
-        <div class="form-row--title"><span>*</span>Office:</div>
+        <div class="form-row--title"><span></span>Office:</div>
         <div class="form-row--inputs">
           <input
             v-model="officeSoftware"
@@ -175,7 +226,7 @@
           />
         </div>
 
-        <div class="form-row--title"><span>*</span>Programming:</div>
+        <div class="form-row--title"><span></span>Programming:</div>
         <div class="form-row--inputs">
           <input
             v-model="proggramingLanguages"
@@ -185,7 +236,7 @@
         </div>
 
         <div class="form-row--title">
-          <span>*</span>Web design / Web Development:
+          <span></span>Web design / Web Development:
         </div>
         <div class="form-row--inputs">
           <input
@@ -241,9 +292,21 @@
         </div>
       </div>
 
-      <label class="checkbox-container">
-        <p>I agree to the Terms and Conditions</p>
-        <input v-model="terms" type="checkbox" checked="checked" />
+      <label
+        :class="{
+          'form-group--error': $v.terms.$error
+        }"
+        class="checkbox-container"
+      >
+        <p>
+          I agree to the Terms and Conditions
+          <span class="error" v-if="!$v.terms.checked"> select checkbox</span>
+        </p>
+        <input
+          v-model.trim="terms"
+          type="checkbox"
+          @input="setTerms($event.target.checked)"
+        />
         <span class="checkmark"></span>
       </label>
 
@@ -260,18 +323,27 @@
 </template>
 
 <script>
+import {
+  required,
+  minLength,
+  between,
+  email,
+  sameAs
+} from "vuelidate/lib/validators";
+
 export default {
   props: ["title", "offerID"],
   data() {
     return {
+      submitStatus: null,
       applyID: this.offerID,
       recipient: "",
       loading: false,
       success: false,
       errored: false,
-      name: "",
-      surname: "",
-      email: "",
+      name: null,
+      surname: null,
+      email: null,
       confirmEmail: "",
       country: "",
       city: "",
@@ -291,6 +363,27 @@ export default {
     };
   },
 
+  validations: {
+    name: {
+      required
+    },
+    surname: {
+      required
+    },
+    email: {
+      email
+    },
+    confirmEmail: {
+      sameAs: sameAs("email")
+    },
+    demoURL: {
+      required
+    },
+    terms: {
+      checked: value => value === true
+    }
+  },
+
   async fetch() {
     this.recipient = await fetch(
       `${process.env.MAIN_API_ENDPOINT}jobs?id=${this.applyID}`
@@ -300,7 +393,6 @@ export default {
   mounted() {
     $("input[type='file']").on("keyup", function(e) {
       if (e.keyCode === 27) this.blur(), e.stopPropagation();
-      console.log("keykup");
     });
 
     $(document).on("keyup", function(e) {
@@ -309,55 +401,85 @@ export default {
     });
   },
   methods: {
+    setName(value) {
+      this.name = value;
+      this.$v.name.$touch();
+    },
+    setSurname(value) {
+      this.surname = value;
+      this.$v.surname.$touch();
+    },
+    setEmail(value) {
+      this.email = value;
+      this.$v.email.$touch();
+    },
+    setTerms(value) {
+      this.terms = value;
+      this.$v.terms.$touch();
+    },
+    setdemoURL(value) {
+      this.demoURL = value;
+      this.$v.demoURL.$touch();
+    },
+    setConfirmEmail(value) {
+      this.confirmEmail = value;
+      this.$v.confirmEmail.$touch();
+    },
     sendData: function() {
-      console.log("send data");
+      this.$v.$touch();
       this.loading = true;
 
-      const items = {
-        recipient: this.recipient[0].apply_to,
-        name: this.name,
-        surname: this.surname,
-        email: this.email,
-        confirmEmail: this.confirmEmail,
-        country: this.country,
-        city: this.city,
-        languages: this.languages,
-        languagesSkill: this.languagesSkill,
-        demoURL: this.demoURL,
-        twodCompositing: this.twodCompositing,
-        treeDsoftware: this.treeDsoftware,
-        editing: this.editing,
-        officeSoftware: this.officeSoftware,
-        proggramingLanguages: this.proggramingLanguages,
-        webDesignSoftware: this.webDesignSoftware,
-        resumeCountry: this.resumeCountry,
-        resumeCity: this.resumeCity,
-        terms: this.terms,
-        city: this.city,
-        country: this.country
-      };
+      if (this.$v.$invalid) {
+        this.submitStatus = "ERROR";
+      } else {
+        this.submitStatus = "VALIDATION OK";
 
-      let formData = new FormData();
+        const items = {
+          recipient: this.recipient[0].apply_to,
+          name: this.name,
+          surname: this.surname,
+          email: this.email,
+          confirmEmail: this.confirmEmail,
+          country: this.country,
+          city: this.city,
+          languages: this.languages,
+          languagesSkill: this.languagesSkill,
+          demoURL: this.demoURL,
+          twodCompositing: this.twodCompositing,
+          treeDsoftware: this.treeDsoftware,
+          editing: this.editing,
+          officeSoftware: this.officeSoftware,
+          proggramingLanguages: this.proggramingLanguages,
+          webDesignSoftware: this.webDesignSoftware,
+          resumeCountry: this.resumeCountry,
+          resumeCity: this.resumeCity,
+          terms: this.terms,
+          city: this.city,
+          country: this.country
+        };
 
-      formData.append("data", JSON.stringify(items));
-      formData.append("files.file", this.file);
+        let formData = new FormData();
 
-      this.$axios
-        .post(`${process.env.APPLY_FORM_POST}`, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data"
-          }
-        })
-        .then(response => {
-          this.success = true;
-          this.errored = false;
-        })
-        .catch(error => {
-          this.errored = true;
-        })
-        .finally(() => {
-          this.loading = false;
-        });
+        formData.append("data", JSON.stringify(items));
+        formData.append("files.file", this.file);
+
+        this.$axios
+          .post(`${process.env.APPLY_FORM_POST}`, formData, {
+            headers: {
+              "Content-Type": "multipart/form-data"
+            }
+          })
+          .then(response => {
+            this.success = true;
+            this.errored = false;
+          })
+          .catch(error => {
+            this.errored = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      }
     },
     handleFileUpload() {
       this.file = this.$refs.file.files[0];
@@ -367,6 +489,15 @@ export default {
 </script>
 
 <style lang="scss">
+.error {
+  display: none;
+}
+
+.form-group--error {
+  .error {
+    display: block;
+  }
+}
 .form-buttons {
   display: flex;
   align-items: center;
@@ -546,5 +677,11 @@ export default {
   line-height: 17px;
   letter-spacing: 0em;
   text-align: left;
+}
+
+span.error {
+  font-weight: 500;
+  color: #eb5757;
+  font-size: 14px;
 }
 </style>

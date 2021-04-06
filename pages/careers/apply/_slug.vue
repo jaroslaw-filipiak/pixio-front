@@ -26,8 +26,8 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$route.params.slug);
-    console.log(this.$route.query.jobID);
+    // console.log(this.$route.params.slug);
+    // console.log(this.$route.query.jobID);
   }
 };
 </script>

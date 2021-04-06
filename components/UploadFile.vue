@@ -50,12 +50,8 @@ export default {
             "Content-Type": "multipart/form-data"
           }
         })
-        .then(function() {
-          console.log("SUCCESS!!");
-        })
-        .catch(function() {
-          console.log("FAILURE!!");
-        });
+        .then(function() {})
+        .catch(function() {});
     },
 
     /*
@@ -63,7 +59,7 @@ export default {
       */
     handleFileUpload() {
       this.file = this.$refs.file.files[0];
-      console.log(this.file);
+      // console.log(this.file);
     }
   }
 };

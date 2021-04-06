@@ -83,7 +83,7 @@ export default {
   },
   watch: {
     isSectionOverlayActive: function() {
-      console.log(this.isSectionOverlayActive);
+      // console.log(this.isSectionOverlayActive);
     }
   },
   mounted() {}
