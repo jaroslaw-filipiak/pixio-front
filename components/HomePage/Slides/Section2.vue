@@ -28,7 +28,10 @@
             </h4>
           </div>
           <div class="vr-info-box--column vr-info-box--column-4">
-            <button class="btn btn-outline-white btn-outline-white__solutions">
+            <button
+              @click="goToContact"
+              class="btn btn-outline-white btn-outline-white__solutions"
+            >
               Contact us for more information
             </button>
           </div>
@@ -65,6 +68,9 @@ export default {
     }
   },
   methods: {
+    goToContact() {
+      fullpage_api.moveTo(6);
+    },
     nextSlide(e) {
       fullpage_api.moveSlideLeft();
     },

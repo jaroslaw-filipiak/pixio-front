@@ -395,18 +395,6 @@ iframe#portfolioVideo {
 }
 
 .gallery__item-link {
-  @include xs {
-    display: none;
-  }
-
-  @include sm {
-    display: none;
-  }
-
-  @include md {
-    display: none;
-  }
-
   grid-area: gallery-link;
   align-self: end;
   font-size: 1.5rem;
@@ -423,6 +411,24 @@ iframe#portfolioVideo {
   cursor: pointer;
   left: 59px;
   top: -43px;
+
+  @include xs {
+    position: absolute;
+    left: -32px;
+    top: 37vh;
+  }
+
+  @include sm {
+    position: absolute;
+    left: -32px;
+    top: 37vh;
+  }
+
+  @include md {
+    position: absolute;
+    left: -32px;
+    top: 37vh;
+  }
 
   @include xl {
     top: -33%;

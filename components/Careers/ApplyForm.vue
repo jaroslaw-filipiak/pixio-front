@@ -297,12 +297,22 @@ export default {
     ).then(res => res.json());
   },
 
-  mounted() {},
+  mounted() {
+    $("input[type='file']").on("keyup", function(e) {
+      if (e.keyCode === 27) this.blur(), e.stopPropagation();
+      console.log("keykup");
+    });
+
+    $(document).on("keyup", function(e) {
+      // The active element (i.e. focused) should be the <body> element
+      if (e.keyCode === 27) console.log(document.activeElement);
+    });
+  },
   methods: {
     sendData: function() {
       console.log("send data");
       this.loading = true;
-      
+
       const items = {
         recipient: this.recipient[0].apply_to,
         name: this.name,
@@ -326,22 +336,18 @@ export default {
         city: this.city,
         country: this.country
       };
-                  
+
       let formData = new FormData();
-      
-      formData.append('data',JSON.stringify(items));
-      formData.append('files.file', this.file);
-      
+
+      formData.append("data", JSON.stringify(items));
+      formData.append("files.file", this.file);
+
       this.$axios
-        .post(
-          `${process.env.APPLY_FORM_POST}`,
-          formData,
-          {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
+        .post(`${process.env.APPLY_FORM_POST}`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data"
           }
-        )
+        })
         .then(response => {
           this.success = true;
           this.errored = false;
