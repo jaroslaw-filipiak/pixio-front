@@ -10,6 +10,11 @@
 export default {
   methods: {
     closeVideo() {
+      setTimeout(function() {
+        fullpage_api.reBuild();
+      }, 800);
+      console.log("fullpage_api.rebuild");
+      console.log(fullpage_api);
       this.$store.commit("closeVideo", "");
       this.$store.commit("changeVideoURL", "");
     }
