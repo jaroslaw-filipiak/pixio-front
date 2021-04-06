@@ -6,7 +6,7 @@
         >( offer id:{{ offerID }} )</span
       >
     </div>
-    <form class="box" action="">
+    <form class="box" action="" id="frm">
       <!-- Name -->
       <div class="form-section">
         <div class="form-section--title">
@@ -104,15 +104,7 @@
           ref="file"
           class="inputfile"
           v-on:change="handleFileUpload()"
-          data-multiple-caption="{count} files selected"
-          multiple
         />
-        <!-- <input
-          type="file"
-          id="file"
-          ref="file"
-          v-on:change="handleFileUpload()"
-        /> -->
         <label class="label-file" for="file"
           ><strong>Upload a file </strong
           ><span class="box__dragndrop">
@@ -310,37 +302,43 @@ export default {
     sendData: function() {
       console.log("send data");
       this.loading = true;
+      
+      const items = {
+        recipient: this.recipient[0].apply_to,
+        name: this.name,
+        surname: this.surname,
+        email: this.email,
+        confirmEmail: this.confirmEmail,
+        country: this.country,
+        city: this.city,
+        languages: this.languages,
+        languagesSkill: this.languagesSkill,
+        demoURL: this.demoURL,
+        twodCompositing: this.twodCompositing,
+        treeDsoftware: this.treeDsoftware,
+        editing: this.editing,
+        officeSoftware: this.officeSoftware,
+        proggramingLanguages: this.proggramingLanguages,
+        webDesignSoftware: this.webDesignSoftware,
+        resumeCountry: this.resumeCountry,
+        resumeCity: this.resumeCity,
+        terms: this.terms,
+        city: this.city,
+        country: this.country
+      };
+                  
+      let formData = new FormData();
+      
+      formData.append('data',JSON.stringify(items));
+      formData.append('files.file', this.file);
+      
       this.$axios
         .post(
           `${process.env.APPLY_FORM_POST}`,
-          {
-            recipient: this.recipient[0].apply_to,
-            name: this.name,
-            surname: this.surname,
-            email: this.email,
-            confirmEmail: this.confirmEmail,
-            country: this.country,
-            city: this.city,
-            languages: this.languages,
-            languagesSkill: this.languagesSkill,
-            demoURL: this.demoURL,
-            twodCompositing: this.twodCompositing,
-            treeDsoftware: this.treeDsoftware,
-            editing: this.editing,
-            officeSoftware: this.officeSoftware,
-            proggramingLanguages: this.proggramingLanguages,
-            webDesignSoftware: this.webDesignSoftware,
-            resumeCountry: this.resumeCountry,
-            resumeCity: this.resumeCity,
-            terms: this.terms,
-            file: this.file,
-            fileName: this.file.name,
-            fileSize: this.file.size,
-            fileType: this.file.type
-          },
+          formData,
           {
             headers: {
-              "Content-Type": "multipart/form-data"
+              'Content-Type': 'multipart/form-data'
             }
           }
         )
@@ -357,8 +355,6 @@ export default {
     },
     handleFileUpload() {
       this.file = this.$refs.file.files[0];
-      console.log(this.file);
-      console.log(this.file.name);
     }
   }
 };
