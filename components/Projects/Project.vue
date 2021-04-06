@@ -1,11 +1,11 @@
 <template>
-  <span>
+  <span :data-video-id="movieEmbeed">
     <figure
       @click="showVideo"
       class="gallery__item"
       style="position: relative;"
     >
-      <div class="gallery__item-img">
+      <div class="gallery__item-img" :data-video-id="movieEmbeed">
         <div
           class="gallery__item-imginner"
           :style="{ backgroundImage: `url(${backgroundUrl})` }"
@@ -14,13 +14,19 @@
           :data-video-id="movieEmbeed"
         ></div>
       </div>
-      <figcaption class="gallery__item-caption">
-        <h2 class="gallery__item-title" data-scroll data-scroll-speed="1">
+      <figcaption class="gallery__item-caption" :data-video-id="movieEmbeed">
+        <h2
+          :data-video-id="movieEmbeed"
+          class="gallery__item-title"
+          data-scroll
+          data-scroll-speed="1"
+        >
           {{ title }}
         </h2>
 
-        <a class="gallery__item-link"
+        <a :data-video-id="movieEmbeed" class="gallery__item-link"
           ><svg
+            :data-video-id="movieEmbeed"
             width="17"
             height="21"
             viewBox="0 0 17 21"
@@ -28,6 +34,7 @@
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
+              :data-video-id="movieEmbeed"
               fill-rule="evenodd"
               clip-rule="evenodd"
               d="M1.96875 1.1626L15.9688 10.1626L1.96875 19.1626V1.1626V1.1626Z"
@@ -58,16 +65,9 @@ export default {
   mounted() {},
   methods: {
     showVideo: function(e) {
-      if (e.target.attributes[0].value == "gallery__item-caption") {
-        const itemURL =
-          e.target.parentElement.children[0].children[0].attributes[2].value;
-        this.$store.commit("changeVideoURL", itemURL);
-        this.$store.commit("changeVideoTooltipVisibility", true);
-      } else {
-        const itemURL = e.target.attributes[2].value;
-        this.$store.commit("changeVideoURL", itemURL);
-        this.$store.commit("changeVideoTooltipVisibility", true);
-      }
+      const itemURL = e.target.getAttribute("data-video-id");
+      this.$store.commit("changeVideoURL", itemURL);
+      this.$store.commit("changeVideoTooltipVisibility", true);
     }
   },
 

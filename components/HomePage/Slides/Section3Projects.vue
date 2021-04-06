@@ -70,7 +70,7 @@ export default {
     return {
       projectsSwiperOptions: {
         slidesPerView: 1,
-        centeredSlides: true,
+        centeredSlides: false,
         loop: false,
         spaceBetween: 0,
         grabCursor: false,
@@ -80,8 +80,7 @@ export default {
           640: {
             slidesPerView: 3,
             spaceBetween: 40,
-            loop: false,
-            centeredSlides: false
+            loop: false
           },
           768: {
             slidesPerView: 3,
@@ -114,8 +113,10 @@ export default {
 <style lang="scss">
 .section-3 {
   .swiper-wrapper {
-    position: relative;
-    left: -24%;
+    @include xl-min {
+      position: relative;
+      left: -24%;
+    }
   }
 }
 .swiper-arrows__projects {
@@ -336,13 +337,23 @@ iframe#portfolioVideo {
     left: 0;
     top: -49px;
     width: 100%;
+    grid-template-areas:
+      "gallery-title gallery-title"
+      "gallery-link ..."
+      "gallery-link gallery-tags";
+    grid-template-rows: 19px 88rem 15rem;
   }
 
-  @include sm {
+  @include xs {
     position: absolute;
     left: 0;
     top: -49px;
     width: 100%;
+    grid-template-areas:
+      "gallery-title gallery-title"
+      "gallery-link ..."
+      "gallery-link gallery-tags";
+    grid-template-rows: 19px 88rem 15rem;
   }
 
   @include md {
@@ -553,25 +564,27 @@ iframe#portfolioVideo {
     filter: blur(0px);
 
     @include xl-min {
-      width: 100vw;
+      width: 80vw !important;
     }
 
     .swiper-slide {
-      @include xs {
-        width: 70% !important;
-        margin: 0px;
-        margin-right: 0px !important;
-        position: relative;
-        top: -60px;
-      }
+      // @include xs {
+      //   width: 70% !important;
+      //   margin: 0px;
+      //   margin-right: 0px !important;
+      //   position: relative;
+      //   top: -60px;
+      // }
 
-      @include sm {
-        width: 70% !important;
-        margin: 0px;
-        margin-right: 0px !important;
-        position: relative;
-        top: -60px;
-      }
+      // @include sm {
+      //   width: 70% !important;
+      //   margin: 0px;
+      //   margin-right: 0px !important;
+      //   position: relative;
+      //   top: -60px;
+      // }
+
+      width: 100%;
     }
   }
 }
