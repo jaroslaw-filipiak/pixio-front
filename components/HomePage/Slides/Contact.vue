@@ -209,18 +209,15 @@ export default {
   methods: {
     sendMessage: function() {
       this.loading = true;
-      
+
       this.$axios
-        .post(
-          `${process.env.CONTACT_FORM_POST}`,
-          {
-            form_type: "contact",
-            name: this.name,
-            select: this.select,
-            email: this.email,
-            message: this.message
-          }
-        )
+        .post(`${process.env.CONTACT_FORM_POST}`, {
+          form_type: "contact",
+          name: this.name,
+          select: this.select,
+          email: this.email,
+          message: this.message
+        })
         .then(response => {
           this.errored = false;
         })
