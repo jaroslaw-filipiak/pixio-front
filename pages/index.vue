@@ -1,5 +1,6 @@
 <template>
   <main class="main-mobile" :class="{ isMenuVisible: isMenuVisible }">
+    <TopLogo />
     <Nav />
     <FullPageHome />
     <Rightnav />
@@ -19,18 +20,6 @@ export default {
     handleScroll(event) {
       this.handleScrollLock();
     }
-  },
-  created() {
-    // if (this.$device.isDesktop) {
-    //   window.addEventListener("scroll", this.handleScroll);
-    // }
-    // window.addEventListener("scroll", this.handleScroll);
-  },
-  mounted() {
-    // if (this.$device.isDesktop) {
-    //   fullpage_api.setAllowScrolling(false, "down");
-    //   fullpage_api.setAllowScrolling(false, "up");
-    // }
   },
   computed: {
     isScrollLock() {

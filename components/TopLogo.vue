@@ -1,0 +1,38 @@
+<template>
+  <div class="top-logo">
+    <img @click="goToHome" src="@/assets/img/logo-txt.svg" alt="" />
+  </div>
+</template>
+
+<script>
+export default {
+  methods: {
+    goToHome() {
+      console.log("go to home method");
+      fullpage_api.moveTo(1);
+    }
+  }
+};
+</script>
+
+<style lang="scss">
+.top-logo {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  padding: 20px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 202px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+</style>

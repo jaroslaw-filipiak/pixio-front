@@ -65,13 +65,14 @@ export default {
     }
   },
   mounted() {
-    console.log(this.navOpen);
+    // console.log(this.navOpen);
   }
 };
 </script>
 
 <style lang="scss">
 .logo {
+  display: none;
   margin: 0 auto;
 
   img {

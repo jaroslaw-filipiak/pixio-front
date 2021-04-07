@@ -27,7 +27,5 @@ body.page-careers {
     background-position-x: 9vw;
     background-position-y: 29vh;
   }
-  .careers {
-  }
 }
 </style>
