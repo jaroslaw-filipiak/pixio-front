@@ -50,10 +50,6 @@ export default {
       },
       {
         src: "https://www.youtube.com/iframe_api"
-      },
-      {
-        src:
-          "https://cdnjs.cloudflare.com/ajax/libs/InstagramFeed/2.0.2/InstagramFeed.min.js"
       }
     ]
   },
@@ -93,6 +89,10 @@ export default {
       src: "@/plugins/vuelidate.js",
       ssr: false
     }
+    // {
+    //   src: "@/plugins/instafeed.js",
+    //   ssr: false
+    // }
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

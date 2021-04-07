@@ -9820,6 +9820,11 @@ inquirer@^7.0.0, inquirer@^7.3.3:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
+instafeed.js@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/instafeed.js/-/instafeed.js-1.4.1.tgz#c29d7914563c11722b36cd921a91de2521f9cdaa"
+  integrity sha1-wp15FFY8EXIrNs2SGpHeJSH5zao=
+
 instafeed@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/instafeed/-/instafeed-1.4.0.tgz#1f7b248283d8ffbee59b82f2f45c29220b90cae1"

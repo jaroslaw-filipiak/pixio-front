@@ -2,31 +2,22 @@
   <div class="section section-instagram" id="section-instagram">
     <div class="slide">
       <div class="instagram-heading">Follow us on Instagram</div>
-      <div id="instagram-feed"></div>
+      <div id="instafeed"></div>
     </div>
   </div>
 </template>
 
 <script>
+import Instafeed from "instafeed.js";
+
 export default {
   mounted() {
-    // (function() {
-    //   new InstagramFeed({
-    //     username: "pixomondo",
-    //     container: document.getElementById("instagram-feed"),
-    //     display_profile: false,
-    //     display_biography: false,
-    //     display_gallery: true,
-    //     display_captions: false,
-    //     callback: null,
-    //     styling: true,
-    //     items: 8,
-    //     items_per_row: 5,
-    //     margin: 0,
-    //     lazy_load: true,
-    //     on_error: console.error
-    //   });
-    // })();
+    var feed = new Instafeed({
+      userId: "2041821631",
+      accessToken:
+        "IGQVJVMDJad2VjeFhJdnVFQVBSaDRBWk14djk5aVQ2MGNTZAVJwWkJWa01qbGRqRFZAZAblRPM0EzTmxFTWc2QmhyVDZAnWUN2b05NX2lFQzdRR2tLb3FwYlBzdzdXTmZAvWGM2dXh2ZATQ4RXg5aFNsU1pZAOAZDZD"
+    });
+    feed.run();
   },
   methods: {}
 };
