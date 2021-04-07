@@ -425,13 +425,7 @@
 </template>
 
 <script>
-import {
-  required,
-  minLength,
-  between,
-  email,
-  sameAs
-} from "vuelidate/lib/validators";
+import { required, email, sameAs } from "vuelidate/lib/validators";
 
 export default {
   props: ["title", "offerID"],

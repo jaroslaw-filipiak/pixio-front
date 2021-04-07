@@ -12,31 +12,73 @@
     </div>
     <div class="contact-form" :class="{ 'contact-form--succes': isSuccess }">
       <label for="name">
-        Hello, my name is
-        <input v-model="name" type="text" placeholder="your name" />
+        <div :class="{ 'form-group--error': $v.name.$error }">
+          Hello, my name is
+          <span class="error" v-if="!$v.name.required"> Name is required</span>
+        </div>
+
+        <input
+          @input="setName($event.target.value)"
+          v-model.trim="name"
+          type="text"
+          placeholder="your name"
+        />
       </label>
       <label for="select">
-        I would like to:
-        <select v-model="select" name="i-would-like-to" id="">
+        <div :class="{ 'form-group--error': $v.select.$error }">
+          I would like to:
+          <span class="error" v-if="!$v.select.required"
+            >This field is required</span
+          >
+        </div>
+
+        <select
+          @input="setSelect($event.target.value)"
+          v-model.trim="select"
+          name="i-would-like-to"
+          id=""
+        >
           <option value="get an estimate">get an estimate</option>
-          <option value="get an estimate">learn more about VP</option>
-          <option value="get an estimate">other</option>
+          <option value="learn mora about VP">learn more about VP</option>
+          <option value="other">other</option>
         </select>
       </label>
       <label for="email">
-        You can reach me via
-        <input v-model="email" type="email" placeholder="your e-mail" />
+        <div :class="{ 'form-group--error': $v.email.$error }">
+          You can reach me via
+          <span class="error" v-if="!$v.email.email"
+            >Enter a valid email address</span
+          >
+          <span class="error" v-if="!$v.email.required"
+            >This field is required</span
+          >
+        </div>
+
+        <input
+          @input="setEmail($event.target.value)"
+          v-model.trim="email"
+          type="email"
+          placeholder="your e-mail"
+        />
       </label>
 
-      <div class="detalis-txt" style="margin-top: 20px">
+      <div
+        :class="{ 'form-group--error': $v.message.$error }"
+        class="detalis-txt"
+        style="margin-top: 20px"
+      >
         Here are the details:
+        <span class="error" v-if="!$v.message.error"
+          >This field is required</span
+        >
       </div>
       <textarea
-        v-model="message"
+        v-model.trim="message"
         name="message"
         id="message"
         cols="30"
         rows="3"
+        @input="setMessage($event.target.value)"
       ></textarea>
       <button @click="sendMessage" class="btn btn-outline-white">
         Send inquiry
@@ -180,6 +222,7 @@
 
 <script>
 import { pageContactContent } from "~/graphql/queries";
+import { required, email } from "vuelidate/lib/validators";
 
 export default {
   data() {
@@ -195,10 +238,25 @@ export default {
         }
       },
       name: "",
-      select: "",
-      email: "",
-      message: ""
+      select: null,
+      email: null,
+      message: null
     };
+  },
+  validations: {
+    name: {
+      required
+    },
+    select: {
+      required
+    },
+    email: {
+      email,
+      required
+    },
+    message: {
+      required
+    }
   },
   apollo: {
     pageContact: {
@@ -207,32 +265,70 @@ export default {
     }
   },
   methods: {
+    setName(value) {
+      this.name = value;
+      this.$v.name.$touch();
+    },
+    setSelect(value) {
+      this.select = value;
+      this.$v.select.$touch();
+    },
+    setEmail(value) {
+      this.email = value;
+      this.$v.email.$touch();
+    },
+    setMessage(value) {
+      this.message = value;
+      this.$v.message.$touch();
+    },
     sendMessage: function() {
+      this.$v.$touch();
       this.loading = true;
 
-      this.$axios
-        .post(`${process.env.CONTACT_FORM_POST}`, {
-          form_type: "contact",
-          name: this.name,
-          select: this.select,
-          email: this.email,
-          message: this.message
-        })
-        .then(response => {
-          this.errored = false;
-        })
-        .catch(error => {
-          this.errored = true;
-        })
-        .finally(() => {
-          this.loading = false;
-        });
+      if (this.$v.$invalid) {
+        this.submitStatus = "ERROR";
+      } else {
+        this.submitStatus = "VALIDATION OK";
+        this.$axios
+          .post(`${process.env.CONTACT_FORM_POST}`, {
+            form_type: "contact",
+            name: this.name,
+            select: this.select,
+            email: this.email,
+            message: this.message
+          })
+          .then(response => {
+            this.errored = false;
+          })
+          .catch(error => {
+            this.errored = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      }
     }
   }
 };
 </script>
 
 <style lang="scss">
+.error {
+  display: none;
+}
+
+.form-group--error {
+  .error {
+    display: block;
+  }
+
+  span {
+    font-weight: 500;
+    color: #eb5757;
+    font-size: 14px;
+  }
+}
+
 .contact-title {
   @include xxl-min {
     position: relative;
