@@ -48,6 +48,7 @@ export default {
     handleMenu: function(e) {
       this.removeAllActiveClasses();
       fullpage_api.moveTo(e.target.attributes[0].value);
+      this.$store.commit("changeNavOpen", false);
     },
     removeAllActiveClasses: function() {
       const items = document.querySelectorAll(".slide-link");
