@@ -74,10 +74,33 @@
 
       <!-- Location: -->
       <div class="form-section">
-        <div class="form-row--title"><span></span>Location:</div>
+        <div
+          :class="{
+            'form-group--error': $v.country.$error | $v.city.$error
+          }"
+          class="form-row--title"
+        >
+          <span>*</span>Location:
+          <span class="error" v-if="!$v.country.required">
+            &nbsp;&nbsp;Country is required</span
+          >
+          <span class="error" v-if="!$v.city.required">
+            &nbsp;&nbsp;City is required</span
+          >
+        </div>
         <div class="form-row--inputs">
-          <input v-model="country" type="text" placeholder="Country" />
-          <input v-model="city" type="text" placeholder="City" />
+          <input
+            @input="setCountry($event.target.value)"
+            v-model.trim="country"
+            type="text"
+            placeholder="Country"
+          />
+          <input
+            @input="setCity($event.target.value)"
+            v-model.trim="city"
+            type="text"
+            placeholder="City"
+          />
         </div>
       </div>
 
@@ -106,11 +129,28 @@
 
       <!--Resume: -->
       <div class="form-section">
-        <div class="form-section--title">
+        <div
+          :class="{
+            'form-group--error': $v.resumeCity.$error | $v.resumeCountry.$error
+          }"
+          class="form-section--title"
+        >
           Resume (essential to the process):
+          <span class="error" v-if="!$v.resumeCountry.required">
+            &nbsp;&nbsp;Country is required</span
+          >
+          <span class="error" v-if="!$v.resumeCity.required">
+            &nbsp;&nbsp;City is required</span
+          >
         </div>
         <div class="form-row--title">
-          <span></span>Resume:
+          <span>*</span>Resume:
+          <span class="error" v-if="!$v.resumeCountry.required">
+            &nbsp;&nbsp;Country is required</span
+          >
+          <span class="error" v-if="!$v.resumeCity.required">
+            &nbsp;&nbsp;City is required</span
+          >
           <svg
             style="display: none"
             width="20"
@@ -129,8 +169,18 @@
           </svg>
         </div>
         <div class="form-row--inputs">
-          <input v-model="resumeCountry" type="text" placeholder="Country" />
-          <input v-model="resumeCity" type="text" placeholder="City" />
+          <input
+            @input="setResumeCountry($event.target.value)"
+            v-model.trim="resumeCountry"
+            type="text"
+            placeholder="Country"
+          />
+          <input
+            @input="setResumeCity($event.target.value)"
+            v-model.trim="resumeCity"
+            type="text"
+            placeholder="City"
+          />
         </div>
       </div>
 
@@ -190,57 +240,109 @@
           advancement in each case (supervisor, senior, junior, beginner).
         </div>
 
-        <div class="form-row--title"><span></span>2D / Compositing:</div>
+        <div
+          :class="{ 'form-group--error': $v.twodCompositing.$error }"
+          class="form-row--title"
+        >
+          <span>*</span>2D / Compositing:
+          <span class="error" v-if="!$v.twodCompositing.required">
+            &nbsp;&nbsp;this field is required</span
+          >
+        </div>
         <div class="form-row--inputs">
           <input
-            v-model="twodCompositing"
+            v-model.trim="twodCompositing"
+            @input="settwodCompositing($event.target.value)"
             type="text"
             placeholder="2D / Compositing:"
           />
         </div>
 
-        <div class="form-row--title"><span></span>3D:</div>
+        <div
+          :class="{ 'form-group--error': $v.treeDsoftware.$error }"
+          class="form-row--title"
+        >
+          <span>*</span>3D:
+          <span class="error" v-if="!$v.treeDsoftware.required">
+            &nbsp;&nbsp;this field is required</span
+          >
+        </div>
         <div class="form-row--inputs">
           <input
-            v-model="treeDsoftware"
+            v-model.trim="treeDsoftware"
+            @input="settreeDsoftware($event.target.value)"
             type="text"
             placeholder="3D Software"
           />
         </div>
 
-        <div class="form-row--title"><span></span>Editing:</div>
+        <div
+          :class="{ 'form-group--error': $v.editing.$error }"
+          class="form-row--title"
+        >
+          <span>*</span>Editing:
+          <span class="error" v-if="!$v.editing.required">
+            &nbsp;&nbsp;this field is required</span
+          >
+        </div>
         <div class="form-row--inputs">
           <input
-            v-model="editing"
+            v-model.trim="editing"
+            @input="setediting($event.target.value)"
             type="text"
             placeholder="3Editing Software"
           />
         </div>
 
-        <div class="form-row--title"><span></span>Office:</div>
+        <div
+          :class="{ 'form-group--error': $v.officeSoftware.$error }"
+          class="form-row--title"
+        >
+          <span>*</span>Office:
+          <span class="error" v-if="!$v.officeSoftware.required">
+            &nbsp;&nbsp;this field is required</span
+          >
+        </div>
         <div class="form-row--inputs">
           <input
-            v-model="officeSoftware"
+            v-model.trim="officeSoftware"
+            @input="setofficeSoftware($event.target.value)"
             type="text"
             placeholder="Office Software"
           />
         </div>
 
-        <div class="form-row--title"><span></span>Programming:</div>
+        <div
+          :class="{ 'form-group--error': $v.proggramingLanguages.$error }"
+          class="form-row--title"
+        >
+          <span>*</span>Programming:
+          <span class="error" v-if="!$v.proggramingLanguages.required">
+            &nbsp;&nbsp;this field is required</span
+          >
+        </div>
         <div class="form-row--inputs">
           <input
-            v-model="proggramingLanguages"
+            v-model.trim="proggramingLanguages"
+            @input="setproggramingLanguages($event.target.value)"
             type="text"
             placeholder="Programming languages"
           />
         </div>
 
-        <div class="form-row--title">
-          <span></span>Web design / Web Development:
+        <div
+          :class="{ 'form-group--error': $v.webDesignSoftware.$error }"
+          class="form-row--title"
+        >
+          <span>*</span>Web design / Web Development:
+          <span class="error" v-if="!$v.webDesignSoftware.required">
+            &nbsp;&nbsp;this field is required</span
+          >
         </div>
         <div class="form-row--inputs">
           <input
             v-model="webDesignSoftware"
+            @input="setwebDesignSoftware($event.target.value)"
             type="text"
             placeholder="Web design software or languages"
           />
@@ -376,7 +478,37 @@ export default {
     confirmEmail: {
       sameAs: sameAs("email")
     },
+    country: {
+      required
+    },
+    city: {
+      required
+    },
+    resumeCountry: {
+      required
+    },
+    resumeCity: {
+      required
+    },
     demoURL: {
+      required
+    },
+    twodCompositing: {
+      required
+    },
+    treeDsoftware: {
+      required
+    },
+    editing: {
+      required
+    },
+    officeSoftware: {
+      required
+    },
+    proggramingLanguages: {
+      required
+    },
+    webDesignSoftware: {
       required
     },
     terms: {
@@ -417,6 +549,22 @@ export default {
       this.terms = value;
       this.$v.terms.$touch();
     },
+    setCountry(value) {
+      this.country = value;
+      this.$v.country.$touch();
+    },
+    setResumeCountry(value) {
+      this.resumeCountry = value;
+      this.$v.resumeCountry.$touch();
+    },
+    setResumeCity(value) {
+      this.resumeCity = value;
+      this.$v.resumeCity.$touch();
+    },
+    setCity(value) {
+      this.city = value;
+      this.$v.city.$touch();
+    },
     setdemoURL(value) {
       this.demoURL = value;
       this.$v.demoURL.$touch();
@@ -425,6 +573,31 @@ export default {
       this.confirmEmail = value;
       this.$v.confirmEmail.$touch();
     },
+    settwodCompositing(value) {
+      this.twodCompositing = value;
+      this.$v.twodCompositing.$touch();
+    },
+    settreeDsoftware(value) {
+      this.treeDsoftware = value;
+      this.$v.treeDsoftware.$touch();
+    },
+    setediting(value) {
+      this.editing = value;
+      this.$v.editing.$touch();
+    },
+    setofficeSoftware(value) {
+      this.officeSoftware = value;
+      this.$v.officeSoftware.$touch();
+    },
+    setproggramingLanguages(value) {
+      this.proggramingLanguages = value;
+      this.$v.proggramingLanguages.$touch();
+    },
+    setwebDesignSoftware(value) {
+      this.webDesignSoftware = value;
+      this.$v.webDesignSoftware.$touch();
+    },
+
     sendData: function() {
       this.$v.$touch();
       if (this.$v.$invalid) {
