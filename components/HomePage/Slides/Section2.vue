@@ -229,6 +229,9 @@ export default {
     flex-wrap: wrap;
     padding: 80px 0px;
     position: relative;
+    @include xs {
+      height: 90vh !important;
+    }
   }
 
   h1 {

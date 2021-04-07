@@ -54,6 +54,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    @include xs {
+      height: 90vh !important;
+    }
   }
 
   iframe.hero {

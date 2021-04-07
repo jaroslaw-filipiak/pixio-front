@@ -56,6 +56,9 @@ export default {
     justify-content: space-between !important;
     height: 100vh !important;
     padding: 60px 100px;
+    @include xs {
+      height: 90vh !important;
+    }
   }
 }
 .instagram-heading {

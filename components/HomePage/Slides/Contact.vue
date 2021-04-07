@@ -252,6 +252,10 @@ export default {
     align-items: center !important;
     justify-content: space-around !important;
     height: 100vh !important;
+
+    @include xs {
+      height: 90vh !important;
+    }
     @include xl-min {
       padding: 60px 0px;
       justify-content: space-between !important;
