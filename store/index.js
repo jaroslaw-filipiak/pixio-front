@@ -8,7 +8,8 @@ export const state = () => ({
   isRightMenuVisible: true,
   isVideoTooltipVisible: false,
   isTooltipVisible: false,
-  videoSRC: ""
+  videoSRC: "",
+  navOpen: false
 });
 
 export const mutations = {
@@ -36,5 +37,8 @@ export const mutations = {
   },
   closeVideo(state, payload) {
     state.isVideoTooltipVisible = false;
+  },
+  changeNavOpen(state, payload) {
+    state.navOpen = payload;
   }
 };

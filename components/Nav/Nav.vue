@@ -38,12 +38,12 @@ export default {
   },
   data: function() {
     return {
-      navOpen: false
+      // navOpen: false
     };
   },
   methods: {
     toggleMenu: function() {
-      this.navOpen = !this.navOpen;
+      this.$store.commit("changeNavOpen", !this.$store.state.navOpen);
     },
     handleMenu: function(e) {
       this.removeAllActiveClasses();
@@ -57,6 +57,14 @@ export default {
     addActiveClass: function(item) {
       item.classList.add("slide-link__active");
     }
+  },
+  computed: {
+    navOpen() {
+      return this.$store.state.navOpen;
+    }
+  },
+  mounted() {
+    console.log(this.navOpen);
   }
 };
 </script>

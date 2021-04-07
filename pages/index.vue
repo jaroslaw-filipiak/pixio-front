@@ -21,21 +21,16 @@ export default {
     }
   },
   created() {
-    if (this.$device.isDesktop) {
-      window.addEventListener("scroll", this.handleScroll);
-    }
+    // if (this.$device.isDesktop) {
+    //   window.addEventListener("scroll", this.handleScroll);
+    // }
     // window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
-    // console.log($.fn.fullpage);
-    // console.log($nuxt);
-    // fullpage_api.moveTo(3);
-    // console.log(fullpage_api);
-
-    if (this.$device.isDesktop) {
-      fullpage_api.setAllowScrolling(false, "down");
-      fullpage_api.setAllowScrolling(false, "up");
-    }
+    // if (this.$device.isDesktop) {
+    //   fullpage_api.setAllowScrolling(false, "down");
+    //   fullpage_api.setAllowScrolling(false, "up");
+    // }
   },
   computed: {
     isScrollLock() {
