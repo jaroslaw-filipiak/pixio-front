@@ -290,7 +290,7 @@ export default {
       } else {
         this.submitStatus = "VALIDATION OK";
         this.$axios
-          .post(`${process.env.CONTACT_FORM_POST}`, {
+          .post(`${process.env.MAIN_FORM_ENDPOINT}`, {
             form_type: "contact",
             name: this.name,
             select: this.select,
