@@ -1,9 +1,9 @@
 <template>
   <div class="section section-projects">
-    <div data-scroll-container  class="demo-2 loading">
-      <div  class="rotate">
+    <div data-scroll-container class="demo-2 loading">
+      <div class="rotate">
         <main style="display: flex;">
-          <div  class="content">
+          <div class="content">
             <div class="gallery">
               <Project />
               <Project />
@@ -34,7 +34,7 @@
         <circle class="cursor__inner" cx="10" cy="10" r="5" />
       </svg>
     </div>
-     <slot> </slot>  
+    <slot> </slot>
   </div>
 </template>
 
@@ -47,9 +47,7 @@ export default {
       // backgroundImagePath,
     };
   },
-  methods: {
-    
-  },
+  methods: {},
   mounted() {
     const map = (x, a, b, c, d) => ((x - a) * (d - c)) / (b - a) + c;
 
@@ -65,13 +63,13 @@ export default {
     const lscroll = new LocomotiveScroll({
       el: document.querySelector("[data-scroll-container]"),
       smooth: true,
-      direction: "horizontal",
+      direction: "horizontal"
     });
 
     let scroll = { cache: 0, current: 0 };
     // const allImgs = [...document.querySelectorAll(".gallery__item-img")];
 
-    lscroll.on("scroll", (obj) => {
+    lscroll.on("scroll", obj => {
       scroll.current = obj.scroll.x;
       const distance = scroll.current - scroll.cache;
       scroll.cache = scroll.current;
@@ -83,11 +81,11 @@ export default {
     });
 
     lscroll.update();
-  },
+  }
 };
 </script>
 
-<style>
+<style lang="scss">
 .demo-2 {
   width: 100vw;
   height: 100vh;
@@ -183,7 +181,7 @@ export default {
   font-style: italic;
   align-self: center;
 }
-
+/* 
 .gallery__item-link {
   grid-area: gallery-link;
   align-self: end;
@@ -208,7 +206,7 @@ export default {
   background: var(--color-gallery-link-bg-hover);
   color: var(--color-gallery-link-hover);
   text-decoration: none;
-}
+} */
 
 .gallery__item-tags {
   grid-area: gallery-tags;

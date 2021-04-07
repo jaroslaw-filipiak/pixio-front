@@ -236,22 +236,22 @@ iframe#portfolioVideo {
   display: none;
 }
 
-.gallery__item-title {
-  grid-area: gallery-title;
-  margin: 0;
-  font-size: 24px;
-  color: var(--color-gallery-title);
-  font-family: "Jost", sans-serif !important;
-}
+// .gallery__item-title {
+//   grid-area: gallery-title;
+//   margin: 0;
+//   font-size: 24px;
+//   color: var(--color-gallery-title);
+//   font-family: "Jost", sans-serif !important;
+// }
 
-.gallery__item-number,
-.gallery__item-title,
-.gallery__text {
-  font-family: moret, serif;
-  font-weight: 800;
-  font-style: italic;
-  align-self: center;
-}
+// .gallery__item-number,
+// .gallery__item-title,
+// .gallery__text {
+//   font-family: moret, serif;
+//   font-weight: 800;
+//   font-style: italic;
+//   align-self: center;
+// }
 
 .gallery__item-link {
   grid-area: gallery-link;

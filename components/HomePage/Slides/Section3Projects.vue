@@ -400,38 +400,38 @@ iframe#portfolioVideo {
     "gallery-link ..."
     "gallery-link gallery-tags";
   grid-template-columns: 1rem auto;
-  grid-template-rows: 29px 36rem 3rem;
+  grid-template-rows: 1fr 1fr 1fr;
 
-  @include xs {
-    position: absolute;
-    left: 0;
-    top: -49px;
-    width: 100%;
-    grid-template-areas:
-      "gallery-title gallery-title"
-      "gallery-link ..."
-      "gallery-link gallery-tags";
-    grid-template-rows: 19px 88rem 15rem;
-  }
+  // @include xs {
+  //   position: absolute;
+  //   left: 0;
+  //   top: -49px;
+  //   width: 100%;
+  //   grid-template-areas:
+  //     "gallery-title gallery-title"
+  //     "gallery-link ..."
+  //     "gallery-link gallery-tags";
+  //   grid-template-rows: 19px 88rem 15rem;
+  // }
 
-  @include xs {
-    position: absolute;
-    left: 0;
-    top: -49px;
-    width: 100%;
-    grid-template-areas:
-      "gallery-title gallery-title"
-      "gallery-link ..."
-      "gallery-link gallery-tags";
-    grid-template-rows: 19px 88rem 15rem;
-  }
+  // @include xs {
+  //   position: absolute;
+  //   left: 0;
+  //   top: -49px;
+  //   width: 100%;
+  //   grid-template-areas:
+  //     "gallery-title gallery-title"
+  //     "gallery-link ..."
+  //     "gallery-link gallery-tags";
+  //   grid-template-rows: 19px 88rem 15rem;
+  // }
 
-  @include md {
-    position: absolute;
-    left: 0;
-    top: -49px;
-    width: 100%;
-  }
+  // @include md {
+  //   position: absolute;
+  //   left: 0;
+  //   top: -49px;
+  //   width: 100%;
+  // }
 }
 
 .gallery__item-number {
@@ -453,6 +453,14 @@ iframe#portfolioVideo {
 
   line-height: 23px;
   margin-bottom: 15px;
+
+  position: absolute;
+
+  top: -40px;
+
+  @include xl-min {
+    top: 0px;
+  }
 }
 
 .gallery__item-number,
@@ -462,51 +470,6 @@ iframe#portfolioVideo {
   font-weight: 800;
   font-style: italic;
   align-self: center;
-}
-
-.gallery__item-link {
-  grid-area: gallery-link;
-  align-self: end;
-  font-size: 1.5rem;
-  background: #d7d0c0;
-  color: var(--color-gallery-link);
-  text-decoration: underline;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  left: 59px;
-  top: -43px;
-
-  @include xs {
-    position: absolute;
-    left: -32px;
-    top: 37vh;
-  }
-
-  @include sm {
-    position: absolute;
-    left: -32px;
-    top: 37vh;
-  }
-
-  @include md {
-    position: absolute;
-    left: -32px;
-    top: 37vh;
-  }
-
-  @include xl {
-    top: -33%;
-  }
-
-  @include xxl-min {
-    top: -95px;
-  }
 }
 
 .gallery__item-link:focus,
@@ -662,6 +625,46 @@ iframe#portfolioVideo {
 
       width: 100%;
     }
+  }
+}
+
+.gallery__item-caption {
+  position: relative;
+}
+
+.gallery__item-link {
+  grid-area: gallery-link;
+  align-self: end;
+  font-size: 1.5rem;
+  background: #d7d0c0;
+  color: var(--color-gallery-link);
+  text-decoration: underline;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  // position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  bottom: 30px;
+  left: 15px;
+
+  @include xs {
+    position: absolute;
+    left: -35px;
+    bottom: -35px;
+  }
+  @include sm {
+    position: absolute;
+    left: -35px;
+    bottom: -35px;
+  }
+  @include md {
+    position: absolute;
+    left: -35px;
+    bottom: -35px;
   }
 }
 </style>
