@@ -18,7 +18,7 @@ export default {
 <style lang="scss">
 .top-logo {
   position: fixed;
-  left: 0;
+  left: 90px;
   top: 0;
   z-index: 999;
   width: 100%;
@@ -30,6 +30,8 @@ export default {
   img {
     width: 202px;
     cursor: pointer;
+    position: relative;
+    left: -90px;
     &:hover {
       opacity: 0.9;
     }
