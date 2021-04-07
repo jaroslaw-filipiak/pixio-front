@@ -123,7 +123,7 @@
         </div>
         <div class="contact-info--txt">
           <p>Marketing</p>
-          <a href="mailto:">{{ pageContact.marketing_email }}</a>
+          <a v-bind:href="'mailto:' + pageContact.marketing_email">{{ pageContact.marketing_email }}</a>
         </div>
       </div>
       <div class="contact-info--item">
@@ -181,7 +181,7 @@
         </div>
         <div class="contact-info--txt">
           <p>Sales</p>
-          <a href="mailto:">studio@{{ pageContact.sales_email }}.com</a>
+          <a v-bind:href="'mailto:' + pageContact.sales_email">{{ pageContact.sales_email }}</a>
         </div>
       </div>
       <div class="contact-info--item">
@@ -213,7 +213,7 @@
         </div>
         <div class="contact-info--txt">
           <p>General inquires</p>
-          <a href="mailto:">{{ pageContact.general_email }}</a>
+          <a v-bind:href="'mailto:' + pageContact.general_email">{{ pageContact.general_email }}</a>
         </div>
       </div>
     </div>
