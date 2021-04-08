@@ -60,7 +60,7 @@ export default {
   data() {
     return {
       options: {
-        licenseKey: "YOUR_KEY_HEERE",
+        licenseKey: process.env.FULLPAGE_KEY,
         menu: "#side-menu",
         anchors: [
           "home",
