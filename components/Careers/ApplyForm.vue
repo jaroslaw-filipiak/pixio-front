@@ -627,7 +627,7 @@ export default {
         formData.append("data", JSON.stringify(items));
         formData.append("files.file", this.file);
         this.$axios
-          .post(`${process.env.APPLY_FORM_POST}`, formData, {
+          .post(`${process.env.MAIN_FORM_ENDPOINT}`, formData, {
             headers: {
               "Content-Type": "multipart/form-data"
             }

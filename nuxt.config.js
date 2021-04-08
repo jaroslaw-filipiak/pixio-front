@@ -30,7 +30,7 @@ export default {
       {
         rel: "icon",
         type: "image/x-icon",
-        href: "/favicon.ico"
+        href: "/favicon.jpg"
       }
     ],
     script: [
@@ -70,10 +70,6 @@ export default {
       ssr: false
     },
     {
-      src: "@/plugins/instagram.js",
-      ssr: false
-    },
-    {
       src: "@/plugins/vue-awesome-swiper.js",
       ssr: false
     },
@@ -89,10 +85,6 @@ export default {
       src: "@/plugins/vuelidate.js",
       ssr: false
     }
-    // {
-    //   src: "@/plugins/instafeed.js",
-    //   ssr: false
-    // }
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
