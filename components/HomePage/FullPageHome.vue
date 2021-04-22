@@ -77,11 +77,19 @@ export default {
         scrollBar: false,
         autoScrolling: true,
         navigation: true,
-        navigationPosition: "right"
+        navigationPosition: "right",
+        afterLoad: this.afterLoad,
       }
     };
   },
-  methods: {},
+  methods: {
+    afterLoad(section, index) {
+      if ( section == 'contact' ) {
+        // reset contact form after scrolling from another section
+        this.$refs.fullpage.$children[index - 1].resetForm();
+      }
+    }
+  },
   created() {
     setTimeout(function() {
       fullpage_api.reBuild();
