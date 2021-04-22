@@ -322,15 +322,15 @@ export default {
   bottom: 0px;
 
   @include safariMobile {
-    margin-bottom: 60px;
+    margin-bottom: 35px;
     transform: scale(0.6);
   }
   @include xs {
-    margin-bottom: 60px;
+    margin-bottom: 35px;
     transform: scale(0.6);
   }
   @include sm {
-    margin-bottom: 60px;
+    margin-bottom: 35px;
     transform: scale(0.6);
   }
 
