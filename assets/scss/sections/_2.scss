@@ -205,14 +205,14 @@
   padding: 10px;
 
   @include safariMobile {
-    margin-bottom: 100px;
+    margin-bottom: 30px;
   }
 
   @include xs {
-    margin-bottom: 100px;
+    margin-bottom: 30px;
   }
   @include sm {
-    margin-bottom: 100px;
+    margin-bottom: 30px;
   }
 
   @include lg {
