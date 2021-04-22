@@ -30,9 +30,7 @@
       <swiper-slide>
         <div v-if="isTooltipVisible" class="tooltip">
           <iframe
-            style="position: relative; z-index: 3"
-            width="650"
-            height="389"
+            class="iframe__page-visual-production"
             :src="
               `https://www.youtube.com/embed/${this.pageVisualProduction.tooltip_2_video_ID}`
             "
@@ -66,13 +64,14 @@
         :class="{ 'swiper-pagination__visible': isBulletsVisible }"
         slot="pagination"
       ></div>
+
+      <div class="swiper-pagination__vp"></div>
     </swiper>
 
     <div
       v-if="indicatorVisible"
       @click="handleMoreClick"
       class="indicator"
-      style="position: absolute; left: 20vw; top: 30vh"
     ></div>
 
     <div
@@ -112,7 +111,7 @@ export default {
         allowTouchMove: false,
         speed: 200,
         pagination: {
-          el: ".swiper-pagination",
+          el: ".swiper-pagination__vp",
           type: "bullets",
           clickable: true
         },
@@ -255,7 +254,20 @@ export default {
   opacity: 1;
   transition: all 0.3s ease-in-out;
 
-  @include lg-min {
+  @include xs {
+    display: none;
+  }
+  @include sm {
+    display: none;
+  }
+  @include md {
+    display: none;
+  }
+  @include lg {
+    display: none;
+  }
+
+  @include xl-min {
     width: 80vw;
   }
 
@@ -270,6 +282,18 @@ export default {
   height: 100vh;
   left: -95px;
   top: -82px;
+  @include xs {
+    left: 0;
+  }
+  @include sm {
+    left: 0;
+  }
+  @include md {
+    left: 0;
+  }
+  @include lg {
+    left: 0;
+  }
 }
 
 .swiper-close-cross {
@@ -290,8 +314,21 @@ export default {
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
+  bottom: 0px;
+
+  @include md {
+    bottom: -115px;
+  }
+  @include lg {
+    margin-left: -95px;
+  }
+
   @include lg-min {
     height: 50px;
+  }
+
+  @include xl {
+    bottom: -155px;
   }
 
   @include xxl-min {
