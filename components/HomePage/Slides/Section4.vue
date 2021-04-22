@@ -186,6 +186,18 @@ export default {
 }
 
 .we-are-global {
+  @include safariMobile {
+    margin-top: 5px;
+  }
+  @include xs {
+    margin-top: 5px;
+  }
+  @include sm {
+    margin-top: 5px;
+  }
+  @include md {
+    margin-top: 5px;
+  }
   margin-top: 40px;
   &__hide {
     opacity: 0;
@@ -193,6 +205,20 @@ export default {
 }
 
 .we-are-global--branches {
+  @include safariMobile {
+    padding: 5px;
+  }
+
+  @include xs {
+    padding: 5px;
+  }
+  @include sm {
+    padding: 5px;
+  }
+  @include md {
+    padding: 5px;
+  }
+
   padding: 30px;
   display: flex;
 
@@ -221,21 +247,55 @@ export default {
     margin: 0px 10px;
     opacity: 1;
 
+    @include safariMobile {
+      margin: 5px;
+      width: 20%;
+      text-align: center;
+    }
+
     @include xs {
-      margin: 10px;
+      margin: 5px;
+      width: 20%;
+      text-align: center;
     }
     @include sm {
-      margin: 10px;
+      margin: 5px;
+      width: 20%;
+      text-align: center;
     }
     @include md {
       margin: 10px;
+      width: 20%;
+      text-align: center;
     }
 
     img {
+      @include safariMobile {
+        width: 34px;
+      }
+      @include xs {
+        width: 34px;
+      }
+      @include sm {
+        width: 34px;
+      }
       width: 54px;
     }
 
     p {
+      @include safariMobile {
+        font-size: 9px;
+        text-align: center;
+      }
+      @include xs {
+        font-size: 9px;
+        text-align: center;
+      }
+      @include sm {
+        font-size: 9px;
+        text-align: center;
+      }
+
       margin-top: 10px;
       font-size: 11px;
       text-transform: uppercase;

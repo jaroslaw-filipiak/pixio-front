@@ -192,6 +192,10 @@
 
 .swiper-pagination__vp-visible {
   display: flex !important;
+
+  @include xl-min {
+    display: none !important;
+  }
 }
 
 .swiper-pagination__vp {
