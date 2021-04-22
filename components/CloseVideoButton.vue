@@ -34,6 +34,11 @@ export default {
     right: 3%;
     top: 2%;
   }
+
+  @include md {
+    right: 71px;
+    top: 185px;
+  }
   color: #fff;
   text-transform: uppercase;
   font-size: 16px;
