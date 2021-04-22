@@ -336,7 +336,6 @@ export default {
 }
 
 .contact-title {
-  border: 2px solid blue;
   @include safariMobile {
     display: none !important;
   }
