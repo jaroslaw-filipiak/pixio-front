@@ -250,3 +250,18 @@
     height: 389px;
   }
 }
+
+.solution-slide__2 {
+  @include safariMobile {
+    position: absolute;
+    top: 60px;
+  }
+  @include xs {
+    position: absolute;
+    top: 60px;
+  }
+  @include sm {
+    position: absolute;
+    top: 60px;
+  }
+}

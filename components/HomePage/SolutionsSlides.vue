@@ -28,7 +28,7 @@
       </swiper-slide>
 
       <swiper-slide>
-        <div v-if="isTooltipVisible" class="tooltip">
+        <div v-if="isTooltipVisible" class="tooltip solution-slide__2">
           <iframe
             class="iframe__page-visual-production"
             :src="
