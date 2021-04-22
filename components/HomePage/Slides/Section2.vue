@@ -157,6 +157,10 @@ export default {
   margin: 0 auto;
   height: 100%;
 
+  @include safariMobile {
+    margin-bottom: 100px;
+  }
+
   @include lg-min {
     flex-direction: row;
     align-items: center;
