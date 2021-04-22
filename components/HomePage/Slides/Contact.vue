@@ -355,7 +355,7 @@ export default {
 }
 
 #info-modal {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: calc(100% - 40px);
