@@ -9,6 +9,9 @@ export default {
   methods: {
     goToHome() {
       fullpage_api.moveTo(1);
+
+      // close left menu
+      this.$store.commit("changeNavOpen", false);
     }
   }
 };
