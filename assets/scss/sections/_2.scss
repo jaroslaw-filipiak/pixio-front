@@ -141,8 +141,12 @@
 
       &--left {
         img {
+          @include safariMobile {
+            display: none;
+          }
           @include xs {
             max-height: 160px;
+            display: none;
           }
           @include sm {
             max-height: 180px;
