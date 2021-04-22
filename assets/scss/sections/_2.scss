@@ -47,19 +47,28 @@
       left: 0;
       &--visible {
         top: 0vh;
+        @include safariMobile {
+          top: 67px;
+        }
+        @include xs {
+          top: 67px;
+        }
+        @include sm {
+          top: 67px;
+        }
       }
 
       @include safariMobile {
-        align-items: center;
+        align-items: flex-start;
         // top: 100px;
       }
 
       @include xs {
-        align-items: center;
+        align-items: flex-start;
         // top: 100px;
       }
       @include sm {
-        align-items: center;
+        align-items: flex-start;
         // top: 100px;
       }
     }
@@ -190,14 +199,11 @@
 
     @include safariMobile {
       margin-bottom: 100px;
-      display: none;
     }
 
     @include xs {
-      display: none;
     }
     @include sm {
-      display: none;
     }
 
     @include lg {
