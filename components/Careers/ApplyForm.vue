@@ -661,10 +661,26 @@ export default {
       this.file = this.$refs.file.files[0];
     },
     resetForm: function() {
-      this.name = '';
-      this.select = null;
-      this.email = '';
-      this.message = '';
+      this.recipient = "";
+      this.name = null;
+      this.surname = null;
+      this.email = null;
+      this.confirmEmail = "";
+      this.country = "";
+      this.city = "";
+      this.languages = "";
+      this.languagesSkill = "";
+      this.demoURL = "";
+      this.twodCompositing = "";
+      this.treeDsoftware = "";
+      this.editing = "";
+      this.officeSoftware = "";
+      this.proggramingLanguages = "";
+      this.webDesignSoftware = "";
+      this.resumeCountry = "";
+      this.resumeCity = "";
+      this.terms = "";
+      this.file = "";
       this.$v.$reset();   // hide validation msg
     },
     showModalInfo: function(message) {
