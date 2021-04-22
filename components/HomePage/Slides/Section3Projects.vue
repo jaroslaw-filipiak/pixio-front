@@ -570,6 +570,11 @@ iframe#portfolioVideo {
     width: 100%;
     height: 100%;
 
+    @include md-min {
+      width: 650px;
+      height: 389px;
+    }
+
     @include lg-min {
       width: 650px;
       height: 389px;
