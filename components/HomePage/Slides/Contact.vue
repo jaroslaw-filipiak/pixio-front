@@ -6,17 +6,21 @@
       backgroundImage: `url(${this.pageContact.section_background.url})`
     }"
   >
+    <div id="info-modal" :class="{ 'info-modal-show': modalInfo }" @click="hideModalInfo">
+      <img class="info-image" src="@/assets/img/logo.svg" alt="">
+      <p class="info-message">{{ modalMessage }}</p>
+      <p class="info-close">[close]</p>
+    </div>
     <div class="contact-title">
       <h2>More questions ?</h2>
       <p>We are here for you</p>
     </div>
-    <div class="contact-form" :class="{ 'contact-form--succes': isSuccess }">
+    <div class="contact-form">
       <label for="name">
         <div :class="{ 'form-group--error': $v.name.$error }">
           Hello, my name is
           <span class="error" v-if="!$v.name.required"> Name is required</span>
         </div>
-
         <input
           @input="setName($event.target.value)"
           v-model.trim="name"
@@ -227,7 +231,8 @@ import { required, email } from "vuelidate/lib/validators";
 export default {
   data() {
     return {
-      isSuccess: false,
+      modalInfo: false,
+      modalMessage: 'Hello stranger!',
       pageContact: {
         id: "",
         marketing_email: "",
@@ -298,6 +303,12 @@ export default {
             message: this.message
           })
           .then(response => {
+            if (response.status == 200 && !response.data.length) {
+              this.resetForm();
+              this.showModalInfo('Your message was sent successfully')
+            } else {
+              this.showModalInfo('There was an error trying to send your message. Please contact with support@pixomondo.com')
+            }
             this.errored = false;
           })
           .catch(error => {
@@ -307,7 +318,21 @@ export default {
             this.loading = false;
           });
       }
-    }
+    },
+    resetForm: function() {
+      this.name = '';
+      this.select = null;
+      this.email = '';
+      this.message = '';
+      this.$v.$reset();   // hide validation msg
+    },
+    showModalInfo: function(message) {
+      this.modalInfo = true;
+      this.modalMessage = message;
+    },
+    hideModalInfo: function() {
+      this.modalInfo = false;
+    },
   }
 };
 </script>
@@ -329,6 +354,43 @@ export default {
   }
 }
 
+#info-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 40px);
+  height: calc(100% - 100px);
+  margin: 20px;
+  padding: 20px;
+  background: #000;
+  border-radius: 10px;
+  z-index: 1000000;
+
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  align-content: center;
+
+  @include lg-min {
+    top: 40px;
+    height: calc(100% - 80px);
+  }
+
+  &.info-modal-show {
+    display: flex;
+  }
+
+  .info-image {
+    max-width: 400px;
+    margin: -80px auto 0;
+  }
+  p {
+    text-align: center;
+  }
+}
+
 .contact-title {
   @include xxl-min {
     position: relative;
@@ -336,6 +398,7 @@ export default {
   }
 }
 #section-contact {
+  position: relative;
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -435,45 +498,6 @@ export default {
       outline: none;
     }
     transition: all 0.2s ease-in-out;
-
-    &--succes {
-      border: 1px solid #000;
-      transition: all 0.2s ease-in-out;
-      background-color: rgb(0, 0, 0);
-      position: relative;
-      z-index: 4;
-      &::before {
-        transition: all 0.2s ease-in-out;
-        content: "your message was sent successfully";
-        color: rgb(255, 255, 255);
-        font-size: 22px;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 2;
-        position: absolute;
-        left: 0;
-        top: 0;
-      }
-      label {
-        opacity: 0;
-      }
-      input {
-        opacity: 0;
-      }
-      textarea {
-        opacity: 0;
-      }
-
-      .detalis-txt {
-        opacity: 0;
-      }
-      button {
-        opacity: 0;
-      }
-    }
   }
 
   .contact-info--item {

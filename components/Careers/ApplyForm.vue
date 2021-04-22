@@ -1,5 +1,10 @@
 <template>
   <div class="apply-form--content">
+    <div id="info-modal" :class="{ 'info-modal-show': modalInfo }" @click="hideModalInfo">
+      <img class="info-image" src="@/assets/img/clip-path.svg" alt="">
+      <p class="info-message">{{ modalMessage }}</p>
+      <p class="info-close">[close]</p>
+    </div>
     <div class="apply-form--title">
       You are apply for: {{ title }}
       <span style="font-size: 12px; font-weight: 400;" class="job-id"
@@ -431,6 +436,8 @@ export default {
   props: ["title", "offerID"],
   data() {
     return {
+      modalInfo: false,
+      modalMessage: 'Hello stranger!',
       submitStatus: null,
       applyID: this.offerID,
       recipient: "",
@@ -634,6 +641,12 @@ export default {
           })
           .then(response => {
             this.success = true;
+            if (response.status == 200 && !response.data.length) {
+              this.resetForm();
+              this.showModalInfo('Your message was sent successfully')
+            } else {
+              this.showModalInfo('There was an error trying to send your message. Please contact with support@pixomondo.com')
+            }
             this.errored = false;
           })
           .catch(error => {
@@ -646,7 +659,21 @@ export default {
     },
     handleFileUpload() {
       this.file = this.$refs.file.files[0];
-    }
+    },
+    resetForm: function() {
+      this.name = '';
+      this.select = null;
+      this.email = '';
+      this.message = '';
+      this.$v.$reset();   // hide validation msg
+    },
+    showModalInfo: function(message) {
+      this.modalInfo = true;
+      this.modalMessage = message;
+    },
+    hideModalInfo: function() {
+      this.modalInfo = false;
+    },
   }
 };
 </script>
@@ -669,7 +696,42 @@ export default {
     margin: 10px;
   }
 }
+
+#info-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  margin: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  z-index: 1000000;
+
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  align-content: center;
+
+  &.info-modal-show {
+    display: flex;
+  }
+
+  .info-image {
+    max-width: 400px;
+    margin: -80px auto 0;
+  }
+  p {
+    text-align: center;
+  }
+}
+
 .apply-form {
+  position: relative;
+
   &--title {
     font-size: 24px;
     font-style: normal;
