@@ -316,6 +316,10 @@ export default {
 
   bottom: 0px;
 
+  @include safariMobile {
+    margin-bottom: 100px;
+  }
+
   @include md {
     bottom: -115px;
   }

@@ -183,6 +183,10 @@
     align-items: center;
     justify-content: center;
 
+    @include safariMobile {
+      margin-bottom: 100px;
+    }
+
     @include lg {
       margin-left: -95px;
     }
