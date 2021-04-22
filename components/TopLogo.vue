@@ -8,7 +8,6 @@
 export default {
   methods: {
     goToHome() {
-      console.log("go to home method");
       fullpage_api.moveTo(1);
     }
   }
