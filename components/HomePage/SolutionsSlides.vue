@@ -107,9 +107,9 @@ export default {
       isTooltipVisible: false,
       isBulletsVisible: false,
       swiperOptions: {
-        effect: "flip",
-        allowTouchMove: false,
-        speed: 200,
+        // effect: "flip",
+        allowTouchMove: true,
+        speed: 300,
         pagination: {
           el: ".swiper-pagination__vp",
           type: "bullets",
@@ -318,6 +318,13 @@ export default {
 
   @include safariMobile {
     margin-bottom: 100px;
+    display: none;
+  }
+  @include xs {
+    display: none;
+  }
+  @include sm {
+    display: none;
   }
 
   @include md {
