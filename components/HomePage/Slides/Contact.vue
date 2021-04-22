@@ -123,7 +123,9 @@
         </div>
         <div class="contact-info--txt">
           <p>Marketing</p>
-          <a v-bind:href="'mailto:' + pageContact.marketing_email">{{ pageContact.marketing_email }}</a>
+          <a v-bind:href="'mailto:' + pageContact.marketing_email">{{
+            pageContact.marketing_email
+          }}</a>
         </div>
       </div>
       <div class="contact-info--item">
@@ -181,7 +183,9 @@
         </div>
         <div class="contact-info--txt">
           <p>Sales</p>
-          <a v-bind:href="'mailto:' + pageContact.sales_email">{{ pageContact.sales_email }}</a>
+          <a v-bind:href="'mailto:' + pageContact.sales_email">{{
+            pageContact.sales_email
+          }}</a>
         </div>
       </div>
       <div class="contact-info--item">
@@ -213,7 +217,9 @@
         </div>
         <div class="contact-info--txt">
           <p>General inquires</p>
-          <a v-bind:href="'mailto:' + pageContact.general_email">{{ pageContact.general_email }}</a>
+          <a v-bind:href="'mailto:' + pageContact.general_email">{{
+            pageContact.general_email
+          }}</a>
         </div>
       </div>
     </div>
@@ -330,17 +336,36 @@ export default {
 }
 
 .contact-title {
+  border: 2px solid blue;
+  @include safariMobile {
+    display: none !important;
+  }
+  @include sm {
+    display: none !important;
+  }
+
   @include xxl-min {
     position: relative;
     top: 6vh;
   }
 }
+
 #section-contact {
   background-size: cover;
   background-repeat: no-repeat;
 
   .contact-title {
     text-align: center;
+
+    @include safariMobile {
+      display: none;
+    }
+    @include xs {
+      display: none;
+    }
+    @include sm {
+      display: none;
+    }
   }
   .fp-tableCell {
     display: flex !important;
@@ -371,6 +396,16 @@ export default {
     @include lg-min {
       border: 1px solid #fff;
       padding: 40px 30px;
+
+      @include safariMobile {
+        padding: 3px 0px;
+      }
+      @include xs {
+        padding: 3px 0px;
+      }
+      @include sm {
+        padding: 3px 0px;
+      }
     }
 
     @include xl {
@@ -387,6 +422,16 @@ export default {
       width: 100%;
       display: flex;
       justify-content: space-between;
+
+      @include safariMobile {
+        margin: 3px 0px;
+      }
+      @include xs {
+        margin: 3px 0px;
+      }
+      @include sm {
+        margin: 3px 0px;
+      }
     }
     button {
       margin-top: 10px;
@@ -501,6 +546,16 @@ export default {
     justify-content: center;
     margin-bottom: 60px;
 
+    @include safariMobile {
+      width: 100%;
+    }
+    @include xs {
+      width: 100%;
+    }
+    @include sm {
+      width: 100%;
+    }
+
     @include lg-min {
       flex-direction: row;
       align-items: center;
@@ -514,6 +569,22 @@ export default {
 
     &--item {
       margin: 5px 0px;
+
+      @include safariMobile {
+        margin: 3px 0px;
+        width: 60%;
+        margin: 0 auto;
+      }
+      @include xs {
+        margin: 3px 0px;
+        width: 60%;
+        margin: 0 auto;
+      }
+      @include sm {
+        margin: 3px 0px;
+        width: 60%;
+      }
+
       @include xl-min {
         margin: 0px 20px;
       }
