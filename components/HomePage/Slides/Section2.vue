@@ -177,6 +177,17 @@ export default {
     position: relative;
     z-index: 4;
 
+    @include safariMobile {
+      padding: 4px 20px;
+    }
+
+    @include xs {
+      padding: 4px 20px;
+    }
+    @include sm {
+      padding: 4px 20px;
+    }
+
     @include lg-min {
       padding: 0px 30px;
       width: 211px;
@@ -204,6 +215,15 @@ export default {
     }
 
     img {
+      @include safariMobile {
+        margin-bottom: 5px;
+      }
+      @include xs {
+        margin-bottom: 5px;
+      }
+      @include sm {
+        margin-bottom: 5px;
+      }
       margin-bottom: 20px;
     }
 
