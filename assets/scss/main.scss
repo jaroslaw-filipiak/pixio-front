@@ -103,15 +103,6 @@ video {
 }
 
 div.indicator {
-  @include xs {
-    display: none;
-  }
-  @include sm {
-    display: none;
-  }
-  @include md {
-    display: none;
-  }
   width: 32px;
   height: 32px;
   display: flex;
@@ -121,8 +112,35 @@ div.indicator {
   background-color: transparent;
   border: 2px solid #fff;
   cursor: pointer;
-  position: relative;
+  // position: relative;
   z-index: 1;
+
+  @include xs {
+    position: absolute;
+    left: 30vw;
+    top: 10vh;
+  }
+  @include sm {
+    position: absolute;
+    left: 30vw;
+    top: 10vh;
+  }
+  @include md {
+    position: absolute;
+    left: 30vw;
+    top: 10vh;
+  }
+  @include lg {
+    position: absolute;
+    left: 30vw;
+    top: 10vh;
+  }
+
+  @include xl-min {
+    position: absolute;
+    left: 20vw;
+    top: 30vh;
+  }
 
   &::before {
     content: "";
