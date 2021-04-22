@@ -64,8 +64,6 @@
         :class="{ 'swiper-pagination__visible': isBulletsVisible }"
         slot="pagination"
       ></div>
-
-      <div class="swiper-pagination__vp"></div>
     </swiper>
 
     <div
@@ -92,6 +90,10 @@
         <img src="@/assets/img/arrow-bottom.svg" alt="" />
       </div>
     </div>
+    <div
+      class="swiper-pagination__vp"
+      :class="{ 'swiper-pagination__vp-visible': isTooltipVisible }"
+    ></div>
   </div>
 </template>
 
@@ -173,12 +175,15 @@ export default {
     },
     handleSwipperWrapperOverlay() {
       const container = document.querySelector(".swiper-container");
+      const swiperPaginaton = document.querySelector(".swiper-pagination__vp");
 
       if (this.isSectionOverlayActive) {
         container.classList.add("swipper-container__overlay");
+        swiperPaginaton.classList.add("pagination__vp-visible");
         this.$store.commit("setIsTooltipVisible", true);
       } else {
         container.classList.remove("swipper-container__overlay");
+        swiperPaginaton.classList.remove("pagination__vp-visible");
         this.$store.commit("setIsTooltipVisible", false);
       }
     }
@@ -318,13 +323,13 @@ export default {
 
   @include safariMobile {
     margin-bottom: 100px;
-    display: none;
+    // display: none;
   }
   @include xs {
-    display: none;
+    // display: none;
   }
   @include sm {
-    display: none;
+    // display: none;
   }
 
   @include md {
