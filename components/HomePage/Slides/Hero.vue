@@ -52,23 +52,23 @@ export default {
       isMaskVisible: true,
       isVideoVisible: false,
       pageHome: {
-        hero_video_ID: "WeoAgb7v3fU"
-      }
+        hero_video_ID: "WeoAgb7v3fU",
+      },
     };
   },
   apollo: {
     pageHome: {
       prefetch: true,
-      query: pageHomeHeroVideo
-    }
+      query: pageHomeHeroVideo,
+    },
   },
   watch: {
-    isMaskVisible: function() {
+    isMaskVisible: function () {
       if (isMaskVisible) {
-        $(window).bind("mousewheel", e => {});
+        $(window).bind("mousewheel", (e) => {});
       } else {
       }
-    }
+    },
   },
   mounted() {
     setTimeout(() => {
@@ -81,7 +81,7 @@ export default {
         scaleY: 20,
         opacity: 0,
         duration: 2,
-        onComplete: maskRevealIsEnd
+        onComplete: maskRevealIsEnd,
       });
 
       function maskRevealIsEnd() {
@@ -97,25 +97,27 @@ export default {
     function showStartIndicator() {
       gsap.to(".start-indicator", {
         opacity: 1,
-        duration: 0.3
+        duration: 0.3,
       });
     }
     TweenLite.delayedCall(4, showStartIndicator);
   },
 
   methods: {
-    showNavElements: function() {
+    showNavElements: function () {
       let hideIndicator = gsap.to(".start-indicator", {
         opacity: 0,
-        duration: 0
+        duration: 0,
       });
 
-      let showArrowIndicator = gsap.to(".arrow-bottom-indicator", {
-        opacity: 1
-      });
+      if (document.querySelector(".arrow-bottom-indicator")) {
+        let showArrowIndicator = gsap.to(".arrow-bottom-indicator", {
+          opacity: 1,
+        });
+      }
 
       let showHamburger = gsap.to(".hamburger", {
-        opacity: 1
+        opacity: 1,
       });
 
       const nav = document.querySelector("#fp-nav");
@@ -126,7 +128,7 @@ export default {
       const hamburgerBTN = document.querySelector(".hamburger");
       hamburgerBTN.classList.remove("is-active");
     },
-    onYouTubeIframeAPIReady: function() {
+    onYouTubeIframeAPIReady: function () {
       var player;
 
       player = new YT.Player("player", {
@@ -146,29 +148,29 @@ export default {
           rel: 0,
           playlist: this.pageHome.hero_video_ID,
           modestbranding: 1,
-          autohide: 0
+          autohide: 0,
         },
         enablejsapi: 1,
         events: {
           onReady: this.onPlayerReady,
-          onStateChange: this.onPlayerStateChange
-        }
+          onStateChange: this.onPlayerStateChange,
+        },
       });
     },
 
-    onPlayerReady: function(event) {
+    onPlayerReady: function (event) {
       event.target.playVideo();
     },
 
-    onPlayerStateChange: function(event) {
+    onPlayerStateChange: function (event) {
       event.target.playVideo();
     },
 
-    stopVideo: function(event) {
+    stopVideo: function (event) {
       event.target.stopVideo();
       event.target.pauseVideo();
-    }
-  }
+    },
+  },
 };
 </script>
 
