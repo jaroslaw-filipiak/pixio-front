@@ -16,9 +16,6 @@ export default {
       isMenuVisible: false
     };
   },
-  mounted() {
-    console.log("22.04");
-  },
   methods: {
     handleScroll(event) {
       this.handleScrollLock();
