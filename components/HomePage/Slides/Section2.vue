@@ -161,6 +161,10 @@ export default {
     margin-bottom: 100px;
   }
 
+  @include md {
+    font-size: 24px;
+  }
+
   @include lg-min {
     flex-direction: row;
     align-items: center;
