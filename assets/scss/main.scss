@@ -190,6 +190,11 @@ div.indicator {
 
   &__solutions {
     min-width: 280px;
+    @include md {
+      padding: 10px 20px !important;
+      text-align: center !important;
+      font-size: 22px !important;
+    }
   }
 }
 
