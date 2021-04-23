@@ -88,10 +88,10 @@ export default {
 <style lang="scss">
 .info-box--icons {
   @include xs {
-    display: none !important;
+    // display: none !important;
   }
   @include sm {
-    display: none !important;
+    // display: none !important;
   }
 
   @include md-min {
