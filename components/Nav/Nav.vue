@@ -114,6 +114,7 @@ export default {
   }
 
   .nav-main {
+    left: 0;
     width: 85vw;
     height: 100vh;
     transition: all 0.3s ease-in-out;
@@ -164,7 +165,7 @@ export default {
 .nav-main {
   display: none;
   position: fixed;
-  left: 0;
+  left: -1000px;
   top: 0;
   width: 10px;
   height: 100vh;
