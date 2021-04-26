@@ -12,6 +12,9 @@ export default {
 
       // close left menu
       this.$store.commit("changeNavOpen", false);
+
+      // reset contact form
+      this.$refs.fullpage.$children[index - 1].resetForm();
     }
   }
 };
