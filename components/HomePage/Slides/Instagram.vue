@@ -30,6 +30,15 @@ export default {
   a {
     width: 120px;
     height: 120px;
+
+    @include xs {
+      width: 90px;
+      height: 90px;
+    }
+    @include sm {
+      width: 90px;
+      height: 90px;
+    }
     @include lg-min {
       width: 182px;
       height: 182px;
@@ -79,6 +88,16 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 10px;
+
+  @include xs {
+    gap: 0px;
+    grid-gap: 0px;
+  }
+
+  @include sm {
+    gap: 0px;
+    grid-gap: 0px;
+  }
 
   a {
     width: 200px;
