@@ -79,6 +79,7 @@ export default {
         navigation: true,
         navigationPosition: "right",
         afterLoad: this.afterLoad,
+        touchEnd: this.touchEnd,
       }
     };
   },
@@ -88,14 +89,31 @@ export default {
         // reset contact form after scrolling from another section
         this.$refs.fullpage.$children[index - 1].resetForm();
       }
-    }
+    },
+    touchEnd() {
+      let section = fullpage_api.getActiveSection().anchor ?? null;
+      let index = fullpage_api.getActiveSection().index ?? null;
+
+      if ( section == 'contact' && fullpage_api.lastSection != index ) {
+        // reset contact form after scrolling from another section
+        this.$refs.fullpage.$children[index].resetForm();
+        console.log('reset form');
+      }
+
+      fullpage_api.lastSection = index;
+    },
   },
   created() {
     setTimeout(function() {
       fullpage_api.reBuild();
     }, 800);
+
+    document.addEventListener("touchend", this.touchEnd);
   },
-  mounted() {},
+  mounted() {
+  },
+  updated() {
+  },
   computed: {
     isTooltipVisible: function() {
       return this.$store.state.isTooltipVisible;
