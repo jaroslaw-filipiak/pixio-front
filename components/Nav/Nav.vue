@@ -14,18 +14,25 @@
     <div ref="" class="logo" style="color: #fff;">
       <img :src="require(`~/assets/img/logo-txt.svg`)" />
     </div>
-    <nav class="nav-main">
-      <ul>
-        <li><a @click="handleMenu" link-to="1" href="#">Home</a></li>
-        <li>
-          <a @click="handleMenu" link-to="2" href="#">Visual Production </a>
-        </li>
-        <li><a @click="handleMenu" link-to="3" href="#">Projects</a></li>
-        <li><a @click="handleMenu" link-to="4" href="#">About</a></li>
-        <li><a @click="handleMenu" link-to="5" href="#">Social media</a></li>
-        <li><a @click="handleMenu" link-to="6" href="#">Contact</a></li>
-      </ul>
-    </nav>
+    <div>
+      <nav class="nav-main">
+        <ul>
+          <li><a @click="handleMenu" link-to="1" href="#">Home</a></li>
+          <li>
+            <a @click="handleMenu" link-to="2" href="#">Visual Production </a>
+          </li>
+          <li><a @click="handleMenu" link-to="3" href="#">Projects</a></li>
+          <li><a @click="handleMenu" link-to="4" href="#">About</a></li>
+          <li><a @click="handleMenu" link-to="5" href="#">Social media</a></li>
+          <li><a @click="handleMenu" link-to="6" href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div
+        @click="toggleMenu"
+        :class="{ navAfterVisible: navOpen }"
+        class="nav-after"
+      ></div>
+    </div>
   </div>
 </template>
 
@@ -71,6 +78,21 @@ export default {
 </script>
 
 <style lang="scss">
+.nav-after {
+  display: none;
+  border: 1px solid transparent;
+  width: 15vw;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  background-color: transparent;
+}
+
+.navAfterVisible {
+  display: block;
+}
+
 .logo {
   display: none;
   margin: 0 auto;
