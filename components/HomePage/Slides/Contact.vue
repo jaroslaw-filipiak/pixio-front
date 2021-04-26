@@ -6,8 +6,12 @@
       backgroundImage: `url(${this.pageContact.section_background.url})`
     }"
   >
-    <div id="info-modal" :class="{ 'info-modal-show': modalInfo }" @click="hideModalInfo">
-      <img class="info-image" src="@/assets/img/logo.svg" alt="">
+    <div
+      id="info-modal"
+      :class="{ 'info-modal-show': modalInfo }"
+      @click="hideModalInfo"
+    >
+      <img class="info-image" src="@/assets/img/logo.svg" alt="" />
       <p class="info-message">{{ modalMessage }}</p>
       <p class="info-close">[close]</p>
     </div>
@@ -238,7 +242,7 @@ export default {
   data() {
     return {
       modalInfo: false,
-      modalMessage: 'Hello stranger!',
+      modalMessage: "Hello stranger!",
       pageContact: {
         id: "",
         marketing_email: "",
@@ -311,9 +315,11 @@ export default {
           .then(response => {
             if (response.status == 200 && !response.data.length) {
               this.resetForm();
-              this.showModalInfo('Your message was sent successfully')
+              this.showModalInfo("Your message was sent successfully");
             } else {
-              this.showModalInfo('There was an error trying to send your message. Please contact with support@pixomondo.com')
+              this.showModalInfo(
+                "There was an error trying to send your message. Please contact with support@pixomondo.com"
+              );
             }
             this.errored = false;
           })
@@ -326,11 +332,11 @@ export default {
       }
     },
     resetForm: function() {
-      this.name = '';
+      this.name = "";
       this.select = null;
-      this.email = '';
-      this.message = '';
-      this.$v.$reset();   // hide validation msg
+      this.email = "";
+      this.message = "";
+      this.$v.$reset(); // hide validation msg
     },
     showModalInfo: function(message) {
       this.modalInfo = true;
@@ -338,7 +344,7 @@ export default {
     },
     hideModalInfo: function() {
       this.modalInfo = false;
-    },
+    }
   }
 };
 </script>
@@ -606,6 +612,10 @@ export default {
       @include sm {
         margin: 3px 0px;
         width: 60%;
+      }
+
+      @include md {
+        margin: 15px 0px;
       }
 
       @include xl-min {
