@@ -2,7 +2,7 @@
 @import "./base/fonts";
 @import "./base/colors";
 @import "./base/rwd";
-@import "./base/debug";
+//@import "./base/debug";
 
 @import "./layouts/default";
 @import "./libs/fullpage";
@@ -190,9 +190,10 @@ div.indicator {
 
   &__solutions {
     min-width: 280px;
+    text-align: center;
+
     @include md {
       padding: 10px 20px !important;
-      text-align: center !important;
       font-size: 22px !important;
     }
   }
