@@ -584,6 +584,10 @@ export default {
     @include sm {
       width: 100%;
     }
+    @include md {
+      width: 100%;
+      padding: 0px 30px;
+    }
 
     @include lg-min {
       flex-direction: row;
