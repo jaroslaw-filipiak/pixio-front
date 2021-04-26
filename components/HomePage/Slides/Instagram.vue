@@ -23,8 +23,17 @@ export default {
 
 <style lang="scss">
 #instafeed {
+  @include sm-min {
+    padding: 0 60px;
+  }
+
   @include lg-min {
     width: calc(190px * 5);
+
+  }
+
+  @include xl-min {
+    padding: unset;
   }
 
   a {

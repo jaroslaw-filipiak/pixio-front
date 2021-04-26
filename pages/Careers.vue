@@ -49,7 +49,7 @@
                 x="0px"
                 y="0px"
                 viewBox="0 0 17.7 17"
-                style="enable-background:new 0 0 17.7 17;"
+                style="enable-background: new 0 0 17.7 17"
                 xml:space="preserve"
               >
                 <style type="text/css">
@@ -89,7 +89,7 @@
                 x="0px"
                 y="0px"
                 viewBox="0 0 17.4 17"
-                style="enable-background:new 0 0 17.4 17;"
+                style="enable-background: new 0 0 17.4 17"
                 xml:space="preserve"
               >
                 <path
@@ -117,7 +117,7 @@
                 x="0px"
                 y="0px"
                 viewBox="0 0 17.4 17"
-                style="enable-background:new 0 0 17.4 17;"
+                style="enable-background: new 0 0 17.4 17"
                 xml:space="preserve"
               >
                 <g>
@@ -200,7 +200,7 @@
                 x="0px"
                 y="0px"
                 viewBox="0 0 17.4 17"
-                style="enable-background:new 0 0 17.4 17;"
+                style="enable-background: new 0 0 17.4 17"
                 xml:space="preserve"
               >
                 <style type="text/css">
@@ -268,7 +268,7 @@
                 x="0px"
                 y="0px"
                 viewBox="0 0 17.4 17"
-                style="enable-background:new 0 0 17.4 17;"
+                style="enable-background: new 0 0 17.4 17"
                 xml:space="preserve"
               >
                 <g>
@@ -310,7 +310,7 @@
                 x="0px"
                 y="0px"
                 viewBox="0 0 17.4 17"
-                style="enable-background:new 0 0 17.4 17;"
+                style="enable-background: new 0 0 17.4 17"
                 xml:space="preserve"
               >
                 <path
@@ -358,7 +358,7 @@
                 x="0px"
                 y="0px"
                 viewBox="0 0 17.4 17"
-                style="enable-background:new 0 0 17.4 17;"
+                style="enable-background: new 0 0 17.4 17"
                 xml:space="preserve"
               >
                 <style type="text/css">
@@ -403,7 +403,7 @@
                 x="0px"
                 y="0px"
                 viewBox="0 0 43.46 42.39"
-                style="enable-background:new 0 0 43.46 42.39;"
+                style="enable-background: new 0 0 43.46 42.39"
                 xml:space="preserve"
               >
                 <style type="text/css">
@@ -432,7 +432,7 @@
                       />
                     </defs>
                     <clipPath id="SVGID_2_" class="st1">
-                      <use xlink:href="#SVGID_1_" style="overflow:visible;" />
+                      <use xlink:href="#SVGID_1_" style="overflow: visible" />
                     </clipPath>
                     <g class="st2">
                       <g>
@@ -448,7 +448,7 @@
                         <clipPath id="SVGID_4_">
                           <use
                             xlink:href="#SVGID_3_"
-                            style="overflow:visible;"
+                            style="overflow: visible"
                           />
                         </clipPath>
                       </g>
@@ -605,24 +605,24 @@ export default {
   head() {
     return {
       bodyAttrs: {
-        class: "page-careers"
-      }
+        class: "page-careers",
+      },
     };
   },
   data() {
     return {
       jobs: [],
-      selectedCategory: "All"
+      selectedCategory: "All",
     };
   },
   apollo: {
     jobs: {
       prefetch: true,
-      query: jobItemsQuery
-    }
+      query: jobItemsQuery,
+    },
   },
   computed: {
-    filteredJobs: function() {
+    filteredJobs: function () {
       var vm = this;
       var category = vm.selectedCategory;
 
@@ -631,12 +631,12 @@ export default {
       if (category === "All") {
         return vm.jobs;
       } else {
-        return vm.jobs.filter(function(filter) {
+        return vm.jobs.filter(function (filter) {
           return filter.cities.name === category;
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -752,6 +752,11 @@ export default {
   svg {
     margin-bottom: 10px;
     position: absolute;
+
+    .st0 {
+      fill-rule: evenodd;
+      clip-rule: evenodd;
+    }
   }
 
   label {

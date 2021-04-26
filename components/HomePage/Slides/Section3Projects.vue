@@ -183,9 +183,14 @@ export default {
 
 .section-3 {
   .swiper-wrapper {
+    @include sm-min {
+      left: 50px;
+    }
+    @include lg-min {
+      left: 100px;
+    }
     @include xl-min {
       position: relative;
-      left: -24%;
     }
   }
 }

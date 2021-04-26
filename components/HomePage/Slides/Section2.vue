@@ -12,29 +12,12 @@
 
       <div class="vr-info-box--wrapper">
         <div class="vr-info-box">
-          <div class="vr-info-box--column vr-info-box--column-1">
-            <img src="~/assets/img/fast-forward.svg" />
-            <h4>Making <br />impossible</h4>
-          </div>
-          <div class="vr-info-box--column vr-info-box--column-2">
-            <img src="~/assets/img/icon-zap.svg" />
-            <h4>Results driven <br />by technology</h4>
-          </div>
-          <div class="vr-info-box--column vr-info-box--column-3">
-            <img src="~/assets/img/icon-sunset.svg" />
-            <h4>
-              Making the sun<br />
-              rise or sun set
-            </h4>
-          </div>
-          <div class="vr-info-box--column vr-info-box--column-4">
-            <button
-              @click="goToContact"
-              class="btn btn-outline-white btn-outline-white__solutions"
-            >
-              Contact us for more information
-            </button>
-          </div>
+          <button
+            @click="goToContact"
+            class="btn btn-outline-white btn-outline-white__solutions"
+          >
+            Additional information
+          </button>
         </div>
       </div>
     </div>
@@ -128,123 +111,96 @@ export default {
   }
 }
 
-.vr-info-box--wrapper {
-  width: 100%;
-  position: absolute;
-  bottom: 80px;
-  z-index: 11;
-  transform: scale(1);
-
-  @include lg-min {
-    height: 100px;
+.slide {
+  .swiper-pagination__vp {
+    bottom: -20px;
+    margin-bottom: 0;
+  }
+  .swiper-close-cross {
+    bottom: -50px;
+    margin-bottom: 0;
   }
 
-  @include xl {
-    transform: scale(0.9);
-    left: -10px;
-  }
-}
-
-.vr-info-box {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  color: #fff;
-  font-size: 16px;
-  line-height: 23px;
-  max-width: 888px;
-  margin: 0 auto;
-  height: 100%;
-
-  @include safariMobile {
-    margin-bottom: 100px;
+  @include sm-min {
+    .swiper-pagination__vp {
+      bottom: 10px;
+    }
+    .swiper-close-cross {
+      bottom: -25px;
+    }
   }
 
-  @include md {
-    font-size: 24px;
+  @include md-min {
+    .swiper-pagination__vp {
+      bottom: 22px;
+    }
+    .swiper-close-cross {
+      bottom: -17px;
+    }
   }
 
   @include lg-min {
-    flex-direction: row;
-    align-items: center;
+    .swiper-pagination__vp {
+      bottom: 30px;
+    }
+    .swiper-close-cross {
+      bottom: -15px;
+    }
   }
 
-  .vr-info-box--column {
-    height: 100%;
+  @include xl-min {
+    .swiper-close-cross {
+      bottom: -20px;
+    }
+  }
+
+  .vr-info-box--wrapper {
+    width: 100%;
+    position: absolute;
+    bottom: 80px;
+    z-index: 11;
+    transform: scale(1);
+
+    @include lg-min {
+      height: 60px;
+    }
+
+    @include xl {
+      transform: scale(0.9);
+      left: -10px;
+    }
+  }
+
+  .vr-info-box {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-end;
-    width: 100%;
-    padding: 10px 30px;
-    position: relative;
-    z-index: 4;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    line-height: 23px;
+    max-width: 888px;
+    margin: 0 auto;
+    height: 100%;
 
     @include safariMobile {
-      padding: 4px 20px;
+      margin-bottom: 100px;
     }
 
-    @include xs {
-      padding: 4px 20px;
-    }
-    @include sm {
-      padding: 4px 20px;
+    @include md {
+      font-size: 24px;
     }
 
     @include lg-min {
-      padding: 0px 30px;
-      width: 211px;
+      flex-direction: row;
+      align-items: center;
     }
 
-    &:after {
-      content: "";
-      display: none;
-      width: 3px;
-      height: 100%;
-      background-color: #fff;
-      position: absolute;
-      right: 0;
-      top: 0;
-      border-radius: 20%;
-
-      @include lg-min {
-        display: block;
-      }
-    }
-    &:last-of-type {
-      &:after {
-        width: 0;
-      }
-    }
-
-    img {
-      @include safariMobile {
-        margin-bottom: 5px;
-      }
-      @include xs {
-        margin-bottom: 5px;
-      }
-      @include sm {
-        margin-bottom: 5px;
-      }
-      margin-bottom: 20px;
-    }
-
-    &-4 {
-      @include xs {
-        align-items: center;
-      }
-      @include sm {
-        align-items: center;
-      }
-      @include md {
-        align-items: center;
-      }
+    button {
+      margin: auto;
     }
   }
 }
-
 .section-2 {
   .fp-prev__visible,
   .fp-next__visible {
