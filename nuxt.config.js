@@ -12,6 +12,7 @@ export default {
       lang: "en"
     },
     meta: [
+      { name: "format-detection", content: "telephone=no" },
       {
         charset: "utf-8"
       },
