@@ -178,11 +178,11 @@ export default {
       const swiperPaginaton = document.querySelector(".swiper-pagination__vp");
 
       if (this.isSectionOverlayActive) {
-        container.classList.add("swipper-container__overlay");
+        //container.classList.add("swipper-container__overlay");
         swiperPaginaton.classList.add("pagination__vp-visible");
         this.$store.commit("setIsTooltipVisible", true);
       } else {
-        container.classList.remove("swipper-container__overlay");
+        //container.classList.remove("swipper-container__overlay");
         swiperPaginaton.classList.remove("pagination__vp-visible");
         this.$store.commit("setIsTooltipVisible", false);
       }
@@ -388,10 +388,10 @@ export default {
 }
 
 .swiper-container {
-  &__overlay-visible {
+  /* &__overlay-visible {
     background: rgba(93, 62, 62, 0.9);
     transition: all 0.2s ease-in-out;
-  }
+  } */
 }
 
 .swiper-container {

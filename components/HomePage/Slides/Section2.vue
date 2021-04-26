@@ -111,53 +111,96 @@ export default {
   }
 }
 
-.vr-info-box--wrapper {
-  width: 100%;
-  position: absolute;
-  bottom: 80px;
-  z-index: 11;
-  transform: scale(1);
-
-  @include lg-min {
-    height: 100px;
+.slide {
+  .swiper-pagination__vp {
+    bottom: -20px;
+    margin-bottom: 0;
+  }
+  .swiper-close-cross {
+    bottom: -50px;
+    margin-bottom: 0;
   }
 
-  @include xl {
-    transform: scale(0.9);
-    left: -10px;
-  }
-}
-
-.vr-info-box {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  color: #fff;
-  font-size: 16px;
-  line-height: 23px;
-  max-width: 888px;
-  margin: 0 auto;
-  height: 100%;
-
-  @include safariMobile {
-    margin-bottom: 100px;
+  @include sm-min {
+    .swiper-pagination__vp {
+      bottom: 10px;
+    }
+    .swiper-close-cross {
+      bottom: -25px;
+    }
   }
 
-  @include md {
-    font-size: 24px;
+  @include md-min {
+    .swiper-pagination__vp {
+      bottom: 22px;
+    }
+    .swiper-close-cross {
+      bottom: -17px;
+    }
   }
 
   @include lg-min {
-    flex-direction: row;
-    align-items: center;
+    .swiper-pagination__vp {
+      bottom: 30px;
+    }
+    .swiper-close-cross {
+      bottom: -15px;
+    }
   }
 
-  button {
-    margin: auto;
+  @include xl-min {
+    .swiper-close-cross {
+      bottom: -20px;
+    }
+  }
+
+  .vr-info-box--wrapper {
+    width: 100%;
+    position: absolute;
+    bottom: 80px;
+    z-index: 11;
+    transform: scale(1);
+
+    @include lg-min {
+      height: 60px;
+    }
+
+    @include xl {
+      transform: scale(0.9);
+      left: -10px;
+    }
+  }
+
+  .vr-info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    line-height: 23px;
+    max-width: 888px;
+    margin: 0 auto;
+    height: 100%;
+
+    @include safariMobile {
+      margin-bottom: 100px;
+    }
+
+    @include md {
+      font-size: 24px;
+    }
+
+    @include lg-min {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    button {
+      margin: auto;
+    }
   }
 }
-
 .section-2 {
   .fp-prev__visible,
   .fp-next__visible {

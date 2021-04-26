@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="carrer-box">
-        <nuxt-link to="/careers/">Focusing on a career?</nuxt-link>
+        <nuxt-link to="/Careers/">Focusing on a career?</nuxt-link>
       </div>
     </div>
     <slot> </slot>

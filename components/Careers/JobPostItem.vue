@@ -26,9 +26,6 @@
 export default {
   methods: {
     goToJobPage: () => {},
-    test: () => {
-      return "sadfsafd";
-    }
   },
   props: ["Title", "exp", "Time", "city", "jobID"]
 };
