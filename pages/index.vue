@@ -19,11 +19,20 @@ export default {
   methods: {
     handleScroll(event) {
       this.handleScrollLock();
+    },
+    closeNavOnBodyClick(e) {
+      // 1 check if is nav acctually open
+      // console.log("nav is open ?  : " + this.isNavOpen);
+      //  2 if is open ? close
+      // this.isNavOpen ? this.$store.commit("changeNavOpen", false) : "";
     }
   },
   computed: {
     isScrollLock() {
       return this.$store.state.isScrollLock;
+    },
+    isNavOpen() {
+      return this.$store.state.navOpen;
     }
   }
 };
