@@ -16,8 +16,7 @@
       <p class="info-close">[close]</p>
     </div>
     <div class="contact-title">
-      <h2>More questions ?</h2>
-      <p>We are here for you</p>
+      <h2>For more info</h2>
     </div>
     <div class="contact-form">
       <label for="name">
