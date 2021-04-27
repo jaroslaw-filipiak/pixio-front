@@ -605,24 +605,24 @@ export default {
   head() {
     return {
       bodyAttrs: {
-        class: "page-careers",
-      },
+        class: "page-careers"
+      }
     };
   },
   data() {
     return {
       jobs: [],
-      selectedCategory: "All",
+      selectedCategory: "All"
     };
   },
   apollo: {
     jobs: {
       prefetch: true,
-      query: jobItemsQuery,
-    },
+      query: jobItemsQuery
+    }
   },
   computed: {
-    filteredJobs: function () {
+    filteredJobs: function() {
       var vm = this;
       var category = vm.selectedCategory;
 
@@ -631,12 +631,12 @@ export default {
       if (category === "All") {
         return vm.jobs;
       } else {
-        return vm.jobs.filter(function (filter) {
+        return vm.jobs.filter(function(filter) {
           return filter.cities.name === category;
         });
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -680,7 +680,7 @@ export default {
   align-items: center;
   justify-content: center;
   border-radius: 0px 0px 32px 32px;
-  width: 1152px;
+  max-width: 1152px;
   margin: 0 auto;
 
   @include md-min {
