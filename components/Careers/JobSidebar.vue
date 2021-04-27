@@ -11,7 +11,10 @@
     <div class="single-job-sidebar--button-wrapper">
       <div
         @click="
-          $router.push({ path: `/careers/apply/${title}`, query: { jobID } })
+          $router.push({
+            path: `/careers/apply/job-offer/${title}`,
+            query: { jobID }
+          })
         "
       >
         <ApplyButton />

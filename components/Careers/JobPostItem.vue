@@ -1,11 +1,16 @@
 <template>
   <div
     class="job-post-item"
-    @click="$router.push({ path: `/careers/${Title}`, query: { jobID } })"
+    @click="
+      $router.push({
+        path: `/careers/${title}`,
+        query: { jobID }
+      })
+    "
   >
     <div class="job-post-column job-post-column-1">
       <div class="job-post-exp">Experience: {{ exp }}</div>
-      <div class="job-post-title">{{ Title }}</div>
+      <div class="job-post-title">{{ title }}</div>
     </div>
     <div class="job-post-column job-post-column-2">
       <div class="job-post-localization">
@@ -16,7 +21,7 @@
     <div class="job-post-column job-post-column-3">
       <div class="job-post-time">
         <img src="@/assets/img/clock_blue.svg" alt="map-pin" />
-        {{ Time ? Time : "ASAP" }}
+        {{ time ? time : "ASAP" }}
       </div>
       <ApplyCarrers :offerID="jobID" />
     </div>
@@ -27,7 +32,7 @@ export default {
   methods: {
     goToJobPage: () => {}
   },
-  props: ["Title", "exp", "Time", "city", "jobID"]
+  props: ["title", "exp", "time", "city", "jobID"]
 };
 </script>
 
