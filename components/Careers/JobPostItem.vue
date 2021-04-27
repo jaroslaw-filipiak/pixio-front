@@ -25,7 +25,7 @@
 <script>
 export default {
   methods: {
-    goToJobPage: () => {},
+    goToJobPage: () => {}
   },
   props: ["Title", "exp", "Time", "city", "jobID"]
 };

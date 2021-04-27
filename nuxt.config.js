@@ -5,6 +5,10 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
 
+  router: {
+    // base: "/pxo-test/"
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Pixomondo | International visual effects company",
