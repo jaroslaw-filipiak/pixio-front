@@ -21,7 +21,7 @@
           <a @click="handleMenu" link-to="2" href="#">Virtual Production</a>
         </li>
         <li><a @click="handleMenu" link-to="3" href="#">Projects</a></li>
-        <li><a @click="handleMenu" link-to="4" href="#">About</a></li>
+        <li><a @click="handleMenu" link-to="4" href="#">Careers</a></li>
         <li><a @click="handleMenu" link-to="5" href="#">Social media</a></li>
         <li><a @click="handleMenu" link-to="6" href="#">Contact</a></li>
       </ul>
@@ -64,8 +64,7 @@ export default {
       return this.$store.state.navOpen;
     }
   },
-  mounted() {
-  }
+  mounted() {}
 };
 </script>
 
