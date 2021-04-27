@@ -18,7 +18,7 @@
       <ul>
         <li><a @click="handleMenu" link-to="1" href="#">Home</a></li>
         <li>
-          <a @click="handleMenu" link-to="2" href="#">Visual Production </a>
+          <a @click="handleMenu" link-to="2" href="#">Virtual Production</a>
         </li>
         <li><a @click="handleMenu" link-to="3" href="#">Projects</a></li>
         <li><a @click="handleMenu" link-to="4" href="#">About</a></li>

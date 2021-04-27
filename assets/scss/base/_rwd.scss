@@ -58,6 +58,12 @@ $xxxl: 1920px;
   }
 }
 
+@mixin sm-min {
+  @media (min-width: #{$sm}) {
+    @content;
+  }
+}
+
 @mixin md-min {
   @media (min-width: #{$md}) {
     @content;
