@@ -22,6 +22,16 @@ export default {
       }
     };
   },
+  data() {
+    return {
+      job: []
+    };
+  },
+  async fetch() {
+    this.job = await fetch(
+      `${process.env.MAIN_API_ENDPOINT}jobs?id=${this.$route.query.jobID}`
+    ).then(res => res.json());
+  },
   mounted() {
     console.log(this.$route.params);
     console.log(this.$route.query.jobID);

@@ -35,11 +35,6 @@ export default {
       currentTitle: this.title
     };
   },
-  async fetch() {
-    this.job = await fetch(
-      `${process.env.MAIN_API_ENDPOINT}jobs?id=${this.$route.query.jobID}`
-    ).then(res => res.json());
-  },
   methods: {
     fetchProps() {
       // console.log(this.title);
