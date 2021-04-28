@@ -6,7 +6,7 @@ const dynamicRoutes = async () => {
 
   const careersRoutes = itemsEndpoint.data.map(job => {
     return {
-      route: `/careers/${job.id}`,
+      route: `/careers/offer/${job.id}`,
       payload: job
     };
   });
