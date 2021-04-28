@@ -2,7 +2,7 @@ import axios from "axios";
 
 const dynamicRoutes = async () => {
   // careers
-  const itemsEndpoint = await axios.get(`${process.env.MAIN_API_ENDPOINT}`);
+  const itemsEndpoint = await axios.get(process.env.MAIN_API_ENDPOINT + "jobs");
 
   const careersRoutes = itemsEndpoint.data.map(job => {
     return {
@@ -30,6 +30,9 @@ const dynamicRoutes = async () => {
 // };
 
 export default {
+  env: {
+    baseUr: process.env.MAIN_API_ENDPOINT
+  },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
