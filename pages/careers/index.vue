@@ -621,6 +621,7 @@ export default {
       query: jobItemsQuery
     }
   },
+
   computed: {
     filteredJobs: function() {
       var vm = this;
