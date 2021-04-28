@@ -12,7 +12,7 @@
       <div
         @click="
           $router.push({
-            path: `/careers/apply/job-offer/${title}`,
+            path: `/careers/apply/job-offer/${jobID}`,
             query: { jobID }
           })
         "
