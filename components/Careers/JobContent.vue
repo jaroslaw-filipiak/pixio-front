@@ -1,17 +1,18 @@
 <template lang="md">
   <div class="single-job--content">
     <div class="single-job--title">{{ title }}</div>
-    <div class="single-job--exp">Experience: {{ this.job[0].experience }}</div>
+    <div class="single-job--exp">Experience: {{ exp }}</div>
     <div class="single-job--localization">
       <img src="@/assets/img/map-pin.svg" alt="map-pin" />
-      {{ this.job[0].cities.name }}
+      {{ city }}
     </div>
     <div class="single-job--time">
       <img src="@/assets/img/clock.svg" alt="map-pin" />
-      {{ this.job[0].Time ? this.job[0].Time : "ASAP" }}
+      {{ time ? time : "ASAP" }}
     </div>
 
-    <span v-html="$md.render(this.job[0].job_content)"></span>
+     
+    <span v-html="$md.render(`${content}`)"></span>
   </div>
 </template>
 
@@ -19,7 +20,7 @@
 // import gql from "graphql-tag";
 
 export default {
-  props: ["title"],
+  props: ["title", "exp", "city", "time", "content"],
   data() {
     return {
       job: [
@@ -44,7 +45,7 @@ export default {
     }
   },
   mounted() {
-    // console.log(this.$route.params.slug);
+    // console.log(this.$route.params.slug); = 1
     // console.log(this.$route.query.jobID);
   }
 };
