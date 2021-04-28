@@ -2,8 +2,14 @@
   <div class="single-job-container">
     <BackToOffers />
     <div class="single-job-content-wrapper">
-      <JobContent :title="this.slug" />
-      <JobSidebar :title="this.slug" :jobID="this.$route.query.jobID" />
+      <JobContent
+        :title="this.job[0].Title"
+        :exp="this.job[0].experience"
+        :city="this.job[0].cities.name"
+        :time="this.job[0].Time"
+        :content="this.job[0].job_content"
+      />
+      <JobSidebar :title="this.job[0].Title" :jobID="this.job[0].id" />
     </div>
   </div>
 </template>
@@ -24,12 +30,21 @@ export default {
   },
   data() {
     return {
-      job: []
+      job: [
+        {
+          Title: "",
+          Time: "",
+          cities: {
+            name: ""
+          },
+          content: ""
+        }
+      ]
     };
   },
   async fetch() {
     this.job = await fetch(
-      `${process.env.MAIN_API_ENDPOINT}jobs?id=${this.$route.query.jobID}`
+      `https://7e6805.stage.titans24.com/jobs?id=${this.$route.query.jobID}`
     ).then(res => res.json());
   },
   mounted() {
