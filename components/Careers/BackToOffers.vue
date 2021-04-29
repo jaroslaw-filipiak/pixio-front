@@ -35,7 +35,7 @@
 export default {
   methods: {
     goBack() {
-      this.$router.push('/careers');
+      this.$router.push('/careers/');
     }
   }
 };
