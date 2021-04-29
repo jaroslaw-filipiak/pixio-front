@@ -196,11 +196,13 @@ div.indicator {
     text-align: center;
 
     @include safariMobile {
+      display: none;
       padding: 10px 10px;
       margin-bottom: 60px !important;
     }
 
     @include xs {
+      display: none;
       padding: 10px 10px;
       margin-bottom: 60px !important;
     }
