@@ -16,20 +16,17 @@ export default {
 
 <style lang="scss">
 .main {
-  height: 100vh;
-
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 40px;
 
+  height: 100vh;
+  padding: 10px;
   background-color: rgb(46, 46, 46);
   color: #fff;
-
-  @include xs {
-    height: 90vh !important;
-  }
+  text-align: center;
 
   svg {
     max-width: 300px;
@@ -37,7 +34,7 @@ export default {
 
   a {
     display: block;
-    color: white;
+    color: #fff;
   }
 }
 </style>
