@@ -13,6 +13,7 @@
       <div class="vr-info-box--wrapper">
         <div class="vr-info-box">
           <button
+            v-if="!tooltipVisibility"
             @click="goToContact"
             class="btn btn-outline-white btn-outline-white__solutions"
           >
@@ -62,9 +63,15 @@ export default {
       this.isTooltipVisible = !this.isTooltipVisible;
       this.isArrowsVisible = !this.isArrowsVisible;
       this.indicatorVisible = !this.indicatorVisible;
+      console.log("handle more click");
     }
   },
-  mounted() {}
+  mounted() {},
+  computed: {
+    tooltipVisibility() {
+      return this.$store.state.isTooltipVisible;
+    }
+  }
 };
 </script>
 

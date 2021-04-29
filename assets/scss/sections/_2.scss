@@ -48,10 +48,12 @@
       &--visible {
         top: 0vh;
         @include safariMobile {
-          top: 67px;
+          // top: 67px;
+          top: 15px;
         }
         @include xs {
-          top: 67px;
+          // top: 67px;
+          top: 15px;
         }
         @include sm {
           top: 67px;
@@ -156,6 +158,14 @@
 
       &--right {
         padding-left: 30px;
+
+        @include safariMobile {
+          padding: 5px;
+        }
+
+        @include xs {
+          padding: 5px;
+        }
       }
 
       h2 {
@@ -165,8 +175,15 @@
         margin-bottom: 20px;
         font-weight: 600;
 
+        @include safariMobile {
+          font-size: 19px;
+          line-height: 22px;
+        }
+
         @include xs {
-          margin-bottom: 10px;
+          margin-bottom: 5px;
+          font-size: 19px;
+          line-height: 22px;
         }
 
         @include sm {
