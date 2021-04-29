@@ -1,8 +1,7 @@
 <template>
   <div class="main">
     <Logo />
-    <h1 v-if="error.statusCode === 404">404 Page not found</h1>
-    <h1 v-else>Oops, Something Went Wrong</h1>
+    <h1>404 Page not found</h1>
     <NuxtLink to="/">Home page</NuxtLink>
   </div>
 </template>
