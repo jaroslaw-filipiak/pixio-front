@@ -114,37 +114,45 @@ export default {
 }
 
 .slide {
-  .swiper-pagination__vp {
-    bottom: -20px;
-    margin-bottom: 0;
-  }
   .swiper-close-cross {
-    bottom: -50px;
-    margin-bottom: 0;
+    @include xs {
+      margin-bottom: 70px;
+    }
+    @include safariMobile {
+      margin-bottom: 70px;
+    }
   }
+  // .swiper-pagination__vp {
+  //   bottom: -20px;
+  //   margin-bottom: 0;
+  // }
+  // .swiper-close-cross {
+  //   bottom: -50px;
+  //   margin-bottom: 0;
+  // }
 
-  @include sm-min {
-    .swiper-pagination__vp {
-      bottom: 10px;
-    }
-    .swiper-close-cross {
-      bottom: -25px;
-    }
-  }
+  // @include sm-min {
+  //   .swiper-pagination__vp {
+  //     bottom: 0px;
+  //   }
+  //   .swiper-close-cross {
+  //     bottom: -25px;
+  //   }
+  // }
 
-  @include md-min {
-    .swiper-pagination__vp {
-      bottom: 22px;
-    }
-    .swiper-close-cross {
-      bottom: -17px;
-    }
-  }
+  // @include md-min {
+  //   .swiper-pagination__vp {
+  //     bottom: 22px;
+  //   }
+  //   .swiper-close-cross {
+  //     bottom: -17px;
+  //   }
+  // }
 
   @include lg-min {
-    .swiper-pagination__vp {
-      bottom: 30px;
-    }
+    // .swiper-pagination__vp {
+    //   bottom: 30px;
+    // }
     .swiper-close-cross {
       bottom: -15px;
     }

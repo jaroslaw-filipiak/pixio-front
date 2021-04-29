@@ -225,16 +225,36 @@
   width: 100%;
   padding: 10px;
 
-  @include safariMobile {
-    margin-bottom: 10px;
+  @include xs {
+    bottom: 110px;
   }
 
-  @include xs {
-    margin-bottom: 0;
+  @include safariMobile {
+    bottom: 110px;
   }
-  @include sm {
-    margin-bottom: 30px;
-  }
+
+  // @include safariMobile {
+  //   margin-bottom: 10px;
+  // }
+
+  // @include xs {
+  //   margin-bottom: 0;
+  // }
+  // @include sm {
+  //   margin-bottom: 30px;
+  // }
+
+  // @include safariMobile {
+  //   bottom: -70px !important;
+  // }
+
+  // @include xs {
+  //   bottom: -70px !important;
+  // }
+
+  // @include sm {
+  //   bottom: -70px !important;
+  // }
 
   @include lg {
     margin-left: -95px;
