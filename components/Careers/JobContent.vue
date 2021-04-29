@@ -10,15 +10,11 @@
       <img src="@/assets/img/clock.svg" alt="map-pin" />
       {{ time ? time : "ASAP" }}
     </div>
-
-     
     <span v-html="$md.render(`${content}`)"></span>
   </div>
 </template>
 
 <script>
-// import gql from "graphql-tag";
-
 export default {
   props: ["title", "exp", "city", "time", "content"],
   data() {
@@ -28,26 +24,14 @@ export default {
           experience: "",
           job_content: "",
           cities: {
-            name: ""
-          }
-        }
+            name: "",
+          },
+        },
       ],
       jobs: {},
-      currentTitle: this.title
+      currentTitle: this.title,
     };
   },
-  methods: {
-    fetchProps() {
-      // console.log(this.title);
-    },
-    saveProps() {
-      this.data.currentTitle = this.title;
-    }
-  },
-  mounted() {
-    // console.log(this.$route.params.slug); = 1
-    // console.log(this.$route.query.jobID);
-  }
 };
 </script>
 

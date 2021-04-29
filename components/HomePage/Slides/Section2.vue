@@ -64,11 +64,6 @@ export default {
       this.indicatorVisible = !this.indicatorVisible;
     }
   },
-  watch: {
-    isSectionOverlayActive: function() {
-      // console.log(this.isSectionOverlayActive);
-    }
-  },
   mounted() {}
 };
 </script>

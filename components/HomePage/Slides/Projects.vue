@@ -40,7 +40,6 @@ export default {
   methods: {
     setVideoTooltipToFalse: function() {
       this.$store.commit("setVideoTooltipToFalse", false);
-      // console.log("setVideoTooltipToFalse");
     },
     setVideoTooltipVisibleInfoToFalse: function() {
       this.$store.commit("changeVideoTooltipVisibilityToFalse", false);
@@ -83,7 +82,6 @@ export default {
     onPlayerReady: function(event) {
       setTimeout(() => {
         event.target.playVideo();
-        // console.log(event.target);
       }, 5000);
 
       setTimeout(() => {
