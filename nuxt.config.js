@@ -1,37 +1,8 @@
 import axios from "axios";
 
-const dynamicRoutes = async () => {
-  // careers
-  const itemsEndpoint = await axios.get(process.env.MAIN_API_ENDPOINT + "jobs");
-
-  const careersRoutes = itemsEndpoint.data.map(job => {
-    return {
-      route: `/careers/offer/${job.id}`,
-      payload: job
-    };
-  });
-
-  const applyRoutes = itemsEndpoint.data.map(apply => {
-    return {
-      route: `/careers/apply/job-offer/${apply.id}`,
-      payload: apply
-    };
-  });
-
-  const routes = careersRoutes.concat(applyRoutes);
-
-  return routes;
-};
-
-// let dynamicRoutes = () => {
-//   return axios.get("https://7e6805.stage.titans24.com/jobs").then(res => {
-//     return res.data.map(product => `/product/${product.id}`);
-//   });
-// };
-
 export default {
   env: {
-    baseUr: process.env.MAIN_API_ENDPOINT
+    baseUrl: process.env.MAIN_API_ENDPOINT
   },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -40,11 +11,6 @@ export default {
   target: "static",
 
   router: {
-    // base: "/pxo-test/"
-  },
-
-  generate: {
-    routes: dynamicRoutes
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
