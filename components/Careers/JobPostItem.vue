@@ -3,8 +3,8 @@
     class="job-post-item"
     @click="
       $router.push({
-        path: `/careers/offer/${jobID}`,
-        query: { jobID }
+        path: `/careers/job/`,
+        query: { id: jobID }
       })
     "
   >

@@ -24,7 +24,7 @@
             stroke-linejoin="round"
           />
         </svg>
-        Back to offers
+        Back to the offer
       </div>
       <div class="back-to-offers--right"></div>
     </div>
@@ -35,7 +35,10 @@
 export default {
   methods: {
     goBack() {
-      this.$router.push('/careers/');
+      this.$router.push({
+          path: `/careers/job/`,
+          query: { id: this.$route.query.id }
+      })
     }
   }
 };

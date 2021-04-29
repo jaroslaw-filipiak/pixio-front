@@ -1,7 +1,6 @@
 <template>
   <div class="single-job-sidebar">
     <div class="single-job-sidebar--photo">
-      <!-- :src="this.singleJobSidebar.image[0].url" -->
       <img
         class="img-fluid"
         :src="this.singleJobSidebar.image.url"
@@ -12,8 +11,8 @@
       <div
         @click="
           $router.push({
-            path: `/careers/apply/job-offer/${jobID}`,
-            query: { jobID }
+            path: `/careers/job/apply/`,
+            query: { id: jobID, title: title.replace(/[^a-zA-Z0-9]+/g,'-') }
           })
         "
       >

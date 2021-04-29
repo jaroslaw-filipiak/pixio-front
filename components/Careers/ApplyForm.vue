@@ -6,9 +6,9 @@
       <p class="info-close">[close]</p>
     </div>
     <div class="apply-form--title">
-      You are apply for: {{ title }}
+      You are apply for: {{ Title }}
       <span style="font-size: 12px; font-weight: 400;" class="job-id"
-        >( offer id:{{ offerID }} )</span
+        >( offer id: {{ offerID }} )</span
       >
     </div>
     <form class="box" action="" id="frm">
@@ -433,12 +433,13 @@
 import { required, email, sameAs } from "vuelidate/lib/validators";
 
 export default {
-  props: ["title", "offerID"],
+  props: ["offerID"],
   data() {
     return {
       modalInfo: false,
       modalMessage: 'Hello stranger!',
       submitStatus: null,
+      Title: '...',
       applyID: this.offerID,
       recipient: "",
       loading: false,
@@ -465,7 +466,6 @@ export default {
       file: ""
     };
   },
-
   validations: {
     name: {
       required
@@ -519,8 +519,17 @@ export default {
 
   async fetch() {
     this.recipient = await fetch(
-      `${process.env.MAIN_API_ENDPOINT}jobs?id=${this.applyID}`
+      process.env.MAIN_API_ENDPOINT + `jobs?id=${this.applyID}`
     ).then(res => res.json());
+
+    if (!this.recipient || !this.recipient.length) {
+      this.$router.push({
+        path: `/careers/job/`,
+        query: { id: this.applyID }
+      })
+    }
+
+    this.Title = typeof this.recipient[0] === 'undefined' ? '---' : this.recipient[0].Title;
   },
 
   mounted() {
@@ -690,6 +699,13 @@ export default {
     hideModalInfo: function() {
       this.modalInfo = false;
     },
+    jobProperty(prop1, prop2 = false) {
+      if (prop2) {
+        return typeof this.job[0] === 'undefined' ? '---' : this.job[0][prop1][prop2];
+      } else {
+        return typeof this.job[0] === 'undefined' ? '---' : this.job[0][prop1];
+      }
+    }
   }
 };
 </script>
