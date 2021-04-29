@@ -1,10 +1,9 @@
 <template>
   <div class="job-apply-container">
-    <BackToOffers />
+    <BackToOffer />
     <div class="single-job-content-wrapper">
       <ApplyForm
-        :title="this.$route.params.slug"
-        :offerID="this.$route.query.jobID"
+        :offerID="this.$route.query.id"
       />
       <ApplyFormSidebar />
     </div>
@@ -15,7 +14,7 @@
 export default {
   layout: "job-apply",
   async asyncData({ params }) {
-    const slug = params.slug; // When calling /abc the slug will be "abc"
+    const slug = params.slug;
     return { slug };
   },
   head() {
@@ -25,9 +24,5 @@ export default {
       }
     };
   },
-  mounted() {
-    // console.log(this.$route.params.slug);
-    // console.log(this.$route.query.jobID);
-  }
 };
 </script>

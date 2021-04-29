@@ -627,8 +627,6 @@ export default {
       var vm = this;
       var category = vm.selectedCategory;
 
-      // console.log(category);
-
       if (category === "All") {
         return vm.jobs;
       } else {
