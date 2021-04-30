@@ -198,13 +198,13 @@ div.indicator {
     @include safariMobile {
       // display: none;
       padding: 10px 10px;
-      margin-bottom: 15vh !important;
+      margin-bottom: 20vh !important;
     }
 
     @include xs {
       // display: none;
       padding: 10px 10px;
-      margin-bottom: 15vh !important;
+      margin-bottom: 20vh !important;
     }
 
     @include md {

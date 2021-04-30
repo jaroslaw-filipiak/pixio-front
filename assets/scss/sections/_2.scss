@@ -226,11 +226,11 @@
   padding: 10px;
 
   @include xs {
-    bottom: 110px;
+    bottom: 10vh;
   }
 
   @include safariMobile {
-    bottom: 110px;
+    bottom: 10vh;
   }
 
   // @include safariMobile {
