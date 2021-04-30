@@ -116,10 +116,10 @@ export default {
 .slide {
   .swiper-close-cross {
     @include xs {
-      margin-bottom: 15vh !important;
+      margin-bottom: 10vh !important;
     }
     @include safariMobile {
-      margin-bottom: 15vh !important;
+      margin-bottom: 10vh !important;
     }
   }
   // .swiper-pagination__vp {
