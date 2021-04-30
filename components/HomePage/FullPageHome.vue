@@ -66,7 +66,7 @@ export default {
           "home",
           "solutions",
           "projects",
-          "about",
+          "careers",
           "instagram",
           "contact"
         ],
@@ -79,13 +79,13 @@ export default {
         navigation: true,
         navigationPosition: "right",
         afterLoad: this.afterLoad,
-        touchEnd: this.touchEnd,
+        touchEnd: this.touchEnd
       }
     };
   },
   methods: {
     afterLoad(section, index) {
-      if ( section == 'contact' ) {
+      if (section == "contact") {
         // reset contact form after scrolling from another section
         this.$refs.fullpage.$children[index - 1].resetForm();
       }
@@ -94,14 +94,14 @@ export default {
       let section = fullpage_api.getActiveSection().anchor ?? null;
       let index = fullpage_api.getActiveSection().index ?? null;
 
-      if ( section == 'contact' && fullpage_api.lastSection != index ) {
+      if (section == "contact" && fullpage_api.lastSection != index) {
         // reset contact form after scrolling from another section
         this.$refs.fullpage.$children[index].resetForm();
-        console.log('reset form');
+        console.log("reset form");
       }
 
       fullpage_api.lastSection = index;
-    },
+    }
   },
   created() {
     setTimeout(function() {
@@ -110,10 +110,8 @@ export default {
 
     document.addEventListener("touchend", this.touchEnd);
   },
-  mounted() {
-  },
-  updated() {
-  },
+  mounted() {},
+  updated() {},
   computed: {
     isTooltipVisible: function() {
       return this.$store.state.isTooltipVisible;
