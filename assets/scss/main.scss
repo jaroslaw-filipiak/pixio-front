@@ -196,15 +196,15 @@ div.indicator {
     text-align: center;
 
     @include safariMobile {
-      display: none;
+      // display: none;
       padding: 10px 10px;
-      margin-bottom: 60px !important;
+      margin-bottom: 15vh !important;
     }
 
     @include xs {
-      display: none;
+      // display: none;
       padding: 10px 10px;
-      margin-bottom: 60px !important;
+      margin-bottom: 15vh !important;
     }
 
     @include md {
